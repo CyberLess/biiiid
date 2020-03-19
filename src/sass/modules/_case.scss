@@ -1,4 +1,5 @@
 .case{
+	
 
 	
 	&_totop{
@@ -8,6 +9,61 @@
 	&__list{
 		margin-left: -23px;
 		margin-right: -23px;
+
+		&.is-loading{
+			.owl{
+				&-nav{
+					visibility: hidden;
+				}
+			}
+			.rating{
+				&__icon{
+					visibility: hidden;
+				}
+			}
+			.case{
+				&__like{
+					display: none;
+				}
+
+				&__price, &__rating{
+					min-width: 82px;
+					min-height: 16px;
+				}
+
+				&__name{
+					min-width: 90px;
+					min-height: 16px;
+				}
+
+				&__content{
+					min-height: 40px;
+				}
+
+				&__label{}
+
+				&__preview,
+				&__name,
+				&__rating,
+				&__label,
+				&__content,
+				&__price{
+					position: relative;
+
+					&:after{
+						content: '';
+						display: block;
+						position: absolute;
+						left: -1px;
+						top: -1px;
+						right: -1px;
+						bottom: -1px;
+						background: #F3F3F3;
+						z-index: 200;
+					}
+				}
+			}
+		}
 	}
 
 	&__nav{

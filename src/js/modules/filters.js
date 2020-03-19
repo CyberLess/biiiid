@@ -1,54 +1,248 @@
 import { config } from "../config";
 import { defaults } from "./defaults";
 import { tooltips } from "./tooltips";
+import { sliders } from "./sliders";
+import { player } from "./player";
+import { modals } from "./modals";
 
 var filters = {
 
 	panel: $('.filter-modal'),
 	mobile_panel_values: $('.filter-modal__panel_values'),
+	list: $('#catalog-list'),
 
-	checkbox: (item, blockName, reverse = false, checked = false) => {
+	template: {
+		checkbox: (item, blockName, reverse = false, checked = false) => {
 
-		let help = item.hasOwnProperty("count") ? `<i>(${item.count})</i>` : '';
-		
-		let input = 
-			`<li class="${blockName}__list-item">
-				<label class="${blockName}__${item.type} ${item.type} ${(reverse ? `${item.type}_reverse`: "")}">
-				    <input class="${item.type}__input js-virtual-input" ${(checked ? 'checked=""' : '')} name="${item.name}" type="${item.type}" value="${item.label}"><span class="${item.type}__text"> ${item.label} ${help}<span class="${item.type}__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
-				</label>
-			</li>`;
+			let help = item.hasOwnProperty("count") ? `<i>(${item.count})</i>` : '';
+			
+			let input = 
+				`<li class="${blockName}__list-item">
+					<label class="${blockName}__${item.type} ${item.type} ${(reverse ? `${item.type}_reverse`: "")}">
+					    <input class="${item.type}__input js-virtual-input" ${(checked ? 'checked=""' : '')} name="${item.name}" type="${item.type}" value="${item.label}"><span class="${item.type}__text"> ${item.label} ${help}<span class="${item.type}__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
+					</label>
+				</li>`;
 
-		return input;
+			return input;
 
+		},
+
+		slide: (image, source, type) => {
+			let slide, img;
+
+			if(image){
+				img = 
+					`<picture>
+						${image.hasOwnProperty("webp") ? `<source type="image/webp" srcset="${image.webp}">` : ""}
+						${image.hasOwnProperty("jpg") ? `<img src="${image.jpg}" class="player__preview object-fit" alt="" role="presentation" />` : ""}
+			        </picture>`;
+			}
+
+			slide =  
+				`<div class="case__preview">`;
+
+				if (type) {
+
+					slide += 
+						`<div class="case__player player player_fluid js-player" ${(type == "music") ? `data-audio="true"` : ""} ${(source) ? `data-file="${source}"` : ""}>
+					        ${img}
+					        <div class="player__container"></div>
+					        <div class="player__bar">
+					            <div class="player__bar-line">
+					                <div class="player__bar-progress"></div>
+					                <div class="player__bar-dot"></div>
+					            </div>
+					        </div>
+					        <div class="player__nav">
+					            <div class="player__nav-button">
+					                <div class="player__nav-icon player__nav-icon_play is-active">
+					                    <svg class="icon icon-play" viewBox="0 0 9 12">
+					                        <use xlink:href="/app/icons/sprite.svg#play"></use>
+					                    </svg>
+					                </div>
+					                <div class="player__nav-icon player__nav-icon_pause">
+					                    <svg class="icon icon-pause" viewBox="0 0 10 12">
+					                        <use xlink:href="/app/icons/sprite.svg#pause"></use>
+					                    </svg>
+					                </div>
+					            </div>
+					        </div>
+					    </div>`;
+
+				}else{
+
+					slide += img;
+
+				}
+
+			slide +=
+				`</div>`;
+
+			return slide;
+
+		}
 	},
 
 	virtual: {
 		
 		form: {},
 
+		rules: {
+			online: {
+				nofilter: true
+			},
+			sort: {
+				nofilter: true
+			},
+		},
+
 		resetItem: $('.js-reset-form'),
+
+		build: (data) => {
+
+			data.forEach((item, index) => {
+
+				let tag = item.hasOwnProperty("tag") ? 
+					`<div class="case__top-cell case__top-cell_static">
+                        <div class="case__label label ${(item.tag.hasOwnProperty("className")) ? item.tag.className : ""}">${item.tag.label}</div>
+                    </div>` : "";
+
+                let rating = item.hasOwnProperty("rating") ?
+					`<div class="case__top-cell case__top-cell_static">
+					    <div class="case__rating rating rating_purple small">
+					        <div class="rating__icon">
+					            <svg class="icon icon-star" viewBox="0 0 18 18">
+					                <use xlink:href="/app/icons/sprite.svg#star"></use>
+					            </svg>
+					        </div>${item.rating.status} <span>(${item.rating.count})</span>
+					    </div>
+					</div>` : "";
+
+				let $template = 
+					`<div class="case__item">`;
+
+						if (item.hasOwnProperty("gallery")) {
+
+							let gallery_list = "";
+
+							item.gallery.forEach((slide,index) => {
+
+								let image = slide.hasOwnProperty("image") ? slide.image : false;
+								let source = slide.hasOwnProperty("source") ? slide.source : false;
+								let type = slide.hasOwnProperty("type") ? slide.type : false;
+
+								gallery_list += filters.template.slide(
+									
+									image,
+									source,
+									type,
+
+								);
+
+							})
+
+							if(item.gallery.length > 1){
+								$template +=
+									`<div class="case__gallery js-case-slider owl-carousel">
+										${gallery_list}
+									</div>`;
+							}else{
+								$template += gallery_list;
+							}
+
+						}
+
+                    $template += `<div class="case__top">
+                            ${tag}
+                            <div class="case__top-cell case__top-cell_fluid">
+                                <a href="${item.author.name}" class="case__name nickname nickname_online small">${item.author.name}</a>
+                            </div>
+							${rating}
+                        </div>
+                        <div class="case__content content">
+                            <p>${item.name}</p>
+                        </div>
+                        <div class="case__bottom flex flex_justify flex_vertical">
+                            <div class="case__price h6">${(item.hasOwnProperty("price")) ? item.price : ""}</div>
+                            <div class="case__like like">
+                                <svg class="icon icon-like" viewBox="0 0 18 16">
+                                    <use xlink:href="/app/icons/sprite.svg#like"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>`;
+
+                filters.list.append($template);
+
+			})
+		},
 
 		send: () => {
 
-			$.ajax({
+			filters.list.addClass('is-loading');
 
-				type: "POST",
-				url: api.catalog,
-				data: filters.virtual.form,
-				// contentType: "application/json; charset=utf-8",
-				// dataType: "json",
-				success: msg => {
-					config.log("ajax success", msg);
-				},
-				error: msg => {
-					config.log("ajax error", msg);
-				},
+			config.log('virtualForm send start')
 
-			});
+			setTimeout(() => {
+
+				$.ajax({
+
+					type: "GET",
+					url: api.catalog,
+					data: filters.virtual.form,
+					contentType: "application/json; charset=utf-8",
+					dataType: "json",
+					success: msg => {
+						filters.list.empty();
+						filters.virtual.build(msg);
+						sliders.init(0);
+						player.init();
+
+						filters.list.removeClass('is-loading');
+
+						config.log('virtualForm send success', msg)
+					},
+					error: msg => {
+						config.log("ajax error", msg);
+					},
+
+				});
+
+			}, 500)
 
 		},
 
 		check: () => {
+
+			// config.log("filters virtual check", filters.virtual.form);
+
+			// let show = false;
+
+			// for (var item in filters.virtual.form) {
+
+			// 	show = true;
+
+			// 	if(filters.virtual.rules.hasOwnProperty(item)){
+
+
+
+			// 		if(filters.virtual.rules[item].hasOwnProperty("nofilter")){
+			// 			show = false;
+
+			// 			config.log('each filters.virtual.rules has nofilter', item, filters.virtual.rules[item]);
+			// 		}
+
+			// 	}
+
+			// }
+			
+			// if(!show){
+			// 	filters.virtual.resetItem.removeClass('is-active')
+			// }else{
+			// 	filters.virtual.resetItem.addClass('is-active')
+			// }
+			
+			
 			if(jQuery.isEmptyObject(filters.virtual.form)){
 				filters.virtual.resetItem.removeClass('is-active')
 			}else{
@@ -67,6 +261,8 @@ var filters = {
 			$('.js-virtual-input').prop('checked', false);
 
 			filters.virtual.check();
+
+			filters.virtual.send();
 
 			// for (var item in filters.virtual.form) delete filters.virtual.form[item];
 
@@ -118,7 +314,7 @@ var filters = {
 		input: e => {
 
 			let 
-				$this = $(e.currentTarget),
+				$this = $(e),
 				$parent = $this.closest('div'),
 				name = $this.attr('name').replace('[]', ''),
 				type = $this.attr('type'),
@@ -317,6 +513,8 @@ var filters = {
 				filters.tag.list.empty().hide();
 			}
 
+			filters.virtual.send();
+
 		},
 
 		remove: (name, value) => {
@@ -411,7 +609,7 @@ var filters = {
 						<ul class="modals__list flex flex_vertical">`;
 
 				cat.list.forEach((item) => {					
-					$template += filters.checkbox(item, 'modals');
+					$template += filters.template.checkbox(item, 'modals');
 				})
 
 				$template += 
@@ -489,8 +687,11 @@ var filters = {
 			$parent.find('input').each((i, el) => {
 
 				let name = $(el).attr('name').replace('[]', '');
+				// let value = $(el).attr('value');
 
 				filters.virtual.remove(name);
+
+				filters.tag.remove(name);
 
 			})
 
@@ -544,7 +745,7 @@ var filters = {
 
 			let checked = $getlist.text().replace(/&nbsp;/gi, " ").indexOf(item.label.replace(/&nbsp;/gi, " ")) !== -1;
 
-			$template += filters.checkbox(item, 'menu-modal', true, checked);
+			$template += filters.template.checkbox(item, 'menu-modal', true, checked);
 			
 		})
 
@@ -560,6 +761,7 @@ var filters = {
 		filters.setup.desktop();
 		filters.setup.mobile();
 
+		filters.virtual.send();
 		
 		$(document).on('click', '.js-close-mobile-filter', filters.closeMobile)
 
@@ -576,31 +778,47 @@ var filters = {
 		$(document).on('click', '.js-open-filters', filters.open);
 
 		$(document).on('click', '.js-send-filters', e => {
+
+
+			$('.js-virtual-input').each((i, el) => {
+				filters.virtual.input(el);
+			})
+
+			filters.tag.update();
 			filters.virtual.send();
 			tooltips.close();
+			modals.close();
+
 		});
 
 		$(document).on('change', '.filter-modal__panel_values input', filters.updateMobile);
 
 		$(document).on('change', '.js-virtual-input', e => {
 
-			filters.virtual.input(e);
-
-			filters.tag.update();
+			
 
 			if($(e.currentTarget).hasClass('js-send-input')){
+				filters.virtual.input(e.currentTarget);
 				filters.virtual.send();
+				filters.tag.update();
 			}
 
 		});
 
 		$('.js-reset-parent input').on('change', filters.reset.see);
 
-		$('.js-reset-filters').on('click', filters.reset.do);
+		$('.js-reset-filters').on('click', e => {
+			filters.virtual.send();
+			modals.close();
+			tooltips.close();
+			filters.reset.do(e);
+		});
 
 		$(document).on('click', '.js-tag-delete', filters.tag.destroy);
 
 		filters.virtual.resetItem.on('click', filters.virtual.reset);
+
+
 
 		$(window).on('resize load', filters.resize)
 

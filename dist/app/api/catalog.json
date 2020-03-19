@@ -19,7 +19,7 @@
 					"jpg": "/app/img/test1.jpg"
 				},
 				"type": "video",
-				"source": "/video.mp4"
+				"source": "/app/media/video.mp4"
 			},
 			{
 				"image": {
@@ -56,16 +56,16 @@
 		"gallery": [
 			{
 				"image": {
-					"webp": "/app/img/test1.webp",
-					"jpg": "/app/img/test1.jpg"
+					"webp": "/app/img/case_1.webp",
+					"jpg": "/app/img/case_1.jpg"
 				},
 				"type": "video",
-				"source": "/security.mp4"
+				"source": "/app/media/security.mp4"
 			},
 			{
 				"image": {
-					"webp": "/app/img/case_1.webp",
-					"jpg": "/app/img/case_1.jpg"
+					"webp": "/app/img/test1.webp",
+					"jpg": "/app/img/test1.jpg"
 				}
 			},
 			{
@@ -93,11 +93,11 @@
 		"gallery": [
 			{
 				"image": {
-					"webp": "/app/img/test1.webp",
-					"jpg": "/app/img/test1.jpg"
+					"webp": "/app/img/case_2.webp",
+					"jpg": "/app/img/case_2.jpg"
 				},
 				"type": "music",
-				"source": "/alla.mp3"
+				"source": "/app/media/alla.mp3"
 			},
 			{
 				"image": {
@@ -128,7 +128,7 @@
 			"status": 5
 		},
 		"tag": {
-			"label": "СУПЕР",
+			"label": "СУПЕР"
 		},
 		"gallery": [
 			{

@@ -37,7 +37,7 @@ var sliders = {
 			})
 		}
 
-		$this.owlCarousel(current);
+		$this.not('.owl-loaded').owlCarousel(current);
 
 	},
 
@@ -48,7 +48,10 @@ var sliders = {
 				sliders.build(item)
 			});
 		}else{
-			sliders.build(sliders.item[slider])
+
+			config.log('init single slider', sliders.items[slider])
+			
+			sliders.build(sliders.items[slider])
 		}
 
 	}

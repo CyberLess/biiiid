@@ -5,10 +5,8 @@ var modals = {
 
 	close: (e) => {
 
-		if(!e)
-			return false;
-
-		e.preventDefault();
+		if(e)
+			e.preventDefault();
 
 		config.log('close modal');
 

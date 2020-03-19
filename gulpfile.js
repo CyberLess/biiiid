@@ -38,7 +38,8 @@ gulp.task('browserSync', cb => {
     gulp.watch(path.watch.svg, gulp.series('svgSpriteBuild'));
     gulp.watch(path.watch.attach, gulp.series('vendors')); 
     gulp.watch(path.watch.fonts, gulp.series('vendors')); 
-
+    gulp.watch(path.watch.api, gulp.series('vendors')); 
+    gulp.watch(path.watch.media, gulp.series('vendors')); 
 });
 
 gulp.task('watch', gulp.series(
