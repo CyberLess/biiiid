@@ -5,6 +5,8 @@
         "css": "dist/app/css/",
         "img": "dist/app/img/",
         "attach": "dist/",
+        "api": "dist/app/api/",
+        "media": "dist/app/media/",
         "svg": "dist/app/icons/",
         "fonts": "dist/app/fonts/"
     },
@@ -14,6 +16,8 @@
         "css": "src/sass/app.scss",
         "img": "src/img/*.{jpg,png}",
         "attach": ["src/attach/**/.*", "src/attach/**/*.*"],
+        "api": ["src/api/**/.*", "src/api/**/*.*"],
+        "media": ["src/media/**/.*", "src/media/**/*.*"],
         "svg": "src/icons/**/*.svg",
         "fonts": "src/fonts/*.*"
     },
@@ -24,6 +28,8 @@
         "img": "src/img/**/*.*",
         "svg": "src/icons/*.svg",
         "attach": ["src/attach/**/.*", "src/attach/**/*.*"],
+        "api": ["src/api/**/.*", "src/api/**/*.*"],
+        "media": ["src/media/**/.*", "src/media/**/*.*"],
         "fonts": "src/fonts/**/*.*"
     } 	
 }

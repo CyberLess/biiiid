@@ -17,6 +17,16 @@ module.exports = (gulp, plugins) => {
 		        .pipe(plugins.newer(path.build.attach))
 		        .pipe(gulp.dest(path.build.attach));
 
+	    var api =
+		    gulp.src(path.src.api)
+		        .pipe(plugins.newer(path.build.api))
+		        .pipe(gulp.dest(path.build.api));
+
+	    var media =
+		    gulp.src(path.src.media)
+		        .pipe(plugins.newer(path.build.media))
+		        .pipe(gulp.dest(path.build.media));
+
 		return merge( fonts, attach ); 
     };
 };
