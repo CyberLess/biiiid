@@ -27,6 +27,6 @@ module.exports = (gulp, plugins) => {
 		        .pipe(plugins.newer(path.build.media))
 		        .pipe(gulp.dest(path.build.media));
 
-		return merge( fonts, attach ); 
+		return merge( fonts, attach, api, media); 
     };
 };
