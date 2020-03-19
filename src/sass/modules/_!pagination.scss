@@ -1,0 +1,26 @@
+.pagination{
+	&__list{
+		margin-right: 4rem;
+		&-item{
+			color: $dark;
+
+			&.is-active{
+				font-weight: 500;
+				color: $green;
+			}
+
+			&:not(:last-child){
+				margin-right: 2.6rem;
+			}
+		}
+	}
+
+	@include max-screen($large_mobile) {
+		width: 100%;
+		justify-content: space-between;
+
+		&__list{
+			margin-right: 0;
+		}
+	}
+}

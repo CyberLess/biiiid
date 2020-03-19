@@ -1,0 +1,89 @@
+.range{
+	position: relative;
+	&__min,
+	&__max{
+		color: #666666;
+	}
+
+	&__top{
+		display: none;
+	}
+
+	&__field{
+		position: relative;
+	}
+
+	&__input{
+		width: 100px;
+		height: 40px;
+		border: 1px solid #E1E2E5;
+		padding-left: 10px;
+		padding-right: 30px;
+		color: $default;
+		font-family: Roboto;
+
+
+		@extend .p;
+
+	}
+
+	&__placeholder{
+		@extend .p;
+		position: absolute;
+		right: 10px;
+		z-index: 10;
+		top: 50%;
+		margin-top: -9px;
+
+	}
+
+	&__line{
+		width: 100%;
+		width: calc(100% - 20px);
+		margin: auto;
+		margin-bottom: 24px;
+		position: relative;
+		border: none!important;
+		height: 2px;
+		background-color: transparent;
+			
+
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			left: -9px;
+			right: -9px;
+			top: 0;
+			height: 100%;
+			background: #E7E7E7;
+		}
+
+	}
+
+
+	.ui-slider .ui-slider-range{
+		background-color: #a7a8ab;
+		position: absolute;
+		height: 100%;
+		background-color: $default;
+	}
+
+	.ui-slider-handle{
+		position: absolute;
+		width: 21px;
+		height: 21px;
+		top: -10px;
+		margin-left: -10px;
+		border-radius: 50%;
+		border: 7px solid $default;
+		background-color: #fff;
+		cursor: pointer;
+
+		&.ui-state-hover, &.ui-state-active{
+			box-shadow: 0 5px 25px 1px rgba(116,133,136,.4);
+		}
+
+
+	}
+}

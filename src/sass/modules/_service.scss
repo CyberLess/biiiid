@@ -1,0 +1,417 @@
+.service{
+	padding-top: 4.1rem;
+
+	&__cell{
+		padding-top: .5rem;
+
+		&_left{
+			width: 815/1336*100%;
+		}
+
+		&_right{
+			padding-bottom: 10rem;
+			width: 390/1336*100%;
+		}
+	}
+
+	&__select{
+		width: 60px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	&__title{
+		margin-bottom: 3rem;
+	}
+
+	&__content{
+		p{
+			line-height: (26/16)*1;
+		}		
+
+		&_more{
+			padding-left: 3.6rem;
+			margin-top: 1.2rem;
+			// margin-top: -2.5rem;
+			width: 450/600*100%;
+			margin-bottom: 28/815*100%;
+		}
+	}
+
+	&__sticky{
+		position: sticky;
+		top: 5rem;
+		left: 0;
+		width: 100%;
+	}
+
+	&__more{
+
+		&-title{
+			margin-bottom: 1rem;
+		}
+
+		&-row{
+			align-items: flex-start;
+			&:not(:last-child){
+				border-bottom: 1px solid rgba(42, 45, 52, 0.15);
+			}
+		}
+
+		&-count{
+			margin-top: 5px;
+			margin-bottom: 5px;
+			color: rgba(42, 45, 52, 0.5);
+			// margin-right: 1.2rem;
+		}
+
+		&-cell{
+			// padding-top: 2.9rem;
+			// padding-bottom: 2.8rem;
+
+			padding-top: 1.5rem;
+			padding-bottom: 1.5rem;
+
+			min-height: 7.6rem;
+			
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+
+			&_name{
+				width: 600/815*100%;
+			}
+			&_count{
+				width: 123/815*100%;
+			}
+			&_price{
+				width: 92/815*100%;
+				font-weight: 500;
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	&__about{
+		border: 1px solid rgba(42, 45, 52, 0.15);
+
+		padding-top: 32/815*100%;
+		padding-left: 55/815*100%;
+		padding-bottom: 40/815*100%;
+		padding-right: 65/815*100%;		
+
+		&-human{
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			max-width: 100%;
+		}
+		&-name{
+			margin-bottom: .8rem;
+		}
+
+		&-stars{
+			margin-left: 8px;
+		}
+
+		&-help{
+			color: rgba(42, 45, 52, 0.5);
+			margin-top: 1.2rem;
+		}
+
+		&-avatar{
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 100%;
+			width: 120px;
+			margin-bottom: 1.2rem;
+		}
+
+		&-list{
+			margin-top: 1.9rem;
+		}
+
+		&-item{
+			&:not(:last-child){
+				margin-bottom: 1.6rem;
+			}
+		}
+
+		&-cell{
+			&_left{
+				width: 180/695*100%;
+				padding-right: 15px;
+			}
+			&_right{
+				width: 514/695*100%;
+			}
+		}
+
+		&-button{
+			margin-top: 2.5rem;
+			width: 22.1rem;
+		}
+	}
+
+	&__part{
+		margin-bottom: 6rem;
+	}
+
+	&__list{
+		margin-top: 2rem;
+		overflow-x: auto;
+		max-width: 100%;
+
+		display: flex;
+		flex-wrap: nowrap;
+
+		padding-bottom: 1rem;
+
+		&-item{
+			width: 180px;
+			height: 101px;
+			flex: 0 0 auto;
+			position: relative;
+
+			&:not(:last-child){
+				margin-right: 2rem;
+			}
+		}
+	}
+
+	&__slider{
+		&-item{
+			padding-top: 458/815*100%;
+			position: relative;
+		}
+	}
+
+	&__box{
+		padding: 3.4rem;
+		position: relative;
+		border: 1px solid rgba(#2A2D34, .2);
+		
+		&-title{
+			font-size: 2rem;
+			line-height: 2.3rem;
+			font-weight: bold;
+			margin-bottom: 1.3rem;
+		}
+
+		&-column{
+			&_left{
+				width: 170/322*100%;
+			}
+			&_right{
+				width: 90/322*100%;
+				margin-right: 44/322*100%;
+			}
+		}
+
+		&-inputs{
+			margin-bottom: 5rem;
+		}
+
+		&-list{
+			margin-bottom: 3rem;
+		}
+
+		&-icon{
+			width: 2rem;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+
+			&_good{
+				// width: 1.8rem;
+			}
+		}
+
+		&-string{
+			position: relative;
+			padding-left: 3rem;
+			&:not(:last-child){
+				margin-bottom: 1.8rem;
+			}
+		}
+		&-button{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		&-row{
+			margin-bottom: 3rem
+		}
+
+		&-rating{
+			margin-right: 1.5rem;
+		}
+
+		&-part{
+			margin-right: 1rem;
+		}
+
+		&-bottom{
+			position: absolute;
+			left: 0;
+			width: 100%;
+			top: 100%;
+			margin-top: 3rem;
+			text-align: center;
+		}
+
+		&-link{
+			font-weight: 500;
+			color: $green;
+			display: inline-block;
+		}
+	}
+
+
+	@include max-screen($small_desktop) {
+		&__cell{
+			&_right{
+				width: 35.19162%;
+			}
+		}
+
+	}
+
+	@include max-screen($large_tablet) {
+		&__cell{
+			width: 100%;
+			margin-right: 0;
+			&_right{
+				display: none;
+			}
+		}	
+	}
+
+	@include max-screen($small_tablet) {
+		&__select{
+			width: 100%;
+		}
+		&__more{
+			&-cell{
+				&_name{
+					width: 63.61963%;
+				}
+				&_count{
+					width: 20.09202%;
+				}
+				&_price{
+					width: 16.28834%;
+				}
+			}
+		}
+		&__about{
+			padding: 30/815*100%;
+
+			&-rating{
+				justify-content: center;
+			}
+			&-stars{
+				margin-left: 4px;
+				// margin-right: 4px;
+			}
+
+			&-text{
+				font-size: 1.4rem;
+			}
+		}		
+	}
+
+	
+	@include max-screen($large_mobile) {
+		padding-top: 0;
+
+		&__list{
+			display: none;
+		}
+		&__select{
+			margin-top: 15px;
+			margin-bottom: 0;
+			width: 60px;
+		}
+		&__content{
+			&_more{
+				width: 100%;
+				margin-bottom: 0;
+			}
+		}
+		&__more{
+
+			&-count{
+				margin-right: 15px;
+				margin-top: 15px;
+				font-size: 1.4rem;
+				margin-bottom: 0;
+			}
+
+			&-row{
+				padding: 2.2rem 0;
+				justify-content: space-between;
+			}
+			&-cell{
+
+				min-height: 0;
+				padding: 0;
+
+				&_name{
+					order:1;
+					width: auto;
+					max-width: 70%;
+				}
+				&_count{
+					order:3;
+					width: 100%;
+					justify-content: flex-start;
+				}
+				&_price{
+					order:2;
+					width: auto;
+					max-width: 30%;
+				}
+			}
+		}
+		&__about{
+			&-cell{
+				&_left{
+					width: 38.89928%;
+				}
+				&_right{
+					width: 60.95683%;
+				}
+			}
+		}
+
+		&__title{
+			margin-bottom: 1rem;
+		}
+
+		&__part{
+			margin-bottom: 4rem;
+		}
+	}
+
+	@include max-screen($small_mobile) {
+		&__about{
+			padding: 20px 15px;
+			&-list{
+				margin-top: 25px;
+			}
+			&-item{
+				&:not(:last-child) {
+				    margin-bottom: 1.2rem;
+				}
+			}
+			&-cell{
+				width: 100%;
+				&_left{
+					text-align: center;
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}

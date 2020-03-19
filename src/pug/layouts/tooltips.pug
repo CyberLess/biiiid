@@ -1,0 +1,184 @@
++b.tooltip
+	+e.item.tprice__#price-tooltip.js-reset-parent
+		+e.top
+			+e.label.p Введите диапозон:
+			+b.range
+				+e.top.flex._justify
+					+e.min.small 1000
+					+e.max.small 50 000
+				+e.line
+				+e.row.inline.flex._justify
+					+e.field
+						+e.INPUT.input._center._min.js-number.js-virtual-input(name="price_min" placeholder="0" autocomplete="off")
+						+e.placeholder ₽
+					+e.field
+						+e.INPUT.input._center._max.js-number.js-virtual-input(name="price_max" placeholder="50000" autocomplete="off")
+						+e.placeholder ₽
+		+e.bottom.flex
+			+e.button.transparent-button__.is-gray.js-reset-filters
+				span Очистить
+			+e.button.transparent-button__.js-send-filters
+				span Сохранить
+	+e.item.tprice__#time-tooltip.js-reset-parent
+		+e.top
+			+e.UL.list
+				+e.LI.list-item
+					+e.LABEL.radio.radio__
+						+e.INPUT.input.js-virtual-input(name="time" type="radio" value="До 1 дня")
+						+e.SPAN.text 
+							| До 1 дня
+							+e.icon
+								+icon('check')
+				+e.LI.list-item
+					+e.LABEL.radio.radio__
+						+e.INPUT.input.js-virtual-input(name="time" type="radio" value="До 2 дней")
+						+e.SPAN.text 
+							| До 2 дней
+							+e.icon
+								+icon('check')
+				+e.LI.list-item
+					+e.LABEL.radio.radio__
+						+e.INPUT.input.js-virtual-input(name="time" type="radio" value="До 3 дней")
+						+e.SPAN.text 
+							| До 3 дней
+							+e.icon
+								+icon('check')
+				+e.LI.list-item
+					+e.LABEL.radio.radio__
+						+e.INPUT.input.js-virtual-input(name="time" type="radio" value="До 10 дней")
+						+e.SPAN.text 
+							| До 10 дней
+							+e.icon
+								+icon('check')
+		+e.bottom.flex
+			+e.button.transparent-button__.is-gray.js-reset-filters
+				span Очистить
+			+e.button.transparent-button__.js-send-filters
+				span Сохранить
+	+e.item.tprice__._big#details-tooltip.js-reset-parent
+		+e.top
+			+e.inner.css-scrollbar
+				+e.box
+					+e.label.p.strong Введите диапозон
+					+e.UL.list._w50
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="level" type="checkbox" value="Эксперт")
+								+e.SPAN.text 
+									| Эксперт
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="level" type="checkbox" value="Новичок")
+								+e.SPAN.text 
+									| Новичок
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="level" type="checkbox" value="Опытный")
+								+e.SPAN.text 
+									| Опытный 
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="level" type="checkbox" value="Недавно на сайте")
+								+e.SPAN.text 
+									| Недавно на сайте
+									+e.icon
+										+icon('check')
+				+e.box.js-more-box
+					+e.label.p.strong Родной язык
+					+e.UL.list._w50
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Русский")
+								+e.SPAN.text 
+									| Русский
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Украинский")
+								+e.SPAN.text 
+									| Украинский
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Английский")
+								+e.SPAN.text 
+									| Английский
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Казахский")
+								+e.SPAN.text 
+									| Казахский
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Китайский")
+								+e.SPAN.text 
+									| Китайский
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Итальянский")
+								+e.SPAN.text 
+									| Итальянский
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Хинди")
+								+e.SPAN.text 
+									| Хинди
+									+e.icon
+										+icon('check')
+						+e.LI.list-item
+							+e.LABEL.checkbox.checkbox__
+								+e.INPUT.input.js-virtual-input(name="lang" type="checkbox" value="Немецкий")
+								+e.SPAN.text 
+									| Немецкий
+									+e.icon
+										+icon('check')
+		+e.bottom.flex
+			+e.button.transparent-button__.is-gray.js-reset-filters
+				span Очистить
+			+e.button.transparent-button__.js-send-filters
+				span Сохранить
+	+e.item.tsort__#sort-tooltip
+		+e.list
+			+e.list-item
+				+e.LABEL.box-chose.chose__
+					+e.INPUT.input.js-virtual-input.js-send-input(name="sort" checked="" value="Цене" type="radio")
+					+e.SPAN.text.p Цене
+			+e.list-item.p 
+				+e.LABEL.box-chose.chose__
+					+e.INPUT.input.js-virtual-input.js-send-input(name="sort" value="Рекомендованные" type="radio")
+					+e.SPAN.text.p Рекомендованные
+			+e.list-item.p 
+				+e.LABEL.box-chose.chose__
+					+e.INPUT.input.js-virtual-input.js-send-input(name="sort" value="По рейтингу" type="radio")
+					+e.SPAN.text.p По рейтингу
+
+	+e.item.tsort__._big#search-cats-tooltip
+		+e.list
+			+e.list-item.p 
+				+e.list-cell._fluid Все категории
+				+e.list-cell._static (1345)
+			+e.list-item.p 
+				+e.list-cell._fluid Дикторская озвучка
+				+e.list-cell._static (123)
+			+e.list-item.p 
+				+e.list-cell._fluid Создание аудиороликов
+				+e.list-cell._static (23)
+			+e.list-item.p 
+				+e.list-cell._fluid Видео реклама
+				+e.list-cell._static (17)

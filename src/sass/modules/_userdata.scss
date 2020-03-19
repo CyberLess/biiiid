@@ -1,0 +1,49 @@
+.userdata{
+	&__avatar{
+		margin-left: 3.6rem;
+		&_toright{
+			margin-left: 0!important;
+			margin-right: 2rem;
+		}
+	}
+
+
+	&__price{
+		font-size: 2rem;
+		line-height: 110%;
+		font-weight: 500;
+	}
+
+
+	&__button{
+		cursor: pointer;
+		margin-left: 2.1rem;
+		transition: ease .2s;
+
+		&:hover{
+			fill: $green;
+		}
+
+		&_mail{
+			width: 2.4rem;
+		}
+
+		&_ring{
+			width: 2.2rem;
+		}
+	}
+
+	@include max-screen($large_tablet) {
+		&__avatar{
+			margin-left: 2.6rem;
+		}
+		&__button{
+			margin-left: 1.5rem;
+			width: 2rem;
+
+			&_ring{
+				
+			}
+		}
+	}
+}

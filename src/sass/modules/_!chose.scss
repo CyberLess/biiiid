@@ -1,0 +1,18 @@
+.chose{
+	display: inline-block;
+	cursor: pointer;
+
+	&__input{
+		display: none;
+
+		&:checked{
+			&+.chose__text{
+				color: $default;
+			}
+		}
+	}
+
+	&__text{
+		color: rgba(42, 45, 52, 0.5);
+	}
+}

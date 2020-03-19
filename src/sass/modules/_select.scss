@@ -1,0 +1,28 @@
+.select{
+	user-select: none;
+	cursor: pointer;
+
+	&__top{
+		padding-right: 1.8rem;
+		position: relative;
+
+		span{
+			margin-left: 1rem;
+
+			font-weight: 500;
+		}
+	}
+
+	&__arrow{
+		// display: none;
+		width: 1.2rem;
+		position: absolute;
+		right: 0;
+		top: 5px;
+
+		fill: $default;
+
+
+		// transform: rotate(-90deg);
+	}
+}

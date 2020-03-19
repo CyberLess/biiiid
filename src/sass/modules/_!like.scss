@@ -1,0 +1,12 @@
+.like{
+	width: 1.8rem;
+	stroke: $default;
+	cursor: pointer;
+	fill: transparent;
+	stroke-width: 2;
+
+	transition: ease .15s;
+	&:hover{
+		fill: $default;
+	}
+}

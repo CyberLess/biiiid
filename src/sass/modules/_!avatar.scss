@@ -1,0 +1,34 @@
+.avatar{
+	width: 4.4rem;
+	height: 4.4rem;
+	border-radius: 50%;
+	position: relative;
+	
+
+	&_noscope{
+		width: auto;
+		height: auto;
+	}
+
+	&__inner{
+		padding-top: 100%;
+		position: relative;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&_online{
+		overflow: visible;
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			right: 1px;
+			bottom: 1px;
+			width: .8rem;
+			height: .8rem;
+			border-radius: 50%;
+			background: #1BAE69;
+		}
+	}
+}

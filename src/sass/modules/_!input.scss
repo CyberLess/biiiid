@@ -1,0 +1,16 @@
+.input{
+	
+	&__field{
+		width: 100%;
+		height: 3.6rem;
+
+		@extend .p;
+
+		font-family: Roboto;
+		color: $default;
+		padding: 0 1.5rem;
+
+		border: 1px solid rgba(42, 45, 52, 0.15);
+
+	}
+}

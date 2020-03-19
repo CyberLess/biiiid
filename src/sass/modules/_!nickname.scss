@@ -1,0 +1,31 @@
+.nickname{
+	color: #939393;
+	font-weight: 500;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	line-height: (16/14)*1;
+	max-width: 100%;
+
+	
+	&_online{
+
+		padding-right: 12px;
+		position: relative;
+
+		&:before{
+			content: '';
+			display: block;
+			width: 5px;
+			height: 5px;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -3px;
+			background: $green;
+			border-radius: 50%;
+		}	
+
+	}
+}

@@ -1,0 +1,9 @@
+.close{
+	width: 1.5rem;
+	fill: #000;
+	transition: ease .2s;
+    cursor: pointer;	
+    &:hover{
+    	fill: $green;
+    }
+}

@@ -1,0 +1,37 @@
+.filters{
+	margin-bottom: 5rem;
+	
+	&__item{
+		font-weight: 500;
+		border: 2px solid rgba(#2A2D34, .2);
+		padding: 1rem 3.5rem;
+		margin-right: 2rem;
+		margin-top: 2rem;
+		transition: ease .2s;
+		cursor: pointer;
+
+		&:hover{
+			border-color: $default;
+		}
+	}
+
+	&__clear{
+		margin-left: 1rem;
+		cursor: pointer;
+		color: rgba($default, .5);
+		margin-top: 2rem;
+		visibility: hidden;
+		opacity: 0;
+
+		transition: ease .2s;
+
+		&.is-active{
+			visibility: visible;
+			opacity: 1;			
+		}
+	}
+
+	@include max-screen($large_tablet) {
+		display: none;
+	}
+}

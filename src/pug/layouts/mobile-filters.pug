@@ -1,0 +1,60 @@
++b.filter-modal.FORM(action="/")
+	+e.panel._default
+		+e.part._top
+			+e.close.close.js-close-filters
+				+icon('close')
+			+e.label.p Фильтры
+			+e.reset.p.link.A(href='#')
+				| Очистить
+		+e.part._middle.content
+			+e.box
+				+e.box-label._small.p.strong Онлайн статус
+				+e.LABEL.switcher.switcher__
+					+e.INPUT.input.js-virtual-input(name="online" type="checkbox" value="true")
+					+e.SPAN.text 
+						| Только исполнители онлайн 
+			+e.box
+				+e.box-label.p.strong Сортировать
+				+e.box-list
+					+e.box-item
+						+e.LABEL.box-chose.chose__
+							+e.INPUT.input.js-virtual-input(name="sort" checked="" value="Цене" type="radio")
+							+e.SPAN.text.p Цене
+					+e.box-item
+						+e.LABEL.box-chose.chose__
+							+e.INPUT.input.js-virtual-input(name="sort" value="Рекомендованные" type="radio")
+							+e.SPAN.text.p Рекомендованные
+					+e.box-item
+						+e.LABEL.box-chose.chose__
+							+e.INPUT.input.js-virtual-input(name="sort" value="По рейтингу" type="radio")
+							+e.SPAN.text.p По рейтингу
+			+e.box
+				+e.box-label.p.strong Цена
+				+e.range.range__
+					+e.top.flex._justify
+						+e.min.small 1000
+						+e.max.small 50 000
+					+e.line
+					+e.row.inline.flex._center
+						+e.field
+							+e.INPUT.input._center._min.js-number.js-virtual-input(name="price_min" autocomplete="off")
+							+e.placeholder ₽
+						+e.field
+							+e.INPUT.input._center._max.js-number.js-virtual-input(name="price_max" autocomplete="off")
+							+e.placeholder ₽
+			+e.box
+				+e.box-label.p.strong Фильтры
+				+e.filter-list#mobile-filters
+
+		+e.part._bottom
+			+e.BUTTON.button.btn__._dark
+				+e.text Сохранить
+	+e.panel._values._hidden.menu-modal__.is-default
+		+e.vertical
+			+e.head.p 
+				+e.back.js-close-mobile-filter
+					+icon('back')
+				span
+			+e.content
+				+e.inner
+					+e.UL.content-list._noborder._scope

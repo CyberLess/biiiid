@@ -1,0 +1,17 @@
+.stars{
+	&__item{
+		width: 14px;
+		fill: transparent;
+
+		stroke: #FF5A5F;
+
+		&_active{
+			fill: #FF5A5F;
+			stroke: none;
+		}
+
+		&:not(:last-child){
+			margin-right: 5px;
+		}
+	}
+}

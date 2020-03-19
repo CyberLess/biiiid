@@ -1,0 +1,28 @@
+.label{
+	font-size: 1.2rem;
+	
+	font-weight: 500;
+	padding: .4rem .8rem;
+	line-height: (14/12)*1;
+	border: 1px solid #000000;
+	display: inline-block;
+
+	&_small{
+		padding: 4px 6px;
+		font-size: 1rem;
+		text-transform: uppercase;
+		line-height: 12px;
+		margin-bottom: 0;
+	}
+
+	&_red{
+		color: #FF6978;
+		border-color: #FF6978;
+	}
+
+	&_purple{
+		color: #fff;
+		border-color: $purple;
+		background: $purple;
+	}
+}

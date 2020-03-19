@@ -1,0 +1,93 @@
+mixin header(type = false)
+	+b.HEADER.header(class=(type == false ? "_default" : ""))
+		+e.inner
+			+e.wrap.wrap
+				+e.row.flex._vertical
+					+e.cell._hamburger
+						+e.hamburger.hamburger__.js-open-menu
+							+icon('hamburger')
+					+e.cell._logo
+						+b.A.logo.h2(href='/') bIIIId
+					+e.cell._cat
+						+e.cat.icon-link__.flex._vertical.js-toggle-categories.A(href="#")
+							+e.icon._dots
+								+e.icon-item._dots.is-default
+									+icon('dots')
+								+e.icon-item._close.is-focused
+									+icon('close')
+							+e.text.p Категории
+					
+					+e.cell._search
+						+b.FORM.search(action="/api/")
+							+e.INPUT.input.small(type="text" name="s" placeholder="Поиск исполнителя для любой задачи")
+							+e.BUTTON.submit
+								+icon('loupe')
+					+e.cell._auth.flex._right._vertical
+						if(type == false)
+							+e.auth.icon-link__.p.flex._vertical.A(href="#")
+								+e.IMG.icon._arrow(src="/app/img/arrow.svg")
+								+e.text Войти
+						else
+							+e.links.flex._vertical
+								+e.link.p.A(href='#') Мои заказы
+								+e.link.p.A(href='#') Избранные
+							+e.price 0 ₽
+							+e.user.userdata__.flex._vertical
+								+e.button._ring.A(href="#")
+									+icon('ring')
+
+								+e.button._mail.A(href="#")
+									+icon('mail')
+
+								+e.avatar.avatar__.A(href="#")
+									+e.IMG.image.object-fit(src="/img/user.png")
+
+		+e.categories.categories__
+			+e.wrap.wrap
+				+e.row.flex
+					+e.cell._left
+						+e.UL.list
+					+e.cell._right
+	+b.menu-modal
+		+e.bg.js-close-menu
+		+e.panel
+			+e.top.flex._justify._vertical
+				if(type == false)
+					+e.button.btn__.p.A(href='#')
+						| Регистрация
+					+e.link.link__._dark.p.A(href='#')
+						| Вход
+				else
+					+e.user.userdata__.flex._vertical
+						+e.avatar._toright.avatar__.A(href="#")
+							+e.IMG.image.object-fit(src="/img/user.png")
+
+						+e.price 3 000 ₽
+			+e.UL.list
+				+e.LI.list-item
+					+e.A.list-link.js-mobile-open-cats.p(href="#") Категории
+				+e.LI.list-item
+					+e.A.list-link.p(href="#") О сервисе
+				+e.LI.list-item
+					+e.A.list-link.p(href="#") Соглашение
+		+e.panel._full._hidden._cats
+			+e.vertical
+				+e.head.p 
+					span Выберите категорию
+					+e.close.close__.js-mobile-close-cats
+						+icon('cls')
+				+e.content
+					+e.inner
+						+e.UL.content-list
+		+e.panel._full._hidden._links
+			+e.vertical
+				+e.head.p 
+					+e.back.js-mobile-close-links
+						+icon('back')
+					span Тексты и переводы
+					//- +e.close.close__
+					//- 	+icon('cls')
+				+e.content
+					+e.inner
+						+e.UL.content-list._noborder
+					

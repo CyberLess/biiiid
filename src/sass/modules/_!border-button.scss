@@ -1,0 +1,35 @@
+.border-button{
+	border: 2px solid #000000;
+	padding: 0 2rem;
+	font-weight: 500;
+	height: 4rem;
+	color: $dark;
+	max-width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__icon{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1.8rem;
+		width: 7px;
+		fill: transparent;
+		stroke: #000;
+		stroke-width: 2;
+	}
+
+	&_light{
+		height: 5rem;
+		border-width: 1px;
+		font-weight: normal;
+	}
+
+	@include max-screen($large_mobile) {
+		padding-top: 0rem;
+		padding-bottom: 0rem;
+		height: 4rem;
+	}
+}

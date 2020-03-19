@@ -1,0 +1,52 @@
+.radio{
+	display: inline-block;
+	cursor: pointer;
+
+	&__input{
+		display: none;
+
+		&:checked{
+			&+.radio{
+				&__text{
+					.radio__icon{
+						background: #2A2D34;
+						border-color: #2A2D34;
+
+						svg{
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__text{
+		@extend .p;
+
+		padding-left: 3.6rem;
+		position: relative;
+
+	}
+
+	&__icon{
+		width: 2.1rem;
+		height: 2.1rem;
+		border: 1px solid rgba(#2A2D34, .3);
+		border-radius: 50%;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: -1rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg{
+			width: 1rem;
+			fill: #fff;
+			visibility: hidden;
+		}
+	}
+}

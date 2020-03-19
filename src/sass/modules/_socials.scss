@@ -1,0 +1,45 @@
+.socials{
+	&__item{
+		margin-left: .8rem;
+	}
+
+	&__link{
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		
+
+		fill: $default;
+
+		&_twitter{
+			svg{
+				width: 1.8rem;
+			}
+		}
+		&_instagram{
+			svg{
+				width: 1.8rem;
+			}
+		}
+		&_fb{
+			svg{
+				width: .9rem;
+			}
+		}
+		&_vk{
+			svg{
+				width: 1.8rem;
+			}
+		}
+	}
+
+
+	@include max-screen($large_mobile) {
+		&__item{
+			margin-left: 0;
+			margin-right: 8px;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Поиск';
+
+block header
+	+header(true)
+block content
+	+b.SECTION.catalog
+		+e.wrap.wrap
+			include ../layouts/filters
+			+e.head
+				+breadcrumbs("Главная", "Работа со звуком")
+				+e.content.content.is-gray
+					h2 Вы искали «Голос диктора для рекламы»
+				+e.mobile-filter.btn__.p.js-open-filters
+					+e.icon._filter
+						+icon('filters')
+					+e.text Фильтры
+				+e.sort._noscope.flex._bottom._justify
+					+e.sort-content.content.is-gray
+						p 
+							| Найдено 345 вариантов в 
+							a.link(href='#' data-tooltip="#search-cats-tooltip") Дикторская озвучка
+					+e.sort-cell.flex._vertical
+						+e.select.select__(data-tooltip="#sort-tooltip")
+							+e.INPUT.input(type="hidden" name="sort" value="")
+							+e.top.p
+								| Сортировать по:
+								span Цене
+								+e.arrow
+									+icon('arw')
+						+e.DIV
+							+e.LABEL.switcher.switcher__
+								+e.INPUT.input.js-virtual-input(name="online" type="checkbox" value="true")
+								+e.SPAN.text 
+									| Онлайн 
+									span.hide-mobile статус
+
+			include ../layouts/catalog-list

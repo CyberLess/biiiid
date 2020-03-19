@@ -1,0 +1,382 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Услуга';
+	- body.classList = "is-have-mobile-nav";
+
+block header
+	+header(true)
+
+block content
+
+	include ../layouts/mobile-filters
+
+	+b.NAV.fluid._mobile
+		+e.wrap.wrap
+			+e.row
+				+e.cell._fluid
+					+e.box-button.btn__._red._big.p.A(href='#')
+						+e.text Подробнее
+				+e.cell._static
+					+e.A.link.link.p(href='#') Написать исполнителю
+	+b.SECTION.service
+		+e.wrap.wrap
+			+e.head
+				+breadcrumbs("Главная", "Аудио и музыка", "Дикторские голоса")
+			+e.row.flex._justify
+				+e.cell._left
+					+e.part._slider
+						+e.slider.owl-carousel.js-case-slider
+							+e.slider-item
+								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
+							+e.slider-item
+								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
+							+e.slider-item
+								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
+							+e.slider-item
+								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
+						+e.list.css-red-scrollbar
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+							+e.list-item
+								+e.IMG.lit-image(src="/img/case_4.jpg")
+					+e.part._desc
+						+e.title.h2.H2 Описание
+						+e.content.content
+							p
+								| Mollit quis ut occaecat ullamco velit labore irure cupidatat laborum occaecat fugiat deserunt magna nostrud. Proident Lorem adipisicing cupidatat nulla non eu anim amet. Voluptate duis mollit mollit dolor nisi aute. Mollit irure mollit ullamco mollit enim minim deserunt occaecat nulla in sunt commodo duis est.
+							p
+								| Magna Lorem excepteur quis adipisicing. Lorem elit veniam sit incididunt occaecat anim excepteur aute tempor magna tempor ullamco. Ea sint in excepteur pariatur adipisicing Lorem do nulla laboris amet elit eu nostrud. Nisi ut adipisicing reprehenderit aliqua irure sunt reprehenderit tempor anim qui anim Lorem duis.
+							p
+								| Id dolore sit Lorem sunt tempor adipisicing aliqua dolore fugiat fugiat exercitation. Sit aute fugiat amet consectetur eiusmod eu minim aute irure ut non. Lorem duis deserunt adipisicing non esse elit officia culpa culpa nisi aliqua reprehenderit reprehenderit proident. Ipsum reprehenderit enim eiusmod irure ipsum. Nulla esse deserunt magna velit officia commodo sunt aliquip culpa veniam ut.
+							p
+								| Amet labore laborum fugiat dolor id ut aliqua ullamco. Ipsum tempor dolore eu occaecat culpa ex magna veniam exercitation amet nulla laborum ex sit. Dolore id exercitation ullamco est duis magna. Officia pariatur mollit nulla voluptate excepteur tempor anim consectetur do ea aute consectetur. Velit consequat dolor aliquip ipsum dolor esse incididunt esse aliqua sunt nostrud Lorem voluptate consectetur.
+					+e.part._about
+						+e.title.h2.H2 Об исполнителе
+						+e.about.flex
+							+e.about-cell._left
+								+e.about-human
+									+e.about-avatar.avatar__._noscope
+										+e.inner
+											+e.IMG.image.object-fit(src="/img/avatar.jpg")
+									+e.about-name.h5._small Ivanivanov
+									+e.about-rating.flex._vertical
+										+e.about-text.p.b 4.1
+										+e.about-stars.stars__.flex._vertical
+											+e.item._active
+												+icon('star')
+											+e.item._active
+												+icon('star')
+											+e.item._active
+												+icon('star')
+											+e.item._active
+												+icon('star')
+											+e.item
+												+icon('star')
+									+e.about-help.p (248 отзыва)
+
+							+e.about-cell._right
+								+e.content.content.is-gray
+									p
+										| Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute. Id reprehenderit id labore amet ullamco minim enim. Culpa est nostrud proident fugiat. 
+								+e.about-list
+									+e.about-item.p На сайте с 1 ноября 2019
+									+e.about-item.p Россия
+									+e.about-item.p Выполнено проектов: 26
+									+e.about-item.p 
+										| Онлайн
+										span.dot
+								+e.about-button.border-button__._light.p.A(href='#')
+									+e.text Написать
+					+e.part._more
+						+e.more
+							+e.more-title.h2 Дополнительные услуги
+							+e.more-row.flex
+								+e.more-cell._name
+									+e.LABEL.checkbox.checkbox__
+										+e.INPUT.input(name="more[]" type="checkbox" value="Адаптивный дизайн под 3 разорешения")
+										+e.SPAN.text 
+											| Адаптивный дизайн под 3 разорешения 
+											+e.icon
+												+icon('check')
+									+e.content._more.content.is-gray
+										p 
+											| Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute.
+								+e.more-cell._count.flex._vertical._justify
+									+e.more-count.p Кол-во
+									+e.select.slct__
+										select(name='count')
+											option 1
+											option 2
+											option 3
+											option 4
+											option 5
+								+e.more-cell._price.p 1250 ₽
+							+e.more-row.flex
+								+e.more-cell._name
+									+e.LABEL.checkbox.checkbox__
+										+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
+										+e.SPAN.text 
+											| Прототипирование 
+											+e.icon
+												+icon('check')
+								+e.more-cell._count
+								+e.more-cell._price.p 1250 ₽
+							+e.more-row.flex
+								+e.more-cell._name
+									+e.LABEL.checkbox.checkbox__
+										+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
+										+e.SPAN.text 
+											| Кликабельный прототип 
+											+e.icon
+												+icon('check')
+								+e.more-cell._count.flex._vertical._justify
+									+e.more-count.p Кол-во
+									+e.select.slct__
+										select(name='count')
+											option 1
+											option 2
+											option 3
+											option 4
+											option 5
+								+e.more-cell._price.p 1250 ₽
+							+e.more-row.flex
+								+e.more-cell._name
+									+e.LABEL.checkbox.checkbox__
+										+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
+										+e.SPAN.text 
+											| Прототипирование 
+											+e.icon
+												+icon('check')
+								+e.more-cell._count
+								+e.more-cell._price.p 1250 ₽
+							+e.more-row.flex
+								+e.more-cell._name
+									+e.LABEL.checkbox.checkbox__
+										+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
+										+e.SPAN.text 
+											| Кликабельный прототип 
+											+e.icon
+												+icon('check')
+								+e.more-cell._count
+								+e.more-cell._price.p 1250 ₽
+					+e.part._reviews
+						+b.reviews
+							+e.top.flex
+								+e.title.h2 Отзывы
+								+e.top-list.flex
+									+e.top-item.p.is-active Все
+									+e.top-item.p Положительные
+									+e.top-item.p Отрицательные
+							+e.list
+								+e.item._positive
+									+e.cell._static
+										+e.avatar.avatar__._noscope._online
+											+e.inner
+												+e.IMG.image.object-fit(src="/img/avatar2.jpg")
+									+e.cell._fluid
+										+e.head.flex._vertical
+											+e.name.p.b Ivanivanov
+											+e.date.p 11.02.2019
+											+e.stars.stars__.flex._vertical
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item
+													+icon('star')
+										+e.text.content
+											p
+												| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation incididunt ut aute ipsum anim fugiat aute.
+										+e.answers
+											+e.item._answer
+												+e.cell._static
+													+e.avatar.avatar__._noscope._online
+														+e.inner
+															+e.IMG.image.object-fit(src="/img/avatar.jpg")
+												+e.cell._fluid
+													+e.head.flex._vertical
+														+e.name.p.b Ivanivanov
+														+e.date.p 11.02.2019
+													+e.text.content
+														p
+															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
+								+e.item._negative
+									+e.cell._static
+										+e.avatar.avatar__._noscope._online
+											+e.inner
+												+e.IMG.image.object-fit(src="/img/avatar2.jpg")
+									+e.cell._fluid
+										+e.head.flex._vertical
+											+e.name.p.b Ivanivanov
+											+e.date.p 11.02.2019
+											+e.stars.stars__.flex._vertical
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item
+													+icon('star')
+										+e.text.content
+											p
+												| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation incididunt ut aute ipsum anim fugiat aute.
+										+e.answers
+											+e.item._answer
+												+e.cell._static
+													+e.avatar.avatar__._noscope._online
+														+e.inner
+															+e.IMG.image.object-fit(src="/img/avatar.jpg")
+												+e.cell._fluid
+													+e.head.flex._vertical
+														+e.name.p.b Ivanivanov
+														+e.date.p 11.02.2019
+													+e.text.content
+														p
+															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
+				+e.cell._right
+					+e.sticky
+						+e.box
+							+e.box-title
+								| Проффесионально озвучу текст
+								| красивым голосом
+							+e.box-row.flex._justify._vertical
+								+e.box-part
+									+e.name.nickname._online.small Uselles dude
+								+e.box-part.flex._vertical
+									+e.box-rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+									+e.box-like.like__
+										+icon('like')
+							+e.box-list
+								+e.box-string.p
+									+e.box-icon
+										+icon('clock')
+									| 2 дня на выполнение
+								+e.box-string.p
+									+e.box-icon._good
+										+icon('good')
+									| Обычно выполняет за 1 день
+							+e.box-inputs.flex._justify._vertical
+								+e.box-column._left
+									+e.box-text.p
+										| Укажите кол-во слов
+										| и узнайте цену
+										.is-help ?
+								+e.box-column._right
+									+e.box-input.input__
+										+e.INPUT.field(name='words' type="text" value="5 000")
+							+e.box-title
+								| Итого: 3 000 ₽
+							+e.box-button.btn__._red._big.p.A(href='#')
+								+e.text Оформить заказ
+							+e.box-bottom
+								+e.box-link.p.A(href="#") Написать исполнителю
+	+b.SECTION.catalog
+		+e.wrap.wrap
+			+e.part._bottom
+				+e.title.h2.H2 Другие услуги фрилансера
+				+b.case
+					+e.list.flex
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_1.jpg")
+							+e.top
+								+e.top-cell._fluid
+									+e.name.nickname._online.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_1.jpg")
+							+e.top
+								+e.top-cell._static
+									+e.label.label__._purple
+										| СУПЕР
+								+e.top-cell._fluid
+									+e.name.nickname._online.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__._purple.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_2.jpg")
+							+e.top
+								+e.top-cell._fluid
+									+e.name.nickname._online.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_3.jpg")
+							+e.top
+								+e.top-cell._static
+									+e.label.label__
+										| СУПЕР
+								+e.top-cell._fluid
+									+e.name.nickname.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')

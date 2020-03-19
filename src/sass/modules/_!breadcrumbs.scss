@@ -1,0 +1,30 @@
+.breadcrumbs{
+	&__item{
+		font-size: 0;
+		margin-bottom: 2rem;
+
+		&:not(:last-child){
+			&:after{
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				background: url('/img/arrow2.svg') center no-repeat;
+				width: 5px;
+				height: 8px;
+				margin: 0 1.4rem;
+			}
+		}
+	}
+
+	&__link{
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 1.6rem;
+		color: rgba($default, .5);
+	}
+
+	&__price{
+		letter-spacing: -0.02em;
+		
+	}
+}

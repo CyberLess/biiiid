@@ -1,0 +1,41 @@
+.tsort{
+	width: 188px;
+
+	&_big{
+		width: 265px;
+	}
+
+	&__list{
+		cursor: pointer;
+		padding: 1.5rem;
+
+		&-cell{
+			max-width: 100%;
+
+		    &_fluid{
+	    	    min-width: 0;
+	    	    flex-grow: 1;
+	    	    flex-shrink: 1;
+	    	    padding-right: 2rem;
+		    }	
+
+		    &_static{
+	    	    flex-grow: 0;
+			    flex-shrink: 0;
+				
+				&:first-child{
+					padding-right: 1.2rem;
+				}
+		    }				
+		}
+
+		&-item{
+			display: flex;
+
+			&:not(:last-child){
+				margin-bottom: 1.8rem;
+			}
+		}
+	}
+
+}

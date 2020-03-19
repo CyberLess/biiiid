@@ -1,0 +1,97 @@
+.footer{
+	border-top: 1px solid rgba(42, 45, 52, 0.15);
+	padding: 6rem 0;
+
+	&__row{
+		display: flex;
+	}
+
+	&__part{
+		width: 289px;
+		max-width: 40%;
+		margin-right: 38px;
+	}
+
+	&__list{
+		&-item{
+			display: block;
+		}
+		&-link{
+			line-height: 30px;
+		}
+	}
+
+	&__name{
+		font-weight: bold;
+		margin-bottom: 2.8rem;
+		line-height: (21/18)*1;
+
+	}
+
+	&__socials{
+		margin-top: 2rem;
+	}
+
+	&__cell{
+		
+		max-width: 100%;
+
+		&_right{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+	    &_fluid{
+    	    min-width: 0;
+    	    flex-grow: 1;
+    	    flex-shrink: 1;
+    	    padding-right: 2rem;
+	    }	
+	    &_static{
+    	    flex-grow: 0;
+		    flex-shrink: 0;
+			
+			&:first-child{
+				padding-right: 1.2rem;
+			}
+	    }		
+
+	} 
+
+	@include max-screen($large_mobile) {
+		padding-top: 4rem;
+		padding-bottom: 5.4rem;
+		
+		&__row{
+			display: block;
+		}
+
+		&__socials{
+			margin-top: 4rem;
+		}
+
+		&__part{
+			margin-bottom: 4rem;
+		}
+
+		&__list{
+			&-link{
+				font-size: 1.4rem;
+			}
+		}
+		&__cell{
+			padding-right: 0;
+			text-align: left !important;
+			width: 100%;
+		}
+	}
+
+	@include max-screen($small_mobile) {
+		&__part{
+			width: 100%;
+			max-width: none;
+			margin-right: 0;
+		}	
+	}
+}

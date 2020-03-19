@@ -1,0 +1,35 @@
+.transparent-button{
+	width: 50%;
+	height: 6rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: none;
+	// transition: ease .2s;
+	cursor: pointer;
+
+	&_noscope{
+		padding: 0;
+		height: auto;
+		width: auto;
+	}
+
+	span{
+		line-height: 1em;
+		display: inline-block;
+		border-bottom: 1px solid #2A2D34;
+		transition: ease .2s;
+	}
+
+	&.is-gray{
+		
+
+		span{
+			color: rgba(#939393, .5);	
+			border-bottom-color: transparent;
+		}
+	}
+
+	@extend .p;
+}

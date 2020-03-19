@@ -1,0 +1,57 @@
+.fluid{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 1.6rem 0;
+	background-color: #fff;
+	z-index: 200;
+    border-top: 1px solid rgba(42,45,52,.2);
+
+	&_mobile{
+		display: none;
+	}
+
+	&__row{
+		display: flex;
+		align-items: center;
+	}
+
+	&__link{
+		white-space: nowrap;
+	}
+
+	&__cell{
+		max-width: 100%;
+	    &_fluid{
+    	    min-width: 0;
+    	    flex-grow: 1;
+    	    flex-shrink: 1;
+	    }	
+	    &_static{
+    	    flex-grow: 0;
+		    flex-shrink: 0;
+		    padding-left: 5%;
+		    padding-right: 5%;
+	    }		
+
+	}
+
+	@include max-screen($large_tablet) {
+		&_mobile{
+			display: block;
+		}
+	}
+
+	@include max-screen($large_mobile) {
+		&__cell{
+			&_static{
+				padding-left: 5%;
+				padding-right: 0;
+			}
+		}
+		&__link{
+			font-size: 1.2rem;
+		}
+	}
+}

@@ -1,0 +1,99 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Каталог - авторизован';
+
+block header
+	+header(true)
+block content
+	+b.SECTION.catalog
+		+e.wrap.wrap
+			+e.part
+				+e.title.h2.H2 Недавно просмотренные
+				+b.case
+					+e.list.flex
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_1.jpg")
+							+e.top
+								+e.top-cell._fluid
+									+e.name.nickname._online.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_1.jpg")
+							+e.top
+								+e.top-cell._static
+									+e.label.label__._purple
+										| СУПЕР
+								+e.top-cell._fluid
+									+e.name.nickname._online.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__._purple.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_2.jpg")
+							+e.top
+								+e.top-cell._fluid
+									+e.name.nickname._online.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+						+e.item
+							+e.preview
+								+e.IMG.image.object-fit(src="/img/case_3.jpg")
+							+e.top
+								+e.top-cell._static
+									+e.label.label__
+										| СУПЕР
+								+e.top-cell._fluid
+									+e.name.nickname.small Uselles dude
+								+e.top-cell._static
+									+e.rating.rating__.small
+										+e.icon
+											+icon('star')
+										| 4.7 
+										span (232)
+							+e.content.content
+								p
+									| Сделай полноценное описание чтобы понимать сколько 
+							+e.bottom.flex._justify._vertical
+								+e.price.h6 от 4000 ₽
+								+e.like.like__
+									+icon('like')
+			+e.part
+				+e.title.h2.H2 Рекомендованные услуги
+				include ../layouts/catalog-list

@@ -1,0 +1,66 @@
+.tprice{
+	width: 28.4rem;
+
+	&_big{
+		width: 46.4rem;
+
+		.tprice__top{
+			padding: 3rem;
+		}
+	}
+
+	&__inner{
+		height: 35rem;
+		padding-right: 3rem;
+		overflow-y: auto;
+	}
+
+	&__box{
+		&:not(:last-child){
+			margin-bottom: 2.9rem;
+			border-bottom: 1px solid rgba(42, 45, 52, 0.15);
+		}
+	}
+
+	&__top{
+		padding-left: 3.1rem;
+		padding-right: 3.2rem;
+		padding-top: 2.5rem;
+		padding-bottom: 3rem;
+	}
+
+	&__label{
+		margin-bottom: 3.9rem;
+	}
+
+	&__button{
+	}
+
+	&__bottom{
+		border-top: 1px solid rgba(42, 45, 52, 0.15);
+	}
+
+	&__list{
+
+		&_w50{
+			display: flex;
+			flex-wrap: wrap;
+
+			.tprice{
+				&__list{
+					&-item{
+						width: 180/371*100%;
+					}
+				}
+			}
+		}
+
+		&-item{
+			display: block;
+
+			&:not(:last-child){
+				margin-bottom: 3.2rem;
+			}
+		}
+	}
+}

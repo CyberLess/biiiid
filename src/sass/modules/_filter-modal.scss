@@ -1,0 +1,143 @@
+.filter-modal{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	bottom: -60px;
+
+	z-index: 2300;
+
+	// background: gray;
+	background: #fff;
+
+	padding-top: 6.1rem;
+	padding-bottom: 8rem;
+
+	visibility: hidden;
+	opacity: 0;
+	transition: ease .25s;
+
+
+	&.is-active{
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__button{
+		width: 100%;
+	}
+
+	&__label{
+		font-weight: 500;
+		text-align: center;
+	}
+
+	&__panel{
+
+		transition: ease .4s;
+
+		&_values{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: #FFFFFF;			
+		}
+
+		&_hidden{
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&.is-visible{
+			opacity: 1;
+			visibility: visible;
+
+		}
+
+	}
+
+	&__close{
+		position: absolute;
+		left: 2rem;
+		top: 50%;
+		width: 1.6rem;
+		stroke: $default;
+		stroke-width: 2;
+		margin-top: -.8rem;
+	}
+
+	&__reset{
+		position: absolute;
+		right: 2rem;
+		top: 50%;
+		margin-top: -1.1rem;
+	}
+
+	&__range{
+		.range__field{
+			margin: 0 10px;
+		}
+	}
+
+	&__switcher{
+		width: 100%;
+		
+
+		.switcher__text{
+			color: rgba(42, 45, 52, 0.5);
+			font-size: 1.6rem;
+			display: block;
+		}
+	}
+
+	&__box{
+		
+		&-label{
+			margin-bottom: 3rem;
+
+			&_small{
+				margin-bottom: 8px;
+			}
+		}
+
+		&-item{
+			&:not(:last-child){
+				margin-bottom: 2rem;
+			}
+		}
+
+		&:not(:last-child){
+			padding-bottom: 3rem;
+			margin-bottom: 3rem;
+			border-bottom: 1px solid rgba(42, 45, 52, 0.15);
+		}
+	}
+
+	&__part{
+		position: fixed;
+		left: 0;
+		width: 100%;
+
+		&_top{
+			top: 0;
+			padding: 2rem;
+			background: #fff;
+			border-bottom: 1px solid rgba(42, 45, 52, 0.15);
+		}
+
+		&_middle{
+			max-height: calc(100% - 14.1rem);
+			padding: 3rem 2rem;
+			overflow-y: auto;
+		}
+
+		&_bottom{
+			bottom: 0px;
+			background: #fff;
+			border-top: 1px solid rgba(42, 45, 52, 0.15);
+			padding: 2rem;
+		}
+	}
+}

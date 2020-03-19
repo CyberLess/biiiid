@@ -1,0 +1,36 @@
+.btn{
+	background: $green;
+	color: #fff;
+	padding: 0 3.5rem;
+	height: 4rem;
+	border: none;
+	cursor: pointer;
+	font-weight: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__icon{
+		fill: #fff;
+		&_filter{
+			width: 2.4rem;
+			margin-right: 1rem;
+		}
+	}
+	
+	&_dark{
+		background: $default;
+	}
+
+	&_red{
+		background: $red;
+	}
+
+	&_big{
+		height: 5rem;
+	}
+
+	@include max-screen($large_mobile) {
+		min-height: 4rem;
+	}
+}

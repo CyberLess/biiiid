@@ -1,0 +1,72 @@
+.checkbox{
+	display: inline-block;
+	cursor: pointer;
+
+	&_reverse{
+		.checkbox{
+			&__text{
+				padding-left: 0;
+				padding-right: 3.6rem;
+			}
+
+			&__icon{
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+
+	&__input{
+		display: none;
+
+		&:checked{
+			&+.checkbox{
+				&__text{
+					.checkbox__icon{
+						background: #2A2D34;
+						border-color: #2A2D34;
+
+						svg{
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__text{
+		@extend .p;
+
+		display: block;
+
+		padding-left: 3.6rem;
+		position: relative;
+
+		i{
+			font-style: normal;
+			color: rgba(42, 45, 52, 0.5);
+		}
+
+	}
+
+	&__icon{
+		width: 2.1rem;
+		height: 2.1rem;
+		border: 1px solid rgba(#2A2D34, .3);
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: -1.1rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg{
+			width: 1rem;
+			fill: #fff;
+			visibility: hidden;
+		}
+	}
+}

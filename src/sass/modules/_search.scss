@@ -1,0 +1,73 @@
+.search{
+	display: block;
+	position: relative;
+
+	&__input{
+		display: block;
+		width: 100%;
+		background: #F5F5F5;
+		border: none;
+		padding-left: 1.6rem;
+		height: 3.6rem;
+		padding-right: 5rem;
+
+		&::placeholder{
+			color: rgba($default, .5);
+		}
+	}
+
+	&__submit{
+		z-index: 5;
+
+		width: 5rem;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		border: none;
+		cursor: pointer;
+		background: transparent;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg{
+			transition: ease .2s;
+			stroke: $default;
+			width: 1.4rem;
+		}
+	
+
+		&:hover{
+			svg{
+				stroke: $green;
+			}
+		}
+		
+	}
+
+	@include max-screen($large_tablet) {
+		&__input{
+			border: 1px solid rgba(42, 45, 52, 0.15);
+			background: transparent;
+			padding-left: 3.7rem;
+			padding-right: 1.5rem;
+
+			&::placeholder{
+				color: rgba(42, 45, 52, 0.5);
+			}
+		}
+
+		&__submit{
+			width: 3.7rem;
+			right: auto;
+			left: 0;
+
+			svg{
+				stroke: #949699!important;
+			}
+		}
+	}
+}
