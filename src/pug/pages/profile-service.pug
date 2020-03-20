@@ -1,0 +1,312 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Профиль(Мои услуги)';
+	- body.classList = "is-have-mobile-nav";
+
+block header
+	+header(true)
+
+block content
+
+	include ../layouts/mobile-filters
+
+	+b.NAV.fluid._mobile
+		+e.wrap.wrap
+			+e.row
+				+e.cell._fluid
+					+e.box-button.btn__._red._big.p.A(href='#')
+						+e.text Подробнее
+				+e.cell._static
+					+e.A.link.link.p(href='#') Написать исполнителю
+	+b.SECTION.profile
+		+e.wrap.wrap
+			+e.row.flex._justify
+				+e.cell._left
+					+e.notification.notification__._sucsess._tablet
+						+e.left.p.color-gray
+							strong Хотите стать исполнителем?
+							br
+							| Добавьте услугу и найдите первых заказчиков уже сегодня
+						+e.right
+							+e.A.btn.btn._light(href="#") Стать исполнителем
+						+e.close
+							+icon('close')
+					+e.box
+						+e.box-avatar.avatar__._noscope
+							+e.inner
+								+e.IMG.image.object-fit(src="/img/avatar.jpg")
+							+e.online-icon
+						+e.box-name.h5._small
+							| Ivanivanov
+						+e.edit-status.edit-status__
+							+e.text.color-gray-light
+								| Сделай полноценное описание чтобы понимать сколько будет стоить эт вот
+						+e.box-rating.flex._vertical._center
+							+e.box-rating-text.p.b 4.1
+							+e.box-stars.stars__.flex._vertical
+								+e.item._active
+									+icon('star')
+								+e.item._active
+									+icon('star')
+								+e.item._active
+									+icon('star')
+								+e.item._active
+									+icon('star')
+								+e.item
+									+icon('star')
+							+e.box-rating-count.color-gray-light
+								| (248 отзыва)
+						+e.box-button.border-button__._light.p.A(href='#')
+							+e.text Редактировать профиль
+					+e.info
+						+e.info-text.p
+							| На сайте с 1 ноября 2019
+						+e.info-text.p
+							| Россия
+						+e.info-text
+							.p Не брать заказы
+							+e.LABEL.info-switcher.switcher__
+								+e.INPUT.input.js-virtual-input.js-send-input(name="online" type="checkbox" value="true")
+								+e.SPAN.text 
+									|  
+									span.hide-mobile 
+					+e.statistics
+						+e.info-section
+							+e.statistics-title
+								strong Исполнитель
+							+e.statistics-row.p
+								+e.statistics-label
+									| Выполнено проектов
+								+e.statistics-count
+									| 12
+							+e.statistics-row.p
+								+e.statistics-label
+									| Отзывы
+								+e.statistics-count
+									| 6
+						+e.info-section
+							+e.statistics-title
+								strong Заказчик
+							+e.statistics-row.p
+								+e.statistics-label
+									| Выполнено проектов
+								+e.statistics-count
+									| 293
+							+e.statistics-row.p
+								+e.statistics-label
+									| Отзывы
+								+e.statistics-count
+									| 171
+					+e.details
+						+e.info-section
+							+e.details-title.h5._small
+								| Обо мне
+							+e.details-desc.p.color-gray
+								| Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute. Id reprehenderit id labore amet ullamco minim enim. Culpa est nostrud proident fugiat. Veniam velit adipisicing mollit velit nulla in minim sint excepteur consequat deserunt et aliquip sint.
+						+e.info-section
+							+e.details-title.h5._small
+								| Соц. сети
+							+e.social.social-vertical__
+								+e.A.item(href="#")
+									+e.icon
+										img(src="app/img/fb-btn.svg")
+									+e.text
+										| Facebook
+								+e.A.item(href="#")
+									+e.icon
+										img(src="app/img/vk-btn.svg")
+									+e.text
+										| Вконтакте
+								+e.A.item(href="#")
+									+e.icon
+										img(src="app/img/ins-btn.svg")
+									+e.text
+										| Instagram
+								+e.A.item(href="#")
+									+e.icon
+										img(src="app/img/od-btn.svg")
+									+e.text
+										| Одноклассники
+						+e.info-section
+							+e.details-title.h5._small
+								| Языки
+							+e.details-text.p
+								| Русский 
+								span.color-gray-light (Родной)
+							+e.details-text.p
+								| Английский 
+								span.color-gray-light (Разговорный)
+				+e.cell._right
+					+e.block
+						+e.block-head.flex_vertical
+							+e.H2.block-title.h2
+								| Мои услуги
+							+e.A.block-btn.btn._light(href="#") Добавить услугу
+						+e.block-text.p.color-gray-light
+							| Нет ни одной услуги
+					+e.block
+						+e.H2.block-title.h2
+							| Последние заказы
+						+e.block-line
+						+e.block-text.p.color-gray-light
+							| Тут будут отображаться ваши последние заказы
+					+e.block
+						+b.reviews
+							+e.top._filter.flex._justify
+								+e.title.h2 Отзывы
+								+e.top-list.flex
+									+e.top-item.p.is-active Все
+									+e.top-item.p Положительные
+									+e.top-item.p Отрицательные
+								+e.select.slct__
+									select(name='user')
+										option От исполнителей
+										option От заказчика
+							+e.list
+								+e.item._positive
+									+e.cell._static
+										+e.avatar.avatar__._noscope._online
+											+e.inner
+												+e.IMG.image.object-fit(src="/img/avatar2.jpg")
+									+e.cell._fluid
+										+e.head.flex._vertical
+											+e.name.p.b Ivanivanov
+											+e.date.p 11.02.2019
+											+e.stars.stars__.flex._vertical
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item
+													+icon('star')
+										+e.text.content
+											p
+												| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation incididunt ut aute ipsum anim fugiat aute.
+										+e.answers
+											+e.item._answer
+												+e.cell._static
+													+e.avatar.avatar__._noscope._online
+														+e.inner
+															+e.IMG.image.object-fit(src="/img/avatar.jpg")
+												+e.cell._fluid
+													+e.head.flex._vertical
+														+e.name.p.b Ivanivanov
+														+e.date.p 11.02.2019
+													+e.text.content
+														p
+															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
+								+e.item._negative
+									+e.cell._static
+										+e.avatar.avatar__._noscope._online
+											+e.inner
+												+e.IMG.image.object-fit(src="/img/avatar2.jpg")
+									+e.cell._fluid
+										+e.head.flex._vertical
+											+e.name.p.b Ivanivanov
+											+e.date.p 11.02.2019
+											+e.stars.stars__.flex._vertical
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item
+													+icon('star')
+										+e.text.content
+											p
+												| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation incididunt ut aute ipsum anim fugiat aute.
+										+e.answers
+											+e.item._answer
+												+e.cell._static
+													+e.avatar.avatar__._noscope._online
+														+e.inner
+															+e.IMG.image.object-fit(src="/img/avatar.jpg")
+												+e.cell._fluid
+													+e.head.flex._vertical
+														+e.name.p.b Ivanivanov
+														+e.date.p 11.02.2019
+													+e.text.content
+														p
+															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
+								+e.item._positive
+									+e.cell._static
+										+e.avatar.avatar__._noscope._online
+											+e.inner
+												+e.IMG.image.object-fit(src="/img/avatar2.jpg")
+									+e.cell._fluid
+										+e.head.flex._vertical
+											+e.name.p.b Ivanivanov
+											+e.date.p 11.02.2019
+											+e.stars.stars__.flex._vertical
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item
+													+icon('star')
+										+e.text.content
+											p
+												| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation incididunt ut aute ipsum anim fugiat aute.
+										+e.answers
+											+e.item._answer
+												+e.cell._static
+													+e.avatar.avatar__._noscope._online
+														+e.inner
+															+e.IMG.image.object-fit(src="/img/avatar.jpg")
+												+e.cell._fluid
+													+e.head.flex._vertical
+														+e.name.p.b Ivanivanov
+														+e.date.p 11.02.2019
+													+e.text.content
+														p
+															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
+								+e.item._negative
+									+e.cell._static
+										+e.avatar.avatar__._noscope._online
+											+e.inner
+												+e.IMG.image.object-fit(src="/img/avatar2.jpg")
+									+e.cell._fluid
+										+e.head.flex._vertical
+											+e.name.p.b Ivanivanov
+											+e.date.p 11.02.2019
+											+e.stars.stars__.flex._vertical
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item._active
+													+icon('star')
+												+e.item
+													+icon('star')
+										+e.text.content
+											p
+												| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation incididunt ut aute ipsum anim fugiat aute.
+										+e.answers
+											+e.item._answer
+												+e.cell._static
+													+e.avatar.avatar__._noscope._online
+														+e.inner
+															+e.IMG.image.object-fit(src="/img/avatar.jpg")
+												+e.cell._fluid
+													+e.head.flex._vertical
+														+e.name.p.b Ivanivanov
+														+e.date.p 11.02.2019
+													+e.text.content
+														p
+															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
+							+e.button.border-button__._light.p.A(href='#')
+								+e.text Показать еще

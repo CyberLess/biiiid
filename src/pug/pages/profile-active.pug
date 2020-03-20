@@ -1,0 +1,95 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Профиль(Пустой профиль пользователя, который стал исполнитлем)';
+	- body.classList = "is-have-mobile-nav";
+
+block header
+	+header(true)
+
+block content
+
+	include ../layouts/mobile-filters
+
+	+b.NAV.fluid._mobile
+		+e.wrap.wrap
+			+e.row
+				+e.cell._fluid
+					+e.box-button.btn__._red._big.p.A(href='#')
+						+e.text Подробнее
+				+e.cell._static
+					+e.A.link.link.p(href='#') Написать исполнителю
+	+b.SECTION.profile
+		+e.wrap.wrap
+			+e.row.flex._justify
+				+e.cell._left
+					+e.box
+						+e.box-avatar.avatar__._noscope
+							+e.inner
+								+e.IMG.image.object-fit(src="/img/avatar.jpg")
+							+e.online-icon
+						+e.box-name.h5._small
+							| Ivanivanov
+						+e.edit-status.edit-status__
+							+e.INPUT.input(type="text",value="Изменить статус") Изменить статус
+						+e.box-button.border-button__._light.p.A(href='#')
+							+e.text Редактировать профиль
+					+e.info
+						+e.info-text.p
+							| На сайте с 1 ноября 2019
+						+e.info-text.p
+							| Россия
+					+e.statistics
+						+e.info-section
+							+e.statistics-title
+								strong Исполнитель
+							+e.statistics-row.p
+								+e.statistics-label
+									| Выполнено проектов
+								+e.statistics-count
+									| 0
+							+e.statistics-row.p
+								+e.statistics-label
+									| Отзывы
+								+e.statistics-count
+									| 0
+					+e.details
+						+e.info-section
+							+e.details-title.h5._small
+								| Обо мне
+							+e.details-text.p.color-gray-light
+								| Расскажите о себе
+						+e.info-section
+							+e.details-title.h5._small
+								| Соц. сети
+							+e.details-text.p.color-gray-light
+								| Привяжите соц. сети
+						+e.info-section
+							+e.details-title.h5._small
+								| Языки
+							+e.details-text.p
+								| Русский 
+								span.color-gray-light (Родной)
+							+e.details-text.p
+								| Английский 
+								span.color-gray-light (Разговорный)
+				+e.cell._right
+					+e.block
+						+e.block-head.flex_vertical
+							+e.H2.block-title.h2
+								| Мои услуги
+							+e.A.block-btn.btn._light(href="#") Добавить услугу
+						+e.block-text.p.color-gray-light
+						| Нет ни одной услуги
+					+e.block
+						+e.H2.block-title.h2
+							| Последние заказы
+						+e.block-line
+						+e.block-text.p.color-gray-light
+							| Тут будут отображаться ваши последние заказы
+					+e.block
+						+e.H2.block-title.h2
+							| Отзывы
+						+e.block-line
+						+e.block-text.p.color-gray-light
+							| У вас пока нет ни одного отзыва

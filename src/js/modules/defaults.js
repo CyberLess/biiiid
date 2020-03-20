@@ -12,7 +12,7 @@ var defaults = {
 
 			$this.toggleClass('is-active')
 
-		})
+		});
 
 		$(document).on('click', '.categories__list-item', e => {
 
@@ -32,7 +32,7 @@ var defaults = {
 				.removeClass('is-active')
 				.eq(index)
 				.addClass('is-active')
-		})
+		});
 
 		$(document).on("mouseup", function(e) {
 		    var container = $(".categories, .js-toggle-categories");
@@ -47,6 +47,13 @@ var defaults = {
 
 		    }
 		});
+		
+		$(".edit-status__input").focus(function(){
+			
+			$(this).select();
+			
+		});
+		
 	},
 
 

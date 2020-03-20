@@ -113,6 +113,23 @@
 			}
 		}
 	}
+	
+	&__button {
+		max-width: 17.5rem;
+		margin: 4rem auto 0 auto;
+	}
+	
+	&__select {
+		width: 20rem;
+		margin-top: -1rem;
+		.selectric .label {
+			font-size: 1.4rem;
+			font-weight: normal;
+		}
+		.selectric-items li {
+			font-size: 1.4rem;
+		}
+	}
 
 
 	@include max-screen($small_tablet) {
@@ -167,6 +184,12 @@
 				padding-right: 0;
 			}
 		}
+		&__select {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: 0;
+		}
 		&__top{
 			overflow: hidden;
 
@@ -183,6 +206,27 @@
 				margin-right: 3rem !important;
 				flex: 0 0 auto;
 			}
-		}	
+			
+			&_filter {
+				position: relative;
+				padding-bottom: 5.6rem;
+				border-bottom: 0;
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					left: 0;
+					bottom: 5.6rem;
+					width: 100%;
+					height: 1px;
+					background: rgba($default, .15);
+				}
+			}
+		}
+		&__button {
+			margin-top: 2rem;
+			max-width: none;
+			width: 100%;
+		}
 	}
 }

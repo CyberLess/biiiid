@@ -43,3 +43,19 @@
 		}
 	}
 }
+
+.social-vertical {
+	&__item {
+		display: flex;
+		align-items: center;
+		&:not(:last-child) {
+			margin-bottom: 1.3rem;
+		}
+	}
+	&__icon {
+		width: 2rem;
+		min-width: 2rem;
+		height: 2rem;
+		margin-right: 1rem;
+	}
+}

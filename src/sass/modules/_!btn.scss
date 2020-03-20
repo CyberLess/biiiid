@@ -29,6 +29,12 @@
 	&_big{
 		height: 5rem;
 	}
+	
+	&_light {
+		font-size: 1.4rem;
+		font-weight: normal;
+		padding: 0 2.5rem;
+	}
 
 	@include max-screen($large_mobile) {
 		min-height: 4rem;
