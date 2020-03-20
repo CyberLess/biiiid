@@ -1,36 +1,23 @@
 .edit-status{
 	position: relative;
 	
-	&__btn, &__input {
+	&__input {
+		display: none;
 		width: 100%;
 		height: 3.3rem;
 		padding-bottom: .2rem;
-		font-size: 1.6rem;
-		line-height: 2.6rem;
-		text-align: center;
-	}
-	
-	&__btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		border: 0;
 		font-family: 'Roboto';
-		color: rgba(42, 45, 52, .5);
-		cursor: pointer;
-		transition-duration: .2s;
-		background: none;
-		
-		&:hover {
-			background: #F5F5F5;
-		}
-	}
-	
-	&__input {
-		color: rgba(42, 45, 52, .5);
+		font-size: 1.6rem;
+		line-height: 1.9rem;
+		text-align: center;
+		color: rgba($default, .5);
 		transition-duration: .2s;
 		background: none;
 		border: 0;
+		resize: none;
+		overflow: hidden;
+		border: 1px solid transparent;
+		text-decoration: underline;
 		&:hover {
 			background: #F5F5F5;
 			cursor: pointer;
@@ -39,16 +26,31 @@
 			border: 1px solid rgba(42, 45, 52, .15);
 			background: none;
 			cursor: text;
+			text-decoration: none;
+			@include placeholder() {
+				color: rgba($default, .5);
+				text-decoration: none;
+			}
+		}
+		
+		@include placeholder() {
+			color: rgba($default, .5);
+			text-decoration: underline;
 		}
 	}
 	
 	&__text {
 		line-height: 2.6rem;
-		margin-top: .8rem;
+		transition-duration: .2s;
+		padding: .3rem 0 .4rem 0;
+		&:hover {
+			background: #F5F5F5;
+			cursor: pointer;
+		}
 	}
 	
-	&.is-active {
-		.edit-status__btn {
+	&.is-edit {
+		.edit-status__text {
 			display: none;
 		}
 		.edit-status__input {

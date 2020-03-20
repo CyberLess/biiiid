@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Профиль(не нажал стать исполнителем, но уже заказывал как заказчик)</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1584698390657">
+    <link rel="stylesheet" href="/app/css/app.css?v=1584714673811">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1829,16 +1829,6 @@
             </div>
         </div>
     </form>
-    <nav class="fluid fluid_mobile">
-        <div class="fluid__wrap wrap">
-            <div class="fluid__row">
-                <div class="fluid__cell fluid__cell_fluid"><a class="fluid__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Подробнее</span></a>
-                </div>
-                <div class="fluid__cell fluid__cell_static"><a class="fluid__link link p" href="#">Написать исполнителю</a>
-                </div>
-            </div>
-        </div>
-    </nav>
     <section class="profile">
         <div class="profile__wrap wrap">
             <div class="profile__row flex flex_justify">
@@ -1866,7 +1856,8 @@
                         </div>
                         <div class="profile__box-name h5 h5_small">Ivanivanov</div>
                         <div class="profile__edit-status edit-status">
-                            <div class="edit-status__text color-gray-light">Сделай полноценное описание чтобы понимать сколько будет стоить эт вот</div>
+                            <input class="edit-status__input js-edit-status" type="text" placeholder="Изменить статус" maxlength="80" />
+                            <div class="edit-status__text color-gray-light js-edit-text">Сделай полноценное описание чтобы понимать сколько будет стоить эт вот</div>
                         </div>
                         <div class="profile__box-rating flex flex_vertical flex_center">
                             <div class="profile__box-rating-text p b">4.1</div>
@@ -2347,7 +2338,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1584698390776"></script>
+    <script src="/app/js/app.js?v=1584714673906"></script>
 </body>
 
 </html>

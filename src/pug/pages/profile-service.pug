@@ -11,14 +11,6 @@ block content
 
 	include ../layouts/mobile-filters
 
-	+b.NAV.fluid._mobile
-		+e.wrap.wrap
-			+e.row
-				+e.cell._fluid
-					+e.box-button.btn__._red._big.p.A(href='#')
-						+e.text Подробнее
-				+e.cell._static
-					+e.A.link.link.p(href='#') Написать исполнителю
 	+b.SECTION.profile
 		+e.wrap.wrap
 			+e.row.flex._justify
@@ -40,7 +32,8 @@ block content
 						+e.box-name.h5._small
 							| Ivanivanov
 						+e.edit-status.edit-status__
-							+e.text.color-gray-light
+							+e.INPUT.input.js-edit-status(type="text",placeholder="Изменить статус",maxlength="80") Изменить статус
+							+e.text.js-edit-text.color-gray-light
 								| Сделай полноценное описание чтобы понимать сколько будет стоить эт вот
 						+e.box-rating.flex._vertical._center
 							+e.box-rating-text.p.b 4.1
@@ -180,8 +173,6 @@ block content
 										| Сделай полноценное описание чтобы понимать сколько
 									+e.bottom.flex._justify._vertical
 										+e.price.h6 от 4000 ₽
-										+e.like.like
-											+icon('like')
 							+e.item
 								+e.preview
 									img(src="/img/service_full.jpg")
@@ -207,8 +198,6 @@ block content
 										| Сделай полноценное описание чтобы понимать сколько
 									+e.bottom.flex._justify._vertical
 										+e.price.h6 от 4000 ₽
-										+e.like.like
-											+icon('like')
 							+e.item
 								+e.preview
 									img(src="/img/service_full.jpg")
@@ -234,8 +223,6 @@ block content
 										| Сделай полноценное описание чтобы понимать сколько
 									+e.bottom.flex._justify._vertical
 										+e.price.h6 от 4000 ₽
-										+e.like.like
-											+icon('like')
 							+e.item
 								+e.preview
 									img(src="/img/service_full.jpg")
@@ -252,8 +239,6 @@ block content
 										| Сделай полноценное описание чтобы понимать сколько
 									+e.bottom.flex._justify._vertical
 										+e.price.h6 от 4000 ₽
-										+e.like.like
-											+icon('like')
 					+e.block
 						+e.H2.block-title.h2
 							| Последние заказы

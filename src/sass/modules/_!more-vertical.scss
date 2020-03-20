@@ -5,7 +5,7 @@
 	stroke-width: 2;
 	stroke: $default;
 	transition-duration: .2s;
-	&:hover, &:active {
+	&.is-active {
 		stroke: $green;
 	}
 }

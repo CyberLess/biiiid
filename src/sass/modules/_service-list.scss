@@ -8,14 +8,7 @@
 		padding: 1.3rem 1.3rem 0 1.3rem;
 		border: 1px solid rgba($default, .3);
 		transition-duration: .2s;
-		&:hover {
-			border-color: $default;
-			.service-list{
-				&__like{
-					opacity: 1;
-					visibility: visible;
-				}
-			}
+		&.is-active {
 			.service-list__panel {
 				opacity: 1;
 				visibility: visible;
@@ -134,6 +127,26 @@
 		right: 0;
 		opacity: 0;
 		visibility: hidden;
+	}
+}
+
+@media (min-width: 1025px) {
+	.service-list {
+		&__item {
+			&:hover {
+				border-color: $default;
+				.service-list{
+					&__like{
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+				.service-list__panel {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
 	}
 }
 

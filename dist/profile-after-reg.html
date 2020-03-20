@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Профиль(после регистрации со&nbsp;стороны пользователя)</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1584698388455">
+    <link rel="stylesheet" href="/app/css/app.css?v=1584714672638">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1829,16 +1829,6 @@
             </div>
         </div>
     </form>
-    <nav class="fluid fluid_mobile">
-        <div class="fluid__wrap wrap">
-            <div class="fluid__row">
-                <div class="fluid__cell fluid__cell_fluid"><a class="fluid__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Подробнее</span></a>
-                </div>
-                <div class="fluid__cell fluid__cell_static"><a class="fluid__link link p" href="#">Написать исполнителю</a>
-                </div>
-            </div>
-        </div>
-    </nav>
     <section class="profile">
         <div class="profile__wrap wrap">
             <div class="profile__row flex flex_justify">
@@ -1865,8 +1855,9 @@
                             <div class="avatar__online-icon"></div>
                         </div>
                         <div class="profile__box-name h5 h5_small">Ivanivanov</div>
-                        <div class="profile__edit-status edit-status">
-                            <input class="edit-status__input" type="text" value="Изменить статус" />
+                        <div class="profile__edit-status edit-status is-edit">
+                            <input class="edit-status__input js-edit-status" type="text" placeholder="Изменить статус" maxlength="80" />
+                            <div class="edit-status__text js-edit-text color-gray-light"></div>
                         </div><a class="profile__box-button border-button border-button_light p" href="#"><span class="border-button__text">Редактировать профиль</span></a>
                     </div>
                     <div class="profile__info">
@@ -2008,7 +1999,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1584698388496"></script>
+    <script src="/app/js/app.js?v=1584714672694"></script>
 </body>
 
 </html>

@@ -11,14 +11,6 @@ block content
 
 	include ../layouts/mobile-filters
 
-	+b.NAV.fluid._mobile
-		+e.wrap.wrap
-			+e.row
-				+e.cell._fluid
-					+e.box-button.btn__._red._big.p.A(href='#')
-						+e.text Подробнее
-				+e.cell._static
-					+e.A.link.link.p(href='#') Написать исполнителю
 	+b.SECTION.profile
 		+e.wrap.wrap
 			+e.row.flex._justify
@@ -39,8 +31,9 @@ block content
 							+e.online-icon
 						+e.box-name.h5._small
 							| Ivanivanov
-						+e.edit-status.edit-status__
-							+e.INPUT.input(type="text",value="Изменить статус") Изменить статус
+						+e.edit-status.edit-status__.is-edit
+							+e.INPUT.input.js-edit-status(type="text",placeholder="Изменить статус",maxlength="80") Изменить статус
+							+e.text.js-edit-text.color-gray-light
 						+e.box-button.border-button__._light.p.A(href='#')
 							+e.text Редактировать профиль
 					+e.info

@@ -48,13 +48,47 @@ var defaults = {
 		    }
 		});
 		
-		$(".edit-status__input").focus(function(){
+		let editInput = $('.js-edit-status'),
+			editText = $('.js-edit-text');
+		
+		editInput.each(function(){
+			let placeholder = $(this).attr('placeholder');
 			
-			$(this).select();
+			$(this).focus(function(){ 
+				$(this).attr('placeholder', '');
+				$(this).val( editText.text() );
+			});
+			$(this).blur(function(){             
+				$(this).val('').attr('placeholder', placeholder);
+				$(this).parent().removeClass('is-edit');
+			});
+			
+			$(this).keyup(function(){
+				let thisVal = $(this).val();
+				
+				editText.text( thisVal );
+			});
 			
 		});
 		
-		$(".more-vertical").click(function(){
+		editText.click(function(){
+			$(this).parent().addClass('is-edit');
+			editInput.select();
+		});
+		
+		$(".service-list__more-vertical").click(function(){
+			
+			if ( $(this).closest(".service-list__item").hasClass('is-active') ) {
+				
+			} else {
+				
+				$(".service-list__item, .service-list__more-vertical").removeClass('is-active');
+				
+			}
+			
+			$(this).toggleClass("is-active");
+			$(this).closest(".service-list__item").toggleClass('is-active');
+			
 			return false;
 		});
 		
