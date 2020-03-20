@@ -54,6 +54,10 @@ var defaults = {
 			
 		});
 		
+		$(".more-vertical").click(function(){
+			return false;
+		});
+		
 	},
 
 

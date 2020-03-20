@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <title>Поиск</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1584698394950">
+    <title>Профиль(после регистрации со&nbsp;стороны пользователя)</title>
+    <link rel="stylesheet" href="/app/css/app.css?v=1584698388455">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
 </head>
 
-<body>
+<body class="is-have-mobile-nav">
     <div class="tooltip">
         <div class="tooltip__item tprice js-reset-parent" id="price-tooltip">
             <div class="tprice__top">
@@ -1744,244 +1744,188 @@
             </div>
         </div>
     </div>
-    <section class="catalog">
-        <div class="catalog__wrap wrap">
-            <div class="filters flex flex_vertical">
-                <div class="filters__item p js-modal" data-modal="#filters">Фильтры</div>
-                <div class="filters__item p" data-tooltip="#price-tooltip">Цена</div>
-                <div class="filters__item p" data-tooltip="#time-tooltip">Сроки</div>
-                <div class="filters__item p" data-tooltip="#details-tooltip">Детали исполнителя</div>
-                <div class="filters__clear p strong js-reset-form">Очистить</div>
+    <form class="filter-modal" action="/">
+        <div class="filter-modal__panel filter-modal__panel_default">
+            <div class="filter-modal__part filter-modal__part_top">
+                <div class="filter-modal__close close js-close-filters">
+                    <svg class="icon icon-close" viewBox="0 0 18 18">
+                        <use xlink:href="/app/icons/sprite.svg#close"></use>
+                    </svg>
+                </div>
+                <div class="filter-modal__label p">Фильтры</div><a class="filter-modal__reset p link" href="#">Очистить</a>
             </div>
-            <div class="catalog__head">
-                <ul class="breadcrumbs flex flex_vertical">
-                    <li class="breadcrumbs__item"><a class="breadcrumbs__link small" href="#">Главная</a>
-                    </li>
-                    <li class="breadcrumbs__item"><a class="breadcrumbs__link small" href="#">Работа со&nbsp;звуком</a>
-                    </li>
-                </ul>
-                <div class="catalog__content content is-gray">
-                    <h2>Вы искали «Голос диктора для&nbsp;рекламы»</h2>
+            <div class="filter-modal__part filter-modal__part_middle content">
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label filter-modal__box-label_small p strong">Онлайн статус</div>
+                    <label class="filter-modal__switcher switcher">
+                        <input class="switcher__input js-virtual-input" name="online" type="checkbox" value="true" /><span class="switcher__text"> Только исполнители онлайн </span>
+                    </label>
                 </div>
-                <div class="catalog__mobile-filter btn p js-open-filters">
-                    <div class="btn__icon btn__icon_filter">
-                        <svg class="icon icon-filters" viewBox="0 0 24 24">
-                            <use xlink:href="/app/icons/sprite.svg#filters"></use>
-                        </svg>
-                    </div>
-                    <div class="btn__text">Фильтры</div>
-                </div>
-                <div class="catalog__sort catalog__sort_noscope flex flex_bottom flex_justify">
-                    <div class="catalog__sort-content content is-gray">
-                        <p>Найдено 345 вариантов в&nbsp;<a class="link" href="#" data-tooltip="#search-cats-tooltip">Дикторская озвучка</a>
-                        </p>
-                    </div>
-                    <div class="catalog__sort-cell flex flex_vertical">
-                        <div class="catalog__select select" data-tooltip="#sort-tooltip">
-                            <input class="select__input" type="hidden" name="sort" value="" />
-                            <div class="select__top p">Сортировать по:<span>Цене</span>
-                                <div class="select__arrow">
-                                    <svg class="icon icon-arw" viewBox="0 0 12 7">
-                                        <use xlink:href="/app/icons/sprite.svg#arw"></use>
-                                    </svg>
-                                </div>
-                            </div>
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label p strong">Сортировать</div>
+                    <div class="filter-modal__box-list">
+                        <div class="filter-modal__box-item">
+                            <label class="filter-modal__box-chose chose">
+                                <input class="chose__input js-virtual-input" name="sort" checked="" value="Цене" type="radio" /><span class="chose__text p">Цене</span>
+                            </label>
                         </div>
-                        <div>
-                            <label class="catalog__switcher switcher">
-                                <input class="switcher__input js-virtual-input" name="online" type="checkbox" value="true" /><span class="switcher__text"> Онлайн <span class="hide-mobile">статус</span></span>
+                        <div class="filter-modal__box-item">
+                            <label class="filter-modal__box-chose chose">
+                                <input class="chose__input js-virtual-input" name="sort" value="Рекомендованные" type="radio" /><span class="chose__text p">Рекомендованные</span>
+                            </label>
+                        </div>
+                        <div class="filter-modal__box-item">
+                            <label class="filter-modal__box-chose chose">
+                                <input class="chose__input js-virtual-input" name="sort" value="По рейтингу" type="radio" /><span class="chose__text p">По рейтингу</span>
                             </label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="case case_totop">
-                <div class="case__list is-loading flex" id="catalog-list">
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label p strong">Цена</div>
+                    <div class="filter-modal__range range">
+                        <div class="range__top flex flex_justify">
+                            <div class="range__min small">1000</div>
+                            <div class="range__max small">50 000</div>
                         </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
+                        <div class="range__line"></div>
+                        <div class="range__row inline flex flex_center">
+                            <div class="range__field">
+                                <input class="range__input range__input_center range__input_min js-number js-virtual-input" name="price_min" autocomplete="off" type="text" />
+                                <div class="range__placeholder">₽</div>
                             </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
+                            <div class="range__field">
+                                <input class="range__input range__input_center range__input_max js-number js-virtual-input" name="price_max" autocomplete="off" type="text" />
+                                <div class="range__placeholder">₽</div>
                             </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
                         </div>
                     </div>
                 </div>
-                <div class="case__nav flex flex_justify flex_vertical"><a class="case__button btn p" href="#">Показать еще</a>
-                    <div class="case__pagination pagination flex flex_vertical">
-                        <div class="pagination__list flex"><a class="pagination__list-item p" href="#">1</a><a class="pagination__list-item p" href="#">2</a><a class="pagination__list-item is-active p" href="#">3</a><a class="pagination__list-item p" href="#">4</a>
-                        </div><a class="pagination__button border-button p" href="#">Вперед<span class="border-button__icon"><svg class="icon icon-arrow" viewBox="0 0 7 10"><use xlink:href="/app/icons/sprite.svg#arrow"></use></svg></span></a>
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label p strong">Фильтры</div>
+                    <div class="filter-modal__filter-list" id="mobile-filters"></div>
+                </div>
+            </div>
+            <div class="filter-modal__part filter-modal__part_bottom">
+                <button class="filter-modal__button btn btn_dark">
+                    <div class="btn__text">Сохранить</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-modal__panel filter-modal__panel_values filter-modal__panel_hidden menu-modal is-default">
+            <div class="menu-modal__vertical">
+                <div class="menu-modal__head p">
+                    <div class="menu-modal__back js-close-mobile-filter">
+                        <svg class="icon icon-back" viewBox="0 0 19 18">
+                            <use xlink:href="/app/icons/sprite.svg#back"></use>
+                        </svg>
+                    </div><span></span>
+                </div>
+                <div class="menu-modal__content">
+                    <div class="menu-modal__inner">
+                        <ul class="menu-modal__content-list menu-modal__content-list_noborder menu-modal__content-list_scope"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <nav class="fluid fluid_mobile">
+        <div class="fluid__wrap wrap">
+            <div class="fluid__row">
+                <div class="fluid__cell fluid__cell_fluid"><a class="fluid__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Подробнее</span></a>
+                </div>
+                <div class="fluid__cell fluid__cell_static"><a class="fluid__link link p" href="#">Написать исполнителю</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="profile">
+        <div class="profile__wrap wrap">
+            <div class="profile__row flex flex_justify">
+                <div class="profile__cell profile__cell_left">
+                    <div class="profile__notification notification notification_sucsess notification_tablet">
+                        <div class="notification__left p color-gray"><strong>Хотите стать исполнителем?</strong>
+                            <br>Добавьте услугу и&nbsp;найдите первых заказчиков уже сегодня</div>
+                        <div class="notification__right"><a class="notification__btn btn btn_light" href="#">Стать исполнителем</a>
+                        </div>
+                        <div class="notification__close">
+                            <svg class="icon icon-close" viewBox="0 0 18 18">
+                                <use xlink:href="/app/icons/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="profile__box">
+                        <div class="profile__box-avatar avatar avatar_noscope">
+                            <div class="avatar__inner">
+                                <picture>
+                                    <source type="image/webp" srcset="/app/img/avatar.webp">
+                                        <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                </picture>
+                            </div>
+                            <div class="avatar__online-icon"></div>
+                        </div>
+                        <div class="profile__box-name h5 h5_small">Ivanivanov</div>
+                        <div class="profile__edit-status edit-status">
+                            <input class="edit-status__input" type="text" value="Изменить статус" />
+                        </div><a class="profile__box-button border-button border-button_light p" href="#"><span class="border-button__text">Редактировать профиль</span></a>
+                    </div>
+                    <div class="profile__info">
+                        <div class="profile__info-text p">На сайте с&nbsp;1 ноября 2019</div>
+                        <div class="profile__info-text p">Россия</div>
+                    </div>
+                    <div class="profile__statistics">
+                        <div class="profile__info-section">
+                            <div class="profile__statistics-title"><strong>Исполнитель</strong>
+                            </div>
+                            <div class="profile__statistics-row p">
+                                <div class="profile__statistics-label">Выполнено проектов</div>
+                                <div class="profile__statistics-count">0</div>
+                            </div>
+                            <div class="profile__statistics-row p">
+                                <div class="profile__statistics-label">Отзывы</div>
+                                <div class="profile__statistics-count">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__details">
+                        <div class="profile__info-section">
+                            <div class="profile__details-title h5 h5_small">Обо мне</div>
+                            <div class="profile__details-text p color-gray-light">Расскажите о&nbsp;себе</div>
+                        </div>
+                        <div class="profile__info-section">
+                            <div class="profile__details-title h5 h5_small">Соц. сети</div>
+                            <div class="profile__details-text p color-gray-light">Привяжите соц. сети</div>
+                        </div>
+                        <div class="profile__info-section">
+                            <div class="profile__details-title h5 h5_small">Языки</div>
+                            <div class="profile__details-text p">Русский <span class="color-gray-light">(Родной)</span>
+                            </div>
+                            <div class="profile__details-text p">Английский <span class="color-gray-light">(Разговорный)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile__cell profile__cell_right">
+                    <div class="profile__notification notification notification_sucsess notification_desktop">
+                        <div class="notification__left p color-gray"><strong>Хотите стать исполнителем?</strong>
+                            <br>Добавьте услугу и&nbsp;найдите первых заказчиков уже сегодня</div>
+                        <div class="notification__right"><a class="notification__btn btn btn_light" href="#">Стать исполнителем</a>
+                        </div>
+                        <div class="notification__close">
+                            <svg class="icon icon-close" viewBox="0 0 18 18">
+                                <use xlink:href="/app/icons/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="profile__block">
+                        <h2 class="profile__block-title h2">Последние заказы</h2>
+                        <div class="profile__block-line"></div>
+                        <div class="profile__block-text p color-gray-light">Тут будут отображаться ваши последние заказы</div>
+                    </div>
+                    <div class="profile__block">
+                        <h2 class="profile__block-title h2">Отзывы</h2>
+                        <div class="profile__block-line"></div>
+                        <div class="profile__block-text p color-gray-light">У вас пока нет ни одного отзыва</div>
                     </div>
                 </div>
             </div>
@@ -2064,7 +2008,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1584698394997"></script>
+    <script src="/app/js/app.js?v=1584698388496"></script>
 </body>
 
 </html>

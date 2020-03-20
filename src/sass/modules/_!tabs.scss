@@ -1,0 +1,59 @@
+.tabs{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba($default, .15);
+	&__item{
+		display: inline-flex;
+		align-items: flex-start;
+		padding-bottom: 2rem;
+		color: rgba(42, 45, 52, 0.5);
+		position: relative;
+		cursor: pointer;
+		font-size: 1.6rem;
+		line-height: (19/16)*1;
+		
+		&:not(:last-child) {
+			margin-right: 2.4rem;
+		}
+
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			bottom: -1px;
+			background-color: $green;
+			visibility: hidden;
+		}
+
+		&.is-active{
+			color: $default;
+
+			&:before{
+				visibility: visible;
+			}
+		}
+	}
+	&__dot {
+		width: 4px;
+		height: 4px;
+		border-radius: 100%;
+		background: $green;
+		margin-left: .2rem;
+		transform: translateY(-0.2rem);
+	}
+}
+
+@include max-screen($large_tablet) {
+	.tabs {
+		&__item {
+			font-size: 1.4rem;
+			padding-bottom: 1.6rem;
+			&:not(:last-child) {
+				margin-right: 1.5rem;
+			}
+		}
+	}
+}

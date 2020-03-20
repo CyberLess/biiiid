@@ -139,12 +139,121 @@ block content
 								span.color-gray-light (Разговорный)
 				+e.cell._right
 					+e.block
-						+e.block-head.flex_vertical
-							+e.H2.block-title.h2
-								| Мои услуги
-							+e.A.block-btn.btn._light(href="#") Добавить услугу
-						+e.block-text.p.color-gray-light
-							| Нет ни одной услуги
+						+e.block-head.flex._start._justify
+							+e.block-head-left.flex._vertical
+								+e.H2.block-title.h2
+									| Мои услуги
+								+e.A.block-btn.btn._light(href="#") Добавить услугу
+							+e.block-head-right
+								+e.tabs.tabs__
+									+e.A.item.is-active(href="#")
+										+e.text Активные
+									+e.A.item(href="#")
+										+e.text Черновики
+										+e.dot
+									+e.A.item(href="#")
+										+e.text Остановленные
+										+e.dot
+						+e.service-list.service-list__.flex
+							+e.item
+								+e.preview
+									img(src="/img/service_full.jpg")
+									+e.panel.flex_vertical
+										+e.panel-wrap
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('edit')
+												+e.panel-text Редактировать
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('play')
+												+e.panel-text Запустить
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('close')
+												+e.panel-text Удалить
+									+e.status Активная
+								+e.A.info(href="#")
+									+e.more-vertical.more-vertical
+										+icon('moreVertical')
+									+e.desc
+										| Сделай полноценное описание чтобы понимать сколько
+									+e.bottom.flex._justify._vertical
+										+e.price.h6 от 4000 ₽
+										+e.like.like
+											+icon('like')
+							+e.item
+								+e.preview
+									img(src="/img/service_full.jpg")
+									+e.panel.flex_vertical
+										+e.panel-wrap
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('edit')
+												+e.panel-text Редактировать
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('pause')
+												+e.panel-text Остановить
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('close')
+												+e.panel-text Удалить
+									+e.status Черновик
+								+e.A.info(href="#")
+									+e.more-vertical.more-vertical
+										+icon('moreVertical')
+									+e.desc
+										| Сделай полноценное описание чтобы понимать сколько
+									+e.bottom.flex._justify._vertical
+										+e.price.h6 от 4000 ₽
+										+e.like.like
+											+icon('like')
+							+e.item
+								+e.preview
+									img(src="/img/service_full.jpg")
+									+e.panel.flex_vertical
+										+e.panel-wrap
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('edit')
+												+e.panel-text Редактировать
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('play')
+												+e.panel-text Запустить
+											+e.A.panel-link(href="#")
+												+e.panel-icon
+													+icon('close')
+												+e.panel-text Удалить
+									+e.status Остановленные
+								+e.A.info(href="#")
+									+e.more-vertical.more-vertical
+										+icon('moreVertical')
+									+e.desc
+										| Сделай полноценное описание чтобы понимать сколько
+									+e.bottom.flex._justify._vertical
+										+e.price.h6 от 4000 ₽
+										+e.like.like
+											+icon('like')
+							+e.item
+								+e.preview
+									img(src="/img/service_full.jpg")
+									+e.panel.is-visible.flex_vertical._center
+										+e.moderation.flex_vertical
+											+e.moderation-icon
+												+icon('clock')
+											+e.moderation-text
+												| На модерации
+								+e.A.info(href="#")
+									+e.more-vertical.more-vertical
+										+icon('moreVertical')
+									+e.desc
+										| Сделай полноценное описание чтобы понимать сколько
+									+e.bottom.flex._justify._vertical
+										+e.price.h6 от 4000 ₽
+										+e.like.like
+											+icon('like')
 					+e.block
 						+e.H2.block-title.h2
 							| Последние заказы

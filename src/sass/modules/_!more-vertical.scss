@@ -1,0 +1,11 @@
+.more-vertical {
+	display: inline-flex;
+	width: 2.4rem;
+	height: 2.4rem;
+	stroke-width: 2;
+	stroke: $default;
+	transition-duration: .2s;
+	&:hover, &:active {
+		stroke: $green;
+	}
+}

@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <title>Поиск</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1584698394950">
+    <title>Профиль(Мои услуги)</title>
+    <link rel="stylesheet" href="/app/css/app.css?v=1584698392725">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
 </head>
 
-<body>
+<body class="is-have-mobile-nav">
     <div class="tooltip">
         <div class="tooltip__item tprice js-reset-parent" id="price-tooltip">
             <div class="tprice__top">
@@ -1744,244 +1744,615 @@
             </div>
         </div>
     </div>
-    <section class="catalog">
-        <div class="catalog__wrap wrap">
-            <div class="filters flex flex_vertical">
-                <div class="filters__item p js-modal" data-modal="#filters">Фильтры</div>
-                <div class="filters__item p" data-tooltip="#price-tooltip">Цена</div>
-                <div class="filters__item p" data-tooltip="#time-tooltip">Сроки</div>
-                <div class="filters__item p" data-tooltip="#details-tooltip">Детали исполнителя</div>
-                <div class="filters__clear p strong js-reset-form">Очистить</div>
+    <form class="filter-modal" action="/">
+        <div class="filter-modal__panel filter-modal__panel_default">
+            <div class="filter-modal__part filter-modal__part_top">
+                <div class="filter-modal__close close js-close-filters">
+                    <svg class="icon icon-close" viewBox="0 0 18 18">
+                        <use xlink:href="/app/icons/sprite.svg#close"></use>
+                    </svg>
+                </div>
+                <div class="filter-modal__label p">Фильтры</div><a class="filter-modal__reset p link" href="#">Очистить</a>
             </div>
-            <div class="catalog__head">
-                <ul class="breadcrumbs flex flex_vertical">
-                    <li class="breadcrumbs__item"><a class="breadcrumbs__link small" href="#">Главная</a>
-                    </li>
-                    <li class="breadcrumbs__item"><a class="breadcrumbs__link small" href="#">Работа со&nbsp;звуком</a>
-                    </li>
-                </ul>
-                <div class="catalog__content content is-gray">
-                    <h2>Вы искали «Голос диктора для&nbsp;рекламы»</h2>
+            <div class="filter-modal__part filter-modal__part_middle content">
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label filter-modal__box-label_small p strong">Онлайн статус</div>
+                    <label class="filter-modal__switcher switcher">
+                        <input class="switcher__input js-virtual-input" name="online" type="checkbox" value="true" /><span class="switcher__text"> Только исполнители онлайн </span>
+                    </label>
                 </div>
-                <div class="catalog__mobile-filter btn p js-open-filters">
-                    <div class="btn__icon btn__icon_filter">
-                        <svg class="icon icon-filters" viewBox="0 0 24 24">
-                            <use xlink:href="/app/icons/sprite.svg#filters"></use>
-                        </svg>
-                    </div>
-                    <div class="btn__text">Фильтры</div>
-                </div>
-                <div class="catalog__sort catalog__sort_noscope flex flex_bottom flex_justify">
-                    <div class="catalog__sort-content content is-gray">
-                        <p>Найдено 345 вариантов в&nbsp;<a class="link" href="#" data-tooltip="#search-cats-tooltip">Дикторская озвучка</a>
-                        </p>
-                    </div>
-                    <div class="catalog__sort-cell flex flex_vertical">
-                        <div class="catalog__select select" data-tooltip="#sort-tooltip">
-                            <input class="select__input" type="hidden" name="sort" value="" />
-                            <div class="select__top p">Сортировать по:<span>Цене</span>
-                                <div class="select__arrow">
-                                    <svg class="icon icon-arw" viewBox="0 0 12 7">
-                                        <use xlink:href="/app/icons/sprite.svg#arw"></use>
-                                    </svg>
-                                </div>
-                            </div>
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label p strong">Сортировать</div>
+                    <div class="filter-modal__box-list">
+                        <div class="filter-modal__box-item">
+                            <label class="filter-modal__box-chose chose">
+                                <input class="chose__input js-virtual-input" name="sort" checked="" value="Цене" type="radio" /><span class="chose__text p">Цене</span>
+                            </label>
                         </div>
-                        <div>
-                            <label class="catalog__switcher switcher">
-                                <input class="switcher__input js-virtual-input" name="online" type="checkbox" value="true" /><span class="switcher__text"> Онлайн <span class="hide-mobile">статус</span></span>
+                        <div class="filter-modal__box-item">
+                            <label class="filter-modal__box-chose chose">
+                                <input class="chose__input js-virtual-input" name="sort" value="Рекомендованные" type="radio" /><span class="chose__text p">Рекомендованные</span>
+                            </label>
+                        </div>
+                        <div class="filter-modal__box-item">
+                            <label class="filter-modal__box-chose chose">
+                                <input class="chose__input js-virtual-input" name="sort" value="По рейтингу" type="radio" /><span class="chose__text p">По рейтингу</span>
                             </label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="case case_totop">
-                <div class="case__list is-loading flex" id="catalog-list">
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label p strong">Цена</div>
+                    <div class="filter-modal__range range">
+                        <div class="range__top flex flex_justify">
+                            <div class="range__min small">1000</div>
+                            <div class="range__max small">50 000</div>
                         </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
+                        <div class="range__line"></div>
+                        <div class="range__row inline flex flex_center">
+                            <div class="range__field">
+                                <input class="range__input range__input_center range__input_min js-number js-virtual-input" name="price_min" autocomplete="off" type="text" />
+                                <div class="range__placeholder">₽</div>
                             </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
+                            <div class="range__field">
+                                <input class="range__input range__input_center range__input_max js-number js-virtual-input" name="price_max" autocomplete="off" type="text" />
+                                <div class="range__placeholder">₽</div>
                             </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
-                        </div>
-                    </div>
-                    <div class="case__item">
-                        <div class="case__preview"></div>
-                        <div class="case__top">
-                            <div class="case__top-cell case__top-cell_fluid">
-                                <div class="case__name nickname nickname_online small"></div>
-                            </div>
-                            <div class="case__top-cell case__top-cell_static">
-                                <div class="case__rating rating small"></div>
-                            </div>
-                        </div>
-                        <div class="case__content content"></div>
-                        <div class="case__bottom flex flex_justify flex_vertical">
-                            <div class="case__price h6"></div>
                         </div>
                     </div>
                 </div>
-                <div class="case__nav flex flex_justify flex_vertical"><a class="case__button btn p" href="#">Показать еще</a>
-                    <div class="case__pagination pagination flex flex_vertical">
-                        <div class="pagination__list flex"><a class="pagination__list-item p" href="#">1</a><a class="pagination__list-item p" href="#">2</a><a class="pagination__list-item is-active p" href="#">3</a><a class="pagination__list-item p" href="#">4</a>
-                        </div><a class="pagination__button border-button p" href="#">Вперед<span class="border-button__icon"><svg class="icon icon-arrow" viewBox="0 0 7 10"><use xlink:href="/app/icons/sprite.svg#arrow"></use></svg></span></a>
+                <div class="filter-modal__box">
+                    <div class="filter-modal__box-label p strong">Фильтры</div>
+                    <div class="filter-modal__filter-list" id="mobile-filters"></div>
+                </div>
+            </div>
+            <div class="filter-modal__part filter-modal__part_bottom">
+                <button class="filter-modal__button btn btn_dark">
+                    <div class="btn__text">Сохранить</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-modal__panel filter-modal__panel_values filter-modal__panel_hidden menu-modal is-default">
+            <div class="menu-modal__vertical">
+                <div class="menu-modal__head p">
+                    <div class="menu-modal__back js-close-mobile-filter">
+                        <svg class="icon icon-back" viewBox="0 0 19 18">
+                            <use xlink:href="/app/icons/sprite.svg#back"></use>
+                        </svg>
+                    </div><span></span>
+                </div>
+                <div class="menu-modal__content">
+                    <div class="menu-modal__inner">
+                        <ul class="menu-modal__content-list menu-modal__content-list_noborder menu-modal__content-list_scope"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <nav class="fluid fluid_mobile">
+        <div class="fluid__wrap wrap">
+            <div class="fluid__row">
+                <div class="fluid__cell fluid__cell_fluid"><a class="fluid__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Подробнее</span></a>
+                </div>
+                <div class="fluid__cell fluid__cell_static"><a class="fluid__link link p" href="#">Написать исполнителю</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="profile">
+        <div class="profile__wrap wrap">
+            <div class="profile__row flex flex_justify">
+                <div class="profile__cell profile__cell_left">
+                    <div class="profile__notification notification notification_sucsess notification_tablet">
+                        <div class="notification__left p color-gray"><strong>Хотите стать исполнителем?</strong>
+                            <br>Добавьте услугу и&nbsp;найдите первых заказчиков уже сегодня</div>
+                        <div class="notification__right"><a class="notification__btn btn btn_light" href="#">Стать исполнителем</a>
+                        </div>
+                        <div class="notification__close">
+                            <svg class="icon icon-close" viewBox="0 0 18 18">
+                                <use xlink:href="/app/icons/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="profile__box">
+                        <div class="profile__box-avatar avatar avatar_noscope">
+                            <div class="avatar__inner">
+                                <picture>
+                                    <source type="image/webp" srcset="/app/img/avatar.webp">
+                                        <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                </picture>
+                            </div>
+                            <div class="avatar__online-icon"></div>
+                        </div>
+                        <div class="profile__box-name h5 h5_small">Ivanivanov</div>
+                        <div class="profile__edit-status edit-status">
+                            <div class="edit-status__text color-gray-light">Сделай полноценное описание чтобы понимать сколько будет стоить эт вот</div>
+                        </div>
+                        <div class="profile__box-rating flex flex_vertical flex_center">
+                            <div class="profile__box-rating-text p b">4.1</div>
+                            <div class="profile__box-stars stars flex flex_vertical">
+                                <div class="stars__item stars__item_active">
+                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                    </svg>
+                                </div>
+                                <div class="stars__item stars__item_active">
+                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                    </svg>
+                                </div>
+                                <div class="stars__item stars__item_active">
+                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                    </svg>
+                                </div>
+                                <div class="stars__item stars__item_active">
+                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                    </svg>
+                                </div>
+                                <div class="stars__item">
+                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile__box-rating-count color-gray-light">(248 отзыва)</div>
+                        </div><a class="profile__box-button border-button border-button_light p" href="#"><span class="border-button__text">Редактировать профиль</span></a>
+                    </div>
+                    <div class="profile__info">
+                        <div class="profile__info-text p">На сайте с&nbsp;1 ноября 2019</div>
+                        <div class="profile__info-text p">Россия</div>
+                        <div class="profile__info-text">
+                            <div class="p">Не брать заказы</div>
+                            <label class="profile__info-switcher switcher">
+                                <input class="switcher__input js-virtual-input js-send-input" name="online" type="checkbox" value="true" /><span class="switcher__text">  <span class="hide-mobile"> </span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="profile__statistics">
+                        <div class="profile__info-section">
+                            <div class="profile__statistics-title"><strong>Исполнитель</strong>
+                            </div>
+                            <div class="profile__statistics-row p">
+                                <div class="profile__statistics-label">Выполнено проектов</div>
+                                <div class="profile__statistics-count">12</div>
+                            </div>
+                            <div class="profile__statistics-row p">
+                                <div class="profile__statistics-label">Отзывы</div>
+                                <div class="profile__statistics-count">6</div>
+                            </div>
+                        </div>
+                        <div class="profile__info-section">
+                            <div class="profile__statistics-title"><strong>Заказчик</strong>
+                            </div>
+                            <div class="profile__statistics-row p">
+                                <div class="profile__statistics-label">Выполнено проектов</div>
+                                <div class="profile__statistics-count">293</div>
+                            </div>
+                            <div class="profile__statistics-row p">
+                                <div class="profile__statistics-label">Отзывы</div>
+                                <div class="profile__statistics-count">171</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__details">
+                        <div class="profile__info-section">
+                            <div class="profile__details-title h5 h5_small">Обо мне</div>
+                            <div class="profile__details-desc p color-gray">Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute. Id reprehenderit id labore amet ullamco minim enim. Culpa est nostrud proident fugiat. Veniam velit
+                                adipisicing mollit velit nulla in minim sint excepteur consequat deserunt et aliquip sint.</div>
+                        </div>
+                        <div class="profile__info-section">
+                            <div class="profile__details-title h5 h5_small">Соц. сети</div>
+                            <div class="profile__social social-vertical"><a class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/fb-btn.svg"></span><span class="social-vertical__text">Facebook</span></a><a class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/vk-btn.svg"></span><span class="social-vertical__text">Вконтакте</span></a>
+                                <a
+                                class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/ins-btn.svg"></span><span class="social-vertical__text">Instagram</span>
+                                    </a><a class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/od-btn.svg"></span><span class="social-vertical__text">Одноклассники</span></a>
+                            </div>
+                        </div>
+                        <div class="profile__info-section">
+                            <div class="profile__details-title h5 h5_small">Языки</div>
+                            <div class="profile__details-text p">Русский <span class="color-gray-light">(Родной)</span>
+                            </div>
+                            <div class="profile__details-text p">Английский <span class="color-gray-light">(Разговорный)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile__cell profile__cell_right">
+                    <div class="profile__block">
+                        <div class="profile__block-head flex flex_start flex_justify">
+                            <div class="profile__block-head-left flex flex_vertical">
+                                <h2 class="profile__block-title h2">Мои услуги</h2><a class="profile__block-btn btn btn_light" href="#">Добавить услугу</a>
+                            </div>
+                            <div class="profile__block-head-right">
+                                <div class="profile__tabs tabs"><a class="tabs__item is-active" href="#"><span class="tabs__text">Активные</span></a><a class="tabs__item" href="#"><span class="tabs__text">Черновики</span><span class="tabs__dot"></span></a>
+                                    <a class="tabs__item" href="#"><span class="tabs__text">Остановленные</span><span class="tabs__dot"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile__service-list service-list flex">
+                            <div class="service-list__item">
+                                <div class="service-list__preview">
+                                    <picture>
+                                        <source type="image/webp" srcset="/app/img/service_full.webp">
+                                            <img src="/app/img/service_full.jpg" />
+                                    </picture>
+                                    <div class="service-list__panel flex flex_vertical">
+                                        <div class="service-list__panel-wrap"><a class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-edit" viewBox="0 0 12 12"><use xlink:href="/app/icons/sprite.svg#edit"></use></svg></span><span class="service-list__panel-text">Редактировать</span></a>
+                                            <a
+                                            class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-play" viewBox="0 0 9 12"><use xlink:href="/app/icons/sprite.svg#play"></use></svg></span><span class="service-list__panel-text">Запустить</span>
+                                                </a><a class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-close" viewBox="0 0 18 18"><use xlink:href="/app/icons/sprite.svg#close"></use></svg></span><span class="service-list__panel-text">Удалить</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="service-list__status">Активная</div>
+                                </div><a class="service-list__info" href="#"><span class="service-list__more-vertical more-vertical"><svg class="icon icon-moreVertical" viewBox="0 0 24 24"><use xlink:href="/app/icons/sprite.svg#moreVertical"></use></svg></span><span class="service-list__desc">Сделай полноценное описание чтобы понимать сколько</span><span class="service-list__bottom flex flex_justify flex_vertical"><span class="service-list__price h6">от&nbsp;4000 ₽</span><span class="service-list__like like"><svg class="icon icon-like" viewBox="0 0 18 16"><use xlink:href="/app/icons/sprite.svg#like"></use></svg></span></span></a>
+                            </div>
+                            <div class="service-list__item">
+                                <div class="service-list__preview">
+                                    <picture>
+                                        <source type="image/webp" srcset="/app/img/service_full.webp">
+                                            <img src="/app/img/service_full.jpg" />
+                                    </picture>
+                                    <div class="service-list__panel flex flex_vertical">
+                                        <div class="service-list__panel-wrap"><a class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-edit" viewBox="0 0 12 12"><use xlink:href="/app/icons/sprite.svg#edit"></use></svg></span><span class="service-list__panel-text">Редактировать</span></a>
+                                            <a
+                                            class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-pause" viewBox="0 0 10 12"><use xlink:href="/app/icons/sprite.svg#pause"></use></svg></span><span class="service-list__panel-text">Остановить</span>
+                                                </a><a class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-close" viewBox="0 0 18 18"><use xlink:href="/app/icons/sprite.svg#close"></use></svg></span><span class="service-list__panel-text">Удалить</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="service-list__status">Черновик</div>
+                                </div><a class="service-list__info" href="#"><span class="service-list__more-vertical more-vertical"><svg class="icon icon-moreVertical" viewBox="0 0 24 24"><use xlink:href="/app/icons/sprite.svg#moreVertical"></use></svg></span><span class="service-list__desc">Сделай полноценное описание чтобы понимать сколько</span><span class="service-list__bottom flex flex_justify flex_vertical"><span class="service-list__price h6">от&nbsp;4000 ₽</span><span class="service-list__like like"><svg class="icon icon-like" viewBox="0 0 18 16"><use xlink:href="/app/icons/sprite.svg#like"></use></svg></span></span></a>
+                            </div>
+                            <div class="service-list__item">
+                                <div class="service-list__preview">
+                                    <picture>
+                                        <source type="image/webp" srcset="/app/img/service_full.webp">
+                                            <img src="/app/img/service_full.jpg" />
+                                    </picture>
+                                    <div class="service-list__panel flex flex_vertical">
+                                        <div class="service-list__panel-wrap"><a class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-edit" viewBox="0 0 12 12"><use xlink:href="/app/icons/sprite.svg#edit"></use></svg></span><span class="service-list__panel-text">Редактировать</span></a>
+                                            <a
+                                            class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-play" viewBox="0 0 9 12"><use xlink:href="/app/icons/sprite.svg#play"></use></svg></span><span class="service-list__panel-text">Запустить</span>
+                                                </a><a class="service-list__panel-link" href="#"><span class="service-list__panel-icon"><svg class="icon icon-close" viewBox="0 0 18 18"><use xlink:href="/app/icons/sprite.svg#close"></use></svg></span><span class="service-list__panel-text">Удалить</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="service-list__status">Остановленные</div>
+                                </div><a class="service-list__info" href="#"><span class="service-list__more-vertical more-vertical"><svg class="icon icon-moreVertical" viewBox="0 0 24 24"><use xlink:href="/app/icons/sprite.svg#moreVertical"></use></svg></span><span class="service-list__desc">Сделай полноценное описание чтобы понимать сколько</span><span class="service-list__bottom flex flex_justify flex_vertical"><span class="service-list__price h6">от&nbsp;4000 ₽</span><span class="service-list__like like"><svg class="icon icon-like" viewBox="0 0 18 16"><use xlink:href="/app/icons/sprite.svg#like"></use></svg></span></span></a>
+                            </div>
+                            <div class="service-list__item">
+                                <div class="service-list__preview">
+                                    <picture>
+                                        <source type="image/webp" srcset="/app/img/service_full.webp">
+                                            <img src="/app/img/service_full.jpg" />
+                                    </picture>
+                                    <div class="service-list__panel is-visible flex flex_vertical flex_center">
+                                        <div class="service-list__moderation flex flex_vertical">
+                                            <div class="service-list__moderation-icon">
+                                                <svg class="icon icon-clock" viewBox="0 0 20 20">
+                                                    <use xlink:href="/app/icons/sprite.svg#clock"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="service-list__moderation-text">На модерации</div>
+                                        </div>
+                                    </div>
+                                </div><a class="service-list__info" href="#"><span class="service-list__more-vertical more-vertical"><svg class="icon icon-moreVertical" viewBox="0 0 24 24"><use xlink:href="/app/icons/sprite.svg#moreVertical"></use></svg></span><span class="service-list__desc">Сделай полноценное описание чтобы понимать сколько</span><span class="service-list__bottom flex flex_justify flex_vertical"><span class="service-list__price h6">от&nbsp;4000 ₽</span><span class="service-list__like like"><svg class="icon icon-like" viewBox="0 0 18 16"><use xlink:href="/app/icons/sprite.svg#like"></use></svg></span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__block">
+                        <h2 class="profile__block-title h2">Последние заказы</h2>
+                        <div class="profile__block-line"></div>
+                        <div class="profile__block-text p color-gray-light">Тут будут отображаться ваши последние заказы</div>
+                    </div>
+                    <div class="profile__block">
+                        <div class="reviews">
+                            <div class="reviews__top reviews__top_filter flex flex_justify">
+                                <div class="reviews__title h2">Отзывы</div>
+                                <div class="reviews__top-list flex">
+                                    <div class="reviews__top-item p is-active">Все</div>
+                                    <div class="reviews__top-item p">Положительные</div>
+                                    <div class="reviews__top-item p">Отрицательные</div>
+                                </div>
+                                <div class="reviews__select slct">
+                                    <select name="user">
+                                        <option>От исполнителей</option>
+                                        <option>От заказчика</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="reviews__list">
+                                <div class="reviews__item reviews__item_positive">
+                                    <div class="reviews__cell reviews__cell_static">
+                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                            <div class="avatar__inner">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
+                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews__cell reviews__cell_fluid">
+                                        <div class="reviews__head flex flex_vertical">
+                                            <div class="reviews__name p b">Ivanivanov</div>
+                                            <div class="reviews__date p">11.02.2019</div>
+                                            <div class="reviews__stars stars flex flex_vertical">
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews__text content">
+                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
+                                                incididunt ut aute ipsum anim fugiat aute.</p>
+                                        </div>
+                                        <div class="reviews__answers">
+                                            <div class="reviews__item reviews__item_answer">
+                                                <div class="reviews__cell reviews__cell_static">
+                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                                        <div class="avatar__inner">
+                                                            <picture>
+                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
+                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                            </picture>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews__cell reviews__cell_fluid">
+                                                    <div class="reviews__head flex flex_vertical">
+                                                        <div class="reviews__name p b">Ivanivanov</div>
+                                                        <div class="reviews__date p">11.02.2019</div>
+                                                    </div>
+                                                    <div class="reviews__text content">
+                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reviews__item reviews__item_negative">
+                                    <div class="reviews__cell reviews__cell_static">
+                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                            <div class="avatar__inner">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
+                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews__cell reviews__cell_fluid">
+                                        <div class="reviews__head flex flex_vertical">
+                                            <div class="reviews__name p b">Ivanivanov</div>
+                                            <div class="reviews__date p">11.02.2019</div>
+                                            <div class="reviews__stars stars flex flex_vertical">
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews__text content">
+                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
+                                                incididunt ut aute ipsum anim fugiat aute.</p>
+                                        </div>
+                                        <div class="reviews__answers">
+                                            <div class="reviews__item reviews__item_answer">
+                                                <div class="reviews__cell reviews__cell_static">
+                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                                        <div class="avatar__inner">
+                                                            <picture>
+                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
+                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                            </picture>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews__cell reviews__cell_fluid">
+                                                    <div class="reviews__head flex flex_vertical">
+                                                        <div class="reviews__name p b">Ivanivanov</div>
+                                                        <div class="reviews__date p">11.02.2019</div>
+                                                    </div>
+                                                    <div class="reviews__text content">
+                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reviews__item reviews__item_positive">
+                                    <div class="reviews__cell reviews__cell_static">
+                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                            <div class="avatar__inner">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
+                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews__cell reviews__cell_fluid">
+                                        <div class="reviews__head flex flex_vertical">
+                                            <div class="reviews__name p b">Ivanivanov</div>
+                                            <div class="reviews__date p">11.02.2019</div>
+                                            <div class="reviews__stars stars flex flex_vertical">
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews__text content">
+                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
+                                                incididunt ut aute ipsum anim fugiat aute.</p>
+                                        </div>
+                                        <div class="reviews__answers">
+                                            <div class="reviews__item reviews__item_answer">
+                                                <div class="reviews__cell reviews__cell_static">
+                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                                        <div class="avatar__inner">
+                                                            <picture>
+                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
+                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                            </picture>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews__cell reviews__cell_fluid">
+                                                    <div class="reviews__head flex flex_vertical">
+                                                        <div class="reviews__name p b">Ivanivanov</div>
+                                                        <div class="reviews__date p">11.02.2019</div>
+                                                    </div>
+                                                    <div class="reviews__text content">
+                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reviews__item reviews__item_negative">
+                                    <div class="reviews__cell reviews__cell_static">
+                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                            <div class="avatar__inner">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
+                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews__cell reviews__cell_fluid">
+                                        <div class="reviews__head flex flex_vertical">
+                                            <div class="reviews__name p b">Ivanivanov</div>
+                                            <div class="reviews__date p">11.02.2019</div>
+                                            <div class="reviews__stars stars flex flex_vertical">
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item stars__item_active">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="stars__item">
+                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
+                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews__text content">
+                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
+                                                incididunt ut aute ipsum anim fugiat aute.</p>
+                                        </div>
+                                        <div class="reviews__answers">
+                                            <div class="reviews__item reviews__item_answer">
+                                                <div class="reviews__cell reviews__cell_static">
+                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
+                                                        <div class="avatar__inner">
+                                                            <picture>
+                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
+                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
+                                                            </picture>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews__cell reviews__cell_fluid">
+                                                    <div class="reviews__head flex flex_vertical">
+                                                        <div class="reviews__name p b">Ivanivanov</div>
+                                                        <div class="reviews__date p">11.02.2019</div>
+                                                    </div>
+                                                    <div class="reviews__text content">
+                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><a class="reviews__button border-button border-button_light p" href="#"><span class="border-button__text">Показать еще</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2064,7 +2435,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1584698394997"></script>
+    <script src="/app/js/app.js?v=1584698392859"></script>
 </body>
 
 </html>

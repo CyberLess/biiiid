@@ -247,6 +247,14 @@ img, svg{
 	margin-left: 5px;
 }
 
+.color-gray {
+	color: $gray;
+}
+
+.color-gray-light {
+	color: $gray-light;
+}
+
 @include max-screen($large_mobile) {
 	.hide-mobile{
 		display: none;
