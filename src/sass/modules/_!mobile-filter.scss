@@ -1,6 +1,7 @@
 .mobile-filter{
 
 	position: relative;
+	cursor: pointer;
 
 	&:not(:last-child){
 		margin-bottom: 3rem;
