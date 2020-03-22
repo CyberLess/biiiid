@@ -59,118 +59,145 @@ var forms = {
 
 	},
 
-	price: () => {
+	price:  {
 
-		if(!$('.range').length)
-			return false;
+		reset: ($item) => {
 
-		let active_set = (min, max, slider) => {
-			if(min != Number(slider.slider( "values", 0 )) || 
-				max != Number(slider.slider( "values", 1 ))){
-			}
-		}
+			config.log('range clear')
+			
+			let $slider   = $item,
+				path	  = $slider.find('.range__line'),
+				min    	  = Number($slider.find('.range__min').text().replace(/ /g, '')),
+				max    	  = Number($slider.find('.range__max').text().replace(/ /g, '')),
+				range 	  = $slider.find('.ui-slider-range');
 
-		let update_tag = (min_input, max_input, name, value, add = true) => {
+			$slider.find('input[type="text"]').val("").trigger('change');
+			// $slider.find('.range__input_min').val("");
+ 
+			// path.slider("values", 0, min);
+			// path.slider("values", 1, max);
 
-			let min_name = min_input.attr('name');
-			let max_name = max_input.attr('name');
+			// path.slider('refresh');
 
-			filters.tag.remove(min_name);
-			filters.tag.remove(max_name);	
 
-			filters.virtual.remove(min_name)	
-			filters.virtual.remove(max_name)	
+			// range.css({
+			// 	'left': '0%',
+			// 	'width': '100%',
+			// })	
 
-			if(add)
-				filters.tag.add(name, value);
+		},
 
-		}
+		init: () => {
 
-		$('.range').each(function() {
-			let slider 	  = $(this),
-				min    	  = Number(slider.find('.range__min').text().replace(/ /g, '')),
-				max    	  = Number(slider.find('.range__max').text().replace(/ /g, '')),
-				path	  = slider.find('.range__line'),
-				min_input = slider.find('.range__input_min'),
-				max_input = slider.find('.range__input_max');
+			if(!$('.range').length)
+				return false;
 
-			// min_input.val(min)
-			// max_input.val(max)
-
-			path.slider({
-				range: true,
-				min: min,
-				max: max,
-				values: [ min, max ],
-				slide: function( event, ui ) {
-
-					if (ui.values[ 0 ] != min){
-						min_input.val(ui.values[ 0 ])
-					}else{
-						min_input.val("")
-					}
-				
-					if (ui.values[1] != max){
-						max_input.val(ui.values[1])
-					}else{
-						max_input.val("")
-					}
-
-					active_set(min, max, path)	
-				},
-
-				stop: function( event, ui ) {
-					config.log("slider ui is", ui)
-
-					min_input.trigger('change')
-					max_input.trigger('change')
-
-					if (min_input.val() == ''){
-						update_tag(min_input, max_input, max_input.attr('name'), ui.values[1]);
-					}
-				
-					if (max_input.val() == ''){
-						update_tag(min_input, max_input, min_input.attr('name'), ui.values[0]);
-					}	
-
-					if (min_input.val() == '' && max_input.val() == ''){
-						update_tag(min_input, max_input, 0, 0, false);
-					}		
+			let active_set = (min, max, slider) => {
+				if(min != Number(slider.slider( "values", 0 )) || 
+					max != Number(slider.slider( "values", 1 ))){
 				}
-			});
+			}
 
-			slider.find('.range__input').on({
-				"change keyup input": function() {
-					let minval = min_input.val() ? Number(min_input.val()) : min,
-						maxval = max_input.val() ? Number(max_input.val()) : max;
+			let update_tag = (min_input, max_input, name, value, add = true) => {
 
-						if (maxval < minval)
-							maxval = minval
+				let min_name = min_input.attr('name');
+				let max_name = max_input.attr('name');
 
-					path.slider("values", 0, minval);
-					path.slider("values", 1, maxval);	
+				filters.tag.remove(min_name);
+				filters.tag.remove(max_name);	
 
-					active_set(min, max, path)				
-				},
-				"focusout" : function() {
+				filters.virtual.remove(min_name)	
+				filters.virtual.remove(max_name)	
 
-					let minval = min_input.val() ? Number(min_input.val()) : min,
-						maxval = max_input.val() ? Number(max_input.val()) : max;
+				if(add)
+					filters.tag.add(name, value);
 
-					if($(this).val() != ""){
-						if($(this).hasClass('range__input_min')){
-							$(this).val(path.slider( "values", 0 ))
-							if (maxval < minval)
-								max_input.val(minval)
+			}
+
+			$('.range').each(function() {
+				let slider 	  = $(this),
+					min    	  = Number(slider.find('.range__min').text().replace(/ /g, '')),
+					max    	  = Number(slider.find('.range__max').text().replace(/ /g, '')),
+					path	  = slider.find('.range__line'),
+					min_input = slider.find('.range__input_min'),
+					max_input = slider.find('.range__input_max');
+
+				// min_input.val(min)
+				// max_input.val(max)
+
+				path.slider({
+					range: true,
+					min: min,
+					max: max,
+					values: [ min, max ],
+					slide: function( event, ui ) {
+
+						if (ui.values[ 0 ] != min){
+							min_input.val(ui.values[ 0 ])
 						}else{
-							$(this).val(path.slider( "values", 1 ))
+							min_input.val("")
+						}
+					
+						if (ui.values[1] != max){
+							max_input.val(ui.values[1])
+						}else{
+							max_input.val("")
+						}
+
+						active_set(min, max, path)	
+					},
+
+					stop: function( event, ui ) {
+
+						min_input.trigger('change')
+						max_input.trigger('change')
+
+						// if (min_input.val() == ''){
+						// 	update_tag(min_input, max_input, max_input.attr('name'), ui.values[1]);
+						// }
+					
+						// if (max_input.val() == ''){
+						// 	update_tag(min_input, max_input, min_input.attr('name'), ui.values[0]);
+						// }	
+
+						// if (min_input.val() == '' && max_input.val() == ''){
+						// 	update_tag(min_input, max_input, 0, 0, false);
+						// }		
+					}
+				});
+
+				slider.find('.range__input').on({
+					"change keyup input": function() {
+						let minval = min_input.val() ? Number(min_input.val()) : min,
+							maxval = max_input.val() ? Number(max_input.val()) : max;
+
+							if (maxval < minval)
+								maxval = minval
+
+						path.slider("values", 0, minval);
+						path.slider("values", 1, maxval);	
+
+						active_set(min, max, path)				
+					},
+					"focusout" : function() {
+
+						let minval = min_input.val() ? Number(min_input.val()) : min,
+							maxval = max_input.val() ? Number(max_input.val()) : max;
+
+						if($(this).val() != ""){
+							if($(this).hasClass('range__input_min')){
+								$(this).val(path.slider( "values", 0 ))
+								if (maxval < minval)
+									max_input.val(minval)
+							}else{
+								$(this).val(path.slider( "values", 1 ))
+							}
 						}
 					}
-				}
+				})
 			})
-		})	
+		},
 
-		
 
 	},
 
@@ -232,7 +259,7 @@ var forms = {
 		forms.mask();
 		forms.select();
 		forms.validate();
-		forms.price()
+		forms.price.init();
 		forms.events();
 
 

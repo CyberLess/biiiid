@@ -4,6 +4,7 @@ import { tooltips } from "./tooltips";
 import { sliders } from "./sliders";
 import { player } from "./player";
 import { modals } from "./modals";
+import { forms } from "./forms";
 
 var filters = {
 
@@ -214,51 +215,74 @@ var filters = {
 
 		check: () => {
 
-			// config.log("filters virtual check", filters.virtual.form);
-
-			// let show = false;
-
-			// for (var item in filters.virtual.form) {
-
-			// 	show = true;
-
-			// 	if(filters.virtual.rules.hasOwnProperty(item)){
-
-
-
-			// 		if(filters.virtual.rules[item].hasOwnProperty("nofilter")){
-			// 			show = false;
-
-			// 			config.log('each filters.virtual.rules has nofilter', item, filters.virtual.rules[item]);
-			// 		}
-
-			// 	}
-
-			// }
 			
-			// if(!show){
-			// 	filters.virtual.resetItem.removeClass('is-active')
-			// }else{
-			// 	filters.virtual.resetItem.addClass('is-active')
-			// }
+			let show = false;
+
+			for (var item in filters.virtual.form) {
+
+				config.log("filters virtual check", item);
+
+
+				show = true;
+
+				if(filters.virtual.rules.hasOwnProperty(item)){
+
+
+
+					if(filters.virtual.rules[item].hasOwnProperty("nofilter")){
+						show = false;
+
+						config.log('each filters.virtual.rules has nofilter', item, filters.virtual.rules[item]);
+					}
+
+				}
+
+			}
 			
-			
-			if(jQuery.isEmptyObject(filters.virtual.form)){
+			if(!show){
 				filters.virtual.resetItem.removeClass('is-active')
 			}else{
 				filters.virtual.resetItem.addClass('is-active')
 			}
+			
+			
+			// if(jQuery.isEmptyObject(filters.virtual.form)){
+			// 	filters.virtual.resetItem.removeClass('is-active')
+			// }else{
+			// 	filters.virtual.resetItem.addClass('is-active')
+			// }
 		},
 
 		reset: () => {
 
-			filters.virtual.form = {};
+			let subform = {}
+
+			for (var item in filters.virtual.form) {
+
+				if(filters.virtual.rules.hasOwnProperty(item)){
+
+					if(filters.virtual.rules[item].hasOwnProperty("nofilter")){
+
+						subform[item] = filters.virtual.form[item];
+
+					}
+
+				}
+
+			}
+
+			filters.virtual.form = subform;
 
 			filters.tag.removeAll();
 
 			filters.virtual.print("reset all form fields");
 
-			$('.js-virtual-input').prop('checked', false);
+			//  тут проблема
+			$('.js-virtual-input:not(.js-send-input)').prop('checked', false);
+
+			$('.js-reset-filters').addClass('is-gray')
+
+			forms.price.reset($('.range'));
 
 			filters.virtual.check();
 
@@ -378,9 +402,21 @@ var filters = {
 
 			}else{
 
-				$(`input[name="${name}"]`).not($this).val(value);
+				config.log(`text input name is ${name} and value is ${value}`, $this)
 
-				filters.virtual.update(name, value);
+				if(value != ''){
+
+					$(`input[name="${name}"]`).not($this).val(value);
+
+					filters.virtual.update(name, value);	
+
+				}else{
+
+					filters.virtual.remove(name);
+				
+				}
+
+
 
 			}
 
@@ -665,7 +701,14 @@ var filters = {
 
 			let $reset = $parent.find('.js-reset-filters');
 
-			if($parent.find('input:checked').length){
+			let inputLength = $parent.find('input[type="text"]').filter(function () {
+			    return !!this.value;
+			}).length;
+
+			config.log('see trigger', inputLength);
+
+			if($parent.find('input:checked').length 
+				|| inputLength){
 
 				$reset.removeClass('is-gray')
 
@@ -679,10 +722,16 @@ var filters = {
 
 			let $parent = $this.closest('.js-reset-parent');
 
-			if(!$parent.find('input:checked').length)
+			let inputLength = $parent.find('input[type="text"]').filter(function () {
+			    return !!this.value;
+			}).length;
+
+			if(!$parent.find('input:checked').length && !inputLength)
 				return false;
 
 			$parent.find('input:checked').prop('checked', false);
+
+			forms.price.reset($(".range"));
 
 			$parent.find('input').each((i, el) => {
 
@@ -780,7 +829,8 @@ var filters = {
 		$(document).on('click', '.js-send-filters', e => {
 
 
-			$('.js-virtual-input').each((i, el) => {
+			$(e.currentTarget).closest('.js-reset-parent').find('.js-virtual-input').each((i, el) => {
+				// config.log(`input name is ${$(el).attr('name')} and value is ${$(el).val()}`)
 				filters.virtual.input(el);
 			})
 
@@ -788,6 +838,8 @@ var filters = {
 			filters.virtual.send();
 			tooltips.close();
 			modals.close();
+
+			filters.virtual.print("after js-send-filters");
 
 		});
 
