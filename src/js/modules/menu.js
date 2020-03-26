@@ -101,7 +101,7 @@ var menu = {
 			let $template = '';
 
 			$('.categories__cell_left .categories__list').append(
-				`<li class="categories__list-item">
+				`<li class="categories__list-item js-cetegories-parent">
 					<a class="categories__list-link ${(index == 0 ? "is-active" : "")} p" href="${cat.link}">${cat.name}</a>
 				</li>`
             );

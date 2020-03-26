@@ -22,12 +22,13 @@ mixin header(type = false)
 							+e.INPUT.input.small(type="text" name="s" placeholder="Поиск исполнителя для любой задачи")
 							+e.BUTTON.submit
 								+icon('loupe')
-					+e.cell._auth.flex._right._vertical
-						if(type == false)
+					if(type == false)
+						+e.cell._auth.flex._right._vertical
 							+e.auth.icon-link__.p.flex._vertical.A(href="#")
 								+e.IMG.icon._arrow(src="/app/img/arrow.svg")
 								+e.text Войти
-						else
+					else
+						+e.cell._auth.flex._right._vertical.is-login
 							+e.links.flex._vertical
 								+e.link.p.A(href='#') Мои заказы
 								+e.link.p.A(href='#') Избранные

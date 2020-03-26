@@ -85,6 +85,15 @@
 			// 	transition: ease .2s;
 			// }
 
+
+			&:hover{
+				color: $green;
+				// color: $default;
+				// &:before{
+				// 	transform: scale(1, 1);
+				// }
+			}
+
 			&_gray{
 				line-height: 24px;
 				color: #919296;
@@ -95,17 +104,10 @@
 
 				&:hover{
 					text-decoration: underline;
+					color: #000;
 				}
 			}
-
-			&:hover{
-				color: $green;
-				// color: $default;
-				// &:before{
-				// 	transform: scale(1, 1);
-				// }
-			}
-
+			
 			&.is-active{
 				color: $green;
 

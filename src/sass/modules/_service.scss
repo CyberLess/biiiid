@@ -1,5 +1,7 @@
 .service{
 	padding-top: 4.1rem;
+	position: relative;
+	z-index: 20;
 
 	&__cell{
 		padding-top: .5rem;
@@ -56,6 +58,37 @@
 			&:not(:last-child){
 				border-bottom: 1px solid rgba(42, 45, 52, 0.15);
 			}
+
+			@include min-screen($large_tablet+1) {
+				&:hover, &.is-active{
+					.service{
+						&__more{
+							&-cell{
+								&_count{
+									opacity: 1;
+									visibility: visible;
+								}
+							}
+						}
+					}
+				}				
+			}
+
+			@include max-screen($large_tablet) {
+				&.is-active{
+					.service{
+						&__more{
+							&-cell{
+								&_count{
+									opacity: 1;
+									visibility: visible;
+								}
+							}
+						}
+					}
+				}				
+			}
+
 		}
 
 		&-count{
@@ -82,6 +115,9 @@
 				width: 600/815*100%;
 			}
 			&_count{
+				visibility: hidden;
+				opacity: 0;
+				transition: ease .1s;
 				width: 123/815*100%;
 			}
 			&_price{
@@ -155,6 +191,13 @@
 
 	&__part{
 		margin-bottom: 6rem;
+
+		&_mobile{
+			display: none;
+			z-index: 100;
+			position: relative;
+			margin-bottom: 2rem!important;
+		}
 	}
 
 	&__list{
@@ -278,6 +321,44 @@
 	}
 
 	@include max-screen($large_tablet) {
+		padding-top: 0;
+
+		&__part{
+			&_mobile{
+				display: block;	
+			}
+			&_slider{
+				margin-bottom: 2rem!important;
+			}
+		}
+		&__box{
+			padding: 0;
+			border: none;
+			&-bottom{
+				position: static;
+				padding-bottom: 2.9rem;
+				margin-top: 2rem;
+			}
+			&-part{
+				margin-right: 0;
+			}
+			&-inputs{
+				margin-bottom: 3rem;
+			}
+			&-title{
+				margin-bottom: 1.5rem;
+			}
+
+			&-link{
+				text-decoration: underline;
+			}
+
+			&-column{
+				&_right{
+					margin-right: 0;
+				}
+			}
+		}
 		&__cell{
 			width: 100%;
 			margin-right: 0;
@@ -333,6 +414,12 @@
 			margin-bottom: 0;
 			width: 60px;
 		}
+		&__select{
+			margin-top: 0;
+
+		}
+
+	
 		&__content{
 			&_more{
 				width: 100%;
@@ -343,7 +430,8 @@
 
 			&-count{
 				margin-right: 15px;
-				margin-top: 15px;
+				margin-top: 0;
+				margin-left: 2.6rem;
 				font-size: 1.4rem;
 				margin-bottom: 0;
 			}
@@ -351,6 +439,18 @@
 			&-row{
 				padding: 2.2rem 0;
 				justify-content: space-between;
+
+				&.is-active{
+					.service{
+						&__more{
+							&-cell{
+								&_count{
+									display: flex;
+								}
+							}
+						}
+					}
+				}
 			}
 			&-cell{
 
@@ -365,7 +465,12 @@
 				&_count{
 					order:3;
 					width: 100%;
-					justify-content: flex-start;
+					background: #F5F5F5;
+					padding: 1rem;
+					margin-top: 2rem;
+					display: none;
+					justify-content: space-between;
+
 				}
 				&_price{
 					order:2;
@@ -391,6 +496,17 @@
 
 		&__part{
 			margin-bottom: 4rem;
+		}
+
+		&__box{
+			&-column{
+				&_left{
+					width: 65.79503%;
+				}
+				&_right{
+					width: 31.95031%;
+				}
+			}
 		}
 	}
 

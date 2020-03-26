@@ -9,6 +9,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: Roboto;
+
 
 	&__icon{
 		fill: #fff;
@@ -38,5 +40,9 @@
 
 	@include max-screen($large_mobile) {
 		min-height: 4rem;
+
+		&_big{
+			height: 4rem;
+		}
 	}
 }

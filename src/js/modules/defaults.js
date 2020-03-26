@@ -1,3 +1,5 @@
+import { config } from "../config";
+
 var defaults = {
 
 	events: () => {
@@ -14,7 +16,14 @@ var defaults = {
 
 		});
 
-		$(document).on('click', '.categories__list-item', e => {
+		$('.service__checkbox').on('change', e => {
+
+			let $this = $(e.currentTarget);
+			$this.closest('.service__more-row').toggleClass('is-active');
+
+		})
+
+		$(document).on('mouseenter', '.js-cetegories-parent', e => {
 
 			e.preventDefault()
 
@@ -134,10 +143,57 @@ var defaults = {
 
 	},
 
+	moving: () => {
+		let ww = $(window).width();
+
+		$('.js-move-item').each((i, el) => {
+
+			let $this = $(el);
+			
+			let $to = $($this.data('to'));
+			let $from = $($this.data('from'));
+
+			let point = $this.attr('data-point') ? parseInt($this.data('point')) : 1024;
+
+			if(ww <= point)
+				$this.appendTo($to).addClass('is-moved')
+			else
+				if($this.hasClass('is-moved'))
+					$this.appendTo($from).removeClass('is-moved')
+
+		})	
+	},
+
+	fluid: ($item) => {
+
+		if(!$item.length)
+			return false;
+
+        $(window).on("scroll load", () => {
+
+        	let $parent = $item.parent()
+            let windowpos = $(window).scrollTop() + $(window).height() - $item.outerHeight();
+            let top = $parent.offset().top - parseFloat($item.css('marginTop').replace(/auto/, 0));
+
+            if(windowpos < top) {
+                $item.removeClass('is-window-fluid')
+                // $parent.removeAttr('style')
+            } else {
+            	// $parent.css('height', $item.outerHeight())
+				$item.addClass('is-window-fluid')
+            }
+
+        });
+
+	},
 
 	init: () => {
 
 		defaults.events();
+
+		defaults.fluid($('.js-window-fluid'))
+
+		$(window).on('load resize', defaults.moving);
 
 		$('.js-more-box').each((i, el) => {
 			defaults.box.hide(el)

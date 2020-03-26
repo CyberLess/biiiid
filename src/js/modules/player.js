@@ -92,6 +92,8 @@ var player = {
 
 		if(!playerItem.length){
 
+			config.log('loading video' , file)
+
 			playerContainer.addClass('is-loading').append(config.preloader);
 
 			let req = new XMLHttpRequest();
@@ -128,7 +130,6 @@ var player = {
 					playerItem
 						.bind({
 							timeupdate: e => {
-								config.log('timeupdate')
 								player.updateProgressBar(jsPlayer)
 							},
 							ended: e => {
@@ -152,6 +153,8 @@ var player = {
 			req.send();
 
 		}else{
+			config.log('video already loaded', file)
+
 			callback();
 		}
 
@@ -182,8 +185,10 @@ var player = {
 			if($item.length){
 				if(!$button.hasClass('is-active')){
 					$item[0].play()
+					config.log('video play', video)
 				}else{
 					$item[0].pause()
+					config.log('video pause', video)
 				}				
 			}
 

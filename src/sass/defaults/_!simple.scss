@@ -255,6 +255,25 @@ img, svg{
 	color: $gray-light;
 }
 
+.js-reset-filters{
+	&.is-gray{
+		cursor: default;
+	}
+}
+
+.js-window-fluid{
+	position: relative;
+
+	@include max-screen($large_tablet) {
+		&.is-window-fluid{
+			position: fixed;
+			left: 0;
+			width: 100%;
+			bottom: 0;
+		}
+	}
+}
+
 @include max-screen($large_mobile) {
 	.hide-mobile{
 		display: none;

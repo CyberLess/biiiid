@@ -182,7 +182,7 @@ var filters = {
 
 			filters.list.addClass('is-loading');
 
-			config.log('virtualForm send start')
+			config.log('virtualForm send start', filters.virtual.form)
 
 			setTimeout(() => {
 
@@ -211,6 +211,24 @@ var filters = {
 
 			}, 500)
 
+		},
+
+		buttonCheck: (el) => {
+			let $this = $(el);
+			let $parent = $this.closest('.tooltip__item').length ? $this.closest('.tooltip__item') : $this.closest('.modals');
+			let $button = $parent.hasClass('modals') ? $(`*[data-modal="#${$parent.attr('id')}"]`) : $(`*[data-tooltip="#${$parent.attr('id')}"]`);
+			let inputLength = $parent.find('input[type="text"]').filter(function () {
+			    return !!this.value;
+			}).length;
+
+			config.log('button check')
+
+
+			if($parent.find('input:checked').length || inputLength) {
+				$button.addClass('is-active')
+			}else{
+				$button.removeClass('is-active')
+			}
 		},
 
 		check: () => {
@@ -284,6 +302,14 @@ var filters = {
 
 			forms.price.reset($('.range'));
 
+			$('.js-virtual-input').each((i, el) => {
+				filters.virtual.buttonCheck(el);
+			})			
+
+			$('.mobile-filter__item').remove()
+
+			filters.close();
+
 			filters.virtual.check();
 
 			filters.virtual.send();
@@ -306,7 +332,7 @@ var filters = {
 
 			filters.virtual.beauty();
 
-			filters.virtual.print("update form item");
+			filters.virtual.print(`update form item -> ${name}`);
 
 			filters.virtual.check();
 
@@ -738,6 +764,8 @@ var filters = {
 				let name = $(el).attr('name').replace('[]', '');
 				// let value = $(el).attr('value');
 
+				filters.virtual.buttonCheck(el);
+
 				filters.virtual.remove(name);
 
 				filters.tag.remove(name);
@@ -747,6 +775,10 @@ var filters = {
 			filters.virtual.print();
 
 			$this.addClass('is-gray')
+
+			filters.virtual.send();
+			modals.close();
+			tooltips.close();
 
 		}
 
@@ -790,6 +822,8 @@ var filters = {
 
 		filters.mobile_panel_values.find('.menu-modal__head span').text(current.label);
 
+		config.log("open mobile checkbox items", current.list, $getlist.text())
+
 		current.list.forEach((item,index) => {
 
 			let checked = $getlist.text().replace(/&nbsp;/gi, " ").indexOf(item.label.replace(/&nbsp;/gi, " ")) !== -1;
@@ -826,11 +860,26 @@ var filters = {
 
 		$(document).on('click', '.js-open-filters', filters.open);
 
+		$(document).on('click', '.js-mobile-send-filters', e => {
+
+			$('.filter-modal').find('.js-virtual-input').each((i, el) => {
+				filters.virtual.buttonCheck(el);
+				filters.virtual.input(el);
+			})		
+
+			filters.tag.update();
+			filters.virtual.send();		
+			
+			filters.close();		
+
+		})
+
+
 		$(document).on('click', '.js-send-filters', e => {
 
 
 			$(e.currentTarget).closest('.js-reset-parent').find('.js-virtual-input').each((i, el) => {
-				// config.log(`input name is ${$(el).attr('name')} and value is ${$(el).val()}`)
+				filters.virtual.buttonCheck(el);
 				filters.virtual.input(el);
 			})
 
@@ -860,9 +909,7 @@ var filters = {
 		$('.js-reset-parent input').on('change', filters.reset.see);
 
 		$('.js-reset-filters').on('click', e => {
-			filters.virtual.send();
-			modals.close();
-			tooltips.close();
+
 			filters.reset.do(e);
 		});
 

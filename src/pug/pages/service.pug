@@ -2,7 +2,6 @@ extends ../layouts/base
 
 append vars
 	- title = 'Услуга';
-	- body.classList = "is-have-mobile-nav";
 
 block header
 	+header(true)
@@ -11,26 +10,52 @@ block content
 
 	include ../layouts/mobile-filters
 
-	+b.NAV.fluid._mobile
-		+e.wrap.wrap
-			+e.row
-				+e.cell._fluid
-					+e.box-button.btn__._red._big.p.A(href='#')
-						+e.text Подробнее
-				+e.cell._static
-					+e.A.link.link.p(href='#') Написать исполнителю
+	//- +b.NAV.fluid._mobile
+	//- 	+e.wrap.wrap
+	//- 		+e.row
+	//- 			+e.cell._fluid
+	//- 				+e.box-button.btn__._red._big.p.A(href='#')
+	//- 					+e.text Подробнее
+	//- 			+e.cell._static
+	//- 				+e.A.link.link.p(href='#') Написать исполнителю
+
 	+b.SECTION.service
 		+e.wrap.wrap
 			+e.head
 				+breadcrumbs("Главная", "Аудио и музыка", "Дикторские голоса")
 			+e.row.flex._justify
 				+e.cell._left
+					+e.part._mobile#mobile-top
 					+e.part._slider
 						+e.slider.owl-carousel.js-case-slider
 							+e.slider-item
-								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
+								+e.player.player__._fluid.js-player(data-file="/app/media/video.mp4")
+									+e.IMG.preview.object-fit(src="/img/test1.jpg")
+									+e.container
+									+e.bar
+										+e.bar-line
+											+e.bar-progress
+											+e.bar-dot
+									+e.nav
+										+e.nav-button
+											+e.nav-icon._play
+												+icon('play')
+											+e.nav-icon._pause
+												+icon('pause')
 							+e.slider-item
-								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
+								+e.player.player__._fluid.js-player(data-file="/app/media/security.mp4")
+									+e.IMG.preview.object-fit(src="/img/test1.jpg")
+									+e.container
+									+e.bar
+										+e.bar-line
+											+e.bar-progress
+											+e.bar-dot
+									+e.nav
+										+e.nav-button
+											+e.nav-icon._play
+												+icon('play')
+											+e.nav-icon._pause
+												+icon('pause')
 							+e.slider-item
 								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
 							+e.slider-item
@@ -50,6 +75,7 @@ block content
 								+e.IMG.lit-image(src="/img/case_4.jpg")
 							+e.list-item
 								+e.IMG.lit-image(src="/img/case_4.jpg")
+					+e.part._mobile#mobile-settings
 					+e.part._desc
 						+e.title.h2.H2 Описание
 						+e.content.content
@@ -130,7 +156,15 @@ block content
 											| Прототипирование 
 											+e.icon
 												+icon('check')
-								+e.more-cell._count
+								+e.more-cell._count.flex._vertical._justify
+									+e.more-count.p Кол-во
+									+e.select.slct__
+										select(name='count')
+											option 1
+											option 2
+											option 3
+											option 4
+											option 5
 								+e.more-cell._price.p 1250 ₽
 							+e.more-row.flex
 								+e.more-cell._name
@@ -158,7 +192,15 @@ block content
 											| Прототипирование 
 											+e.icon
 												+icon('check')
-								+e.more-cell._count
+								+e.more-cell._count.flex._vertical._justify
+									+e.more-count.p Кол-во
+									+e.select.slct__
+										select(name='count')
+											option 1
+											option 2
+											option 3
+											option 4
+											option 5
 								+e.more-cell._price.p 1250 ₽
 							+e.more-row.flex
 								+e.more-cell._name
@@ -168,7 +210,15 @@ block content
 											| Кликабельный прототип 
 											+e.icon
 												+icon('check')
-								+e.more-cell._count
+								+e.more-cell._count.flex._vertical._justify
+									+e.more-count.p Кол-во
+									+e.select.slct__
+										select(name='count')
+											option 1
+											option 2
+											option 3
+											option 4
+											option 5
 								+e.more-cell._price.p 1250 ₽
 					+e.part._reviews
 						+b.reviews
@@ -252,22 +302,24 @@ block content
 														p
 															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
 				+e.cell._right
-					+e.sticky
-						+e.box
-							+e.box-title
-								| Проффесионально озвучу текст
-								| красивым голосом
-							+e.box-row.flex._justify._vertical
-								+e.box-part
-									+e.name.nickname._online.small Uselles dude
-								+e.box-part.flex._vertical
-									+e.box-rating.rating__.small
-										+e.icon
-											+icon('star')
-										| 4.7 
-										span (232)
-									+e.box-like.like__
-										+icon('like')
+					+e.sticky#desktop-settings
+						+e.box.js-move-item(data-to="#mobile-settings" data-from="#desktop-settings")
+							+e.box-row#desktop-top
+								+e.box-inner.js-move-item(data-to="#mobile-top" data-from="#desktop-top")
+									+e.box-title
+										| Проффесионально озвучу текст
+										| красивым голосом
+									+e.box-top.flex._justify._vertical
+										+e.box-part
+											+e.name.nickname._online.small Uselles dude
+										+e.box-part.flex._vertical
+											+e.box-rating.rating__.small
+												+e.icon
+													+icon('star')
+												| 4.7 
+												span (232)
+											+e.box-like.like__
+												+icon('like')
 							+e.box-list
 								+e.box-string.p
 									+e.box-icon
@@ -288,8 +340,9 @@ block content
 										+e.INPUT.field(name='words' type="text" value="5 000")
 							+e.box-title
 								| Итого: 3 000 ₽
-							+e.box-button.btn__._red._big.p.A(href='#')
-								+e.text Оформить заказ
+							+e.box-fluid
+								+e.box-button.btn__._red._big.p.js-window-fluid.A(href='#')
+									+e.text Оформить заказ
 							+e.box-bottom
 								+e.box-link.p.A(href="#") Написать исполнителю
 	+b.SECTION.catalog

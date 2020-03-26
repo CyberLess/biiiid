@@ -131,6 +131,10 @@
 			}
 			&_auth{
 				order: 3;
+				
+				&.is-login{
+					display: none;
+				}
 			}
 		}		
 	}
