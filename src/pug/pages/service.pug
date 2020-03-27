@@ -29,52 +29,125 @@ block content
 					+e.part._slider
 						+e.slider.owl-carousel.js-case-slider
 							+e.slider-item
-								+e.player.player__._fluid.js-player(data-file="/app/media/video.mp4")
+								+e.player.player__._fluid._big.js-player(data-file="/app/media/video.mp4")
 									+e.IMG.preview.object-fit(src="/img/test1.jpg")
 									+e.container
-									+e.bar
-										+e.bar-line
-											+e.bar-progress
-											+e.bar-dot
-									+e.nav
-										+e.nav-button
-											+e.nav-icon._play
-												+icon('play')
-											+e.nav-icon._pause
-												+icon('pause')
+									+e.center
+										+e.nav._default
+											+e.nav-button._big
+												+e.nav-icon._play
+													+icon('play')
+												+e.nav-icon._pause
+													+icon('pause')
+									+e.bottom
+										+e.panel.flex._vertical
+											+e.panel-time.small
+											+e.voice.flex._vertical
+												+e.voice-button
+													+e.voice-icon._default
+														+icon('voiceDefault')
+													+e.voice-icon._small
+														+icon('voiceSmall')
+													+e.voice-icon._none
+														+icon('voiceNone')
+												+e.voice-range
+											+e.fullscreen.js-fullscreen
+												+e.fullscreen-icon._default
+													+icon('fullscreen')
+												+e.fullscreen-icon._opened
+													+icon('fsactive')
+										+e.bar._static
+											+e.bar-row
+												+e.bar-cell._left
+													+e.nav._default
+														+e.nav-button
+															+e.nav-icon._play
+																+icon('play')
+															+e.nav-icon._pause
+																+icon('pause')
+												+e.bar-cell._right
+													+e.bar-line
+														+e.bar-progress
+														+e.bar-dot
 							+e.slider-item
-								+e.player.player__._fluid.js-player(data-file="/app/media/security.mp4")
-									+e.IMG.preview.object-fit(src="/img/test1.jpg")
+								+e.player.player__._fluid._big.js-player(data-file="/app/media/security.mp4")
+									+e.IMG.preview.object-fit(src="/img/case_1.jpg")
 									+e.container
-									+e.bar
-										+e.bar-line
-											+e.bar-progress
-											+e.bar-dot
-									+e.nav
-										+e.nav-button
-											+e.nav-icon._play
-												+icon('play')
-											+e.nav-icon._pause
-												+icon('pause')
+									+e.center
+										+e.nav._default
+											+e.nav-button._big
+												+e.nav-icon._play
+													+icon('play')
+												+e.nav-icon._pause
+													+icon('pause')
+									+e.bottom
+										+e.panel.flex._vertical
+											+e.panel-time.small
+											+e.voice.flex._vertical
+												+e.voice-button
+													+e.voice-icon._default
+														+icon('voiceDefault')
+													+e.voice-icon._small
+														+icon('voiceSmall')
+													+e.voice-icon._none
+														+icon('voiceNone')
+												+e.voice-range
+											+e.fullscreen.js-fullscreen
+												+e.fullscreen-icon._default
+													+icon('fullscreen')
+												+e.fullscreen-icon._opened
+													+icon('fsactive')
+										+e.bar._static
+											+e.bar-row
+												+e.bar-cell._left
+													+e.nav._default
+														+e.nav-button
+															+e.nav-icon._play
+																+icon('play')
+															+e.nav-icon._pause
+																+icon('pause')
+												+e.bar-cell._right
+													+e.bar-line
+														+e.bar-progress
+														+e.bar-dot
 							+e.slider-item
 								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
 							+e.slider-item
 								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
-						+e.list.css-red-scrollbar
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
-							+e.list-item
-								+e.IMG.lit-image(src="/img/case_4.jpg")
+						+b.thumbnails.js-thumbnails
+							+e.box
+								+e.list.UL
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+									+e.item
+										+e.IMG.image(src="/img/case_4.jpg")
+							+e.scrollbar
+								+e.handle
+									+e.mousearea
 					+e.part._mobile#mobile-settings
 					+e.part._desc
 						+e.title.h2.H2 Описание
@@ -334,7 +407,13 @@ block content
 									+e.box-text.p
 										| Укажите кол-во слов
 										| и узнайте цену
-										.is-help ?
+										.is-help
+											| ?
+											+b.help-content.content.small
+												b За 500 ₽ 
+												| вы получите
+												b 1 минуты. 
+												| Если требуется больший объем, впишите его в поле. Минимальная цена заказа 500 ₽
 								+e.box-column._right
 									+e.box-input.input__
 										+e.INPUT.field(name='words' type="text" value="5 000")
@@ -344,7 +423,7 @@ block content
 								+e.box-button.btn__._red._big.p.js-window-fluid.A(href='#')
 									+e.text Оформить заказ
 							+e.box-bottom
-								+e.box-link.p.A(href="#") Написать исполнителю
+								+e.box-link.js-modal.p.A(href='#service-order') Написать исполнителю
 	+b.SECTION.catalog
 		+e.wrap.wrap
 			+e.part._bottom

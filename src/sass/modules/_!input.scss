@@ -12,5 +12,12 @@
 
 		border: 1px solid rgba(42, 45, 52, 0.15);
 
+		&_textarea{
+			height: 11rem;
+			resize: none;
+			padding: 1.6rem;
+			border: 1px solid rgba(42, 45, 52, 0.15);
+		}
+
 	}
 }

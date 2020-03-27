@@ -12,6 +12,58 @@
 		max-width: 690px;
 	}
 
+	&_service{
+		max-width: 702px;
+		min-height: 555px;
+		padding: 7.9rem 8.2rem;
+	}
+
+	&_vertical{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	&_right{
+		.modals{
+			&__close{
+				left: auto;
+				right: 1.7rem;
+				top: 1.7rem;
+				margin-top: 0;
+			}
+		}
+	}
+
+	&__check{
+		width: 6.8rem;
+		display: block;
+		margin: auto;
+		margin-bottom: 3rem;
+		fill: #009688;
+	}
+
+	&__content{
+		padding-top: .6rem;
+
+		p{
+			line-height: 2.2rem;
+		}
+	}
+
+	&__input{
+		margin-bottom: 3rem;
+	}
+
+	&__button{
+		width: 262px;
+	}
+
+	&__name{
+		margin-bottom: 3rem;
+	}
+
 	&__close{
 		// display: none;
 		position: absolute;

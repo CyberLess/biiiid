@@ -8,3 +8,22 @@
 			span Очистить все
 		+e.button.transparent-button__._noscope.js-send-filters
 			span Сохранить
+
++b.modals._service._right.mfp-hide#service-order
+	+e.name.h2 Сообщение исполнителю
+	+e.FORM.form.form(action="")
+		+e.input.input__
+			+e.TEXTAREA.field._textarea(name="message" placeholder="Введите ваше сообщение")
+		+e.BUTTON.button.btn__.js-modal(data-modal="#service-thanks")
+			+e.text Отправить
+
++b.modals._service._vertical._right.mfp-hide#service-thanks
+	+e.inside
+		+e.check
+			+icon('thanksCheck')
+		+e.name.h2 Сообщение успешно отправлено
+		+e.content.content.is-gray
+			p
+				| Вся переписка доступна 
+				br
+				| в разделе Сообщения

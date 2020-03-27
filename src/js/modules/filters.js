@@ -6,6 +6,7 @@ import { player } from "./player";
 import { modals } from "./modals";
 import { forms } from "./forms";
 
+
 var filters = {
 
 	panel: $('.filter-modal'),
@@ -840,6 +841,11 @@ var filters = {
 	},
 
 	init: () => {
+
+
+		if (typeof filters_data == 'undefined') {
+			return false;
+		}
 
 		filters.setup.desktop();
 		filters.setup.mobile();

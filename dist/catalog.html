@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Каталог</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585257276990">
+    <link rel="stylesheet" href="/app/css/app.css?v=1585343310853">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1074,7 +1074,99 @@
         		]
         	},
         ];
-        
+    </script>
+    <header class="header header_default">
+        <div class="header__inner">
+            <div class="header__wrap wrap">
+                <div class="header__row flex flex_vertical">
+                    <div class="header__cell header__cell_hamburger">
+                        <div class="header__hamburger hamburger js-open-menu">
+                            <svg class="icon icon-hamburger" viewBox="0 0 20 14">
+                                <use xlink:href="/app/icons/sprite.svg#hamburger"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__cell header__cell_logo"><a class="logo h2" href="/">bIIIId</a>
+                    </div>
+                    <div class="header__cell header__cell_cat"><a class="header__cat icon-link flex flex_vertical js-toggle-categories" href="#"><span class="icon-link__icon icon-link__icon_dots"><span class="icon-link__icon-item icon-link__icon-item_dots is-default"><svg class="icon icon-dots" viewBox="0 0 16 16"><use xlink:href="/app/icons/sprite.svg#dots"></use></svg></span><span class="icon-link__icon-item icon-link__icon-item_close is-focused"><svg class="icon icon-close" viewBox="0 0 18 18"><use xlink:href="/app/icons/sprite.svg#close"></use></svg></span></span><span class="icon-link__text p">Категории</span></a>
+                    </div>
+                    <div class="header__cell header__cell_search">
+                        <form class="search" action="/api/">
+                            <input class="search__input small" type="text" name="s" placeholder="Поиск исполнителя для&nbsp;любой задачи" />
+                            <button class="search__submit">
+                                <svg class="icon icon-loupe" viewBox="0 0 14 14">
+                                    <use xlink:href="/app/icons/sprite.svg#loupe"></use>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header__cell header__cell_auth flex flex_right flex_vertical">
+                        <a class="header__auth icon-link p flex flex_vertical" href="#">
+                            <img class="icon-link__icon icon-link__icon_arrow" src="/app/img/arrow.svg" alt="" role="presentation" /><span class="icon-link__text">Войти</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__categories categories">
+            <div class="categories__wrap wrap">
+                <div class="categories__row flex">
+                    <div class="categories__cell categories__cell_left">
+                        <ul class="categories__list"></ul>
+                    </div>
+                    <div class="categories__cell categories__cell_right"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="menu-modal">
+        <div class="menu-modal__bg js-close-menu"></div>
+        <div class="menu-modal__panel">
+            <div class="menu-modal__top flex flex_justify flex_vertical"><a class="menu-modal__button btn p" href="#">Регистрация</a><a class="menu-modal__link link link_dark p" href="#">Вход</a>
+            </div>
+            <ul class="menu-modal__list">
+                <li class="menu-modal__list-item"><a class="menu-modal__list-link js-mobile-open-cats p" href="#">Категории</a>
+                </li>
+                <li class="menu-modal__list-item"><a class="menu-modal__list-link p" href="#">О сервисе</a>
+                </li>
+                <li class="menu-modal__list-item"><a class="menu-modal__list-link p" href="#">Соглашение</a>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-modal__panel menu-modal__panel_full menu-modal__panel_hidden menu-modal__panel_cats">
+            <div class="menu-modal__vertical">
+                <div class="menu-modal__head p"> <span>Выберите категорию</span>
+                    <div class="menu-modal__close close js-mobile-close-cats">
+                        <svg class="icon icon-cls" viewBox="0 0 15 15">
+                            <use xlink:href="/app/icons/sprite.svg#cls"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="menu-modal__content">
+                    <div class="menu-modal__inner">
+                        <ul class="menu-modal__content-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-modal__panel menu-modal__panel_full menu-modal__panel_hidden menu-modal__panel_links">
+            <div class="menu-modal__vertical">
+                <div class="menu-modal__head p">
+                    <div class="menu-modal__back js-mobile-close-links">
+                        <svg class="icon icon-back" viewBox="0 0 19 18">
+                            <use xlink:href="/app/icons/sprite.svg#back"></use>
+                        </svg>
+                    </div><span>Тексты и&nbsp;переводы</span>
+                </div>
+                <div class="menu-modal__content">
+                    <div class="menu-modal__inner">
+                        <ul class="menu-modal__content-list menu-modal__content-list_noborder"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
         var filters_data = [
         	{
         		label: "Пол",
@@ -1344,97 +1436,6 @@
         	},
         ];
     </script>
-    <header class="header header_default">
-        <div class="header__inner">
-            <div class="header__wrap wrap">
-                <div class="header__row flex flex_vertical">
-                    <div class="header__cell header__cell_hamburger">
-                        <div class="header__hamburger hamburger js-open-menu">
-                            <svg class="icon icon-hamburger" viewBox="0 0 20 14">
-                                <use xlink:href="/app/icons/sprite.svg#hamburger"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="header__cell header__cell_logo"><a class="logo h2" href="/">bIIIId</a>
-                    </div>
-                    <div class="header__cell header__cell_cat"><a class="header__cat icon-link flex flex_vertical js-toggle-categories" href="#"><span class="icon-link__icon icon-link__icon_dots"><span class="icon-link__icon-item icon-link__icon-item_dots is-default"><svg class="icon icon-dots" viewBox="0 0 16 16"><use xlink:href="/app/icons/sprite.svg#dots"></use></svg></span><span class="icon-link__icon-item icon-link__icon-item_close is-focused"><svg class="icon icon-close" viewBox="0 0 18 18"><use xlink:href="/app/icons/sprite.svg#close"></use></svg></span></span><span class="icon-link__text p">Категории</span></a>
-                    </div>
-                    <div class="header__cell header__cell_search">
-                        <form class="search" action="/api/">
-                            <input class="search__input small" type="text" name="s" placeholder="Поиск исполнителя для&nbsp;любой задачи" />
-                            <button class="search__submit">
-                                <svg class="icon icon-loupe" viewBox="0 0 14 14">
-                                    <use xlink:href="/app/icons/sprite.svg#loupe"></use>
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="header__cell header__cell_auth flex flex_right flex_vertical">
-                        <a class="header__auth icon-link p flex flex_vertical" href="#">
-                            <img class="icon-link__icon icon-link__icon_arrow" src="/app/img/arrow.svg" alt="" role="presentation" /><span class="icon-link__text">Войти</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header__categories categories">
-            <div class="categories__wrap wrap">
-                <div class="categories__row flex">
-                    <div class="categories__cell categories__cell_left">
-                        <ul class="categories__list"></ul>
-                    </div>
-                    <div class="categories__cell categories__cell_right"></div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="menu-modal">
-        <div class="menu-modal__bg js-close-menu"></div>
-        <div class="menu-modal__panel">
-            <div class="menu-modal__top flex flex_justify flex_vertical"><a class="menu-modal__button btn p" href="#">Регистрация</a><a class="menu-modal__link link link_dark p" href="#">Вход</a>
-            </div>
-            <ul class="menu-modal__list">
-                <li class="menu-modal__list-item"><a class="menu-modal__list-link js-mobile-open-cats p" href="#">Категории</a>
-                </li>
-                <li class="menu-modal__list-item"><a class="menu-modal__list-link p" href="#">О сервисе</a>
-                </li>
-                <li class="menu-modal__list-item"><a class="menu-modal__list-link p" href="#">Соглашение</a>
-                </li>
-            </ul>
-        </div>
-        <div class="menu-modal__panel menu-modal__panel_full menu-modal__panel_hidden menu-modal__panel_cats">
-            <div class="menu-modal__vertical">
-                <div class="menu-modal__head p"> <span>Выберите категорию</span>
-                    <div class="menu-modal__close close js-mobile-close-cats">
-                        <svg class="icon icon-cls" viewBox="0 0 15 15">
-                            <use xlink:href="/app/icons/sprite.svg#cls"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="menu-modal__content">
-                    <div class="menu-modal__inner">
-                        <ul class="menu-modal__content-list"></ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-modal__panel menu-modal__panel_full menu-modal__panel_hidden menu-modal__panel_links">
-            <div class="menu-modal__vertical">
-                <div class="menu-modal__head p">
-                    <div class="menu-modal__back js-mobile-close-links">
-                        <svg class="icon icon-back" viewBox="0 0 19 18">
-                            <use xlink:href="/app/icons/sprite.svg#back"></use>
-                        </svg>
-                    </div><span>Тексты и&nbsp;переводы</span>
-                </div>
-                <div class="menu-modal__content">
-                    <div class="menu-modal__inner">
-                        <ul class="menu-modal__content-list menu-modal__content-list_noborder"></ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <form class="filter-modal" action="/">
         <div class="filter-modal__panel filter-modal__panel_default">
             <div class="filter-modal__part filter-modal__part_top">
@@ -1838,8 +1839,33 @@
             </div>
         </div>
     </div>
+    <div class="modals modals_service modals_right mfp-hide" id="service-order">
+        <div class="modals__name h2">Сообщение исполнителю</div>
+        <form class="modals__form form" action="">
+            <div class="modals__input input">
+                <textarea class="input__field input__field_textarea" name="message" placeholder="Введите ваше сообщение"></textarea>
+            </div>
+            <button class="modals__button btn js-modal" data-modal="#service-thanks">
+                <div class="btn__text">Отправить</div>
+            </button>
+        </form>
+    </div>
+    <div class="modals modals_service modals_vertical modals_right mfp-hide" id="service-thanks">
+        <div class="modals__inside">
+            <div class="modals__check">
+                <svg class="icon icon-thanksCheck" viewBox="0 0 68 52">
+                    <use xlink:href="/app/icons/sprite.svg#thanksCheck"></use>
+                </svg>
+            </div>
+            <div class="modals__name h2">Сообщение успешно отправлено</div>
+            <div class="modals__content content is-gray">
+                <p>Вся переписка доступна
+                    <br>в&nbsp;разделе Сообщения</p>
+            </div>
+        </div>
+    </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585257277026"></script>
+    <script src="/app/js/app.js?v=1585343310886"></script>
 </body>
 
 </html>

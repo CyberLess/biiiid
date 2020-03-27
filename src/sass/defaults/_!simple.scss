@@ -245,6 +245,14 @@ img, svg{
 	line-height: 1.2rem;
 	font-weight: bold;
 	margin-left: 5px;
+	position: relative;
+
+	&:hover{
+		.help-content{
+			opacity: 1;
+			visibility: visible;
+		}		
+	}
 }
 
 .color-gray {

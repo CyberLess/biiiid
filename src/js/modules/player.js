@@ -12,6 +12,8 @@ var player = {
 		let $progress = playerContainer.find('.player__bar-progress')
 
 
+		playerContainer.find('.player__panel-time').text(`${config.formatTime(item.currentTime)} / ${config.formatTime(item.duration)}`)
+
 		if(!$dot.hasClass('ui-draggable-dragging')){
 			$dot
 				.removeAttr('style')
@@ -34,6 +36,7 @@ var player = {
 		$button.removeClass('is-active')	
 		$dot.removeAttr('style')
 		$progress.removeAttr('style')
+		playerContainer.removeClass('is-playing')
 	},
 
 	position: (x, playerContainer, dot = false) =>{
@@ -47,6 +50,7 @@ var player = {
 			return false;
 
 		item.pause();
+		playerContainer.removeClass('is-playing')
 
 		if(!dot){
 			playerContainer
@@ -67,6 +71,7 @@ var player = {
 
 		if(!dot){
 			item.play();
+			playerContainer.addClass('is-playing')
 			$button.addClass('is-active')			
 		}
 
@@ -80,6 +85,7 @@ var player = {
 		let $button = $t.find('.player__nav-button');
 
 		if($item.length){
+			$t.removeClass('is-playing')
 			$button.removeClass('is-active')
 			$item[0].pause()
 		}
@@ -126,6 +132,8 @@ var player = {
 
 					
 					playerItem = playerContainer.find('.player__item');
+
+					playerContainer.find('.player__panel-time').text(`${config.formatTime(playerItem[0].currentTime)} / ${config.formatTime(playerItem[0].duration)}`)
 					
 					playerItem
 						.bind({
@@ -175,7 +183,10 @@ var player = {
 
 
 		if($container.hasClass('is-loading') ||
-			$(e.target).attr('class').indexOf('player__bar') !== -1)
+			$(e.target).attr('class').indexOf('player__bar') !== -1 ||
+			$(e.target).attr('class').indexOf('player__panel') !== -1 ||
+			$(e.target).attr('class').indexOf('player__voice') !== -1 ||
+			$(e.target).attr('class').indexOf('player__fullscreen') !== -1)
 			return false;
 
 		player.load(video, $container, type, () => {
@@ -185,15 +196,47 @@ var player = {
 			if($item.length){
 				if(!$button.hasClass('is-active')){
 					$item[0].play()
+					$this.addClass('is-playing')
 					config.log('video play', video)
 				}else{
 					$item[0].pause()
+					$this.removeClass('is-playing')
 					config.log('video pause', video)
 				}				
 			}
 
 			$button.toggleClass('is-active')
 		})
+
+	},
+
+	fullscreen: {
+
+		open: ($elem) => {
+			let elem = $elem[0];
+
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if (elem.mozRequestFullScreen) { /* Firefox */
+				elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+				elem.webkitRequestFullscreen();
+			} else if (elem.msRequestFullscreen) { /* IE/Edge */
+				elem.msRequestFullscreen();
+			}
+		},
+
+		close: () => {			
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.mozCancelFullScreen) { /* Firefox */
+				document.mozCancelFullScreen();
+			} else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+				document.webkitExitFullscreen();
+			} else if (document.msExitFullscreen) { /* IE/Edge */
+				document.msExitFullscreen();
+			}
+		}
 
 	},
 
@@ -227,11 +270,27 @@ var player = {
 				let $button = $player.find('.player__nav-button');	
 
 				item.play();
+				$player.addClass('is-playing')
 				$button.addClass('is-active')	
 			}
 		});
 
 		$('.js-player').on('click', player.play)
+
+		$('.js-fullscreen').on('click', e => {
+
+			let $this = $(e.currentTarget),
+				$video = $this.closest('.js-player');
+
+			$this.toggleClass('is-active');
+
+			if($this.hasClass('is-active')){
+				player.fullscreen.open($video);
+			}else{
+				player.fullscreen.close();
+			}
+
+		})
 
 	}
 

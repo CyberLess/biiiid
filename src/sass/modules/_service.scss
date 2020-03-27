@@ -192,6 +192,10 @@
 	&__part{
 		margin-bottom: 6rem;
 
+		&_slider{
+			margin-bottom: 4.7rem;
+		}
+
 		&_mobile{
 			display: none;
 			z-index: 100;
@@ -200,27 +204,6 @@
 		}
 	}
 
-	&__list{
-		margin-top: 2rem;
-		overflow-x: auto;
-		max-width: 100%;
-
-		display: flex;
-		flex-wrap: nowrap;
-
-		padding-bottom: 1rem;
-
-		&-item{
-			width: 180px;
-			height: 101px;
-			flex: 0 0 auto;
-			position: relative;
-
-			&:not(:last-child){
-				margin-right: 2rem;
-			}
-		}
-	}
 
 	&__slider{
 		&-item{
@@ -307,6 +290,7 @@
 			font-weight: 500;
 			color: $green;
 			display: inline-block;
+			text-decoration: underline;
 		}
 	}
 
