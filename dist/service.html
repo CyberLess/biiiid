@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Услуга</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585343317109">
+    <link rel="stylesheet" href="/app/css/app.css?v=1585436511122">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -199,6 +199,7 @@
     <script>
         var api ={
         	catalog: "/app/api/catalog.json",
+        	files: "/app/files/",
         	mail: "/app/api/mail/"
         }
         
@@ -1293,7 +1294,7 @@
             <div class="service__row flex flex_justify">
                 <div class="service__cell service__cell_left">
                     <div class="service__part service__part_mobile" id="mobile-top"></div>
-                    <div class="service__part service__part_slider">
+                    <div class="service__part service__part_slider js-slider-parent">
                         <div class="service__slider owl-carousel js-case-slider">
                             <div class="service__slider-item">
                                 <div class="service__player player player_fluid player_big js-player" data-file="/app/media/video.mp4">
@@ -1483,46 +1484,34 @@
                                         <img src="/app/img/service_full.jpg" class="service__slider-image object-fit" alt="" role="presentation" />
                                 </picture>
                             </div>
+                            <div class="service__slider-item">
+                                <picture>
+                                    <source type="image/webp" srcset="/app/img/service_full.webp">
+                                        <img src="/app/img/service_full.jpg" class="service__slider-image object-fit" alt="" role="presentation" />
+                                </picture>
+                            </div>
+                            <div class="service__slider-item">
+                                <picture>
+                                    <source type="image/webp" srcset="/app/img/service_full.webp">
+                                        <img src="/app/img/service_full.jpg" class="service__slider-image object-fit" alt="" role="presentation" />
+                                </picture>
+                            </div>
+                            <div class="service__slider-item">
+                                <picture>
+                                    <source type="image/webp" srcset="/app/img/service_full.webp">
+                                        <img src="/app/img/service_full.jpg" class="service__slider-image object-fit" alt="" role="presentation" />
+                                </picture>
+                            </div>
+                            <div class="service__slider-item">
+                                <picture>
+                                    <source type="image/webp" srcset="/app/img/service_full.webp">
+                                        <img src="/app/img/service_full.jpg" class="service__slider-image object-fit" alt="" role="presentation" />
+                                </picture>
+                            </div>
                         </div>
                         <div class="thumbnails js-thumbnails">
                             <div class="thumbnails__box">
                                 <ul class="thumbnails__list">
-                                    <li class="thumbnails__item">
-                                        <picture>
-                                            <source type="image/webp" srcset="/app/img/case_4.webp">
-                                                <img src="/app/img/case_4.jpg" class="thumbnails__image" alt="" role="presentation" />
-                                        </picture>
-                                    </li>
-                                    <li class="thumbnails__item">
-                                        <picture>
-                                            <source type="image/webp" srcset="/app/img/case_4.webp">
-                                                <img src="/app/img/case_4.jpg" class="thumbnails__image" alt="" role="presentation" />
-                                        </picture>
-                                    </li>
-                                    <li class="thumbnails__item">
-                                        <picture>
-                                            <source type="image/webp" srcset="/app/img/case_4.webp">
-                                                <img src="/app/img/case_4.jpg" class="thumbnails__image" alt="" role="presentation" />
-                                        </picture>
-                                    </li>
-                                    <li class="thumbnails__item">
-                                        <picture>
-                                            <source type="image/webp" srcset="/app/img/case_4.webp">
-                                                <img src="/app/img/case_4.jpg" class="thumbnails__image" alt="" role="presentation" />
-                                        </picture>
-                                    </li>
-                                    <li class="thumbnails__item">
-                                        <picture>
-                                            <source type="image/webp" srcset="/app/img/case_4.webp">
-                                                <img src="/app/img/case_4.jpg" class="thumbnails__image" alt="" role="presentation" />
-                                        </picture>
-                                    </li>
-                                    <li class="thumbnails__item">
-                                        <picture>
-                                            <source type="image/webp" srcset="/app/img/case_4.webp">
-                                                <img src="/app/img/case_4.jpg" class="thumbnails__image" alt="" role="presentation" />
-                                        </picture>
-                                    </li>
                                     <li class="thumbnails__item">
                                         <picture>
                                             <source type="image/webp" srcset="/app/img/case_4.webp">
@@ -2215,9 +2204,32 @@
     </div>
     <div class="modals modals_service modals_right mfp-hide" id="service-order">
         <div class="modals__name h2">Сообщение исполнителю</div>
-        <form class="modals__form form" action="">
+        <form class="modals__form form" action="" enctype="multipart/form-data">
             <div class="modals__input input">
                 <textarea class="input__field input__field_textarea" name="message" placeholder="Введите ваше сообщение"></textarea>
+            </div>
+            <div class="modals__dropzone dropzone js-dropzone">
+                <div class="dropzone__area">
+                    <input class="dropzone__file" name="file" type="file" multiple="multiple" />
+                    <div class="dropzone__preview">
+                        <div class="dropzone__item flex flex_vertical">
+                            <div class="dropzone__icon">
+                                <svg class="icon icon-doc" viewBox="0 0 16 16">
+                                    <use xlink:href="/app/icons/sprite.svg#doc"></use>
+                                </svg>
+                            </div>
+                            <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span>
+                            </div><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span><span class="dropzone__remove js-remove-file"
+                            data-dz-remove="data-dz-remove"><svg class="icon icon-delete" viewBox="0 0 12 12"><use xlink:href="/app/icons/sprite.svg#delete"></use></svg></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="dropzone__button border-button p strong js-dropzone-trigger" type="button">
+                    <div class="border-button__icon border-button__icon_clip">
+                        <img src="/app/img/clip.svg" alt="" role="presentation" />
+                    </div>
+                    <div class="border-button__text">Прикрепить файл</div>
+                </button>
             </div>
             <button class="modals__button btn js-modal" data-modal="#service-thanks">
                 <div class="btn__text">Отправить</div>
@@ -2239,7 +2251,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585343317156"></script>
+    <script src="/app/js/app.js?v=1585436511185"></script>
 </body>
 
 </html>

@@ -269,6 +269,10 @@ img, svg{
 	}
 }
 
+video::-webkit-media-controls {
+    display:none !important;
+}
+
 .js-window-fluid{
 	position: relative;
 

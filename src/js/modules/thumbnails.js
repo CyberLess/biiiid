@@ -39,9 +39,24 @@ var thumbnails = {
 				dragHandle: 1,
 				dynamicHandle: 1,
 				clickBar: 1,
-			}).on('activePage', (eventName, pageIndex ) => {
-				config.log('thumbnails change', eventName, pageIndex )
-			})
+			}).sly('on', 'active', (eventName, itemIndex ) => {
+				// config.log('thumbnails change', eventName, itemIndex  )
+
+				let $parent = $box.closest('.js-slider-parent');
+
+				let owl = $parent.find('.owl-carousel');
+
+				owl.owlCarousel();
+
+				owl.trigger('to.owl.carousel', [itemIndex]);
+
+				
+			});
+
+
+			// .on('activePage', (eventName, pageIndex ) => {
+			// 	config.log('thumbnails change', eventName, pageIndex )
+			// })
 					
 		})
 

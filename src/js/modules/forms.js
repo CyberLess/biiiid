@@ -5,6 +5,10 @@ import 'selectric';
 import { config } from "../config";
 import { filters } from "./filters";
 
+window.Dropzone = require('dropzone');
+
+Dropzone.autoDiscover = false;
+
 var forms = {
 
 	mask: () => {
@@ -27,6 +31,51 @@ var forms = {
 
 		if ((event.which < 48 || event.which > 57)) {
 		    event.preventDefault();
+		}
+
+	},
+
+	dropzone: {
+
+		trigger: ($item) => {
+
+			config.log('trigger dropzone', $item)
+
+			// $item.get(0).dropzone
+			$item.find('.dropzone__area').get(0).dropzone.hiddenFileInput.click();
+
+		},
+
+		init: () =>{
+
+			let $dropzone = $('.js-dropzone');
+
+			if(!$dropzone.length)
+				return false;
+
+
+			$dropzone.each((i, el) => {
+
+				let template = $(el).find('.dropzone__preview').html();
+
+				config.log('dropzone template', template)
+
+
+				$(el).find('.dropzone__area').dropzone({ 
+					url: api.files,
+					previewTemplate: template,
+					uploadprogress: function(file, progress, bytesSent) {
+					    if (file.previewElement) {
+					        var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
+					        progressElement.style.width = progress + "%";
+					        progressElement.querySelector(".progress-text").textContent = progress + "%";
+					    }
+					}
+				});		
+						
+			})
+
+
 		}
 
 	},
@@ -258,12 +307,16 @@ var forms = {
 
 		forms.mask();
 		forms.select();
+		forms.dropzone.init();
 		forms.validate();
 		forms.price.init();
 		forms.events();
 
-
 		$('.js-number').on('keypress keyup blur', forms.number);
+		$('.js-dropzone-trigger').on('click', e => {
+			let area = $(e.currentTarget).closest('.js-dropzone');
+			forms.dropzone.trigger(area)
+		});
 
 	}
 

@@ -1,7 +1,7 @@
 extends ../layouts/base
 
 append vars
-	- title = 'Услуга';
+	- title = 'Услуга - неактивная';
 
 block header
 	+header(true)
@@ -25,6 +25,11 @@ block content
 				+breadcrumbs("Главная", "Аудио и музыка", "Дикторские голоса")
 			+e.row.flex._justify
 				+e.cell._left
+					+e.notification.notification__._error
+						+e.icon._left
+							+e.IMG(src="/app/img/warning.svg")
+						+e.text.p.strong
+							| Исполнитель не берет заказы в работу до 15.11.2019
 					+e.part._mobile#mobile-top
 					+e.part._slider.js-slider-parent
 						+e.slider.owl-carousel.js-case-slider
@@ -416,7 +421,7 @@ block content
 							+e.box-title
 								| Итого: 3 000 ₽
 							+e.box-fluid
-								+e.box-button.btn__._red._big.p.js-window-fluid.A(href='#')
+								+e.box-button.btn__._red._big.p.js-window-fluid.is-disabled.A(href='#')
 									+e.text Оформить заказ
 							+e.box-bottom
 								+e.box-link.js-modal.p.A(href='#service-order') Написать исполнителю

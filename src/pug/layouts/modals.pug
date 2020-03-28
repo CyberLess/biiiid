@@ -11,9 +11,31 @@
 
 +b.modals._service._right.mfp-hide#service-order
 	+e.name.h2 Сообщение исполнителю
-	+e.FORM.form.form(action="")
+	+e.FORM.form.form(action="" enctype="multipart/form-data")
 		+e.input.input__
 			+e.TEXTAREA.field._textarea(name="message" placeholder="Введите ваше сообщение")
+		+e.dropzone.dropzone__.js-dropzone
+			+e.area
+				+e.INPUT.file(name="file" type="file" multiple)
+				+e.preview
+					+e.item.flex._vertical
+						+e.icon
+							+icon('doc')
+						+e.name
+							+e.SPAN(data-dz-name) 
+							+e.SPAN.size
+								| &nbsp;(
+								span(data-dz-size) 
+								| )
+						+e.SPAN.status(data-dz-uploadprogress)
+							+e.IMG.status-preload(src="/app/img/preload.svg")
+							span.progress-text
+						+e.SPAN.remove.js-remove-file(data-dz-remove)
+							+icon('delete')
+			+e.BUTTON.button.border-button__.p.strong.js-dropzone-trigger(type="button")
+				+e.icon._clip
+					+e.IMG(src="/app/img/clip.svg")
+				+e.text Прикрепить файл
 		+e.BUTTON.button.btn__.js-modal(data-modal="#service-thanks")
 			+e.text Отправить
 

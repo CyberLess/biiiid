@@ -11,6 +11,29 @@
 		border: 1px solid rgba(0, 118, 239, 0.1);
 		justify-content: space-between;
 	}
+
+	&_error{
+		background: rgba(232, 49, 49, 0.8);
+		color: #fff;
+		justify-content: center;
+		margin-bottom: 2.5rem;
+		padding-left: 11rem;
+		padding-right: 11rem;
+	}
+
+	&__icon{
+		position: absolute;
+		width: 3.6rem;
+		top: 50%;
+		fill: transparent;
+		transform: translateY(-50%);
+		// margin-top: -1.5rem;
+		stroke: #fff;
+
+		&_left{
+			left: 3rem;
+		}
+	}
 	
 	&__close {
 		position: absolute;

@@ -4,8 +4,10 @@
 	font-weight: 500;
 	height: 4rem;
 	color: $dark;
+	cursor: pointer;
 	max-width: 100%;
-
+	background: transparent;
+	font-family: 'Roboto';
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -19,6 +21,12 @@
 		fill: transparent;
 		stroke: #000;
 		stroke-width: 2;
+
+		&_clip{
+			width: 1.8rem;
+			margin-left: 0;
+			margin-right: 1.2rem;
+		}
 	}
 
 	&_light{

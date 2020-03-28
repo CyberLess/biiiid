@@ -62,7 +62,7 @@ var modals = {
 				removalDelay: 600,
 				fixedContentPos: true,
 				fixedBgPos: true,
-				overflowY: 'hidden',			
+				overflowY: 'scroll',			
 				closeMarkup: '<div class="modals__close close js-close-modal"><svg class="icon icon-close close2" viewBox="0 0 612 612"><use xlink:href="/app/icons/sprite.svg#cls"></use></svg></div>',
 				mainClass: 'css-modal-animate',				
 				items: {

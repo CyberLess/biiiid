@@ -40,7 +40,13 @@
 		font-weight: normal;
 		padding: 0 2.5rem;
 	}
-
+	
+	&.is-disabled{
+		pointer-events: none;
+		background: #F5F5F5;
+		color: rgba($default, .2);
+	}
+	
 	@include max-screen($large_mobile) {
 		min-height: 4rem;
 

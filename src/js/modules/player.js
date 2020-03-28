@@ -112,7 +112,7 @@ var player = {
 
 				if (this.status === 200) {
 
-					let template = (type == 'video') ? `<video width="300" height="170" class="player__item object-fit"><source src="${file}" type="video/mp4"/></video>` :
+					let template = (type == 'video') ? `<video controls="false" autoplay="false" width="300" height="170" class="player__item object-fit"><source src="${file}" type="video/mp4"/></video>` :
 						`<audio class="player__item"><source src="${file}" type="audio/mpeg"></audio>`;
 
 					let video = template;

@@ -55,4 +55,8 @@
 		width: 100%;
 		height: 20px;		
 	}
+
+	@include max-screen($large_mobile) {
+		display: none;
+	}
 }

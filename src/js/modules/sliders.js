@@ -1,7 +1,7 @@
 import 'owl.carousel';
 import { player } from "./player";
 import { config } from "../config";
-
+require('sly-scrolling/dist/sly');
 
 
 var sliders = {
@@ -39,7 +39,20 @@ var sliders = {
 			})
 		}
 
-		$this.not('.owl-loaded').owlCarousel(current);
+		$this
+			.not('.owl-loaded')
+			.owlCarousel(current)
+			.on('changed.owl.carousel', event => {
+				let $slider = $(event.target);
+				let $parent = $slider.closest('.js-slider-parent');
+
+				let carousel = event.relatedTarget;
+				let current = carousel.relative(carousel.current());
+
+				config.log('change owl carousel', current)
+
+				$parent.find('.thumbnails__box').sly('activate', current); 
+			})
 
 	},
 
