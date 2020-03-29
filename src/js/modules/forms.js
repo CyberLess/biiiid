@@ -58,9 +58,6 @@ var forms = {
 
 				let template = $(el).find('.dropzone__preview').html();
 
-				config.log('dropzone template', template)
-
-
 				$(el).find('.dropzone__area').dropzone({ 
 					url: api.files,
 					previewTemplate: template,

@@ -1,6 +1,38 @@
 .owl{
 	&-carousel{
 		overflow: hidden;
+
+		&_big{
+			.owl{
+				&-nav{
+					margin-top: -3.6rem;
+
+					&>*{
+						width: 7.2rem;
+						height: 7.2rem;
+
+						svg{
+							width: 1.6rem;
+						}
+
+						&.owl-prev{
+							left: -3.6rem;
+
+							svg{
+								margin-right: 2.3rem;
+							}
+						}
+
+						&.owl-next{
+							right: -3.6rem;
+							svg{
+								margin-left: 2.3rem;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	&-nav{
 		position: absolute;
@@ -50,6 +82,39 @@
 	}
 
 	@include max-screen($large_mobile) {
+
+		&-carousel{
+			&_big{
+				.owl{
+					&-nav{
+						margin-top: -2.1rem;
+						&>*{
+							width: 4.2rem;
+							height: 4.2rem;
+
+							svg{
+								width: 1.3rem;
+							}
+
+							&.owl-prev{
+								left: -2.1rem;
+								svg{
+									margin-right: 1.1rem;
+								}
+							}
+
+							&.owl-next{
+								right: -2.1rem;
+								svg{
+									margin-left: 1.1rem;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
 		&-nav{
 			margin-top: -2.1rem;
 			&>*{

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Каталог - авторизован</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585436502851">
+    <link rel="stylesheet" href="/app/css/app.css?v=1585513099469">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1892,15 +1892,22 @@
                 <div class="dropzone__area">
                     <input class="dropzone__file" name="file" type="file" multiple="multiple" />
                     <div class="dropzone__preview">
-                        <div class="dropzone__item flex flex_vertical">
-                            <div class="dropzone__icon">
-                                <svg class="icon icon-doc" viewBox="0 0 16 16">
-                                    <use xlink:href="/app/icons/sprite.svg#doc"></use>
-                                </svg>
+                        <div class="dropzone__item">
+                            <div class="dropzone__row flex flex_vertical">
+                                <div class="dropzone__icon">
+                                    <svg class="icon icon-doc" viewBox="0 0 16 16">
+                                        <use xlink:href="/app/icons/sprite.svg#doc"></use>
+                                    </svg>
+                                </div>
+                                <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span>
+                                    <span
+                                    class="dropzone__remove js-remove-file" data-dz-remove="data-dz-remove">
+                                        <svg class="icon icon-delete" viewBox="0 0 12 12">
+                                            <use xlink:href="/app/icons/sprite.svg#delete"></use>
+                                        </svg>
+                                        </span>
+                                </div>
                             </div>
-                            <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span>
-                            </div><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span><span class="dropzone__remove js-remove-file"
-                            data-dz-remove="data-dz-remove"><svg class="icon icon-delete" viewBox="0 0 12 12"><use xlink:href="/app/icons/sprite.svg#delete"></use></svg></span>
                         </div>
                     </div>
                 </div>
@@ -1931,7 +1938,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585436502898"></script>
+    <script src="/app/js/app.js?v=1585513099528"></script>
 </body>
 
 </html>

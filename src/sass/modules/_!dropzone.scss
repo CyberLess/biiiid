@@ -6,9 +6,16 @@
 		display: none;
 	}
 	
+	&__row{
+		position: relative;
+		max-width: 100%;
+		padding-left: 2.2rem;
+		display: inline-flex;
+	}
+
 	&__item{
 		position: relative;
-		padding-left: 2.2rem;
+		
 		margin-bottom: 1.3rem;
 
 		font-size: 1.2rem;
@@ -20,7 +27,7 @@
 					display: none;
 				}
 				&__remove{
-					display: block;
+					display: inline-block;
 				}
 			}
 		}	
@@ -36,7 +43,18 @@
 	}
 
 	&__name{
-
+	    span{
+	    	&:first-child{
+	    		// display: inline-block;
+				// white-space: nowrap;
+				// overflow: hidden;
+				// text-overflow: ellipsis;
+			 //    max-width: 60%;	    	
+			    // display: inline-block;	
+	    	}
+	    }
+		max-width: 100%; 
+	    overflow: hidden;
 
 	}
 
@@ -46,6 +64,8 @@
 		display: none;
 		margin-left: 1rem;
 		cursor: pointer;
+		vertical-align: middle;
+		line-height: normal;
 	}
 
 	&__status{
@@ -71,6 +91,23 @@
 	&__button{
 		margin-top: 3rem;
 		padding: 0 2.4rem;
+	}
+
+	@include max-screen($large_mobile) {
+		margin-bottom: 3rem;
+		&__name{
+		    span{
+		    	&:first-child{
+		    		display: inline-block;
+		    	}
+		    }
+		}
+		&__icon{
+		    top: .1rem;
+		}
+		&__item{
+			line-height: 2rem;
+		}
 	}
 }
 

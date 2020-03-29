@@ -164,6 +164,29 @@ var defaults = {
 		})	
 	},
 
+	// fluid: ($item) => {
+
+	// 	if(!$item.length)
+	// 		return false;
+
+ //        $(window).on("scroll load", () => {
+
+ //        	let $parent = $item.parent()
+ //            let windowpos = $(window).scrollTop() + $(window).height() - $item.outerHeight();
+ //            let top = $parent.offset().top - parseFloat($item.css('marginTop').replace(/auto/, 0));
+
+ //            if(windowpos < top) {
+ //                $item.removeClass('is-window-fluid')
+ //                // $parent.removeAttr('style')
+ //            } else {
+ //            	// $parent.css('height', $item.outerHeight())
+	// 			$item.addClass('is-window-fluid')
+ //            }
+
+ //        });
+
+	// },
+
 	fluid: ($item) => {
 
 		if(!$item.length)
@@ -172,20 +195,21 @@ var defaults = {
         $(window).on("scroll load", () => {
 
         	let $parent = $item.parent()
-            let windowpos = $(window).scrollTop() + $(window).height() - $item.outerHeight();
+            let windowpos = $(window).scrollTop();// - $item.outerHeight();
             let top = $parent.offset().top - parseFloat($item.css('marginTop').replace(/auto/, 0));
 
             if(windowpos < top) {
                 $item.removeClass('is-window-fluid')
-                // $parent.removeAttr('style')
+                $parent.removeAttr('style')
             } else {
-            	// $parent.css('height', $item.outerHeight())
+            	$parent.css('height', $item.outerHeight())
 				$item.addClass('is-window-fluid')
             }
 
         });
 
 	},
+
 
 	init: () => {
 

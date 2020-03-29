@@ -388,6 +388,7 @@
 
 	
 	@include max-screen($large_mobile) {
+		overflow: hidden;
 		padding-top: 0;
 
 		&__list{

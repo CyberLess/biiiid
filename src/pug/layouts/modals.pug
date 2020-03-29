@@ -18,20 +18,21 @@
 			+e.area
 				+e.INPUT.file(name="file" type="file" multiple)
 				+e.preview
-					+e.item.flex._vertical
-						+e.icon
-							+icon('doc')
-						+e.name
-							+e.SPAN(data-dz-name) 
-							+e.SPAN.size
-								| &nbsp;(
-								span(data-dz-size) 
-								| )
-						+e.SPAN.status(data-dz-uploadprogress)
-							+e.IMG.status-preload(src="/app/img/preload.svg")
-							span.progress-text
-						+e.SPAN.remove.js-remove-file(data-dz-remove)
-							+icon('delete')
+					+e.item
+						+e.row.flex._vertical
+							+e.icon
+								+icon('doc')
+							+e.name
+								+e.SPAN(data-dz-name) 
+								+e.SPAN.size
+									| &nbsp;(
+									span(data-dz-size) 
+									| )
+								+e.SPAN.status(data-dz-uploadprogress)
+									+e.IMG.status-preload(src="/app/img/preload.svg")
+									span.progress-text
+								+e.SPAN.remove.js-remove-file(data-dz-remove)
+									+icon('delete')
 			+e.BUTTON.button.border-button__.p.strong.js-dropzone-trigger(type="button")
 				+e.icon._clip
 					+e.IMG(src="/app/img/clip.svg")

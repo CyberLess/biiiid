@@ -240,6 +240,84 @@ var player = {
 
 	},
 
+	muted: ($player, mute = true) => {
+		let $sound = $player.find('.player__voice'),
+			media = $player.find('.player__item')[0],
+			$dot = $player.find('.player__voice-dot'),
+			$progress = $player.find('.player__voice-bar');
+
+		// var l = ( 100 * parseFloat($dot.position().left / ($dot.parent().width() - $dot.width()/2)) );
+		var l = $dot.position().left;
+
+		var volume = ( 100 * parseFloat($dot.position().left / $dot.parent().width()) );
+
+		// config.log('muted volume is ', volume)
+
+		if(mute){
+
+			$sound.attr('data-volume', volume);
+			$sound.attr('data-position', l);
+
+			media.volume = 0;
+
+			$sound.removeClass('is-low-sound').addClass('is-muted');
+
+			$dot.css('left', `${0}%`)
+			$progress.css('width', `${0}%`)		
+
+			config.log('player is muted')
+
+		}else{
+
+			let volume = $sound.attr('data-volume') ? $sound.attr('data-volume') : 100;
+			let position = $sound.attr('data-position') ? $sound.attr('data-position') : 100;
+
+			$dot.css('left', `${position}px`)
+			$progress.css('width', `${position}px`)	
+
+			player.sound($player, volume);
+
+			config.log('player is unmuted')
+
+		}
+
+
+
+	},
+
+	sound: ($player, status, mute = false) => {
+
+		let $sound = $player.find('.player__voice'),
+			media = $player.find('.player__item')[0];
+
+		config.log('sound status', (status / 100))
+
+		if(!mute){
+
+			$sound.removeClass('is-muted')
+
+			if(status < 50){
+
+				$sound.addClass('is-low-sound')
+
+			}else{
+
+				$sound.removeClass('is-low-sound')
+
+			}
+
+			media.volume = status / 100;
+
+
+		}else{
+
+			player.muted($player);
+
+
+		}
+
+	},
+ 
 	init: () => {
 
 		$('.player__bar-line').on('click', e => {
@@ -252,6 +330,50 @@ var player = {
 
 		})
 
+		$('.player__voice-dot').draggable({ 
+			axis: "x", 
+			containment: "parent",
+			drag: function() {
+				let $this = $(this).parent();
+				let $player = $this.closest('.js-player');
+				let $bar = $player.find('.player__voice-field');
+				let $voice = $player.find('.player__voice');
+				let x = $(this).offset().left - $bar.offset().left;
+
+				var l = ( 100 * parseFloat($(this).position().left / ($(this).parent().width() - $(this).width()/2)) );
+
+				$voice.addClass('is-active')
+				$player.addClass('is-ui-active')
+
+				$player
+					.find('.player__voice-bar')
+					.removeAttr('style')
+					.width(x);
+
+				config.log('player sound', l)
+
+				let mute = (l == 0) ? 1 : 0;
+
+				player.sound($player, l, mute);
+				// let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
+				// let sound_position = item.duration / 100 * position;
+			},
+			stop: function() {
+				let $this = $(this);
+				let $player = $this.closest('.js-player');				
+				let item = $player.find('.player__item')[0];				
+				let $button = $player.find('.player__nav-button');
+
+				let $voice = $player.find('.player__voice');
+				$voice.removeClass('is-active')	
+				$player.removeClass('is-ui-active')
+
+				// item.play();
+				// $player.addClass('is-playing')
+				// $button.addClass('is-active')	
+			}
+		});
+
 		$('.player__bar-dot').draggable({ 
 			axis: "x", 
 			containment: "parent",
@@ -262,6 +384,11 @@ var player = {
 				let x = $(this).offset().left - $bar.offset().left;
 
 				player.position(x, $player, true);
+
+				$player.addClass('is-ui-active')
+
+
+				
 			},
 			stop: function() {
 				let $this = $(this);
@@ -272,8 +399,23 @@ var player = {
 				item.play();
 				$player.addClass('is-playing')
 				$button.addClass('is-active')	
+
+				$player.removeClass('is-ui-active')
 			}
 		});
+
+		$('.player__voice-button').on('click', e => {
+
+			let $this = $(e.currentTarget)
+			let $player = $this.closest('.js-player');
+
+			let mute = !$this.parent().hasClass('is-muted');
+
+			config.log('player__voice-button on click, mute is', mute)
+
+			player.muted($player, mute);
+
+		})
 
 		$('.js-player').on('click', player.play)
 

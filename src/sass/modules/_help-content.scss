@@ -15,4 +15,9 @@
 	visibility: hidden;
 	opacity: 0;
 	transition: ease .25s;
+
+	@include max-screen($large_mobile) {
+		margin-left: -102px;
+		margin-bottom: 5px;
+	}
 }

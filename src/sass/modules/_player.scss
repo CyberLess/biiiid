@@ -26,7 +26,7 @@
 		}
 	}
 
-	&:hover{
+	&:hover, &.is-ui-active{
 		.player{
 			&__bar,
 			&__panel{
@@ -284,10 +284,78 @@
 		&-range{
 			width: 0rem;//7.4rem;
 			transition: ease .25s;
+			overflow: hidden;
+			height: 2.6rem;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
 			// padding: 0 .7rem;
 		}
 
-		&:hover{
+		&-field{
+			margin: 0 .7rem;
+			width: 100%;
+			position: relative;
+			height: 2px;
+			background: rgba(0, 0, 0, 0.3);
+		}
+
+		&-bar{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+		}
+
+		&-dot{
+			position: absolute;
+			left: 100%;
+			top: 50%;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			margin-left: -6px;
+			margin-top: -6px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+
+
+		&.is-low-sound{
+			.player{
+				&__voice{
+					&-icon{
+						&_none, &_default{
+							visibility: hidden;
+						}
+						&_small{
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+
+		&.is-muted{
+			.player{
+				&__voice{
+					&-icon{
+						&_small, &_default{
+							visibility: hidden;
+						}
+						&_none{
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+
+		&:hover, &.is-active{
 			.player{
 				&__voice{
 					&-range{
@@ -378,6 +446,12 @@
 			transition: ease .25s;
 
 
+		}
+	}
+
+	@include max-screen($large_tablet) {
+		&__voice{
+			display: none;
 		}
 	}
 }

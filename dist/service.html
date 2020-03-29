@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Услуга</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585436511122">
+    <link rel="stylesheet" href="/app/css/app.css?v=1585513117708">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1295,7 +1295,7 @@
                 <div class="service__cell service__cell_left">
                     <div class="service__part service__part_mobile" id="mobile-top"></div>
                     <div class="service__part service__part_slider js-slider-parent">
-                        <div class="service__slider owl-carousel js-case-slider">
+                        <div class="service__slider owl-carousel owl-carousel_big js-case-slider">
                             <div class="service__slider-item">
                                 <div class="service__player player player_fluid player_big js-player" data-file="/app/media/video.mp4">
                                     <picture>
@@ -1340,7 +1340,12 @@
                                                         </svg>
                                                     </div>
                                                 </div>
-                                                <div class="player__voice-range"></div>
+                                                <div class="player__voice-range">
+                                                    <div class="player__voice-field">
+                                                        <div class="player__voice-bar"></div>
+                                                        <div class="player__voice-dot"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="player__fullscreen js-fullscreen">
                                                 <div class="player__fullscreen-icon player__fullscreen-icon_default">
@@ -1428,7 +1433,12 @@
                                                         </svg>
                                                     </div>
                                                 </div>
-                                                <div class="player__voice-range"></div>
+                                                <div class="player__voice-range">
+                                                    <div class="player__voice-field">
+                                                        <div class="player__voice-bar"></div>
+                                                        <div class="player__voice-dot"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="player__fullscreen js-fullscreen">
                                                 <div class="player__fullscreen-icon player__fullscreen-icon_default">
@@ -2212,15 +2222,22 @@
                 <div class="dropzone__area">
                     <input class="dropzone__file" name="file" type="file" multiple="multiple" />
                     <div class="dropzone__preview">
-                        <div class="dropzone__item flex flex_vertical">
-                            <div class="dropzone__icon">
-                                <svg class="icon icon-doc" viewBox="0 0 16 16">
-                                    <use xlink:href="/app/icons/sprite.svg#doc"></use>
-                                </svg>
+                        <div class="dropzone__item">
+                            <div class="dropzone__row flex flex_vertical">
+                                <div class="dropzone__icon">
+                                    <svg class="icon icon-doc" viewBox="0 0 16 16">
+                                        <use xlink:href="/app/icons/sprite.svg#doc"></use>
+                                    </svg>
+                                </div>
+                                <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span>
+                                    <span
+                                    class="dropzone__remove js-remove-file" data-dz-remove="data-dz-remove">
+                                        <svg class="icon icon-delete" viewBox="0 0 12 12">
+                                            <use xlink:href="/app/icons/sprite.svg#delete"></use>
+                                        </svg>
+                                        </span>
+                                </div>
                             </div>
-                            <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span>
-                            </div><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span><span class="dropzone__remove js-remove-file"
-                            data-dz-remove="data-dz-remove"><svg class="icon icon-delete" viewBox="0 0 12 12"><use xlink:href="/app/icons/sprite.svg#delete"></use></svg></span>
                         </div>
                     </div>
                 </div>
@@ -2251,7 +2268,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585436511185"></script>
+    <script src="/app/js/app.js?v=1585513117762"></script>
 </body>
 
 </html>
