@@ -3,6 +3,10 @@
 	position: relative;
 	z-index: 20;
 
+	&_noscope{
+		padding: 0;
+	}
+
 	&__cell{
 		padding-top: .5rem;
 
@@ -41,10 +45,7 @@
 	}
 
 	&__sticky{
-		position: sticky;
-		top: 5rem;
-		left: 0;
-		width: 100%;
+
 	}
 
 	&__more{
@@ -55,38 +56,24 @@
 
 		&-row{
 			align-items: flex-start;
+		    display: flex;
+		    
 			&:not(:last-child){
 				border-bottom: 1px solid rgba(42, 45, 52, 0.15);
 			}
 
-			@include min-screen($large_tablet+1) {
-				&:hover, &.is-active{
-					.service{
-						&__more{
-							&-cell{
-								&_count{
-									opacity: 1;
-									visibility: visible;
-								}
-							}
-						}
-					}
-				}				
-			}
 
-			@include max-screen($large_tablet) {
-				&.is-active{
-					.service{
-						&__more{
-							&-cell{
-								&_count{
-									opacity: 1;
-									visibility: visible;
-								}
+			&.is-active{
+				.service{
+					&__more{
+						&-cell{
+							&_count{
+								opacity: 1;
+								visibility: visible;
 							}
 						}
 					}
-				}				
+				}
 			}
 
 		}
@@ -95,7 +82,7 @@
 			margin-top: 5px;
 			margin-bottom: 5px;
 			color: rgba(42, 45, 52, 0.5);
-			// margin-right: 1.2rem;
+			margin-right: 1.2rem;
 		}
 
 		&-cell{
@@ -111,17 +98,29 @@
 			align-items: center;
 			flex-wrap: wrap;
 
+			max-width: 100%;
+
+
 			&_name{
-				width: 600/815*100%;
+				// width: 600/815*100%;
+				flex-shrink: 1;
+				flex-grow: 1;
+				
+				min-width: 0;
 			}
 			&_count{
 				visibility: hidden;
 				opacity: 0;
 				transition: ease .1s;
-				width: 123/815*100%;
+				flex-grow: 0;
+				flex-shrink: 0;
+				// width: 123/815*100%;
 			}
 			&_price{
-				width: 92/815*100%;
+				width: 92px;
+				flex-grow: 0;
+				flex-shrink: 0;
+				// width: 92/815*100%;
 				font-weight: 500;
 				justify-content: flex-end;
 			}
@@ -465,6 +464,10 @@
 			}
 		}
 		&__about{
+			&-button{
+				// width: 15.1rem;
+				width: 100%;
+			}
 			&-cell{
 				&_left{
 					width: 38.89928%;

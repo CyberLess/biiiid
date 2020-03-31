@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <title>Профиль(не нажал стать исполнителем, но уже заказывал как заказчик)</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585670374877">
+    <title>Создание заказа</title>
+    <link rel="stylesheet" href="/app/css/app.css?v=1585670371888">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
 </head>
 
-<body class="is-have-mobile-nav">
+<body>
     <div class="tooltip">
         <div class="tooltip__item tprice js-reset-parent" id="price-tooltip">
             <div class="tprice__top">
@@ -1194,522 +1194,257 @@
             </div>
         </div>
     </div>
-    <form class="filter-modal" action="/">
-        <div class="filter-modal__panel filter-modal__panel_default">
-            <div class="filter-modal__part filter-modal__part_top">
-                <div class="filter-modal__close close js-close-filters">
-                    <svg class="icon icon-close" viewBox="0 0 18 18">
-                        <use xlink:href="/app/icons/sprite.svg#close"></use>
-                    </svg>
-                </div>
-                <div class="filter-modal__label p">Фильтры</div><a class="filter-modal__reset p link js-reset-form" href="#">Очистить</a>
-            </div>
-            <div class="filter-modal__part filter-modal__part_middle content">
-                <div class="filter-modal__box">
-                    <div class="filter-modal__box-label filter-modal__box-label_small p strong">Онлайн статус</div>
-                    <label class="filter-modal__switcher switcher">
-                        <input class="switcher__input js-virtual-input" name="online" type="checkbox" value="true" /><span class="switcher__text"> Только исполнители онлайн </span>
-                    </label>
-                </div>
-                <div class="filter-modal__box">
-                    <div class="filter-modal__box-label p strong">Сортировать</div>
-                    <div class="filter-modal__box-list">
-                        <div class="filter-modal__box-item">
-                            <label class="filter-modal__box-chose chose">
-                                <input class="chose__input js-virtual-input" name="sort" checked="" value="Цене" type="radio" /><span class="chose__text p">Цене</span>
+    <section class="neworder">
+        <form class="neworder__form form" action="">
+            <div class="neworder__wrap wrap wrap_small">
+                <div class="neworder__row flex flex_justify">
+                    <div class="neworder__cell neworder__cell_left">
+                        <div class="neworder__title h2">Создание заказа</div>
+                        <div class="neworder__input input">
+                            <label class="input__label p b">Название заказа <span class="color-red">*</span>
                             </label>
+                            <input class="input__field input__field_big" type="text" name="order[name]" placeholder="Например: Озвучка рекламного сайта Тайота" />
                         </div>
-                        <div class="filter-modal__box-item">
-                            <label class="filter-modal__box-chose chose">
-                                <input class="chose__input js-virtual-input" name="sort" value="Рекомендованные" type="radio" /><span class="chose__text p">Рекомендованные</span>
+                        <div class="neworder__input input flex flex_vertical">
+                            <label class="input__label input__label_margin p b">Количество слов
+                                <div class="is-help">?<span class="help-content content small"><b>За 500 ₽ </b>вы получите<b>1 минуты. </b>Если требуется больший объем, впишите его в&nbsp;поле. Минимальная цена заказа 500 ₽ </span>
+                                </div>
                             </label>
-                        </div>
-                        <div class="filter-modal__box-item">
-                            <label class="filter-modal__box-chose chose">
-                                <input class="chose__input js-virtual-input" name="sort" value="По рейтингу" type="radio" /><span class="chose__text p">По рейтингу</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-modal__box">
-                    <div class="filter-modal__box-label p strong">Цена</div>
-                    <div class="filter-modal__range range">
-                        <div class="range__top flex flex_justify">
-                            <div class="range__min small">1000</div>
-                            <div class="range__max small">50 000</div>
-                        </div>
-                        <div class="range__line"></div>
-                        <div class="range__row inline flex flex_center">
-                            <div class="range__field">
-                                <input class="range__input range__input_center range__input_min js-number js-virtual-input" name="price_min" autocomplete="off" type="text" />
-                                <div class="range__placeholder">₽</div>
-                            </div>
-                            <div class="range__field">
-                                <input class="range__input range__input_center range__input_max js-number js-virtual-input" name="price_max" autocomplete="off" type="text" />
-                                <div class="range__placeholder">₽</div>
+                            <input class="input__field input__field_small" type="text" name="order[count]" placeholder="5 000" />
+                            <div class="input__content content is-gray">
+                                <p>Стоимость записи зависит от&nbsp;количества слов вашем тексте.
+                                    <br>Воспользуйтесь формой ниже чтобы узнать точное количество слов.</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="filter-modal__box">
-                    <div class="filter-modal__box-label p strong">Фильтры</div>
-                    <div class="filter-modal__filter-list" id="mobile-filters"></div>
-                </div>
-            </div>
-            <div class="filter-modal__part filter-modal__part_bottom">
-                <button class="filter-modal__button btn btn_dark js-mobile-send-filters">
-                    <div class="btn__text">Сохранить</div>
-                </button>
-            </div>
-        </div>
-        <div class="filter-modal__panel filter-modal__panel_values filter-modal__panel_hidden menu-modal is-default">
-            <div class="menu-modal__vertical">
-                <div class="menu-modal__head p">
-                    <div class="menu-modal__back js-close-mobile-filter">
-                        <svg class="icon icon-back" viewBox="0 0 19 18">
-                            <use xlink:href="/app/icons/sprite.svg#back"></use>
-                        </svg>
-                    </div><span></span>
-                </div>
-                <div class="menu-modal__content">
-                    <div class="menu-modal__inner">
-                        <ul class="menu-modal__content-list menu-modal__content-list_noborder menu-modal__content-list_scope"></ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <section class="profile">
-        <div class="profile__wrap wrap">
-            <div class="profile__row flex flex_justify">
-                <div class="profile__cell profile__cell_left">
-                    <div class="profile__notification notification notification_sucsess notification_tablet">
-                        <div class="notification__left p color-gray"><strong>Хотите стать исполнителем?</strong>
-                            <br>Добавьте услугу и&nbsp;найдите первых заказчиков уже сегодня</div>
-                        <div class="notification__right"><a class="notification__btn btn btn_light" href="#">Стать исполнителем</a>
-                        </div>
-                        <div class="notification__close">
-                            <svg class="icon icon-close" viewBox="0 0 18 18">
-                                <use xlink:href="/app/icons/sprite.svg#close"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="profile__box">
-                        <div class="profile__box-avatar avatar avatar_noscope">
-                            <div class="avatar__inner">
-                                <picture>
-                                    <source type="image/webp" srcset="/app/img/avatar.webp">
-                                        <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                </picture>
+                        <div class="neworder__input input">
+                            <div class="input__top flex flex_justify flex_vertical">
+                                <label class="input__label p b">Текст заказа <span class="color-red">*</span>
+                                </label>
+                                <div class="input__clear small">
+                                    <svg class="icon icon-clear" viewBox="0 0 15 16">
+                                        <use xlink:href="/app/icons/sprite.svg#clear"></use>
+                                    </svg>Очистить форму</div>
                             </div>
-                            <div class="avatar__online-icon"></div>
-                        </div>
-                        <div class="profile__box-name h5 h5_small">Ivanivanov</div>
-                        <div class="profile__edit-status edit-status">
-                            <input class="edit-status__input js-edit-status" type="text" placeholder="Изменить статус" maxlength="80" />
-                            <div class="edit-status__text color-gray-light js-edit-text">Сделай полноценное описание чтобы понимать сколько будет стоить эт вот</div>
-                        </div>
-                        <div class="profile__box-rating flex flex_vertical flex_center">
-                            <div class="profile__box-rating-text p b">4.1</div>
-                            <div class="profile__box-stars stars flex flex_vertical">
-                                <div class="stars__item stars__item_active">
-                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                    </svg>
-                                </div>
-                                <div class="stars__item stars__item_active">
-                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                    </svg>
-                                </div>
-                                <div class="stars__item stars__item_active">
-                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                    </svg>
-                                </div>
-                                <div class="stars__item stars__item_active">
-                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                    </svg>
-                                </div>
-                                <div class="stars__item">
-                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                            <div class="input__parent">
+                                <textarea class="input__field input__field_textarea input__field_big css-red-scrollbar" type="text" name="order[message]" placeholder="Впишите сюда текст заказа или&nbsp;добавьте его файлом"></textarea>
+                                <div class="input__files js-dropzone-trigger js-without">
+                                    <svg class="icon icon-attach" viewBox="0 0 17 22">
+                                        <use xlink:href="/app/icons/sprite.svg#attach"></use>
                                     </svg>
                                 </div>
                             </div>
-                            <div class="profile__box-rating-count color-gray-light">(248 отзыва)</div>
-                        </div><a class="profile__box-button border-button border-button_light p" href="#"><span class="border-button__text">Редактировать профиль</span></a>
-                    </div>
-                    <div class="profile__info">
-                        <div class="profile__info-text p">На сайте с&nbsp;1 ноября 2019</div>
-                        <div class="profile__info-text p">Россия</div>
-                    </div>
-                    <div class="profile__statistics">
-                        <div class="profile__info-section">
-                            <div class="profile__statistics-title"><strong>Исполнитель</strong>
-                            </div>
-                            <div class="profile__statistics-row p">
-                                <div class="profile__statistics-label">Выполнено проектов</div>
-                                <div class="profile__statistics-count">0</div>
-                            </div>
-                            <div class="profile__statistics-row p">
-                                <div class="profile__statistics-label">Отзывы</div>
-                                <div class="profile__statistics-count">0</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="profile__details">
-                        <div class="profile__info-section">
-                            <div class="profile__details-title h5 h5_small">Обо мне</div>
-                            <div class="profile__details-desc p color-gray">Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute. Id reprehenderit id labore amet ullamco minim enim. Culpa est nostrud proident fugiat. Veniam velit
-                                adipisicing mollit velit nulla in minim sint excepteur consequat deserunt et aliquip sint.</div>
-                        </div>
-                        <div class="profile__info-section">
-                            <div class="profile__details-title h5 h5_small">Соц. сети</div>
-                            <div class="profile__social social-vertical"><a class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/fb-btn.svg"></span><span class="social-vertical__text">Facebook</span></a><a class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/vk-btn.svg"></span><span class="social-vertical__text">Вконтакте</span></a>
-                                <a
-                                class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/ins-btn.svg"></span><span class="social-vertical__text">Instagram</span>
-                                    </a><a class="social-vertical__item" href="#"><span class="social-vertical__icon"><img src="app/img/od-btn.svg"></span><span class="social-vertical__text">Одноклассники</span></a>
-                            </div>
-                        </div>
-                        <div class="profile__info-section">
-                            <div class="profile__details-title h5 h5_small">Языки</div>
-                            <div class="profile__details-text p">Русский <span class="color-gray-light">(Родной)</span>
-                            </div>
-                            <div class="profile__details-text p">Английский <span class="color-gray-light">(Разговорный)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile__cell profile__cell_right">
-                    <div class="profile__notification notification notification_sucsess notification_desktop">
-                        <div class="notification__left p color-gray"><strong>Хотите стать исполнителем?</strong>
-                            <br>Добавьте услугу и&nbsp;найдите первых заказчиков уже сегодня</div>
-                        <div class="notification__right"><a class="notification__btn btn btn_light" href="#">Стать исполнителем</a>
-                        </div>
-                        <div class="notification__close">
-                            <svg class="icon icon-close" viewBox="0 0 18 18">
-                                <use xlink:href="/app/icons/sprite.svg#close"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="profile__block">
-                        <h2 class="profile__block-title h2">Последние заказы</h2>
-                        <div class="profile__block-line"></div>
-                        <div class="profile__block-text p color-gray-light">Тут будут отображаться ваши последние заказы</div>
-                    </div>
-                    <div class="profile__block">
-                        <div class="reviews">
-                            <div class="reviews__top reviews__top_filter flex flex_justify">
-                                <div class="reviews__title h2">Отзывы</div>
-                                <div class="reviews__top-list flex">
-                                    <div class="reviews__top-item p is-active">Все</div>
-                                    <div class="reviews__top-item p">Положительные</div>
-                                    <div class="reviews__top-item p">Отрицательные</div>
+                            <div class="input__info flex flex_vertical flex_justify">
+                                <div class="input__info-cell flex flex_vertical flex_justify">
+                                    <div class="input__info-item p">
+                                        <div class="input__info-icon">
+                                            <svg class="icon icon-document" viewBox="0 0 13 19">
+                                                <use xlink:href="/app/icons/sprite.svg#document"></use>
+                                            </svg>
+                                        </div>8734 слов</div>
+                                    <div class="input__info-item p">
+                                        <div class="input__info-icon input__info-icon_time">
+                                            <svg class="icon icon-time" viewBox="0 0 20 20">
+                                                <use xlink:href="/app/icons/sprite.svg#time"></use>
+                                            </svg>
+                                        </div>1 мин 25 сек</div>
                                 </div>
-                                <div class="reviews__select slct">
-                                    <select name="user">
-                                        <option>От исполнителей</option>
-                                        <option>От заказчика</option>
-                                    </select>
+                                <div class="input__info-cell"><a class="input__info-link link small" href="#">Как правильно оформить текст заказа</a>
                                 </div>
                             </div>
-                            <div class="reviews__list">
-                                <div class="reviews__item reviews__item_positive">
-                                    <div class="reviews__cell reviews__cell_static">
-                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                            <div class="avatar__inner">
-                                                <picture>
-                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
-                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                </picture>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="reviews__cell reviews__cell_fluid">
-                                        <div class="reviews__head flex flex_vertical">
-                                            <div class="reviews__name p b">Ivanivanov</div>
-                                            <div class="reviews__date p">11.02.2019</div>
-                                            <div class="reviews__stars stars flex flex_vertical">
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                            <div class="input__dropzone dropzone js-dropzone">
+                                <div class="dropzone__area">
+                                    <input class="dropzone__file" name="file" type="file" multiple="multiple" />
+                                    <div class="dropzone__preview">
+                                        <div class="dropzone__item">
+                                            <div class="dropzone__row flex flex_vertical">
+                                                <div class="dropzone__icon">
+                                                    <svg class="icon icon-doc" viewBox="0 0 16 16">
+                                                        <use xlink:href="/app/icons/sprite.svg#doc"></use>
                                                     </svg>
                                                 </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="reviews__text content">
-                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
-                                                incididunt ut aute ipsum anim fugiat aute.</p>
-                                        </div>
-                                        <div class="reviews__answers">
-                                            <div class="reviews__item reviews__item_answer">
-                                                <div class="reviews__cell reviews__cell_static">
-                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                                        <div class="avatar__inner">
-                                                            <picture>
-                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
-                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews__cell reviews__cell_fluid">
-                                                    <div class="reviews__head flex flex_vertical">
-                                                        <div class="reviews__name p b">Ivanivanov</div>
-                                                        <div class="reviews__date p">11.02.2019</div>
-                                                    </div>
-                                                    <div class="reviews__text content">
-                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
-                                                    </div>
+                                                <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span>
+                                                    <span
+                                                    class="dropzone__remove js-remove-file" data-dz-remove="data-dz-remove">
+                                                        <svg class="icon icon-delete" viewBox="0 0 12 12">
+                                                            <use xlink:href="/app/icons/sprite.svg#delete"></use>
+                                                        </svg>
+                                                        </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="reviews__item reviews__item_negative">
-                                    <div class="reviews__cell reviews__cell_static">
-                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                            <div class="avatar__inner">
-                                                <picture>
-                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
-                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                </picture>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="reviews__cell reviews__cell_fluid">
-                                        <div class="reviews__head flex flex_vertical">
-                                            <div class="reviews__name p b">Ivanivanov</div>
-                                            <div class="reviews__date p">11.02.2019</div>
-                                            <div class="reviews__stars stars flex flex_vertical">
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
+                            </div>
+                        </div>
+                        <div class="neworder__input neworder__input_big input">
+                            <div class="input__top flex flex_justify flex_vertical">
+                                <label class="input__label p b">Комментарий</label>
+                                <div class="input__clear small">
+                                    <svg class="icon icon-clear" viewBox="0 0 15 16">
+                                        <use xlink:href="/app/icons/sprite.svg#clear"></use>
+                                    </svg>Очистить форму</div>
+                            </div>
+                            <div class="input__parent">
+                                <textarea class="input__field input__field_textarea input__field_big css-red-scrollbar" type="text" name="order[message]" placeholder="Впишите сюда текст заказа или&nbsp;добавьте его файлом"></textarea>
+                                <div class="input__files js-dropzone-trigger js-without">
+                                    <svg class="icon icon-attach" viewBox="0 0 17 22">
+                                        <use xlink:href="/app/icons/sprite.svg#attach"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="input__dropzone dropzone js-dropzone">
+                                <div class="dropzone__area">
+                                    <input class="dropzone__file" name="file" type="file" multiple="multiple" />
+                                    <div class="dropzone__preview">
+                                        <div class="dropzone__item">
+                                            <div class="dropzone__row flex flex_vertical">
+                                                <div class="dropzone__icon">
+                                                    <svg class="icon icon-doc" viewBox="0 0 16 16">
+                                                        <use xlink:href="/app/icons/sprite.svg#doc"></use>
                                                     </svg>
                                                 </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="reviews__text content">
-                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
-                                                incididunt ut aute ipsum anim fugiat aute.</p>
-                                        </div>
-                                        <div class="reviews__answers">
-                                            <div class="reviews__item reviews__item_answer">
-                                                <div class="reviews__cell reviews__cell_static">
-                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                                        <div class="avatar__inner">
-                                                            <picture>
-                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
-                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews__cell reviews__cell_fluid">
-                                                    <div class="reviews__head flex flex_vertical">
-                                                        <div class="reviews__name p b">Ivanivanov</div>
-                                                        <div class="reviews__date p">11.02.2019</div>
-                                                    </div>
-                                                    <div class="reviews__text content">
-                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
-                                                    </div>
+                                                <div class="dropzone__name"><span data-dz-name="data-dz-name"> </span><span class="dropzone__size">&nbsp;(<span data-dz-size> </span>)</span><span class="dropzone__status" data-dz-uploadprogress="data-dz-uploadprogress"><img class="dropzone__status-preload" src="/app/img/preload.svg" alt="" role="presentation"/><span class="progress-text"></span></span>
+                                                    <span
+                                                    class="dropzone__remove js-remove-file" data-dz-remove="data-dz-remove">
+                                                        <svg class="icon icon-delete" viewBox="0 0 12 12">
+                                                            <use xlink:href="/app/icons/sprite.svg#delete"></use>
+                                                        </svg>
+                                                        </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="reviews__item reviews__item_positive">
-                                    <div class="reviews__cell reviews__cell_static">
-                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                            <div class="avatar__inner">
-                                                <picture>
-                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
-                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                </picture>
-                                            </div>
+                            </div>
+                        </div>
+                        <div class="neworder__service service service_noscope">
+                            <div class="service__more">
+                                <div class="service__more-title p b">Дополнительные услуги</div>
+                                <div class="service__more-row">
+                                    <div class="service__more-cell service__more-cell_name">
+                                        <label class="service__checkbox checkbox">
+                                            <input class="checkbox__input" name="more[]" type="checkbox" value="Адаптивный дизайн под&nbsp;3 разорешения" /><span class="checkbox__text"> Адаптивный дизайн под&nbsp;3 разорешения <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
+                                        </label>
+                                        <div class="service__content service__content_more content is-gray">
+                                            <p>Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute.</p>
                                         </div>
                                     </div>
-                                    <div class="reviews__cell reviews__cell_fluid">
-                                        <div class="reviews__head flex flex_vertical">
-                                            <div class="reviews__name p b">Ivanivanov</div>
-                                            <div class="reviews__date p">11.02.2019</div>
-                                            <div class="reviews__stars stars flex flex_vertical">
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="reviews__text content">
-                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
-                                                incididunt ut aute ipsum anim fugiat aute.</p>
-                                        </div>
-                                        <div class="reviews__answers">
-                                            <div class="reviews__item reviews__item_answer">
-                                                <div class="reviews__cell reviews__cell_static">
-                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                                        <div class="avatar__inner">
-                                                            <picture>
-                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
-                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews__cell reviews__cell_fluid">
-                                                    <div class="reviews__head flex flex_vertical">
-                                                        <div class="reviews__name p b">Ivanivanov</div>
-                                                        <div class="reviews__date p">11.02.2019</div>
-                                                    </div>
-                                                    <div class="reviews__text content">
-                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="service__more-cell service__more-cell_count flex flex_vertical flex_justify">
+                                        <div class="service__more-count p">Кол-во</div>
+                                        <div class="service__select slct">
+                                            <select name="count">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
                                 </div>
-                                <div class="reviews__item reviews__item_negative">
-                                    <div class="reviews__cell reviews__cell_static">
-                                        <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                            <div class="avatar__inner">
-                                                <picture>
-                                                    <source type="image/webp" srcset="/app/img/avatar2.webp">
-                                                        <img src="/app/img/avatar2.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                </picture>
-                                            </div>
+                                <div class="service__more-row">
+                                    <div class="service__more-cell service__more-cell_name">
+                                        <label class="service__checkbox checkbox">
+                                            <input class="checkbox__input" name="more[]" type="checkbox" value="Прототипирование" /><span class="checkbox__text"> Прототипирование <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_count flex flex_vertical flex_justify">
+                                        <div class="service__more-count p">Кол-во</div>
+                                        <div class="service__select slct">
+                                            <select name="count">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="reviews__cell reviews__cell_fluid">
-                                        <div class="reviews__head flex flex_vertical">
-                                            <div class="reviews__name p b">Ivanivanov</div>
-                                            <div class="reviews__date p">11.02.2019</div>
-                                            <div class="reviews__stars stars flex flex_vertical">
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item stars__item_active">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="stars__item">
-                                                    <svg class="icon icon-star" viewBox="0 0 18 18">
-                                                        <use xlink:href="/app/icons/sprite.svg#star"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="reviews__text content">
-                                            <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia quis consectetur occaecat eiusmod ut reprehenderit mollit. Exercitation
-                                                incididunt ut aute ipsum anim fugiat aute.</p>
-                                        </div>
-                                        <div class="reviews__answers">
-                                            <div class="reviews__item reviews__item_answer">
-                                                <div class="reviews__cell reviews__cell_static">
-                                                    <div class="reviews__avatar avatar avatar_noscope avatar_online">
-                                                        <div class="avatar__inner">
-                                                            <picture>
-                                                                <source type="image/webp" srcset="/app/img/avatar.webp">
-                                                                    <img src="/app/img/avatar.jpg" class="avatar__image object-fit" alt="" role="presentation" />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews__cell reviews__cell_fluid">
-                                                    <div class="reviews__head flex flex_vertical">
-                                                        <div class="reviews__name p b">Ivanivanov</div>
-                                                        <div class="reviews__date p">11.02.2019</div>
-                                                    </div>
-                                                    <div class="reviews__text content">
-                                                        <p>Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
                                 </div>
-                            </div><a class="reviews__button border-button border-button_light p" href="#"><span class="border-button__text">Показать еще</span></a>
+                                <div class="service__more-row">
+                                    <div class="service__more-cell service__more-cell_name">
+                                        <label class="service__checkbox checkbox">
+                                            <input class="checkbox__input" name="more[]" type="checkbox" value="Кликабельный прототип" /><span class="checkbox__text"> Кликабельный прототип <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_count flex flex_vertical flex_justify">
+                                        <div class="service__more-count p">Кол-во</div>
+                                        <div class="service__select slct">
+                                            <select name="count">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
+                                </div>
+                                <div class="service__more-row">
+                                    <div class="service__more-cell service__more-cell_name">
+                                        <label class="service__checkbox checkbox">
+                                            <input class="checkbox__input" name="more[]" type="checkbox" value="Прототипирование" /><span class="checkbox__text"> Прототипирование <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_count flex flex_vertical flex_justify">
+                                        <div class="service__more-count p">Кол-во</div>
+                                        <div class="service__select slct">
+                                            <select name="count">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
+                                </div>
+                                <div class="service__more-row">
+                                    <div class="service__more-cell service__more-cell_name">
+                                        <label class="service__checkbox checkbox">
+                                            <input class="checkbox__input" name="more[]" type="checkbox" value="Кликабельный прототип" /><span class="checkbox__text"> Кликабельный прототип <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_count flex flex_vertical flex_justify">
+                                        <div class="service__more-count p">Кол-во</div>
+                                        <div class="service__select slct">
+                                            <select name="count">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="neworder__cell neworder__cell_right">
+                        <div class="neworder__sticky css-sticky">
+                            <div class="neworder__box">
+                                <div class="neworder__box-title h5 h5_small b">Расчет стоимости заказа</div>
+                                <div class="neworder__box-preview">
+                                    <picture>
+                                        <source type="image/webp" srcset="/app/img/neworder_item.webp">
+                                            <img src="/app/img/neworder_item.jpg" class="neworder__box-image object-fit" alt="" role="presentation" />
+                                    </picture>
+                                </div>
+                                <div class="neworder__box-nickname nickname nickname_online small">Uselles dude</div>
+                                <div class="neworder__box-name h5 h5_small">Озвучка текста для&nbsp;бренда Toyota крутым голосом почти бесплатно</div>
+                                <div class="neworder__box-price h5 b">Итого: 3 000 ₽</div><a class="neworder__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Заказать</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
     <footer class="footer">
         <div class="footer__wrap wrap">
@@ -1843,7 +1578,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585670374971"></script>
+    <script src="/app/js/app.js?v=1585670371969"></script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@ extends ../layouts/base
 
 append vars
 	- title = 'Услуга';
+	- body.classList = 'is-have-mobile-nav';
 
 block header
 	+header(true)
@@ -10,15 +11,12 @@ block content
 
 	include ../layouts/mobile-filters
 
-	//- +b.NAV.fluid._mobile
-	//- 	+e.wrap.wrap
-	//- 		+e.row
-	//- 			+e.cell._fluid
-	//- 				+e.box-button.btn__._red._big.p.A(href='#')
-	//- 					+e.text Подробнее
-	//- 			+e.cell._static
-	//- 				+e.A.link.link.p(href='#') Написать исполнителю
-
+	+b.NAV.fluid._mobile.js-window-duplicate(data-parent="#desktop-order")
+		+e.wrap.wrap
+			+e.price.h5._small
+				| Итого: 3 000 ₽
+			+e.button.btn__._red._big.p.A(href='#')
+				+e.text Оформить заказ
 	+b.SECTION.service
 		+e.wrap.wrap
 			+e.head
@@ -32,6 +30,13 @@ block content
 								+e.player.player__._fluid._big.js-player(data-file="/app/media/video.mp4")
 									+e.IMG.preview.object-fit(src="/img/test1.jpg")
 									+e.container
+									+e.mobile
+										+e.nav._default
+											+e.nav-button
+												+e.nav-icon._play
+													+icon('play')
+												+e.nav-icon._pause
+													+icon('pause')
 									+e.center
 										+e.nav._default
 											+e.nav-button._big
@@ -76,6 +81,13 @@ block content
 								+e.player.player__._fluid._big.js-player(data-file="/app/media/security.mp4")
 									+e.IMG.preview.object-fit(src="/img/case_1.jpg")
 									+e.container
+									+e.mobile
+										+e.nav._default
+											+e.nav-button
+												+e.nav-icon._play
+													+icon('play')
+												+e.nav-icon._pause
+													+icon('pause')
 									+e.center
 										+e.nav._default
 											+e.nav-button._big
@@ -197,12 +209,12 @@ block content
 									+e.about-item.p 
 										| Онлайн
 										span.dot
-								+e.about-button.border-button__._light.p.A(href='#')
+								+e.about-button.border-button__._light.js-modal.p.A(href='#service-order')
 									+e.text Написать
 					+e.part._more
 						+e.more
 							+e.more-title.h2 Дополнительные услуги
-							+e.more-row.flex
+							+e.more-row
 								+e.more-cell._name
 									+e.LABEL.checkbox.checkbox__
 										+e.INPUT.input(name="more[]" type="checkbox" value="Адаптивный дизайн под 3 разорешения")
@@ -223,7 +235,7 @@ block content
 											option 4
 											option 5
 								+e.more-cell._price.p 1250 ₽
-							+e.more-row.flex
+							+e.more-row
 								+e.more-cell._name
 									+e.LABEL.checkbox.checkbox__
 										+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
@@ -241,7 +253,7 @@ block content
 											option 4
 											option 5
 								+e.more-cell._price.p 1250 ₽
-							+e.more-row.flex
+							+e.more-row
 								+e.more-cell._name
 									+e.LABEL.checkbox.checkbox__
 										+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
@@ -259,7 +271,7 @@ block content
 											option 4
 											option 5
 								+e.more-cell._price.p 1250 ₽
-							+e.more-row.flex
+							+e.more-row
 								+e.more-cell._name
 									+e.LABEL.checkbox.checkbox__
 										+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
@@ -277,7 +289,7 @@ block content
 											option 4
 											option 5
 								+e.more-cell._price.p 1250 ₽
-							+e.more-row.flex
+							+e.more-row
 								+e.more-cell._name
 									+e.LABEL.checkbox.checkbox__
 										+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
@@ -377,7 +389,7 @@ block content
 														p
 															| Pariatur sunt consectetur amet elit ex Lorem nostrud ea labore laboris labore id. Do laborum aliqua mollit ipsum incididunt sit officia.
 				+e.cell._right
-					+e.sticky#desktop-settings
+					+e.sticky.css-sticky#desktop-settings
 						+e.box.js-move-item(data-to="#mobile-settings" data-from="#desktop-settings")
 							+e.box-row#desktop-top
 								+e.box-inner.js-move-item(data-to="#mobile-top" data-from="#desktop-top")
@@ -421,8 +433,8 @@ block content
 										+e.INPUT.field(name='words' type="text" value="5 000")
 							+e.box-title
 								| Итого: 3 000 ₽
-							+e.box-fluid
-								+e.box-button.btn__._red._big.p.js-window-fluid.A(href='#')
+							+e.box-fluid#desktop-order
+								+e.box-button.btn__._red._big.p.A(href='#')
 									+e.text Оформить заказ
 							+e.box-bottom
 								+e.box-link.js-modal.p.A(href='#service-order') Написать исполнителю

@@ -1,4 +1,91 @@
 .input{
+
+	&__label{
+		margin-bottom: 2rem;
+		display: block;
+
+		&_margin{
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+			margin-right: 2rem;
+
+			.is-help{
+				margin-left: 0;
+			    margin-top: -10px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	&__dropzone{
+		margin-top: 1.5rem;
+	}
+
+	&__info{
+		padding-bottom: 2rem;
+		
+		&-link{
+			line-height: 1.6rem;
+			margin-top: 1.4rem;
+		}
+
+		&-item{
+			margin-right: 3rem;
+			display: flex;
+			margin-top: 1.4rem;
+			align-items: center;
+		}
+
+		&-icon{
+			width: 1.3rem;
+			margin-right: 1.2rem;
+
+			&_time{
+				width: 2rem;
+			}
+		}
+	}
+
+	&__parent{
+		position: relative;
+	}
+
+	&__files{
+		width: 1.5rem;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-right: 1rem;
+		cursor: pointer;
+		fill: #2A2D34;
+		margin-bottom: 1.9rem;
+	}
+
+	&__clear{
+		cursor: pointer;
+		color: #949699;
+		position: relative;
+		padding-left: 2.1rem;
+		line-height: 1.6rem;
+
+		svg{
+			width: 1.5rem;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -1rem;
+			fill: #949699;
+		}
+	}
+
+	&__content{
+		margin-top: 1.9rem;
+		padding-bottom: 1rem;
+
+		p{
+			line-height: 2.2rem;
+		}
+	}
 	
 	&__field{
 		width: 100%;
@@ -12,11 +99,23 @@
 
 		border: 1px solid rgba(42, 45, 52, 0.15);
 
+		&_small{
+			width: 90px;
+		}
+
+		&_big{
+			height: 5.1rem;
+		}
+
 		&_textarea{
 			height: 11rem;
 			resize: none;
 			padding: 1.6rem;
 			border: 1px solid rgba(42, 45, 52, 0.15);
+
+			&.input__field_big{
+				height: 18.3rem;
+			}
 		}
 
 	}

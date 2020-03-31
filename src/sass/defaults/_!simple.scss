@@ -12,6 +12,10 @@
 	margin: auto;
 	position: relative;
 
+	&_small{
+		max-width: 1264px;
+	}
+
 	@include max-screen($large_desktop) {
 		max-width: 1200px;
 	}
@@ -64,6 +68,7 @@ input {
     -moz-appearance: none;
     color: inherit;
     font-family: inherit;
+    border-radius: 0;
 }
 
 main{
@@ -206,6 +211,13 @@ img, svg{
 	// }	
 }
 
+.css-sticky{
+	position: sticky;
+	top: 5rem;
+	left: 0;
+	width: 100%;
+}
+
 .css-red-scrollbar{
 	overflow-y: auto;
 	/* width */
@@ -255,6 +267,10 @@ img, svg{
 	}
 }
 
+.color-red {
+	color: $red;
+}
+
 .color-gray {
 	color: $gray;
 }
@@ -273,6 +289,21 @@ video::-webkit-media-controls {
     display:none !important;
 }
 
+.js-window-duplicate{
+	position: fixed;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	visibility: hidden;
+	opacity: 0;
+	transition: ease .15s;
+
+	&.is-window-fluid{
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
 .js-window-fluid{
 	position: relative;
 
@@ -281,7 +312,7 @@ video::-webkit-media-controls {
 			position: fixed;
 			left: 0;
 			width: 100%;
-			top: 0;
+			bottom: 0;
 		}
 	}
 }

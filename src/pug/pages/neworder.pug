@@ -1,0 +1,226 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Создание заказа';
+
+block header
+	+header(true)
+
+block content
+
+	+b.SECTION.neworder
+		+e.FORM.form.form(action="")
+			+e.wrap.wrap._small
+				+e.row.flex._justify
+					+e.cell._left
+						+e.title.h2 Создание заказа
+
+						+e.input.input__
+							+e.LABEL.label.p.b
+								| Название заказа 
+								span.color-red *
+							+e.field._big.INPUT(type="text" name="order[name]" placeholder="Например: Озвучка рекламного сайта Тайота")
+
+						+e.input.input__.flex._vertical
+							+e.LABEL.label._margin.p.b
+								| Количество слов
+								.is-help
+									| ?
+									+b.help-content.content.small
+										b За 500 ₽ 
+										| вы получите
+										b 1 минуты. 
+										| Если требуется больший объем, впишите его в поле. Минимальная цена заказа 500 ₽ 
+							+e.field._small.INPUT(type="text" name="order[count]" placeholder="5 000")
+							+e.content.content.is-gray
+								p
+									| Стоимость записи зависит от количества слов вашем тексте. 
+									br
+									| Воспользуйтесь формой ниже чтобы узнать точное количество слов. 
+						+e.input.input__
+							+e.top.flex._justify._vertical
+								+e.LABEL.label.p.b
+									| Текст заказа 
+									span.color-red *
+								+e.clear.small
+									+icon('clear')
+									| Очистить форму
+							+e.parent
+								+e.field._textarea._big.css-red-scrollbar.TEXTAREA(type="text" name="order[message]" placeholder="Впишите сюда текст заказа или добавьте его файлом")
+								+e.files.js-dropzone-trigger.js-without
+									+icon('attach')
+							+e.info.flex._vertical._justify
+								+e.info-cell.flex._vertical._justify
+									+e.info-item.p
+										+e.info-icon
+											+icon('document')
+										| 8734 слов
+									+e.info-item.p
+										+e.info-icon._time
+											+icon('time')
+										| 1 мин 25 сек
+								+e.info-cell
+									+e.info-link.link.small.A(href="#")
+										| Как правильно оформить текст заказа
+							+e.dropzone.dropzone__.js-dropzone
+								+e.area
+									+e.INPUT.file(name="file" type="file" multiple)
+									+e.preview
+										+e.item
+											+e.row.flex._vertical
+												+e.icon
+													+icon('doc')
+												+e.name
+													+e.SPAN(data-dz-name) 
+													+e.SPAN.size
+														| &nbsp;(
+														span(data-dz-size) 
+														| )
+													+e.SPAN.status(data-dz-uploadprogress)
+														+e.IMG.status-preload(src="/app/img/preload.svg")
+														span.progress-text
+													+e.SPAN.remove.js-remove-file(data-dz-remove)
+														+icon('delete')
+						+e.input._big.input__
+							+e.top.flex._justify._vertical
+								+e.LABEL.label.p.b
+									| Комментарий 
+								+e.clear.small
+									+icon('clear')
+									| Очистить форму
+							+e.parent
+								+e.field._textarea._big.css-red-scrollbar.TEXTAREA(type="text" name="order[message]" placeholder="Впишите сюда текст заказа или добавьте его файлом")
+								+e.files.js-dropzone-trigger.js-without
+									+icon('attach')
+							+e.dropzone.dropzone__.js-dropzone
+								+e.area
+									+e.INPUT.file(name="file" type="file" multiple)
+									+e.preview
+										+e.item
+											+e.row.flex._vertical
+												+e.icon
+													+icon('doc')
+												+e.name
+													+e.SPAN(data-dz-name) 
+													+e.SPAN.size
+														| &nbsp;(
+														span(data-dz-size) 
+														| )
+													+e.SPAN.status(data-dz-uploadprogress)
+														+e.IMG.status-preload(src="/app/img/preload.svg")
+														span.progress-text
+													+e.SPAN.remove.js-remove-file(data-dz-remove)
+														+icon('delete')
+						+e.service.service__._noscope
+							+e.more
+								+e.more-title.p.b Дополнительные услуги
+								+e.more-row
+									+e.more-cell._name
+										+e.LABEL.checkbox.checkbox__
+											+e.INPUT.input(name="more[]" type="checkbox" value="Адаптивный дизайн под 3 разорешения")
+											+e.SPAN.text 
+												| Адаптивный дизайн под 3 разорешения 
+												+e.icon
+													+icon('check')
+										+e.content._more.content.is-gray
+											p 
+												| Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute.
+									+e.more-cell._count.flex._vertical._justify
+										+e.more-count.p Кол-во
+										+e.select.slct__
+											select(name='count')
+												option 1
+												option 2
+												option 3
+												option 4
+												option 5
+									+e.more-cell._price.p 1250 ₽
+								+e.more-row
+									+e.more-cell._name
+										+e.LABEL.checkbox.checkbox__
+											+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
+											+e.SPAN.text 
+												| Прототипирование 
+												+e.icon
+													+icon('check')
+									+e.more-cell._count.flex._vertical._justify
+										+e.more-count.p Кол-во
+										+e.select.slct__
+											select(name='count')
+												option 1
+												option 2
+												option 3
+												option 4
+												option 5
+									+e.more-cell._price.p 1250 ₽
+								+e.more-row
+									+e.more-cell._name
+										+e.LABEL.checkbox.checkbox__
+											+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
+											+e.SPAN.text 
+												| Кликабельный прототип 
+												+e.icon
+													+icon('check')
+									+e.more-cell._count.flex._vertical._justify
+										+e.more-count.p Кол-во
+										+e.select.slct__
+											select(name='count')
+												option 1
+												option 2
+												option 3
+												option 4
+												option 5
+									+e.more-cell._price.p 1250 ₽
+								+e.more-row
+									+e.more-cell._name
+										+e.LABEL.checkbox.checkbox__
+											+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
+											+e.SPAN.text 
+												| Прототипирование 
+												+e.icon
+													+icon('check')
+									+e.more-cell._count.flex._vertical._justify
+										+e.more-count.p Кол-во
+										+e.select.slct__
+											select(name='count')
+												option 1
+												option 2
+												option 3
+												option 4
+												option 5
+									+e.more-cell._price.p 1250 ₽
+								+e.more-row
+									+e.more-cell._name
+										+e.LABEL.checkbox.checkbox__
+											+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
+											+e.SPAN.text 
+												| Кликабельный прототип 
+												+e.icon
+													+icon('check')
+									+e.more-cell._count.flex._vertical._justify
+										+e.more-count.p Кол-во
+										+e.select.slct__
+											select(name='count')
+												option 1
+												option 2
+												option 3
+												option 4
+												option 5
+									+e.more-cell._price.p 1250 ₽
+					+e.cell._right
+						+e.sticky.css-sticky
+							+e.box
+								+e.box-title.h5._small.b
+									| Расчет стоимости заказа
+								+e.box-preview
+									+e.IMG.box-image.object-fit(src="/img/neworder_item.jpg")
+								+e.box-nickname.nickname._online.small
+									| Uselles dude
+								+e.box-name.h5._small
+									| Озвучка текста для бренда Toyota крутым голосом почти бесплатно
+								+e.box-price.h5.b
+									| Итого: 3 000 ₽
+								+e.box-button.btn__._red._big.p.A(href='#')
+									+e.text Заказать
+
+	//- include ../layouts/mobile-filters

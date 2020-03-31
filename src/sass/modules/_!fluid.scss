@@ -3,7 +3,7 @@
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	padding: 1.6rem 0;
+	padding: 8px 0;
 	background-color: #fff;
 	z-index: 200;
     border-top: 1px solid rgba(42,45,52,.2);
@@ -19,6 +19,10 @@
 
 	&__link{
 		white-space: nowrap;
+	}
+
+	&__price{
+		margin-bottom: 1rem;
 	}
 
 	&__cell{
@@ -54,4 +58,9 @@
 			font-size: 1.2rem;
 		}
 	}
+
+	@supports (-webkit-touch-callout: none) {
+		padding-bottom: 30px;
+	}
+
 }

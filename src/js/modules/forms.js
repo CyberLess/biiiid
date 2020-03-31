@@ -37,7 +37,7 @@ var forms = {
 
 	dropzone: {
 
-		trigger: ($item) => {
+		trigger: ($item, without = false) => {
 
 			config.log('trigger dropzone', $item)
 
@@ -310,9 +310,19 @@ var forms = {
 		forms.events();
 
 		$('.js-number').on('keypress keyup blur', forms.number);
+		
 		$('.js-dropzone-trigger').on('click', e => {
-			let area = $(e.currentTarget).closest('.js-dropzone');
+
+			let area;
+
+			if($(e.currentTarget).hasClass('js-without')){
+				area = $(e.currentTarget).closest('.input');
+			}else{
+				area = $(e.currentTarget).closest('.js-dropzone');
+			}
+
 			forms.dropzone.trigger(area)
+
 		});
 
 	}

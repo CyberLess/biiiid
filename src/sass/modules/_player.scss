@@ -365,7 +365,14 @@
 			}
 		}
 	}
-
+	&__mobile{
+		display: none;
+		position: absolute;
+	    right: 0;
+	    top: 0;
+	    margin-right: 1rem;
+	    margin-top: 1rem;
+	}
 	&__nav{
 		position: absolute;
 		right: 0;
@@ -452,6 +459,39 @@
 	@include max-screen($large_tablet) {
 		&__voice{
 			display: none;
+		}
+	}
+
+	@include max-screen($large_mobile) {
+		&__center{
+			display: none;
+		}
+		&__mobile{
+			display: block;
+		}
+		&__bar{
+			&-line{
+				height: 3px;
+			}
+			&-dot{
+				width: 7px!important;
+				height: 7px!important;
+				margin-left: -3.4px!important;
+				margin-top: -3.4px!important;
+			}
+			&-cell{
+				&_left{
+					display: none;
+				}
+			}
+		}
+		&__bottom{
+			left: 1.8rem;
+			right: 1.8rem;
+			bottom: 10px;
+		}
+		&__panel{
+			display: none !important;
 		}
 	}
 }

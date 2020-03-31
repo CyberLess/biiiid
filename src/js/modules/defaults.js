@@ -192,17 +192,17 @@ var defaults = {
 		if(!$item.length)
 			return false;
 
-        $(window).on("scroll load", () => {
+        $(window).on("scroll load resize", () => {
 
         	let $parent = $item.parent()
-            let windowpos = $(window).scrollTop();// - $item.outerHeight();
+            let windowpos = $(window).scrollTop() + $(window).height() - $item.outerHeight();
             let top = $parent.offset().top - parseFloat($item.css('marginTop').replace(/auto/, 0));
 
             if(windowpos < top) {
                 $item.removeClass('is-window-fluid')
-                $parent.removeAttr('style')
+                // $parent.removeAttr('style')
             } else {
-            	$parent.css('height', $item.outerHeight())
+            	// $parent.css('height', $item.outerHeight())
 				$item.addClass('is-window-fluid')
             }
 
@@ -210,12 +210,35 @@ var defaults = {
 
 	},
 
+	duplicate: ($item) => {
+		if(!$item.length)
+			return false;
+
+		$(window).on("scroll resize", () => {
+
+        	let $parent = $($item.data('parent'));
+
+            let windowpos = $(window).scrollTop();// + $(window).height() - $item.outerHeight();
+            let top = $parent.offset().top - parseFloat($item.css('marginTop').replace(/auto/, 0)) + $parent.outerHeight();
+
+            if(windowpos < top) {
+                $item.removeClass('is-window-fluid')
+                // $parent.removeAttr('style')
+            } else {
+            	// $parent.css('height', $item.outerHeight())
+				$item.addClass('is-window-fluid')
+            }
+
+		})			
+	},
 
 	init: () => {
 
 		defaults.events();
 
-		defaults.fluid($('.js-window-fluid'))
+		// defaults.fluid($('.js-window-fluid'))
+
+		defaults.duplicate($('.js-window-duplicate'))
 
 		$(window).on('load resize', defaults.moving);
 
