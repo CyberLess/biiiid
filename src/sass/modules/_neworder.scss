@@ -18,6 +18,7 @@
 
 	&__input{
 		margin-bottom: 4rem;
+		
 
 		&_big{
 			margin-bottom: 6rem;
@@ -49,6 +50,36 @@
 		
 		&-title{
 			margin-bottom: 3.4rem;
+		}
+	}
+
+	@include max-screen($large_tablet) {
+
+		&__box{
+			padding: 0;
+			border: none;
+			margin-top: 4rem;
+
+			&-preview, &-title,
+			&-name, &-nickname{
+				display: none;
+			}
+
+		}
+
+		&__cell{
+			width: 100%;
+		}
+
+	}
+
+	@include max-screen($small_tablet) {
+		padding-bottom: 3rem;
+		&__input{
+			margin-bottom: 3rem;
+		}
+		&__title{
+			margin-bottom: 3rem;
 		}
 	}
 }

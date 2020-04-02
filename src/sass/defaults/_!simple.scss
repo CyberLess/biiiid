@@ -317,6 +317,17 @@ video::-webkit-media-controls {
 	}
 }
 
+.css-hidetablet{
+	@include max-screen($small_tablet) {
+		display: none;
+	}
+}
+.css-hidemobile{
+	@include max-screen($large_mobile) {
+		display: none;
+	}
+}
+
 @include max-screen($large_mobile) {
 	.hide-mobile{
 		display: none;

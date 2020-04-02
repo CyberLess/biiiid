@@ -9,7 +9,7 @@ block header
 block content
 
 	+b.SECTION.neworder
-		+e.FORM.form.form(action="")
+		+e.FORM.form.form.js-evaluation(action="" id="newOrderForm" data-options='{"priceCalc":[{"words":70,"cost":"500","multiplier":1},{"words":90,"cost":750,"multiplier":1},{"words":120,"cost":1000,"multiplier":1},{"words":250,"cost":"1500","multiplier":1}]}')
 			+e.wrap.wrap._small
 				+e.row.flex._justify
 					+e.cell._left
@@ -32,7 +32,7 @@ block content
 										b 1 минуты. 
 										| Если требуется больший объем, впишите его в поле. Минимальная цена заказа 500 ₽ 
 							+e.field._small.INPUT(type="text" name="order[count]" placeholder="5 000")
-							+e.content.content.is-gray
+							+e.content.css-hidetablet.content.is-gray
 								p
 									| Стоимость записи зависит от количества слов вашем тексте. 
 									br
@@ -42,11 +42,11 @@ block content
 								+e.LABEL.label.p.b
 									| Текст заказа 
 									span.color-red *
-								+e.clear.small
+								+e.clear.small.js-evaluation-onfill.js-clear-fieldset
 									+icon('clear')
 									| Очистить форму
 							+e.parent
-								+e.field._textarea._big.css-red-scrollbar.TEXTAREA(type="text" name="order[message]" placeholder="Впишите сюда текст заказа или добавьте его файлом")
+								+e.field._textarea._big.css-red-scrollbar.js-evaluation-field.TEXTAREA(type="text" name="order[message]" placeholder="Впишите сюда текст заказа или добавьте его файлом")
 								+e.files.js-dropzone-trigger.js-without
 									+icon('attach')
 							+e.info.flex._vertical._justify
@@ -54,12 +54,13 @@ block content
 									+e.info-item.p
 										+e.info-icon
 											+icon('document')
-										| 8734 слов
+										span.js-evaluation-words 0 слов
 									+e.info-item.p
 										+e.info-icon._time
 											+icon('time')
-										| 1 мин 25 сек
-								+e.info-cell
+										span.js-evaluation-time 0
+										span &nbsp;сек.
+								+e.info-cell.css-hidetablet
 									+e.info-link.link.small.A(href="#")
 										| Как правильно оформить текст заказа
 							+e.dropzone.dropzone__.js-dropzone
@@ -85,7 +86,7 @@ block content
 							+e.top.flex._justify._vertical
 								+e.LABEL.label.p.b
 									| Комментарий 
-								+e.clear.small
+								+e.clear.small.js-clear-fieldset
 									+icon('clear')
 									| Очистить форму
 							+e.parent
@@ -219,7 +220,9 @@ block content
 								+e.box-name.h5._small
 									| Озвучка текста для бренда Toyota крутым голосом почти бесплатно
 								+e.box-price.h5.b
-									| Итого: 3 000 ₽
+									| Итого: 
+									span.js-evaluation-summ 0
+									span &nbsp;₽
 								+e.box-button.btn__._red._big.p.A(href='#')
 									+e.text Заказать
 

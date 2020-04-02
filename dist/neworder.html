@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Создание заказа</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585670371888">
+    <link rel="stylesheet" href="/app/css/app.css?v=1585853658773">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1195,7 +1195,7 @@
         </div>
     </div>
     <section class="neworder">
-        <form class="neworder__form form" action="">
+        <form class="neworder__form form js-evaluation" action="" id="newOrderForm" data-options="{&quot;priceCalc&quot;:[{&quot;words&quot;:70,&quot;cost&quot;:&quot;500&quot;,&quot;multiplier&quot;:1},{&quot;words&quot;:90,&quot;cost&quot;:750,&quot;multiplier&quot;:1},{&quot;words&quot;:120,&quot;cost&quot;:1000,&quot;multiplier&quot;:1},{&quot;words&quot;:250,&quot;cost&quot;:&quot;1500&quot;,&quot;multiplier&quot;:1}]}">
             <div class="neworder__wrap wrap wrap_small">
                 <div class="neworder__row flex flex_justify">
                     <div class="neworder__cell neworder__cell_left">
@@ -1211,7 +1211,7 @@
                                 </div>
                             </label>
                             <input class="input__field input__field_small" type="text" name="order[count]" placeholder="5 000" />
-                            <div class="input__content content is-gray">
+                            <div class="input__content css-hidetablet content is-gray">
                                 <p>Стоимость записи зависит от&nbsp;количества слов вашем тексте.
                                     <br>Воспользуйтесь формой ниже чтобы узнать точное количество слов.</p>
                             </div>
@@ -1220,13 +1220,13 @@
                             <div class="input__top flex flex_justify flex_vertical">
                                 <label class="input__label p b">Текст заказа <span class="color-red">*</span>
                                 </label>
-                                <div class="input__clear small">
+                                <div class="input__clear small js-evaluation-onfill js-clear-fieldset">
                                     <svg class="icon icon-clear" viewBox="0 0 15 16">
                                         <use xlink:href="/app/icons/sprite.svg#clear"></use>
                                     </svg>Очистить форму</div>
                             </div>
                             <div class="input__parent">
-                                <textarea class="input__field input__field_textarea input__field_big css-red-scrollbar" type="text" name="order[message]" placeholder="Впишите сюда текст заказа или&nbsp;добавьте его файлом"></textarea>
+                                <textarea class="input__field input__field_textarea input__field_big css-red-scrollbar js-evaluation-field" type="text" name="order[message]" placeholder="Впишите сюда текст заказа или&nbsp;добавьте его файлом"></textarea>
                                 <div class="input__files js-dropzone-trigger js-without">
                                     <svg class="icon icon-attach" viewBox="0 0 17 22">
                                         <use xlink:href="/app/icons/sprite.svg#attach"></use>
@@ -1240,15 +1240,17 @@
                                             <svg class="icon icon-document" viewBox="0 0 13 19">
                                                 <use xlink:href="/app/icons/sprite.svg#document"></use>
                                             </svg>
-                                        </div>8734 слов</div>
+                                        </div><span class="js-evaluation-words">0 слов</span>
+                                    </div>
                                     <div class="input__info-item p">
                                         <div class="input__info-icon input__info-icon_time">
                                             <svg class="icon icon-time" viewBox="0 0 20 20">
                                                 <use xlink:href="/app/icons/sprite.svg#time"></use>
                                             </svg>
-                                        </div>1 мин 25 сек</div>
+                                        </div><span class="js-evaluation-time">0</span><span>&nbsp;сек.</span>
+                                    </div>
                                 </div>
-                                <div class="input__info-cell"><a class="input__info-link link small" href="#">Как правильно оформить текст заказа</a>
+                                <div class="input__info-cell css-hidetablet"><a class="input__info-link link small" href="#">Как правильно оформить текст заказа</a>
                                 </div>
                             </div>
                             <div class="input__dropzone dropzone js-dropzone">
@@ -1279,7 +1281,7 @@
                         <div class="neworder__input neworder__input_big input">
                             <div class="input__top flex flex_justify flex_vertical">
                                 <label class="input__label p b">Комментарий</label>
-                                <div class="input__clear small">
+                                <div class="input__clear small js-clear-fieldset">
                                     <svg class="icon icon-clear" viewBox="0 0 15 16">
                                         <use xlink:href="/app/icons/sprite.svg#clear"></use>
                                     </svg>Очистить форму</div>
@@ -1438,7 +1440,8 @@
                                 </div>
                                 <div class="neworder__box-nickname nickname nickname_online small">Uselles dude</div>
                                 <div class="neworder__box-name h5 h5_small">Озвучка текста для&nbsp;бренда Toyota крутым голосом почти бесплатно</div>
-                                <div class="neworder__box-price h5 b">Итого: 3 000 ₽</div><a class="neworder__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Заказать</span></a>
+                                <div class="neworder__box-price h5 b">Итого: <span class="js-evaluation-summ">0</span><span>&nbsp;₽</span>
+                                </div><a class="neworder__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Заказать</span></a>
                             </div>
                         </div>
                     </div>
@@ -1578,7 +1581,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585670371969"></script>
+    <script src="/app/js/app.js?v=1585853658863"></script>
 </body>
 
 </html>

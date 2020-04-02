@@ -41,6 +41,32 @@ var config = {
 		return ret;
 	},
 
+	strcount: (strObj, need, count) => {
+	    let index = 0;
+	    let indexstart = 0;
+	    while (index != -1) {
+	        index = strObj.indexOf(need, indexstart);
+	        if (index >= 0) {
+	            indexstart = index + 1;
+	            count++;
+	        }
+	    }
+	    return count;
+	},
+
+	strreplace: (strObj, need) => {
+	    var re = new RegExp(need,"g");
+	    var newstrObj = strObj.replace(re, " ");
+	    return newstrObj;
+	},
+
+	isNumber: (str) => {
+	    var re = /^[0-9]*$/;
+	    if (!re.test(str))
+	        return false;
+	    else
+	        return true;
+	},
 
 	log: (...args) => {
 

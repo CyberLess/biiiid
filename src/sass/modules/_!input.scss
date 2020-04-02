@@ -30,10 +30,14 @@
 		}
 
 		&-item{
-			margin-right: 3rem;
+			
 			display: flex;
 			margin-top: 1.4rem;
 			align-items: center;
+
+			&:not(:last-child){
+				margin-right: 3rem;
+			}
 		}
 
 		&-icon{
@@ -62,6 +66,7 @@
 	}
 
 	&__clear{
+		user-select: none;
 		cursor: pointer;
 		color: #949699;
 		position: relative;
@@ -79,6 +84,7 @@
 	}
 
 	&__content{
+		width: 100%;
 		margin-top: 1.9rem;
 		padding-bottom: 1rem;
 
@@ -118,5 +124,44 @@
 			}
 		}
 
+	}
+
+	@include max-screen($small_tablet) {
+		&__content{
+			&_hidemobile{
+				display: none;
+			}
+		}
+		&__clear{
+			display: none;
+		}
+		&__label{
+			margin-bottom: 1rem;
+
+			&_margin{
+				font-weight: normal;
+				margin-right: 3rem;
+			}
+		}
+
+		&__info{
+			padding-bottom: 0;
+			&-item{
+				margin-top: 1rem;
+			}
+		}
+
+		&__field{
+			&_big{
+				height: 4rem;
+				font-size: 1.4rem;
+			}
+
+			&_textarea{
+				&.input__field_big{
+					height: 12rem;
+				}
+			}
+		}
 	}
 }
