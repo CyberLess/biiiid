@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Профиль(Мои услуги)</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1585853662431">
+    <link rel="stylesheet" href="/app/css/app.css?v=1586207301205">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1483,9 +1483,82 @@
                         </div>
                     </div>
                     <div class="profile__block">
-                        <h2 class="profile__block-title h2">Последние заказы</h2>
-                        <div class="profile__block-line"></div>
-                        <div class="profile__block-text p color-gray-light">Тут будут отображаться ваши последние заказы</div>
+                        <div class="profile__orders">
+                            <div class="profile__row flex flex_vertical">
+                                <h2 class="profile__block-title h2">Последние заказы</h2><a class="profile__orders-more link p" href="#">Посмотреть все</a>
+                            </div>
+                            <div class="profile__list">
+                                <div class="profile__orders-item">
+                                    <div class="profile__orders-cell profile__orders-cell_name">
+                                        <div class="profile__orders-part profile__orders-part_avatar">
+                                            <div class="profile__orders-avatar">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/profile_avatar_1.webp">
+                                                        <img src="/app/img/profile_avatar_1.jpg" class="profile__avatar object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="profile__orders-part profile__orders-part_content">
+                                            <div class="profile__orders-name p">Тайота рекламный ролик</div>
+                                            <div class="profile__orders-info small">Заказчик: <a class="profile__orders-link" href="#">Ivanchik</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="profile__orders-cell profile__orders-cell_price">
+                                        <div class="profile__orders-price p color-green">- 15 075 руб.</div>
+                                    </div>
+                                    <div class="profile__orders-cell profile__orders-cell_status">
+                                        <div class="profile__label label label_big label_green">Новый заказ</div>
+                                    </div>
+                                </div>
+                                <div class="profile__orders-item">
+                                    <div class="profile__orders-cell profile__orders-cell_name">
+                                        <div class="profile__orders-part profile__orders-part_avatar">
+                                            <div class="profile__orders-avatar">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/profile_avatar_1.webp">
+                                                        <img src="/app/img/profile_avatar_1.jpg" class="profile__avatar object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="profile__orders-part profile__orders-part_content">
+                                            <div class="profile__orders-name p">Сделать дизайн сайта, с&nbsp;высокой конверсией, конверсией, конверсией,</div>
+                                            <div class="profile__orders-info small">Исполнитель: <a class="profile__orders-link" href="#">Ivanchik</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="profile__orders-cell profile__orders-cell_price">
+                                        <div class="profile__orders-price p">- 15 075 руб.</div>
+                                    </div>
+                                    <div class="profile__orders-cell profile__orders-cell_status">
+                                        <div class="profile__label label label_big label_blue">Утверждается</div>
+                                    </div>
+                                </div>
+                                <div class="profile__orders-item">
+                                    <div class="profile__orders-cell profile__orders-cell_name">
+                                        <div class="profile__orders-part profile__orders-part_avatar">
+                                            <div class="profile__orders-avatar">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/profile_avatar_1.webp">
+                                                        <img src="/app/img/profile_avatar_1.jpg" class="profile__avatar object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="profile__orders-part profile__orders-part_content">
+                                            <div class="profile__orders-name p">Тайота рекламный ролик</div>
+                                            <div class="profile__orders-info small">Заказчик: <a class="profile__orders-link" href="#">Ivanchik</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="profile__orders-cell profile__orders-cell_price">
+                                        <div class="profile__orders-price p color-green">- 15 075 руб.</div>
+                                    </div>
+                                    <div class="profile__orders-cell profile__orders-cell_status">
+                                        <div class="profile__label label label_big label_pink">Выполняется</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="profile__block">
                         <div class="reviews">
@@ -1931,7 +2004,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1585853662495"></script>
+    <script src="/app/js/app.js?v=1586207301252"></script>
 </body>
 
 </html>

@@ -48,6 +48,103 @@
 		margin-top: .5rem;
 	}
 	
+	&__orders{
+		&-item{
+			padding-top: 4rem;
+			// padding: 2rem 0;
+			display: flex;
+			align-items: center;
+
+			&:hover{
+				.profile{
+					&__orders{
+						&-name{
+							font-weight: bold;
+
+						}
+						&-price{
+							font-weight: bold;
+						}
+					}
+				}
+			}
+		}
+
+		&-avatar{
+			padding-top: 4rem;
+			position: relative;
+		}
+
+		&-more{
+			color: $green;
+			line-height: 1em;
+			margin-top: .4rem;
+			margin-left: 3rem;
+		}
+
+		&-name{
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-bottom: .2rem;
+		}
+
+		&-part{
+			&_avatar{
+				flex-shrink: 0;
+				flex-grow: 0;
+				width: 7.1rem;
+				margin-right: 1.2rem;
+			}
+			&_content{
+				flex-shrink: 1;
+				flex-grow: 1;
+				min-width: 0;
+				padding-right: 4.7rem;
+			}
+		}
+
+		&-info{
+			line-height: (16/14)*1;
+			color: rgba($default, .5);
+		}
+
+		&-link{
+			color: $default;
+
+			&:hover{
+				color: $green;
+			}
+		}
+
+		&-cell{
+
+			max-width: 100%;
+
+			&_name{
+				flex-shrink: 1;
+				flex-grow: 1;
+				min-width: 0;
+
+				display: flex;
+				align-items: center;
+			}
+
+			&_price{
+				flex-shrink: 0;
+				flex-grow: 0;
+				text-align: center;
+				width: 255/895*100%;
+			}
+
+			&_status{
+				flex-shrink: 0;
+				flex-grow: 0;
+				width: 14.5rem;
+			}
+		}
+	}
+
 	&__info {
 		margin-top: 4.3rem;
 		padding-bottom: 4.4rem;
@@ -132,6 +229,24 @@
 	}
 }
 
+@include max-screen($large_tablet) {
+	.profile {
+		&__orders{
+			&-part{
+				&_content{
+					padding-right: 0;
+				}				
+			}
+			&-cell{
+
+				&_price{
+					width: 25%;
+				}
+			}
+		}
+	}
+}
+
 @include max-screen($small_tablet) {
 	.profile {
 		padding-top: 0;
@@ -175,5 +290,52 @@
 		&__service-list {
 			padding-top: .4rem;
 		}
+		&__label{
+			min-width: 88px;
+		}
+		&__orders{
+			&-item{
+				justify-content: space-between;
+				flex-wrap: wrap;			
+				padding-top: 3rem;
+			}
+			&-avatar{
+				padding-top: 3.3rem;
+			}
+			&-info{
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+			}
+			&-price{
+				font-size: 1.4rem;
+			}
+			&-more{
+				display: none;
+			}
+			&-name{
+				font-size: 1.4rem;
+				line-height: 1.6rem;
+				margin-bottom: .7rem;
+			}
+			&-part{
+				&_avatar{
+					width: 5.8rem;
+					margin-right: 1rem;
+				}
+			}
+			&-cell{
+				width: auto;
+				
+				&_name{
+					width: 100%;
+					margin-bottom: .5rem;
+				}
+
+				&_price{
+					padding-left: 7rem;
+				}
+			}
+		}
+
 	}
 }

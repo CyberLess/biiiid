@@ -1,14 +1,3 @@
-$green: #009688;
-$gray: rgba(42, 45, 52, .7);
-$gray-light: rgba(42, 45, 52, .5);
-
-@mixin placeholder {
-  &::-webkit-input-placeholder { @content; }
-  &:-moz-placeholder           { @content; }
-  &::-moz-placeholder          { @content; }
-  &:-ms-input-placeholder      { @content; }  
-}
-
 @import "mixins/**/*.scss";
 @import "defaults/**/*.scss";
 @import "modules/**/*.scss";

@@ -15,6 +15,33 @@
 		margin-bottom: 0;
 	}
 
+	&_big{
+		text-align: center;
+		width: 100%;
+		font-size: 1.6rem;
+		font-weight: normal;
+		line-height: (19/16)*1;
+		padding: .6rem .8rem;
+	}
+
+	&_green{
+		color: #1B5A54;
+		background: rgba(0, 238, 216, 0.06);
+		border: 1px solid rgba(0, 238, 216, 0.1);		
+	}
+
+	&_blue{
+		color: #1B3B5B;
+		background: rgba(0, 118, 239, 0.06);
+		border: 1px solid rgba(0, 118, 239, 0.1);
+	}
+
+	&_pink{
+		color: #611C23;
+		background: rgba(235, 2, 25, 0.06);
+		border: 1px solid rgba(235, 2, 25, 0.1);
+	}
+
 	&_red{
 		color: #FF6978;
 		border-color: #FF6978;
@@ -24,5 +51,13 @@
 		color: #fff;
 		border-color: $purple;
 		background: $purple;
+	}
+
+	@include max-screen($large_mobile) {
+		&_big{
+			font-size: 1.1rem;
+			line-height: 1.3rem;
+			padding: .4rem;
+		}
 	}
 }
