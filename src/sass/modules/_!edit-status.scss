@@ -43,9 +43,12 @@
 		line-height: 2.6rem;
 		transition-duration: .2s;
 		padding: .3rem 0 .4rem 0;
-		&:hover {
-			background: #F5F5F5;
-			cursor: pointer;
+
+		&:not(.edit-status__text_default){
+			&:hover {
+				background: #F5F5F5;
+				cursor: pointer;
+			}			
 		}
 	}
 	

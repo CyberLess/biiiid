@@ -133,6 +133,10 @@
 	&__gallery{
 		margin-bottom: 2.4rem;
 		overflow: hidden;
+
+		&_noscope{
+			margin-bottom: 0;
+		}
 	}
 
 	&__preview{

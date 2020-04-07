@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <title>Услуга - неактивная</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1586281612101">
+    <title>Услуга</title>
+    <link rel="stylesheet" href="/app/css/app.css?v=1586281613041">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
 </head>
 
-<body>
+<body class="is-have-mobile-nav">
     <div class="tooltip">
         <div class="tooltip__item tprice js-reset-parent" id="price-tooltip">
             <div class="tprice__top">
@@ -1280,7 +1280,8 @@
         </div>
     </form>
     <nav class="fluid fluid_mobile js-window-duplicate" data-parent="#desktop-order">
-        <div class="fluid__wrap wrap"><a class="fluid__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Оформить заказ</span></a>
+        <div class="fluid__wrap wrap">
+            <div class="fluid__price h5 h5_small">Итого: 3 000 ₽</div><a class="fluid__button btn btn_red btn_big p" href="#"><span class="btn__text">Оформить заказ</span></a>
         </div>
     </nav>
     <section class="service">
@@ -1307,6 +1308,22 @@
                                             <img src="/app/img/test1.jpg" class="player__preview object-fit" alt="" role="presentation" />
                                     </picture>
                                     <div class="player__container"></div>
+                                    <div class="player__mobile">
+                                        <div class="player__nav player__nav_default">
+                                            <div class="player__nav-button">
+                                                <div class="player__nav-icon player__nav-icon_play">
+                                                    <svg class="icon icon-play" viewBox="0 0 9 12">
+                                                        <use xlink:href="/app/icons/sprite.svg#play"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="player__nav-icon player__nav-icon_pause">
+                                                    <svg class="icon icon-pause" viewBox="0 0 10 12">
+                                                        <use xlink:href="/app/icons/sprite.svg#pause"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="player__center">
                                         <div class="player__nav player__nav_default">
                                             <div class="player__nav-button player__nav-button_big">
@@ -1400,6 +1417,22 @@
                                             <img src="/app/img/case_1.jpg" class="player__preview object-fit" alt="" role="presentation" />
                                     </picture>
                                     <div class="player__container"></div>
+                                    <div class="player__mobile">
+                                        <div class="player__nav player__nav_default">
+                                            <div class="player__nav-button">
+                                                <div class="player__nav-icon player__nav-icon_play">
+                                                    <svg class="icon icon-play" viewBox="0 0 9 12">
+                                                        <use xlink:href="/app/icons/sprite.svg#play"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="player__nav-icon player__nav-icon_pause">
+                                                    <svg class="icon icon-pause" viewBox="0 0 10 12">
+                                                        <use xlink:href="/app/icons/sprite.svg#pause"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="player__center">
                                         <div class="player__nav player__nav_default">
                                             <div class="player__nav-button player__nav-button_big">
@@ -1661,7 +1694,7 @@
                     <div class="service__part service__part_more">
                         <div class="service__more">
                             <div class="service__more-title h2">Дополнительные услуги</div>
-                            <div class="service__more-row flex">
+                            <div class="service__more-row">
                                 <div class="service__more-cell service__more-cell_name">
                                     <label class="service__checkbox checkbox">
                                         <input class="checkbox__input" name="more[]" type="checkbox" value="Адаптивный дизайн под&nbsp;3 разорешения" /><span class="checkbox__text"> Адаптивный дизайн под&nbsp;3 разорешения <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
@@ -1684,7 +1717,7 @@
                                 </div>
                                 <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
                             </div>
-                            <div class="service__more-row flex">
+                            <div class="service__more-row">
                                 <div class="service__more-cell service__more-cell_name">
                                     <label class="service__checkbox checkbox">
                                         <input class="checkbox__input" name="more[]" type="checkbox" value="Прототипирование" /><span class="checkbox__text"> Прототипирование <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
@@ -1704,7 +1737,7 @@
                                 </div>
                                 <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
                             </div>
-                            <div class="service__more-row flex">
+                            <div class="service__more-row">
                                 <div class="service__more-cell service__more-cell_name">
                                     <label class="service__checkbox checkbox">
                                         <input class="checkbox__input" name="more[]" type="checkbox" value="Кликабельный прототип" /><span class="checkbox__text"> Кликабельный прототип <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
@@ -1724,7 +1757,7 @@
                                 </div>
                                 <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
                             </div>
-                            <div class="service__more-row flex">
+                            <div class="service__more-row">
                                 <div class="service__more-cell service__more-cell_name">
                                     <label class="service__checkbox checkbox">
                                         <input class="checkbox__input" name="more[]" type="checkbox" value="Прототипирование" /><span class="checkbox__text"> Прототипирование <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
@@ -1744,7 +1777,7 @@
                                 </div>
                                 <div class="service__more-cell service__more-cell_price p">1250 ₽</div>
                             </div>
-                            <div class="service__more-row flex">
+                            <div class="service__more-row">
                                 <div class="service__more-cell service__more-cell_name">
                                     <label class="service__checkbox checkbox">
                                         <input class="checkbox__input" name="more[]" type="checkbox" value="Кликабельный прототип" /><span class="checkbox__text"> Кликабельный прототип <span class="checkbox__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
@@ -1926,7 +1959,7 @@
                     </div>
                 </div>
                 <div class="service__cell service__cell_right">
-                    <div class="service__sticky" id="desktop-settings">
+                    <div class="service__sticky css-sticky" id="desktop-settings">
                         <div class="service__box js-move-item" data-to="#mobile-settings" data-from="#desktop-settings">
                             <div class="service__box-row" id="desktop-top">
                                 <div class="service__box-inner js-move-item" data-to="#mobile-top" data-from="#desktop-top">
@@ -1981,7 +2014,7 @@
                                 </div>
                             </div>
                             <div class="service__box-title">Итого: 3 000 ₽</div>
-                            <div class="service__box-fluid"><a class="service__box-button btn btn_red btn_big p js-window-fluid is-disabled" href="#"><span class="btn__text">Оформить заказ</span></a>
+                            <div class="service__box-fluid" id="desktop-order"><a class="service__box-button btn btn_red btn_big p" href="#"><span class="btn__text">Оформить заказ</span></a>
                             </div>
                             <div class="service__box-bottom"><a class="service__box-link js-modal p" href="#service-order">Написать исполнителю</a>
                             </div>
@@ -2272,7 +2305,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1586281612152"></script>
+    <script src="/app/js/app.js?v=1586281613101"></script>
 </body>
 
 </html>
