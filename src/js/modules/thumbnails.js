@@ -18,7 +18,8 @@ var thumbnails = {
 		thumbnails.items.each((i, el) => {
 
 			let $box = $(el).find('.thumbnails__box'),
-				$scrollbar = $(el).find('.thumbnails__scrollbar');
+				$scrollbar = $(el).find('.thumbnails__scrollbar'),
+				$nav = [$(el).find('.js-prev'), $(el).find('.js-next')];
 
 			$box.sly({
 				horizontal: 1,
@@ -36,11 +37,12 @@ var thumbnails = {
 				speed: 300,
 				elasticBounds: 1,
 				// easing: 'easeOutExpo',
+				prevPage: $nav[0],
+				nextPage: $nav[1],
 				dragHandle: 1,
 				dynamicHandle: 1,
 				clickBar: 1,
 			}).sly('on', 'active', (eventName, itemIndex ) => {
-				// config.log('thumbnails change', eventName, itemIndex  )
 
 				let $parent = $box.closest('.js-slider-parent');
 
@@ -49,18 +51,10 @@ var thumbnails = {
 				owl.owlCarousel();
 
 				owl.trigger('to.owl.carousel', [itemIndex]);
-
 				
 			});
-
-
-			// .on('activePage', (eventName, pageIndex ) => {
-			// 	config.log('thumbnails change', eventName, pageIndex )
-			// })
-					
+				
 		})
-
-
 
 	}
 

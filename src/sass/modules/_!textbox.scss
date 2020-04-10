@@ -1,0 +1,29 @@
+.textbox{
+	cursor: pointer;
+	display: block;
+
+	&__input{
+		display: none;
+
+		&:checked{
+			&+.textbox{
+				&__text{
+					border-color: $default;
+					color: $default;					
+				}
+			}
+		}
+	}
+
+
+	&__text{
+		display: block;
+		padding: 1rem 1.6rem;
+		border: 1px solid rgba(42, 45, 52, 0.15);
+		color: rgba(42, 45, 52, 0.5);
+
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+
+	}
+}

@@ -48,6 +48,15 @@
 		margin-top: .5rem;
 	}
 	
+	&__mark{
+		margin-right: 2rem;
+		margin-bottom: 1.6rem;
+	}
+
+	&__portfolio{
+		margin-top: 2.4rem;
+	}
+
 	&__orders{
 		&-item{
 			padding-top: 4rem;
@@ -216,6 +225,12 @@
 		&-head {
 			.profile__block-title {
 				margin-right: 3rem;
+			}
+		}
+
+		&-title{
+			&_margin{
+				margin-bottom: 3rem;
 			}
 		}
 	}

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Профиль (чужая страница)</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1586281602684">
+    <link rel="stylesheet" href="/app/css/app.css?v=1586538036542">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
@@ -1610,82 +1610,137 @@
                         </div>
                     </div>
                     <div class="profile__block">
-                        <div class="profile__orders">
-                            <div class="profile__row flex flex_vertical">
-                                <h2 class="profile__block-title h2">Последние заказы</h2><a class="profile__orders-more link p" href="#">Посмотреть все</a>
+                        <form class="profile__form form" action="">
+                            <h2 class="profile__block-title profile__block-title_margin h2">Портфолио</h2>
+                            <div class="profile__row flex">
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Все" /><span class="textbox__text">Все</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                </label>
+                                <label class="profile__mark textbox">
+                                    <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
+                                </label>
                             </div>
-                            <div class="profile__list">
-                                <div class="profile__orders-item">
-                                    <div class="profile__orders-cell profile__orders-cell_name">
-                                        <div class="profile__orders-part profile__orders-part_avatar">
-                                            <div class="profile__orders-avatar">
+                            <div class="profile__portfolio thumbnails js-thumbnails">
+                                <div class="thumbnails__box">
+                                    <ul class="thumbnails__list js-gallery-modal">
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
                                                 <picture>
-                                                    <source type="image/webp" srcset="/app/img/profile_avatar_1.webp">
-                                                        <img src="/app/img/profile_avatar_1.jpg" class="profile__avatar object-fit" alt="" role="presentation" />
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
                                                 </picture>
-                                            </div>
-                                        </div>
-                                        <div class="profile__orders-part profile__orders-part_content">
-                                            <div class="profile__orders-name p">Тайота рекламный ролик</div>
-                                            <div class="profile__orders-info small">Заказчик: <a class="profile__orders-link" href="#">Ivanchik</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="profile__orders-cell profile__orders-cell_price">
-                                        <div class="profile__orders-price p color-green">- 15 075 руб.</div>
-                                    </div>
-                                    <div class="profile__orders-cell profile__orders-cell_status">
-                                        <div class="profile__label label label_big label_green">Новый заказ</div>
-                                    </div>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link js-video-link" href="/app/img/test1.jpg" data-video="/app/media/video.mp4">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                        <li class="thumbnails__item thumbnails__item_big">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                                <picture>
+                                                    <source type="image/webp" srcset="/app/img/portfolio_1.webp">
+                                                        <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
+                                                </picture>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="profile__orders-item">
-                                    <div class="profile__orders-cell profile__orders-cell_name">
-                                        <div class="profile__orders-part profile__orders-part_avatar">
-                                            <div class="profile__orders-avatar">
-                                                <picture>
-                                                    <source type="image/webp" srcset="/app/img/profile_avatar_1.webp">
-                                                        <img src="/app/img/profile_avatar_1.jpg" class="profile__avatar object-fit" alt="" role="presentation" />
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <div class="profile__orders-part profile__orders-part_content">
-                                            <div class="profile__orders-name p">Сделать дизайн сайта, с&nbsp;высокой конверсией, конверсией, конверсией,</div>
-                                            <div class="profile__orders-info small">Исполнитель: <a class="profile__orders-link" href="#">Ivanchik</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="profile__orders-cell profile__orders-cell_price">
-                                        <div class="profile__orders-price p">- 15 075 руб.</div>
-                                    </div>
-                                    <div class="profile__orders-cell profile__orders-cell_status">
-                                        <div class="profile__label label label_big label_blue">Утверждается</div>
-                                    </div>
+                                <div class="thumbnails__nav owl-nav">
+                                    <button class="owl-prev js-prev">
+                                        <svg class="icon icon-arw" viewBox="0 0 12 7">
+                                            <use xlink:href="/app/icons/sprite.svg#arw"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="owl-next js-next">
+                                        <svg class="icon icon-arw" viewBox="0 0 12 7">
+                                            <use xlink:href="/app/icons/sprite.svg#arw"></use>
+                                        </svg>
+                                    </button>
                                 </div>
-                                <div class="profile__orders-item">
-                                    <div class="profile__orders-cell profile__orders-cell_name">
-                                        <div class="profile__orders-part profile__orders-part_avatar">
-                                            <div class="profile__orders-avatar">
-                                                <picture>
-                                                    <source type="image/webp" srcset="/app/img/profile_avatar_1.webp">
-                                                        <img src="/app/img/profile_avatar_1.jpg" class="profile__avatar object-fit" alt="" role="presentation" />
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <div class="profile__orders-part profile__orders-part_content">
-                                            <div class="profile__orders-name p">Тайота рекламный ролик</div>
-                                            <div class="profile__orders-info small">Заказчик: <a class="profile__orders-link" href="#">Ivanchik</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="profile__orders-cell profile__orders-cell_price">
-                                        <div class="profile__orders-price p color-green">- 15 075 руб.</div>
-                                    </div>
-                                    <div class="profile__orders-cell profile__orders-cell_status">
-                                        <div class="profile__label label label_big label_pink">Выполняется</div>
+                                <div class="thumbnails__scrollbar">
+                                    <div class="thumbnails__handle">
+                                        <div class="thumbnails__mousearea"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="profile__block">
                         <div class="reviews">
@@ -2131,7 +2186,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1586281602739"></script>
+    <script src="/app/js/app.js?v=1586538036590"></script>
 </body>
 
 </html>

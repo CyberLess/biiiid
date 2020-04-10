@@ -320,119 +320,129 @@ var player = {
  
 	init: () => {
 
-		$('.player__bar-line').on('click', e => {
 
-			let $this = $(e.currentTarget);
-			let $player = $this.closest('.js-player');
-			let x = e.pageX - $this.offset().left;
+		$('.js-player').each((i, el) => {
 
-			player.position(x, $player);
+			if($(el).hasClass('js-initialized'))
+				return;
 
-		})
+			$(el).find('.player__bar-line').on('click', e => {
 
-		$('.player__voice-dot').draggable({ 
-			axis: "x", 
-			containment: "parent",
-			drag: function() {
-				let $this = $(this).parent();
+				let $this = $(e.currentTarget);
 				let $player = $this.closest('.js-player');
-				let $bar = $player.find('.player__voice-field');
-				let $voice = $player.find('.player__voice');
-				let x = $(this).offset().left - $bar.offset().left;
+				let x = e.pageX - $this.offset().left;
 
-				var l = ( 100 * parseFloat($(this).position().left / ($(this).parent().width() - $(this).width()/2)) );
+				player.position(x, $player);
 
-				$voice.addClass('is-active')
-				$player.addClass('is-ui-active')
+			})
 
-				$player
-					.find('.player__voice-bar')
-					.removeAttr('style')
-					.width(x);
+			$(el).find('.player__voice-dot').draggable({ 
+				axis: "x", 
+				containment: "parent",
+				drag: function() {
+					let $this = $(this).parent();
+					let $player = $this.closest('.js-player');
+					let $bar = $player.find('.player__voice-field');
+					let $voice = $player.find('.player__voice');
+					let x = $(this).offset().left - $bar.offset().left;
 
-				config.log('player sound', l)
+					var l = ( 100 * parseFloat($(this).position().left / ($(this).parent().width() - $(this).width()/2)) );
 
-				let mute = (l == 0) ? 1 : 0;
+					$voice.addClass('is-active')
+					$player.addClass('is-ui-active')
 
-				player.sound($player, l, mute);
-				// let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
-				// let sound_position = item.duration / 100 * position;
-			},
-			stop: function() {
-				let $this = $(this);
-				let $player = $this.closest('.js-player');				
-				let item = $player.find('.player__item')[0];				
-				let $button = $player.find('.player__nav-button');
+					$player
+						.find('.player__voice-bar')
+						.removeAttr('style')
+						.width(x);
 
-				let $voice = $player.find('.player__voice');
-				$voice.removeClass('is-active')	
-				$player.removeClass('is-ui-active')
+					config.log('player sound', l)
 
-				// item.play();
-				// $player.addClass('is-playing')
-				// $button.addClass('is-active')	
-			}
-		});
+					let mute = (l == 0) ? 1 : 0;
 
-		$('.player__bar-dot').draggable({ 
-			axis: "x", 
-			containment: "parent",
-			drag: function() {
-				let $this = $(this).parent();
+					player.sound($player, l, mute);
+					// let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
+					// let sound_position = item.duration / 100 * position;
+				},
+				stop: function() {
+					let $this = $(this);
+					let $player = $this.closest('.js-player');				
+					let item = $player.find('.player__item')[0];				
+					let $button = $player.find('.player__nav-button');
+
+					let $voice = $player.find('.player__voice');
+					$voice.removeClass('is-active')	
+					$player.removeClass('is-ui-active')
+
+					// item.play();
+					// $player.addClass('is-playing')
+					// $button.addClass('is-active')	
+				}
+			});
+
+			$(el).find('.player__bar-dot').draggable({ 
+				axis: "x", 
+				containment: "parent",
+				drag: function() {
+					let $this = $(this).parent();
+					let $player = $this.closest('.js-player');
+					let $bar = $player.find('.player__bar-line');
+					let x = $(this).offset().left - $bar.offset().left;
+
+					player.position(x, $player, true);
+
+					$player.addClass('is-ui-active')
+
+
+					
+				},
+				stop: function() {
+					let $this = $(this);
+					let $player = $this.closest('.js-player');				
+					let item = $player.find('.player__item')[0];				
+					let $button = $player.find('.player__nav-button');	
+
+					item.play();
+					$player.addClass('is-playing')
+					$button.addClass('is-active')	
+
+					$player.removeClass('is-ui-active')
+				}
+			});
+
+			$(el).find('.player__voice-button').on('click', e => {
+
+				let $this = $(e.currentTarget)
 				let $player = $this.closest('.js-player');
-				let $bar = $player.find('.player__bar-line');
-				let x = $(this).offset().left - $bar.offset().left;
 
-				player.position(x, $player, true);
+				let mute = !$this.parent().hasClass('is-muted');
 
-				$player.addClass('is-ui-active')
+				config.log('player__voice-button on click, mute is', mute)
 
+				player.muted($player, mute);
 
-				
-			},
-			stop: function() {
-				let $this = $(this);
-				let $player = $this.closest('.js-player');				
-				let item = $player.find('.player__item')[0];				
-				let $button = $player.find('.player__nav-button');	
+			});	
 
-				item.play();
-				$player.addClass('is-playing')
-				$button.addClass('is-active')	
+			$(el).find('.js-fullscreen').on('click', e => {
 
-				$player.removeClass('is-ui-active')
-			}
-		});
+				let $this = $(e.currentTarget),
+					$video = $this.closest('.js-player');
 
-		$('.player__voice-button').on('click', e => {
+				$this.toggleClass('is-active');
 
-			let $this = $(e.currentTarget)
-			let $player = $this.closest('.js-player');
+				if($this.hasClass('is-active')){
+					player.fullscreen.open($video);
+				}else{
+					player.fullscreen.close();
+				}
 
-			let mute = !$this.parent().hasClass('is-muted');
+			});
 
-			config.log('player__voice-button on click, mute is', mute)
-
-			player.muted($player, mute);
+			$(el).addClass('js-initialized');
 
 		})
 
-		$('.js-player').on('click', player.play)
-
-		$('.js-fullscreen').on('click', e => {
-
-			let $this = $(e.currentTarget),
-				$video = $this.closest('.js-player');
-
-			$this.toggleClass('is-active');
-
-			if($this.hasClass('is-active')){
-				player.fullscreen.open($video);
-			}else{
-				player.fullscreen.close();
-			}
-
-		})
+		$(document).on('click', '.js-player', player.play);	
 
 	}
 
