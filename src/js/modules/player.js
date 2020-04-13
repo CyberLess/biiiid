@@ -318,13 +318,15 @@ var player = {
 
 	},
  
-	init: () => {
+	init: (items = false) => {
 
+		let $items = items ? items : $('.js-player:not(.js-initialized)');
 
-		$('.js-player').each((i, el) => {
+		$items.each((i, el) => {
 
-			if($(el).hasClass('js-initialized'))
-				return;
+			$(el).addClass('js-initialized');
+
+			$(el).on('click', player.play)
 
 			$(el).find('.player__bar-line').on('click', e => {
 
@@ -438,11 +440,11 @@ var player = {
 
 			});
 
-			$(el).addClass('js-initialized');
+			
 
 		})
 
-		$(document).on('click', '.js-player', player.play);	
+		// $(document).on('click', '.js-player', player.play);	
 
 	}
 

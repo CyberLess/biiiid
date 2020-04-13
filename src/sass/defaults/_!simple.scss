@@ -323,12 +323,19 @@ video::-webkit-media-controls {
 
 .css-hidetablet{
 	@include max-screen($small_tablet) {
-		display: none;
+		display: none!important;
 	}
 }
 .css-hidemobile{
 	@include max-screen($large_mobile) {
-		display: none;
+		display: none!important;
+	}
+}
+
+.css-mobile{
+	display: none;
+	@include max-screen($large_mobile) {
+		display: block;
 	}
 }
 

@@ -14,6 +14,10 @@
 			width: 895/1336*100%;
 		}
 	}
+
+	&__notification{
+		margin-bottom: 3rem;
+	}
 	
 	&__box {
 		
@@ -284,10 +288,42 @@
 
 @include max-screen($large_mobile) {
 	.profile {
+
+		&__marks{
+
+			margin-left: -2rem;
+			margin-right: -2rem;
+			
+			
+
+			&-inner{
+				flex-wrap: nowrap;
+				overflow-x: auto;	
+				padding-left: 2rem;	
+				padding-right: 2rem;		
+				// justify-content: flex-start;
+			}
+		}
+
+		&__notification{
+			margin-bottom: 6rem;
+		}
+
+		&__mark{
+			white-space: nowrap;
+		}
+
+		&__portfolio{
+			margin-top: 1rem;
+		}
+
 		&__block {
 			&-head {
 				position: relative;
 				padding-bottom: 6rem;
+				&_noscope{
+					padding-bottom: 1rem;
+				}
 				&-left, &-right {
 					width: 100%;
 				}

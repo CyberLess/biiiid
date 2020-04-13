@@ -17,8 +17,13 @@
 		color: #fff;
 		justify-content: center;
 		margin-bottom: 2.5rem;
-		padding-left: 11rem;
-		padding-right: 11rem;
+		// padding-left: 11rem;
+		// padding-right: 11rem;
+		padding: 1rem 11rem;
+	}
+
+	&__link{
+		border-bottom: 1px solid #fff;
 	}
 
 	&__icon{
@@ -83,16 +88,42 @@
 @include max-screen($large_mobile) {
 	.notification {
 		text-align: center;
-		&_sucsess {
+		&_sucsess, &_error {
 			flex-wrap: wrap;
 			justify-content: center;
 		}
+
+		&_error{
+			padding: 3rem;
+		}
+
 		&__left, &__right {
 			width: 100%;
 		}
 		&__btn {
 			width: 100%;
 			margin-top: 3rem;
+		}
+
+		&__text{
+			width: 100%;
+		}
+
+		&__icon{
+			position: static;
+			transform: none;
+
+			margin: auto;
+			display: block;
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+
+		&__link{
+			display: block;
+			margin-top: 2rem;
+			border-bottom: none;
+			text-decoration: underline;
 		}
 	}
 }

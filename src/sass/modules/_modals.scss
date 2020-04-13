@@ -19,11 +19,19 @@
 	}
 
 	&_media{
+		width: auto;
 		max-width: 1200px;
+
+		max-width: none;
+		user-select: none;
+		
 		background: transparent;
-		padding: 0;
+		margin: 0 auto;
+		padding: 0 4rem;
+		// overflow: hidden;
 
 		img.mfp-img{
+			max-height: inherit!important;
 			padding: 0;
 		}
 
@@ -55,11 +63,98 @@
 		fill: #009688;
 	}
 
+	&__container{
+		display: flex;
+	    flex-direction: column;
+		height: 100vh;
+		padding: 3rem 0;
+
+	}
+
+	&__closefluid{
+		position: fixed;
+		z-index:8000;
+		right: 0;
+		top: 0;
+		margin-top: 3rem;
+		margin-right: 3rem;
+		width: 3.2rem;
+		stroke: #fff;
+		stroke-width: 2;
+		cursor: pointer;
+	}
+
+	&__inside{
+		
+	// 	position: absolute;
+	// 	left: 0;
+	// 	top: 0;
+	// 	width: 100%;
+	// 	height: 100%;	
+		
+	// 	.mfp-img{
+	// 		max-height: 100%!important;
+	// 	}	
+	}
+
+	&__part{
+	    &_static{
+    	    flex: 0 0 auto;
+	    }
+
+	    &_fluid{
+	    	position: relative;
+    	    flex: 1 0 auto;
+    	    // overflow: hidden;
+	    }
+	}
+
 	&__content{
 		padding-top: .6rem;
 
 		p{
 			line-height: 2.2rem;
+		}
+	}
+
+	&__arrow{
+		margin-top: 0;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		width: 12%;
+		z-index: 5000;
+		top: 0;
+		cursor: pointer;
+
+		&_right{
+			justify-content: flex-end;
+		}
+
+		&>*{
+			margin-top: -7.2rem;
+			position: relative;
+
+			&.owl-right{
+				right: 0;
+				margin-right: -3.6rem;
+			}
+		}
+
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			z-index: 5000;
+			height: 100%;
+		}
+
+		&_right{
+			left: auto;
+			right: 0;
 		}
 	}
 
@@ -69,9 +164,21 @@
 	}
 
 	&__author{
-		margin-bottom: 3rem;
+		padding-bottom: 3rem;
 		display: flex;
 		color: #fff;
+
+		&-case{
+			&:after{
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 1rem;
+				width: 1px;
+				height: 1.1rem;
+				background-color: #fff;
+			}
+		}
 
 		&-cell{
 			&_avatar{
@@ -179,6 +286,9 @@
 		}
 	}
 	@include max-screen($large_mobile) {
+		&_media{
+			padding: 0 2rem;
+		}
 		&_service{
 			padding: 3.9rem 2.2rem;
 		}
@@ -190,6 +300,39 @@
 
 		&__name{
 			margin-bottom: 1rem;
+		}
+
+		&__closefluid{
+			width: 2rem;
+			margin-top: 2rem;
+			margin-right: 2rem;
+		}
+
+		&__author{
+			&-info{
+				display: block;
+			}
+			&-link{
+				font-size: 1.4rem;
+			}
+			&-case{
+				margin: .25rem 0;
+				font-size: 1.4rem;
+				&:after{
+					display: none;
+				}
+			}
+		}
+
+		&__arrow{
+			width: 2rem;
+			&>.owl-left{
+				left: auto;
+				margin-left: -2.1rem;
+			}
+			&>.owl-right{
+				margin-right: -2.1rem;
+			}
 		}
 	}
 }
@@ -222,7 +365,9 @@
 		opacity: 0;
 	}
 }
-
+.mfp-title{
+	color: inherit;
+}
 .css-modal-animate{
 	// start state
 	

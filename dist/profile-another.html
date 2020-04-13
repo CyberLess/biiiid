@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>Профиль (чужая страница)</title>
-    <link rel="stylesheet" href="/app/css/app.css?v=1586538036542">
+    <link rel="stylesheet" href="/app/css/app.css?v=1586807988679">
     <script>
         function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
     </script>
 </head>
 
-<body class="is-have-mobile-nav">
+<body>
     <div class="tooltip">
         <div class="tooltip__item tprice js-reset-parent" id="price-tooltip">
             <div class="tprice__top">
@@ -1283,15 +1283,13 @@
         <div class="profile__wrap wrap">
             <div class="profile__row flex flex_justify">
                 <div class="profile__cell profile__cell_left">
-                    <div class="profile__notification notification notification_sucsess notification_tablet">
-                        <div class="notification__left p color-gray"><strong>Хотите стать исполнителем?</strong>
-                            <br>Добавьте услугу и&nbsp;найдите первых заказчиков уже сегодня</div>
-                        <div class="notification__right"><a class="notification__btn btn btn_light" href="#">Стать исполнителем</a>
-                        </div>
-                        <div class="notification__close">
-                            <svg class="icon icon-close" viewBox="0 0 18 18">
-                                <use xlink:href="/app/icons/sprite.svg#close"></use>
-                            </svg>
+                    <div class="profile__parent css-mobile">
+                        <div class="profile__notification notification notification_error">
+                            <div class="notification__icon notification__icon_left">
+                                <img src="/app/img/warning.svg" alt="" role="presentation" />
+                            </div>
+                            <div class="notification__text p strong">Исполнитель не берет заказы в&nbsp;работу до&nbsp;15.11.2019 &nbsp;&nbsp;&nbsp;<a class="notification__link p js-modal" href="#service-order">Написать сообщение</a>
+                            </div>
                         </div>
                     </div>
                     <div class="profile__box">
@@ -1338,7 +1336,7 @@
                                 </div>
                             </div>
                             <div class="profile__box-rating-count color-gray-light">(248 отзыва)</div>
-                        </div><a class="profile__box-button border-button border-button_light p" href="#"><span class="border-button__text">Написать</span></a>
+                        </div><a class="profile__box-button border-button border-button_light p js-modal" href="#service-order"><span class="border-button__text">Написать</span></a>
                     </div>
                     <div class="profile__info">
                         <div class="profile__info-text p">На сайте с&nbsp;1 ноября 2019</div>
@@ -1394,8 +1392,15 @@
                     </div>
                 </div>
                 <div class="profile__cell profile__cell_right">
+                    <div class="profile__notification notification notification_error css-hidemobile">
+                        <div class="notification__icon notification__icon_left">
+                            <img src="/app/img/warning.svg" alt="" role="presentation" />
+                        </div>
+                        <div class="notification__text p strong">Исполнитель не берет заказы в&nbsp;работу до&nbsp;15.11.2019 &nbsp;&nbsp;&nbsp;<a class="notification__link p js-modal" href="#service-order">Написать сообщение</a>
+                        </div>
+                    </div>
                     <div class="profile__block">
-                        <div class="profile__block-head flex flex_start flex_justify">
+                        <div class="profile__block-head profile__block-head_noscope flex flex_start flex_justify">
                             <div class="profile__block-head-left flex flex_vertical">
                                 <h2 class="profile__block-title h2">Услуги исполнителя</h2>
                             </div>
@@ -1612,52 +1617,54 @@
                     <div class="profile__block">
                         <form class="profile__form form" action="">
                             <h2 class="profile__block-title profile__block-title_margin h2">Портфолио</h2>
-                            <div class="profile__row flex">
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Все" /><span class="textbox__text">Все</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
-                                </label>
-                                <label class="profile__mark textbox">
-                                    <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
-                                </label>
+                            <div class="profile__marks">
+                                <div class="profile__marks-inner flex">
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Все" /><span class="textbox__text">Все</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Веб-дизайн" /><span class="textbox__text">Веб-дизайн</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Логотипы" /><span class="textbox__text">Логотипы</span>
+                                    </label>
+                                    <label class="profile__mark textbox">
+                                        <input class="textbox__input" name="portfolio" type="radio" value="Дизайн в&nbsp;соцсетях" /><span class="textbox__text">Дизайн в&nbsp;соцсетях</span>
+                                    </label>
+                                </div>
                             </div>
                             <div class="profile__portfolio thumbnails js-thumbnails">
                                 <div class="thumbnails__box">
                                     <ul class="thumbnails__list js-gallery-modal">
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg" title="Видеоролик для&nbsp;компании Nike">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1665,7 +1672,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link js-video-link" href="/app/img/test1.jpg" data-video="/app/media/video.mp4">
+                                            <a class="thumbnails__link js-video-link" href="/app/img/test1.jpg" data-video="/app/media/video.mp4" title="Видеоролик для&nbsp;компании Nike2">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1673,7 +1680,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big_2.jpg" title="Видеоролик для&nbsp;компании Nike3">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1681,7 +1688,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg" title="Видеоролик для&nbsp;компании Nike4">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1689,7 +1696,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg" title="Видеоролик для&nbsp;компании Nike5">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1697,7 +1704,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg" title="Видеоролик для&nbsp;компании Nike6">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1705,7 +1712,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg" title="Видеоролик для&nbsp;компании Nike77">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -1713,7 +1720,7 @@
                                             </a>
                                         </li>
                                         <li class="thumbnails__item thumbnails__item_big">
-                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg">
+                                            <a class="thumbnails__link" href="/app/img/portfolio_big.jpg" title="Видеоролик для&nbsp;компании Nike8">
                                                 <picture>
                                                     <source type="image/webp" srcset="/app/img/portfolio_1.webp">
                                                         <img src="/app/img/portfolio_1.jpg" class="thumbnails__image object-fit" alt="" role="presentation" />
@@ -2186,7 +2193,7 @@
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/app/js/app.js?v=1586538036590"></script>
+    <script src="/app/js/app.js?v=1586807988749"></script>
 </body>
 
 </html>

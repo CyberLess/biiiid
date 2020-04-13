@@ -21,6 +21,11 @@ block content
 				+breadcrumbs("Главная", "Аудио и музыка", "Дикторские голоса")
 			+e.row.flex._justify
 				+e.cell._left
+					+e.notification.notification__._error
+						+e.icon._left
+							+e.IMG(src="/app/img/warning.svg")
+						+e.text.p.strong
+							| Исполнитель не берет заказы в работу до 15.11.2019
 					+e.part._mobile#mobile-top
 					+e.part._slider.js-slider-parent
 						+e.slider.owl-carousel._big.js-case-slider
@@ -124,7 +129,7 @@ block content
 								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
 							+e.slider-item
 								+e.IMG.slider-image.object-fit(src="/img/service_full.jpg")
-						+b.thumbnails.js-thumbnails
+						+b.thumbnails.css-hidemobile.js-thumbnails
 							+e.box
 								+e.list.UL
 									+e.item

@@ -2,7 +2,6 @@ extends ../layouts/base
 
 append vars
 	- title = 'Профиль (чужая страница)';
-	- body.classList = "is-have-mobile-nav";
 
 block header
 	+header(true)
@@ -15,15 +14,13 @@ block content
 		+e.wrap.wrap
 			+e.row.flex._justify
 				+e.cell._left
-					+e.notification.notification__._sucsess._tablet
-						+e.left.p.color-gray
-							strong Хотите стать исполнителем?
-							br
-							| Добавьте услугу и найдите первых заказчиков уже сегодня
-						+e.right
-							+e.A.btn.btn._light(href="#") Стать исполнителем
-						+e.close
-							+icon('close')
+					+e.parent.css-mobile
+						+e.notification.notification__._error
+							+e.icon._left
+								+e.IMG(src="/app/img/warning.svg")
+							+e.text.p.strong
+								| Исполнитель не берет заказы в работу до 15.11.2019 &nbsp;&nbsp;&nbsp;
+								+e.link.p.js-modal.A(href="#service-order") Написать сообщение
 					+e.box
 						+e.box-avatar.avatar__._noscope
 							+e.inner
@@ -49,7 +46,7 @@ block content
 									+icon('star')
 							+e.box-rating-count.color-gray-light
 								| (248 отзыва)
-						+e.box-button.border-button__._light.p.A(href='#')
+						+e.box-button.border-button__._light.p.js-modal.A(href="#service-order")
 							+e.text Написать
 					+e.info
 						+e.info-text.p
@@ -123,8 +120,14 @@ block content
 								| Английский 
 								span.color-gray-light (Разговорный)
 				+e.cell._right
+					+e.notification.notification__._error.css-hidemobile
+						+e.icon._left
+							+e.IMG(src="/app/img/warning.svg")
+						+e.text.p.strong
+							| Исполнитель не берет заказы в работу до 15.11.2019 &nbsp;&nbsp;&nbsp;
+							+e.link.p.js-modal.A(href="#service-order") Написать сообщение
 					+e.block
-						+e.block-head.flex._start._justify
+						+e.block-head._noscope.flex._start._justify
 							+e.block-head-left.flex._vertical
 								+e.H2.block-title.h2
 									| Услуги исполнителя
@@ -259,72 +262,73 @@ block content
 						+e.FORM.form.form(action="")
 							+e.H2.block-title._margin.h2
 								| Портфолио
-							+e.row.flex
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Все")
-									+e.SPAN.text Все
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
-									+e.SPAN.text Веб-дизайн
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
-									+e.SPAN.text Логотипы
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Дизайн в соцсетях")
-									+e.SPAN.text Дизайн в соцсетях
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
-									+e.SPAN.text Веб-дизайн
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
-									+e.SPAN.text Логотипы
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
-									+e.SPAN.text Веб-дизайн
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Дизайн в соцсетях")
-									+e.SPAN.text Дизайн в соцсетях
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
-									+e.SPAN.text Веб-дизайн
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
-									+e.SPAN.text Логотипы
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
-									+e.SPAN.text Веб-дизайн
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
-									+e.SPAN.text Логотипы
-								+e.mark.textbox__.LABEL
-									+e.INPUT.input(name="portfolio" type="radio" value="Дизайн в соцсетях")
-									+e.SPAN.text Дизайн в соцсетях
+							+e.marks
+								+e.marks-inner.flex
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Все")
+										+e.SPAN.text Все
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
+										+e.SPAN.text Веб-дизайн
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
+										+e.SPAN.text Логотипы
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Дизайн в соцсетях")
+										+e.SPAN.text Дизайн в соцсетях
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
+										+e.SPAN.text Веб-дизайн
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
+										+e.SPAN.text Логотипы
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
+										+e.SPAN.text Веб-дизайн
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Дизайн в соцсетях")
+										+e.SPAN.text Дизайн в соцсетях
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
+										+e.SPAN.text Веб-дизайн
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
+										+e.SPAN.text Логотипы
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")
+										+e.SPAN.text Веб-дизайн
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Логотипы")
+										+e.SPAN.text Логотипы
+									+e.mark.textbox__.LABEL
+										+e.INPUT.input(name="portfolio" type="radio" value="Дизайн в соцсетях")
+										+e.SPAN.text Дизайн в соцсетях
 							+e.portfolio.thumbnails__.js-thumbnails
 								+e.box
 									+e.list.js-gallery-modal.UL
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.js-video-link.A(href="/app/img/test1.jpg" data-video="/app/media/video.mp4")
+											+e.link.js-video-link.A(href="/app/img/test1.jpg" data-video="/app/media/video.mp4" title="Видеоролик для компании Nike2")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big_2.jpg" title="Видеоролик для компании Nike3")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike4")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike5")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike6")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike77")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.A(href="/app/img/portfolio_big.jpg")
+											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike8")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 								+e.nav.owl-nav
 									button.owl-prev.js-prev

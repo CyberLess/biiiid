@@ -84,6 +84,17 @@
 	}
 
 	@include max-screen($large_mobile) {
-		display: none;
+		margin-left: -2rem;
+		margin-right: -2rem;
+
+		&__nav{
+			display: none;
+		}
+		
+		&__list, &__scrollbar{
+			padding-left: 2rem;
+			padding-right: 2rem;
+
+		}
 	}
 }
