@@ -20,7 +20,7 @@ block content
 								+e.IMG(src="/app/img/warning.svg")
 							+e.text.p.strong
 								| Исполнитель не берет заказы в работу до 15.11.2019 &nbsp;&nbsp;&nbsp;
-								+e.link.p.js-modal.A(href="#service-order") Написать сообщение
+								+e.link.p.js-modal.A(href="#profile-order") Написать сообщение
 					+e.box
 						+e.box-avatar.avatar__._noscope
 							+e.inner
@@ -46,7 +46,7 @@ block content
 									+icon('star')
 							+e.box-rating-count.color-gray-light
 								| (248 отзыва)
-						+e.box-button.border-button__._light.p.js-modal.A(href="#service-order")
+						+e.box-button.border-button__._light.p.js-modal.A(href="#profile-order")
 							+e.text Написать
 					+e.info
 						+e.info-text.p
@@ -125,7 +125,7 @@ block content
 							+e.IMG(src="/app/img/warning.svg")
 						+e.text.p.strong
 							| Исполнитель не берет заказы в работу до 15.11.2019 &nbsp;&nbsp;&nbsp;
-							+e.link.p.js-modal.A(href="#service-order") Написать сообщение
+							+e.link.p.js-modal.A(href="#profile-order") Написать сообщение
 					+e.block
 						+e.block-head._noscope.flex._start._justify
 							+e.block-head-left.flex._vertical
@@ -265,7 +265,7 @@ block content
 							+e.marks
 								+e.marks-inner.flex
 									+e.mark.textbox__.LABEL
-										+e.INPUT.input(name="portfolio" type="radio" value="Все")
+										+e.INPUT.input(name="portfolio" checked="" type="radio" value="Все")
 										+e.SPAN.text Все
 									+e.mark.textbox__.LABEL
 										+e.INPUT.input(name="portfolio" type="radio" value="Веб-дизайн")

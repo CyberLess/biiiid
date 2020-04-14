@@ -27,6 +27,7 @@ html(lang="ru")
 				color: #fff;
 				position: relative;
 				display: inline-block;
+				text-decoration: none;
 
 
 			}
@@ -67,13 +68,17 @@ html(lang="ru")
 			li{
 				font-size: 16px;
 				margin-bottom: 8px;
+				position: relative;
+				padding-left: 30px;
 				list-style: none;
 				page-break-inside: avoid;		
 				counter-increment: heading;	
 			}
 
 			li::before{
-				
+				position: absolute;
+				left: 0;
+				top: 0;
 				content: counter(heading) ".";
 				font-size: 14px;
 			    color: rgba(241,241,241,.5);

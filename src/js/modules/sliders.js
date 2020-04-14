@@ -28,6 +28,7 @@ var sliders = {
 		if(item == '.js-case-slider'){
 
 			current['mouseDrag'] = false;
+			current['loop'] = true;
 
 			$this.on('changed.owl.carousel', function(event) {
 				let $slider = $(event.target);
