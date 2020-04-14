@@ -1,139 +1,159 @@
-
-
-.content p,.p,
-.content li, .li{
+.content p,
+.p,
+.content li,
+.li {
 	font-size: 1.6rem;
 	line-height: (19/16)*1;
+
+	@include max-screen($large_mobile) {
+		font-size: 1.4rem;
+		line-height: (16/16)*1;
+	}
 }
 
-.content ul, .content ol{
+.content ul,
+.content ol {}
 
-}
-
-.link, .content a:not([class]){
+.link,
+.content a:not([class]) {
 	display: inline-block;
 	color: $green;
 	// line-height: 1em;
 	border-bottom: 1px solid $green;
 }
 
-.link{
-	&_dark{
+.link {
+	&_dark {
 		color: $default;
 		border-bottom-color: $default;
 	}
 }
 
-.content b,.b{
+.content b,
+.b {
 	font-weight: bold;
 }
 
 
-.content strong, .strong{
+.content strong,
+.strong {
 	font-weight: 500;
 }
 
 
-.content a,.a{
+.content a,
+.a {}
 
-}
-
-.h1, .content h1,
-.h2, .content h2,
-.h3, .content h3,
-.h4, .content h4,
-.h5, .content h5,
-.h6, .content h6,{
+.h1,
+.content h1,
+.h2,
+.content h2,
+.h3,
+.content h3,
+.h4,
+.content h4,
+.h5,
+.content h5,
+.h6,
+.content h6,
+	{
 	// font-weight: 100;
 }
 
-.h1, .content h1{
-}
+.h1,
+.content h1 {}
 
-.h2, .content h2{
+.h2,
+.content h2 {
 	font-size: 2.8rem;
 	font-weight: normal;
 	line-height: (33/28)*1;
 }
 
-.h3, .content h3{
+.h3,
+.content h3 {}
 
-}
+.h4,
+.content h4 {}
 
-.h4, .content h4{
-}
-
-.h5, .content h5{
+.h5,
+.content h5 {
 	font-weight: 500;
 	font-size: 2.1rem;
 	line-height: (25/21)*1;
 }
 
-.h5{
-	&_small{
+.h5 {
+	&_small {
 		font-size: 2rem;
 		line-height: (23/20)*1;
 	}
 }
 
-.h6, .content h6{
+.h6,
+.content h6 {
 	font-size: 1.8rem;
 	font-weight: 500;
 	line-height: (21/18)*1;
-}	
+}
 
-.b, .content b{
+.b,
+.content b {
 	font-weight: bold;
 }
 
-.strong, .content strong{
+.strong,
+.content strong {
 	font-weight: 500;
 }
 
-.small{
+.small {
 	font-size: 1.4rem;
 	line-height: (30/14)*1;
 }
 
-.content{
-	
-	h2{
+.content {
+
+	h2 {
 		margin-bottom: 8px;
 	}
-	
-	p{
-		&:not(:last-child){
+
+	p {
+		&:not(:last-child) {
 			margin-bottom: 2.9rem;
 		}
 	}
 
 
-	&.is-gray{
-		p{
+	&.is-gray {
+		p {
 			color: rgba($default, .5);
 		}
 	}
 }
 
 @include max-screen($large_mobile) {
-	.h2, .content h2{
+
+	.h2,
+	.content h2 {
 		font-size: 2.4rem;
 		font-weight: normal;
 		// line-height: 2rem;
 	}
 
 
-	.content{
+	.content {
 
-		p{
-			font-size: 1.4rem;	
+		p {
+			font-size: 1.4rem;
 			line-height: 2rem;
-			&:not(:last-child){
+
+			&:not(:last-child) {
 				margin-bottom: 1.6rem;
 			}
 		}
-		
-		h2{
+
+		h2 {
 			margin-bottom: 10px;
 		}
 	}

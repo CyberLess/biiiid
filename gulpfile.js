@@ -1,8 +1,7 @@
-
 // init
-var gulp 		= require('gulp'),
-	plugins		= require('gulp-load-plugins')(),
-	path 		= require('./gulp/settings/path.json'),
+var gulp = require('gulp'),
+	plugins = require('gulp-load-plugins')(),
+	path = require('./gulp/settings/path.json'),
 	browserSync = require('browser-sync').create();
 
 
@@ -26,30 +25,28 @@ gulp.task('vendors', getTask('vendors'));
 
 gulp.task('browserSync', cb => {
 
-    browserSync.init({
+	browserSync.init({
 		server: "dist",
 		notify: false,
 	}, cb);
 
-    gulp.watch(path.watch.css, gulp.series('sass'));
-    gulp.watch(path.watch.js, gulp.series('js'));
-    gulp.watch(path.watch.html, gulp.series('pug', 'pageList'));
-    gulp.watch(path.watch.img, gulp.series('imageCompress'));
-    gulp.watch(path.watch.svg, gulp.series('svgSpriteBuild'));
-    gulp.watch(path.watch.attach, gulp.series('vendors')); 
-    gulp.watch(path.watch.fonts, gulp.series('vendors')); 
-    gulp.watch(path.watch.api, gulp.series('vendors')); 
-    gulp.watch(path.watch.media, gulp.series('vendors')); 
+	gulp.watch(path.watch.css, gulp.series('sass'));
+	gulp.watch(path.watch.js, gulp.series('js'));
+	gulp.watch(path.watch.html, gulp.series('pug', 'pageList'));
+	gulp.watch(path.watch.img, gulp.series('imageCompress'));
+	gulp.watch(path.watch.svg, gulp.series('svgSpriteBuild'));
+	gulp.watch(path.watch.attach, gulp.series('vendors'));
+	gulp.watch(path.watch.fonts, gulp.series('vendors'));
+	gulp.watch(path.watch.api, gulp.series('vendors'));
+	gulp.watch(path.watch.media, gulp.series('vendors'));
 });
 
 gulp.task('watch', gulp.series(
 	'clean',
-	gulp.parallel('sass', 'js', 'pug', 'svgSpriteBuild', 'imageCompress', 'vendors'), 'pageList', 'browserSync')
-);
+	gulp.parallel('sass', 'js', 'pug', 'svgSpriteBuild', 'imageCompress', 'vendors'), 'pageList', 'browserSync'));
 
 gulp.task('build', gulp.series(
 	'clean',
-	gulp.parallel('sass', 'js', 'pug', 'svgSpriteBuild', 'imageCompress', 'vendors'), 'pageList', 'deploy', 'open')
-);
+	gulp.parallel('sass', 'js', 'pug', 'svgSpriteBuild', 'imageCompress', 'vendors'), 'pageList', 'deploy', 'open'));
 
 gulp.task('default', gulp.series('watch'));

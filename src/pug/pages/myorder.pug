@@ -1,0 +1,146 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Мои заказы';
+
+block header
+	+header(true)
+
+block content
+	+b.SECTION.myorder
+		+e.wrap.wrap
+			+e.row.flex._justify
+				+e.H2.title.h2
+					| Мои заказы
+				+e.block.flex._justify
+					+b.myorder-select
+						+e.select.slct__
+							select(name='order')
+								option Все заказы
+								option Я заказал
+								option У меня заказали
+					+b.FORM.myorder-search(action="/api/")
+						+e.BUTTON.submit
+								+icon('loupe')
+						+e.INPUT.input(type="text" name="s" placeholder="Поиск")
+	+b.SECTION.myorder-orders
+		+e.wrap.wrap
+				+b.reviews
+					+e.top._filter.flex._justify
+							+e.top-list.flex
+								+e.top-item.p.is-active Все
+								+e.top-item.p Новый заказ
+								+e.top-item.p Утверждается
+								+e.top-item.p Подтвержден
+								+e.top-item.p Отменен
+								+b.myorder__back
+									+e.A.link.p(href="#")
+										+e.IMG.back_img(src="/img/arrow-back.png")
+										| На страницу профиля
+				+b.myorder-orders__table
+					+e.header
+						+e.cell._name Название заказа
+						+e.cell._created Создан
+						+e.cell._finished Завершен
+						+e.cell._total Сумма
+						+e.cell._status Статус
+					+e.order._unwatched
+						+e.A.link(href="#")
+						+e.cell._name
+							+e.details
+								+e.IMG.img(src="/img/order.jpg")
+								+e.body
+									+e.P.name.p Тайота рекламный ролик
+									+e.SPAN.orderer
+										| Исполнитель:&nbsp
+										a(href="#") Andrey
+						+e.cell._created
+							+e.P.date.p 12.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._finished
+						+e.cell._total
+							+e.P.price.p.__green + 15 075 руб.
+						+e.cell._status
+							+e.status.__new Новый заказ
+					+e.order
+						+e.A.link(href="#")
+						+e.cell._name
+							+e.details
+								+e.IMG.img(src="/img/order.jpg")
+								+e.body
+									+e.P.name.p Сделать дизайн сайта, с высокой конверсией, добавить мобильную в ...
+									+e.SPAN.orderer
+										| Исполнитель:&nbsp
+										a(href="#") Andrey
+						+e.cell._created
+							+e.P.date.p 12.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._finished
+							+e.P.date.p 14.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._total
+							+e.P.price.p - 15 075 руб.
+						+e.cell._status
+							+e.status.__approving Утверждается
+					+e.order
+						+e.A.link(href="#")
+						+e.cell._name
+							+e.details
+								+e.IMG.img(src="/img/order.jpg")
+								+e.body
+									+e.P.name.p Сделать дизайн сайта, с высокой конверсией, добавить мобильную в ...
+									+e.SPAN.orderer
+										| Исполнитель:&nbsp
+										a(href="#") Andrey
+						+e.cell._created
+							+e.P.date.p 12.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._finished
+							+e.P.date.p 14.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._total
+							+e.P.price.p - 15 075 руб.
+						+e.cell._status
+							+e.status.__in-progress Выполняется
+					+e.order
+						+e.A.link(href="#")
+						+e.cell._name
+							+e.details
+								+e.IMG.img(src="/img/order.jpg")
+								+e.body
+									+e.P.name.p Сделать дизайн сайта, с высокой конверсией, добавить мобильную в ...
+									+e.SPAN.orderer
+										| Исполнитель:&nbsp
+										a(href="#") Andrey
+						+e.cell._created
+							+e.P.date.p 12.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._finished
+							+e.P.date.p 14.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._total
+							+e.P.price.p - 15 075 руб.
+						+e.cell._status
+							+e.status.__ready Выполнен
+					+e.order
+						+e.A.link(href="#")
+						+e.cell._name
+							+e.details
+								+e.IMG.img(src="/img/order.jpg")
+								+e.body
+									+e.P.name.p Сделать дизайн сайта, с высокой конверсией, добавить мобильную в ...
+									+e.SPAN.orderer
+										| Исполнитель:&nbsp
+										a(href="#") Andrey
+						+e.cell._created
+							+e.P.date.p 12.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._finished
+							+e.P.date.p 14.02.2018
+							+e.SPAN.time.p 10:12
+						+e.cell._total
+							+e.P.price.p - 15 075 руб.
+						+e.cell._status
+							+e.status Отменен
+	+b.myorder-button__wrapper
+		+b.BUTTON.myorder-button.p Показать еще

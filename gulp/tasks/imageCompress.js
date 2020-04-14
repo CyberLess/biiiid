@@ -22,7 +22,7 @@ module.exports = (gulp, plugins) => {
 	            }),*/
                 imageminJpegRecompress({
                     progressive: true,
-                    quality: "hight"
+                    quality: "high"
                 }),
                 imageminPng({
                     quality: [0.7, 1]
