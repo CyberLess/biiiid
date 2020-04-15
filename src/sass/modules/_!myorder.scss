@@ -1,7 +1,11 @@
 .myorder {
 	position: relative;
-	padding: 50px 0 80px;
+	padding: 5rem 0 8rem;
 	z-index: 16;
+
+	@include max-screen($large_tablet) {
+		padding: 0 0 2rem;
+	}
 
 	&__title {
 		@include max-screen($small_desktop) {
@@ -73,6 +77,14 @@
 	}
 
 	&-orders {
+
+		@include max-screen($large_tablet) {
+			.reviews__top_filter {
+				margin-bottom: 4rem;
+				padding-bottom: 0;
+			}
+		}
+
 		.reviews__top-list {
 			width: 100%;
 		}
@@ -237,6 +249,16 @@
 			top: 50%;
 			left: 0;
 			transform: translateY(-50%);
+
+			&:hover {
+				~.myorder-orders__cell_name {
+					.myorder-orders__details {
+						p {
+							color: $green;
+						}
+					}
+				}
+			}
 		}
 
 		&__status {
