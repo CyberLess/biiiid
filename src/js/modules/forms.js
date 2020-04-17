@@ -2,8 +2,12 @@ import Inputmask from "inputmask";
 import validate from 'jquery-validation';
 import 'jquery-ui/ui/widgets/slider';
 import 'selectric';
-import { config } from "../config";
-import { filters } from "./filters";
+import {
+	config
+} from "../config";
+import {
+	filters
+} from "./filters";
 
 window.Dropzone = require('dropzone');
 
@@ -17,7 +21,7 @@ var forms = {
 		var im = new Inputmask({
 			"mask": "+7 (999) 999-99-99",
 			clearMaskOnLostFocus: true,
-			clearIncomplete: true			
+			clearIncomplete: true
 		});
 
 		im.mask(selector);
@@ -30,7 +34,7 @@ var forms = {
 		$this.val($this.val().replace(/[^\d].+/, ""));
 
 		if ((event.which < 48 || event.which > 57)) {
-		    event.preventDefault();
+			event.preventDefault();
 		}
 
 	},
@@ -46,11 +50,11 @@ var forms = {
 
 		},
 
-		init: () =>{
+		init: () => {
 
 			let $dropzone = $('.js-dropzone');
 
-			if(!$dropzone.length)
+			if (!$dropzone.length)
 				return false;
 
 
@@ -58,18 +62,18 @@ var forms = {
 
 				let template = $(el).find('.dropzone__preview').html();
 
-				$(el).find('.dropzone__area').dropzone({ 
+				$(el).find('.dropzone__area').dropzone({
 					url: api.files,
 					previewTemplate: template,
-					uploadprogress: function(file, progress, bytesSent) {
-					    if (file.previewElement) {
-					        var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
-					        progressElement.style.width = progress + "%";
-					        progressElement.querySelector(".progress-text").textContent = progress + "%";
-					    }
+					uploadprogress: function (file, progress, bytesSent) {
+						if (file.previewElement) {
+							var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
+							progressElement.style.width = progress + "%";
+							progressElement.querySelector(".progress-text").textContent = progress + "%";
+						}
 					}
-				});		
-						
+				});
+
 			})
 
 
@@ -80,8 +84,8 @@ var forms = {
 	select: () => {
 
 		let $select = $('select');
-		
-		if(!$select.length)
+
+		if (!$select.length)
 			return false;
 
 		$select.selectric({
@@ -94,32 +98,32 @@ var forms = {
 
 			let placeholder = $select.attr('data-placeholder') ? $select.data('placeholder') : false;
 
-			if(val.length == 0 && placeholder){
+			if (val.length == 0 && placeholder) {
 
 				$select.find('.label').text(placeholder)
 
 			}
 
 		});
-	
+
 
 	},
 
-	price:  {
+	price: {
 
 		reset: ($item) => {
 
 			config.log('range clear')
-			
-			let $slider   = $item,
-				path	  = $slider.find('.range__line'),
-				min    	  = Number($slider.find('.range__min').text().replace(/ /g, '')),
-				max    	  = Number($slider.find('.range__max').text().replace(/ /g, '')),
-				range 	  = $slider.find('.ui-slider-range');
+
+			let $slider = $item,
+				path = $slider.find('.range__line'),
+				min = Number($slider.find('.range__min').text().replace(/ /g, '')),
+				max = Number($slider.find('.range__max').text().replace(/ /g, '')),
+				range = $slider.find('.ui-slider-range');
 
 			$slider.find('input[type="text"]').val("").trigger('change');
 			// $slider.find('.range__input_min').val("");
- 
+
 			// path.slider("values", 0, min);
 			// path.slider("values", 1, max);
 
@@ -129,19 +133,18 @@ var forms = {
 			// range.css({
 			// 	'left': '0%',
 			// 	'width': '100%',
-			// })	
+			// })
 
 		},
 
 		init: () => {
 
-			if(!$('.range').length)
+			if (!$('.range').length)
 				return false;
 
 			let active_set = (min, max, slider) => {
-				if(min != Number(slider.slider( "values", 0 )) || 
-					max != Number(slider.slider( "values", 1 ))){
-				}
+				if (min != Number(slider.slider("values", 0)) ||
+					max != Number(slider.slider("values", 1))) {}
 			}
 
 			let update_tag = (min_input, max_input, name, value, add = true) => {
@@ -150,21 +153,21 @@ var forms = {
 				let max_name = max_input.attr('name');
 
 				filters.tag.remove(min_name);
-				filters.tag.remove(max_name);	
+				filters.tag.remove(max_name);
 
-				filters.virtual.remove(min_name)	
-				filters.virtual.remove(max_name)	
+				filters.virtual.remove(min_name)
+				filters.virtual.remove(max_name)
 
-				if(add)
+				if (add)
 					filters.tag.add(name, value);
 
 			}
 
-			$('.range').each(function() {
-				let slider 	  = $(this),
-					min    	  = Number(slider.find('.range__min').text().replace(/ /g, '')),
-					max    	  = Number(slider.find('.range__max').text().replace(/ /g, '')),
-					path	  = slider.find('.range__line'),
+			$('.range').each(function () {
+				let slider = $(this),
+					min = Number(slider.find('.range__min').text().replace(/ /g, '')),
+					max = Number(slider.find('.range__max').text().replace(/ /g, '')),
+					path = slider.find('.range__line'),
 					min_input = slider.find('.range__input_min'),
 					max_input = slider.find('.range__input_max');
 
@@ -175,25 +178,25 @@ var forms = {
 					range: true,
 					min: min,
 					max: max,
-					values: [ min, max ],
-					slide: function( event, ui ) {
+					values: [min, max],
+					slide: function (event, ui) {
 
-						if (ui.values[ 0 ] != min){
-							min_input.val(ui.values[ 0 ])
-						}else{
+						if (ui.values[0] != min) {
+							min_input.val(ui.values[0])
+						} else {
 							min_input.val("")
 						}
-					
-						if (ui.values[1] != max){
+
+						if (ui.values[1] != max) {
 							max_input.val(ui.values[1])
-						}else{
+						} else {
 							max_input.val("")
 						}
 
-						active_set(min, max, path)	
+						active_set(min, max, path)
 					},
 
-					stop: function( event, ui ) {
+					stop: function (event, ui) {
 
 						min_input.trigger('change')
 						max_input.trigger('change')
@@ -201,42 +204,42 @@ var forms = {
 						// if (min_input.val() == ''){
 						// 	update_tag(min_input, max_input, max_input.attr('name'), ui.values[1]);
 						// }
-					
+
 						// if (max_input.val() == ''){
 						// 	update_tag(min_input, max_input, min_input.attr('name'), ui.values[0]);
-						// }	
+						// }
 
 						// if (min_input.val() == '' && max_input.val() == ''){
 						// 	update_tag(min_input, max_input, 0, 0, false);
-						// }		
+						// }
 					}
 				});
 
 				slider.find('.range__input').on({
-					"change keyup input": function() {
+					"change keyup input": function () {
 						let minval = min_input.val() ? Number(min_input.val()) : min,
 							maxval = max_input.val() ? Number(max_input.val()) : max;
 
-							if (maxval < minval)
-								maxval = minval
+						if (maxval < minval)
+							maxval = minval
 
 						path.slider("values", 0, minval);
-						path.slider("values", 1, maxval);	
+						path.slider("values", 1, maxval);
 
-						active_set(min, max, path)				
+						active_set(min, max, path)
 					},
-					"focusout" : function() {
+					"focusout": function () {
 
 						let minval = min_input.val() ? Number(min_input.val()) : min,
 							maxval = max_input.val() ? Number(max_input.val()) : max;
 
-						if($(this).val() != ""){
-							if($(this).hasClass('range__input_min')){
-								$(this).val(path.slider( "values", 0 ))
+						if ($(this).val() != "") {
+							if ($(this).hasClass('range__input_min')) {
+								$(this).val(path.slider("values", 0))
 								if (maxval < minval)
 									max_input.val(minval)
-							}else{
-								$(this).val(path.slider( "values", 1 ))
+							} else {
+								$(this).val(path.slider("values", 1))
 							}
 						}
 					}
@@ -252,8 +255,8 @@ var forms = {
 			var $form = $(el);
 
 			$form.validate({
-				errorPlacement: function(error, element) { 
-					//just nothing, empty  
+				errorPlacement: function (error, element) {
+					//just nothing, empty
 				},
 				highlight: (element, errorClass, validClass) => {
 					$(element).parent().addClass(errorClass).removeClass(validClass);
@@ -269,18 +272,18 @@ var forms = {
 						type: 'POST',
 						url: '/app/mail/',
 						data: data,
-						success: function(data) {
+						success: function (data) {
 							$(form)[0].reset()
 						}
 					});
 
-				},             
+				},
 				rules: {
-					phone:{
+					phone: {
 						required: true,
 						minlength: 10,
-					},  
-				}		
+					},
+				}
 			})
 
 		})
@@ -288,16 +291,16 @@ var forms = {
 
 	events: () => {
 		$('.form__input')
-			.on('focus', (e)=>{
+			.on('focus', (e) => {
 				let $input = $(e.target)
 				$input.parent().addClass('is-focus')
 			})
-			.on('blur change', (e)=>{
+			.on('blur change', (e) => {
 				let $input = $(e.target)
 
-				if($input.val() == '')
+				if ($input.val() == '')
 					$input.parent().removeClass('is-focus')
-		 	})		
+			})
 	},
 
 	init: () => {
@@ -310,14 +313,14 @@ var forms = {
 		forms.events();
 
 		$('.js-number').on('keypress keyup blur', forms.number);
-		
+
 		$('.js-dropzone-trigger').on('click', e => {
 
 			let area;
 
-			if($(e.currentTarget).hasClass('js-without')){
+			if ($(e.currentTarget).hasClass('js-without')) {
 				area = $(e.currentTarget).closest('.input');
-			}else{
+			} else {
 				area = $(e.currentTarget).closest('.js-dropzone');
 			}
 
@@ -329,4 +332,6 @@ var forms = {
 
 }
 
-export {forms};
+export {
+	forms
+};

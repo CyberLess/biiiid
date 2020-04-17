@@ -1,0 +1,37 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Настройки профиля (персональные данные)';
+	- body.classList = "is-have-mobile-nav";
+
+block header
+	+header(true)
+
+block content
+
+	include ../layouts/mobile-filters
+
+	+b.SECTION.profile.profile__settings
+		+e.wrap.wrap
+			+e.row.flex._center
+				+e.cell._left
+					+e.NAV.menu
+						+e.A.menu-item.is-active(href="#") Личные данные
+						+e.A.menu-item(href="#") Контакты
+						+e.A.menu-item(href="#") Финансы
+						+e.A.menu-item(href="#") Социальные сети
+						+e.A.menu-item(href="#") Смена пароля
+				+e.cell._right
+					+e.block
+						+e.row.flex._justify
+							+e.H2.block-title.h2 Профиль
+							+e.A.back(href="#")
+								+icon('chevronBack')
+								| Все заказы
+						+e.block-line
+						+b.FORM.profile__form._personal-data
+							+e.LABEL.form-label(for="#file")
+								+e.P.form-text.p.color-gray-light Ваша фотография
+								+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png")
+								+b.DIV.profile__form-input_file-button
+									p.p Загрузить фото

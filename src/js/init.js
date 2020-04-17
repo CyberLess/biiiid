@@ -1,14 +1,39 @@
-import { defaults } from "./modules/defaults";
-import { forms } from "./modules/forms";
-import { modals } from "./modules/modals";
-import { tooltips } from "./modules/tooltips";
-import { sliders } from "./modules/sliders";
-import { thumbnails } from "./modules/thumbnails";
-import { filters } from "./modules/filters";
-import { menu } from "./modules/menu";
-import { player } from "./modules/player";
-import { order } from "./modules/order";
-import { config } from "./config";
+import {
+	defaults
+} from "./modules/defaults";
+import {
+	forms
+} from "./modules/forms";
+import {
+	modals
+} from "./modules/modals";
+import {
+	tooltips
+} from "./modules/tooltips";
+import {
+	sliders
+} from "./modules/sliders";
+import {
+	thumbnails
+} from "./modules/thumbnails";
+import {
+	filters
+} from "./modules/filters";
+import {
+	menu
+} from "./modules/menu";
+import {
+	player
+} from "./modules/player";
+import {
+	order
+} from "./modules/order";
+import {
+	previewAvatar
+} from "./modules/previewAvatar";
+import {
+	config
+} from "./config";
 
 var App = () => {};
 
@@ -24,8 +49,11 @@ App.prototype.init = () => {
 	order.init();
 	menu.init();
 	player.init();
+	previewAvatar.init();
 
 	config.log('app init')
 };
 
-export { App };
+export {
+	App
+};

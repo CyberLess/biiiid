@@ -1,4 +1,6 @@
-import { config } from "../config";
+import {
+	config
+} from "../config";
 import 'jquery-ui/ui/widgets/draggable';
 
 
@@ -14,14 +16,14 @@ var player = {
 
 		playerContainer.find('.player__panel-time').text(`${config.formatTime(item.currentTime)} / ${config.formatTime(item.duration)}`)
 
-		if(!$dot.hasClass('ui-draggable-dragging')){
+		if (!$dot.hasClass('ui-draggable-dragging')) {
 			$dot
 				.removeAttr('style')
 				.css('left', `${percentage}%`);
 
 			$progress
 				.removeAttr('style')
-				.width(`${percentage}%`);			
+				.width(`${percentage}%`);
 		}
 
 	},
@@ -33,26 +35,26 @@ var player = {
 		let $progress = playerContainer.find('.player__bar-progress')
 
 		item[0].currentTime = 0;
-		$button.removeClass('is-active')	
+		$button.removeClass('is-active')
 		$dot.removeAttr('style')
 		$progress.removeAttr('style')
 		playerContainer.removeClass('is-playing')
 	},
 
-	position: (x, playerContainer, dot = false) =>{
+	position: (x, playerContainer, dot = false) => {
 
 		let $item = playerContainer.find('.player__item'),
 			$dot = playerContainer.find('.player__bar-dot'),
 			$button = playerContainer.find('.player__nav-button'),
 			item = $item[0];
 
-		if(!$item.length)
+		if (!$item.length)
 			return false;
 
 		item.pause();
 		playerContainer.removeClass('is-playing')
 
-		if(!dot){
+		if (!dot) {
 			playerContainer
 				.find('.player__bar-dot')
 				.removeAttr('style')
@@ -66,13 +68,13 @@ var player = {
 
 		let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
 		let sound_position = item.duration / 100 * position;
-		
+
 		item.currentTime = sound_position;
 
-		if(!dot){
+		if (!dot) {
 			item.play();
 			playerContainer.addClass('is-playing')
-			$button.addClass('is-active')			
+			$button.addClass('is-active')
 		}
 
 
@@ -84,7 +86,7 @@ var player = {
 		let $item = $t.find('.player__item');
 		let $button = $t.find('.player__nav-button');
 
-		if($item.length){
+		if ($item.length) {
 			$t.removeClass('is-playing')
 			$button.removeClass('is-active')
 			$item[0].pause()
@@ -96,9 +98,9 @@ var player = {
 
 		let playerItem = playerContainer.find('.player__item');
 
-		if(!playerItem.length){
+		if (!playerItem.length) {
 
-			config.log('loading video' , file)
+			config.log('loading video', file)
 
 			playerContainer.addClass('is-loading').append(config.preloader);
 
@@ -108,7 +110,7 @@ var player = {
 
 			req.responseType = 'blob';
 
-			req.onload = function() {
+			req.onload = function () {
 
 				if (this.status === 200) {
 
@@ -116,7 +118,7 @@ var player = {
 						`<audio class="player__item"><source src="${file}" type="audio/mpeg"></audio>`;
 
 					let video = template;
-					
+
 					let jsPlayer = playerContainer.closest('.js-player');
 
 					playerContainer
@@ -125,16 +127,16 @@ var player = {
 						.find('.preloader')
 						.addClass('is-hidden')
 						.on(config.transitionEnd, e => {
-							if(e.originalEvent.propertyName == 'opacity'){
+							if (e.originalEvent.propertyName == 'opacity') {
 								playerContainer.find('.preloader').remove()
 							}
 						})
 
-					
+
 					playerItem = playerContainer.find('.player__item');
 
 					playerContainer.find('.player__panel-time').text(`${config.formatTime(playerItem[0].currentTime)} / ${config.formatTime(playerItem[0].duration)}`)
-					
+
 					playerItem
 						.bind({
 							timeupdate: e => {
@@ -155,12 +157,12 @@ var player = {
 			}
 
 			req.onerror = () => {
-			// Error
+				// Error
 			}
 
 			req.send();
 
-		}else{
+		} else {
 			config.log('video already loaded', file)
 
 			callback();
@@ -182,7 +184,7 @@ var player = {
 		})
 
 
-		if($container.hasClass('is-loading') ||
+		if ($container.hasClass('is-loading') ||
 			$(e.target).attr('class').indexOf('player__bar') !== -1 ||
 			$(e.target).attr('class').indexOf('player__panel') !== -1 ||
 			$(e.target).attr('class').indexOf('player__voice') !== -1 ||
@@ -193,16 +195,16 @@ var player = {
 
 			let $item = $container.find('.player__item');
 
-			if($item.length){
-				if(!$button.hasClass('is-active')){
+			if ($item.length) {
+				if (!$button.hasClass('is-active')) {
 					$item[0].play()
 					$this.addClass('is-playing')
 					config.log('video play', video)
-				}else{
+				} else {
 					$item[0].pause()
 					$this.removeClass('is-playing')
 					config.log('video pause', video)
-				}				
+				}
 			}
 
 			$button.toggleClass('is-active')
@@ -217,23 +219,29 @@ var player = {
 
 			if (elem.requestFullscreen) {
 				elem.requestFullscreen();
-			} else if (elem.mozRequestFullScreen) { /* Firefox */
+			} else if (elem.mozRequestFullScreen) {
+				/* Firefox */
 				elem.mozRequestFullScreen();
-			} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+			} else if (elem.webkitRequestFullscreen) {
+				/* Chrome, Safari and Opera */
 				elem.webkitRequestFullscreen();
-			} else if (elem.msRequestFullscreen) { /* IE/Edge */
+			} else if (elem.msRequestFullscreen) {
+				/* IE/Edge */
 				elem.msRequestFullscreen();
 			}
 		},
 
-		close: () => {			
+		close: () => {
 			if (document.exitFullscreen) {
 				document.exitFullscreen();
-			} else if (document.mozCancelFullScreen) { /* Firefox */
+			} else if (document.mozCancelFullScreen) {
+				/* Firefox */
 				document.mozCancelFullScreen();
-			} else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+			} else if (document.webkitExitFullscreen) {
+				/* Chrome, Safari and Opera */
 				document.webkitExitFullscreen();
-			} else if (document.msExitFullscreen) { /* IE/Edge */
+			} else if (document.msExitFullscreen) {
+				/* IE/Edge */
 				document.msExitFullscreen();
 			}
 		}
@@ -249,11 +257,11 @@ var player = {
 		// var l = ( 100 * parseFloat($dot.position().left / ($dot.parent().width() - $dot.width()/2)) );
 		var l = $dot.position().left;
 
-		var volume = ( 100 * parseFloat($dot.position().left / $dot.parent().width()) );
+		var volume = (100 * parseFloat($dot.position().left / $dot.parent().width()));
 
 		// config.log('muted volume is ', volume)
 
-		if(mute){
+		if (mute) {
 
 			$sound.attr('data-volume', volume);
 			$sound.attr('data-position', l);
@@ -263,17 +271,17 @@ var player = {
 			$sound.removeClass('is-low-sound').addClass('is-muted');
 
 			$dot.css('left', `${0}%`)
-			$progress.css('width', `${0}%`)		
+			$progress.css('width', `${0}%`)
 
 			config.log('player is muted')
 
-		}else{
+		} else {
 
 			let volume = $sound.attr('data-volume') ? $sound.attr('data-volume') : 100;
 			let position = $sound.attr('data-position') ? $sound.attr('data-position') : 100;
 
 			$dot.css('left', `${position}px`)
-			$progress.css('width', `${position}px`)	
+			$progress.css('width', `${position}px`)
 
 			player.sound($player, volume);
 
@@ -292,15 +300,15 @@ var player = {
 
 		config.log('sound status', (status / 100))
 
-		if(!mute){
+		if (!mute) {
 
 			$sound.removeClass('is-muted')
 
-			if(status < 50){
+			if (status < 50) {
 
 				$sound.addClass('is-low-sound')
 
-			}else{
+			} else {
 
 				$sound.removeClass('is-low-sound')
 
@@ -309,7 +317,7 @@ var player = {
 			media.volume = status / 100;
 
 
-		}else{
+		} else {
 
 			player.muted($player);
 
@@ -317,7 +325,7 @@ var player = {
 		}
 
 	},
- 
+
 	init: (items = false) => {
 
 		let $items = items ? items : $('.js-player:not(.js-initialized)');
@@ -338,17 +346,17 @@ var player = {
 
 			})
 
-			$(el).find('.player__voice-dot').draggable({ 
-				axis: "x", 
+			$(el).find('.player__voice-dot').draggable({
+				axis: "x",
 				containment: "parent",
-				drag: function() {
+				drag: function () {
 					let $this = $(this).parent();
 					let $player = $this.closest('.js-player');
 					let $bar = $player.find('.player__voice-field');
 					let $voice = $player.find('.player__voice');
 					let x = $(this).offset().left - $bar.offset().left;
 
-					var l = ( 100 * parseFloat($(this).position().left / ($(this).parent().width() - $(this).width()/2)) );
+					var l = (100 * parseFloat($(this).position().left / ($(this).parent().width() - $(this).width() / 2)));
 
 					$voice.addClass('is-active')
 					$player.addClass('is-ui-active')
@@ -366,26 +374,26 @@ var player = {
 					// let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
 					// let sound_position = item.duration / 100 * position;
 				},
-				stop: function() {
+				stop: function () {
 					let $this = $(this);
-					let $player = $this.closest('.js-player');				
-					let item = $player.find('.player__item')[0];				
+					let $player = $this.closest('.js-player');
+					let item = $player.find('.player__item')[0];
 					let $button = $player.find('.player__nav-button');
 
 					let $voice = $player.find('.player__voice');
-					$voice.removeClass('is-active')	
+					$voice.removeClass('is-active')
 					$player.removeClass('is-ui-active')
 
 					// item.play();
 					// $player.addClass('is-playing')
-					// $button.addClass('is-active')	
+					// $button.addClass('is-active')
 				}
 			});
 
-			$(el).find('.player__bar-dot').draggable({ 
-				axis: "x", 
+			$(el).find('.player__bar-dot').draggable({
+				axis: "x",
 				containment: "parent",
-				drag: function() {
+				drag: function () {
 					let $this = $(this).parent();
 					let $player = $this.closest('.js-player');
 					let $bar = $player.find('.player__bar-line');
@@ -396,17 +404,17 @@ var player = {
 					$player.addClass('is-ui-active')
 
 
-					
+
 				},
-				stop: function() {
+				stop: function () {
 					let $this = $(this);
-					let $player = $this.closest('.js-player');				
-					let item = $player.find('.player__item')[0];				
-					let $button = $player.find('.player__nav-button');	
+					let $player = $this.closest('.js-player');
+					let item = $player.find('.player__item')[0];
+					let $button = $player.find('.player__nav-button');
 
 					item.play();
 					$player.addClass('is-playing')
-					$button.addClass('is-active')	
+					$button.addClass('is-active')
 
 					$player.removeClass('is-ui-active')
 				}
@@ -423,7 +431,7 @@ var player = {
 
 				player.muted($player, mute);
 
-			});	
+			});
 
 			$(el).find('.js-fullscreen').on('click', e => {
 
@@ -432,22 +440,24 @@ var player = {
 
 				$this.toggleClass('is-active');
 
-				if($this.hasClass('is-active')){
+				if ($this.hasClass('is-active')) {
 					player.fullscreen.open($video);
-				}else{
+				} else {
 					player.fullscreen.close();
 				}
 
 			});
 
-			
+
 
 		})
 
-		// $(document).on('click', '.js-player', player.play);	
+		// $(document).on('click', '.js-player', player.play);
 
 	}
 
 }
 
-export { player }
+export {
+	player
+}
