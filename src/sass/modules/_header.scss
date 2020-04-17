@@ -45,6 +45,7 @@
 		}
 	}
 
+
 	@include max-screen($large_desktop) {
 		&__link{
 			&:not(:last-child){
@@ -138,4 +139,13 @@
 			}
 		}		
 	}
+
+	@include max-screen($large_mobile) {
+		&_hide-search{
+			.header__cell_search{
+				display: none;
+			}
+		}		
+	}
+
 }

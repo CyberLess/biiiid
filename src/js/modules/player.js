@@ -168,9 +168,9 @@ var player = {
 
 	},
 
-	play: (e) => {
+	play: (e, item) => {
 
-		let $this = $(e.currentTarget);
+		let $this = item;
 		let $button = $this.find('.player__nav-button');
 		let $container = $this.find('.player__container');
 		let video = $this.data('file');
@@ -326,7 +326,20 @@ var player = {
 
 			$(el).addClass('js-initialized');
 
-			$(el).on('click', player.play)
+			if($(el).find('.js-sub-play').length){
+				$(el).find('.js-sub-play').on('click', (e) => {
+					let $parent = $(e.currentTarget).closest('.js-player');
+					player.play(e, $parent);
+				})
+
+			}else{
+				$(el).on('click', (e) => {
+					let $item = $(e.currentTarget);
+					player.play(e, $item);
+				})
+			}
+
+			
 
 			$(el).find('.player__bar-line').on('click', e => {
 

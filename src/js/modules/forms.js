@@ -1,6 +1,7 @@
 import Inputmask from "inputmask";
 import validate from 'jquery-validation';
 import 'jquery-ui/ui/widgets/slider';
+require('jquery-ui-touch-punch');
 import 'selectric';
 import { config } from "../config";
 import { filters } from "./filters";
@@ -65,7 +66,7 @@ var forms = {
 					    if (file.previewElement) {
 					        var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
 					        progressElement.style.width = progress + "%";
-					        progressElement.querySelector(".progress-text").textContent = progress + "%";
+					        progressElement.querySelector(".progress-text").textContent = `${parseInt(progress)}%`;
 					    }
 					}
 				});		
