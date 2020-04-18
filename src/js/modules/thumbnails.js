@@ -38,6 +38,8 @@ var thumbnails = {
 				// startAt: 3,
 				scrollBar: $scrollbar,
 				scrollBy: 1,
+				scrollHijack: 5,
+				scrollTrap: true,
 				// pagesBar: $wrap.find('.pages'),
 				// activatePageOn: 'click',
 				speed: 300,

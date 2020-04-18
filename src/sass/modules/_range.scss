@@ -25,6 +25,10 @@
 
 		@extend .p;
 
+		&::placeholder {
+			color: $default;
+		}
+
 	}
 
 	&__placeholder{

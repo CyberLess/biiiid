@@ -1,5 +1,5 @@
 mixin header(type = false)
-	+b.HEADER.header(class=(type == false ? "_default" : ""))
+	+b.HEADER.header(class=(type == false ? "_default" : ""))&attributes(attributes)
 		+e.inner
 			+e.wrap.wrap
 				+e.row.flex._vertical

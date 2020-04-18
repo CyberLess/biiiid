@@ -34,6 +34,14 @@
 		z-index: 500;
 	}
 
+	&__player{
+		z-index: 500;
+
+		.player__bar{
+			display: none !important;
+		}
+	}
+
 	&__item{
 		display: block;
 		cursor: pointer;	

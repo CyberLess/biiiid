@@ -1,6 +1,7 @@
 import Inputmask from "inputmask";
 import validate from 'jquery-validation';
 import 'jquery-ui/ui/widgets/slider';
+require('jquery-ui-touch-punch');
 import 'selectric';
 import {
 	config
@@ -65,12 +66,12 @@ var forms = {
 				$(el).find('.dropzone__area').dropzone({
 					url: api.files,
 					previewTemplate: template,
-					uploadprogress: function (file, progress, bytesSent) {
-						if (file.previewElement) {
-							var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
-							progressElement.style.width = progress + "%";
-							progressElement.querySelector(".progress-text").textContent = progress + "%";
-						}
+					uploadprogress: function(file, progress, bytesSent) {
+					    if (file.previewElement) {
+					        var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
+					        progressElement.style.width = progress + "%";
+					        progressElement.querySelector(".progress-text").textContent = `${parseInt(progress)}%`;
+					    }
 					}
 				});
 

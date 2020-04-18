@@ -310,8 +310,20 @@ block content
 											+e.link.A(href="/app/img/portfolio_big.jpg" title="Видеоролик для компании Nike")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
 										+e.item._big
-											+e.link.js-video-link.A(href="/app/img/test1.jpg" data-video="/app/media/video.mp4" title="Видеоролик для компании Nike2")
-												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")
+											+e.player.player__._fluid.js-player(data-file="/app/media/video.mp4")
+												+e.link.js-video-link.A(href="/app/img/test1.jpg" data-video="/app/media/video.mp4" title="Видеоролик для компании Nike2")
+												+e.IMG.preview.object-fit(src="/img/test1.jpg")
+												+e.container
+												+e.bar
+													+e.bar-line
+														+e.bar-progress
+														+e.bar-dot
+												+e.nav
+													+e.nav-button.js-sub-play
+														+e.nav-icon._play.is-active
+															+icon('play')
+														+e.nav-icon._pause
+															+icon('pause')
 										+e.item._big
 											+e.link.A(href="/app/img/portfolio_big_2.jpg" title="Видеоролик для компании Nike3")
 												+e.IMG.image.object-fit(src="/img/portfolio_1.jpg")

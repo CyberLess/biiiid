@@ -71,12 +71,12 @@
 	}
 
 	&__closefluid{
-		position: fixed;
+		position: absolute;
 		z-index:8000;
 		right: 0;
 		top: 0;
 		margin-top: 3rem;
-		margin-right: 4.7rem;
+		margin-right: 3rem;
 		width: 3.2rem;
 		stroke: #fff;
 		stroke-width: 2;
