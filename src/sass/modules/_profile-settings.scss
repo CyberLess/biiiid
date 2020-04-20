@@ -2,20 +2,20 @@
 	&__settings {
 		.profile__cell {
 			&_left {
-				width: 390/1336*100%;
+				width: 390/1336 * 100%;
 				margin-right: 10.7rem;
 				padding-top: 0;
 			}
 
 			&_right {
-				width: 703/1336*100%;
+				width: 703/1336 * 100%;
 			}
 		}
 	}
 
 	&__menu {
 		list-style: none;
-		border: 1px solid rgba($color: #2A2D34, $alpha: .2);
+		border: 1px solid rgba($color: #2a2d34, $alpha: 0.2);
 
 		&-item {
 			display: block;
@@ -23,7 +23,7 @@
 			padding: 2.4rem 3.3rem 2.8rem;
 
 			&.is-active {
-				background: rgba($color: #F2F2F3, $alpha: .4);
+				background: rgba($color: #f2f2f3, $alpha: 0.4);
 			}
 		}
 	}
@@ -31,7 +31,7 @@
 	&__back {
 		display: flex;
 		align-items: center;
-		color: rgba($color: #2A2D34, $alpha: .5);
+		color: rgba($color: #2a2d34, $alpha: 0.5);
 		font-weight: bold;
 		font-size: 1.4rem;
 		line-height: 1.6rem;
@@ -74,21 +74,86 @@
 					align-items: center;
 					width: 100px;
 					height: 100px;
-					border: 1px solid #009688;
+					border: 1px solid transparent;
 					border-radius: 51px;
+					overflow: hidden;
 
 					&:hover {
 						cursor: pointer;
+
+						.profile__form-input_file-p {
+							display: block;
+						}
 					}
 
-					p {
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);
-						color: #009688;
-						text-align: center;
+					&.is-empty {
+						border-color: #009688;
+
+						.profile__form-input_file-p {
+							display: block;
+							color: #009688;
+						}
 					}
+
+					&.is-filled {
+						.profile__form-input_file-p {
+							display: none;
+						}
+
+						border-color: transparent;
+						.profile__form-input_file-p {
+							color: #fff;
+						}
+
+						&:hover {
+							.profile__form-input_file-p {
+								display: block;
+							}
+
+							.backdrop-filter {
+								display: block;
+							}
+						}
+					}
+
+					picture {
+						width: 100%;
+						height: 100%;
+					}
+
+					.backdrop-filter {
+						position: absolute;
+						top: 0;
+						left: 0;
+						display: none;
+						width: 100%;
+						height: 100%;
+						backdrop-filter: blur(4px);
+						background: rgba(42, 45, 52, 0.7);
+						z-index: 1;
+					}
+				}
+
+				&-p {
+					display: none;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					color: #009688;
+					text-align: center;
+					z-index: 2;
+				}
+			}
+
+			&_avatar {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+
+				&[src*="#"] {
+					display: none;
 				}
 			}
 		}

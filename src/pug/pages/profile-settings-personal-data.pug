@@ -34,4 +34,7 @@ block content
 								+e.P.form-text.p.color-gray-light Ваша фотография
 								+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png")
 								+b.DIV.profile__form-input_file-button
-									p.p Загрузить фото
+									p.profile__form-input_file-p.p Загрузить фото
+									.backdrop-filter
+									//- img.profile__form-input_avatar(src="/img/avatar-profile-setts.png", alt="")
+									img.profile__form-input_avatar(src="", alt="")
