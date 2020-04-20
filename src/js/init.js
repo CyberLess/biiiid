@@ -32,6 +32,9 @@ import {
 	previewAvatar
 } from "./modules/previewAvatar";
 import {
+	textareaLength
+} from "./modules/textareaLength";
+import {
 	config
 } from "./config";
 
@@ -50,6 +53,7 @@ App.prototype.init = () => {
 	menu.init();
 	player.init();
 	previewAvatar.init();
+	textareaLength.init();
 
 	config.log('app init')
 };

@@ -48,6 +48,16 @@
 			padding-top: 40px;
 		}
 
+		&-row {
+			&.flex {
+				.profile__form-label {
+					.profile__form-input {
+						max-width: 100%;
+					}
+				}
+			}
+		}
+
 		&-text {
 			margin-bottom: 20px;
 		}
@@ -56,9 +66,31 @@
 			position: relative;
 			display: flex;
 			flex-direction: column;
+			width: 335/703*100%;
+			margin-bottom: 4rem;
+
+			&_fluid {
+				width: 100%;
+			}
 		}
 
 		&-input {
+			display: block;
+			width: 100%;
+			max-width: 335/703*100%;
+			padding: 1.6rem;
+			border: 1px solid rgba(42, 45, 52, 0.15);
+			color: #000;
+
+			&::placeholder {
+				color: rgba(42, 45, 52, 0.5);
+			}
+
+			&:disabled {
+				background: rgba(196, 196, 196, 0.1);
+				color: rgba(42, 45, 52, 0.5);
+			}
+
 			&_file {
 				position: absolute;
 				display: none;
@@ -101,6 +133,7 @@
 						}
 
 						border-color: transparent;
+
 						.profile__form-input_file-p {
 							color: #fff;
 						}
@@ -154,6 +187,39 @@
 
 				&[src*="#"] {
 					display: none;
+				}
+			}
+
+			&_textarea {
+				max-width: 100%;
+				max-height: 192px;
+				padding-bottom: 3.1rem;
+				resize: none;
+
+				&-count {
+					position: absolute;
+					right: 1.6rem;
+					bottom: 3.1rem;
+					display: block;
+					width: auto;
+					padding: 0;
+					border: none;
+					font-size: 1.3rem;
+					line-height: 1.5rem;
+					color: #949699;
+				}
+			}
+
+			&__hint {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				margin-top: .8rem;
+
+				a {
+					display: block;
+					margin-left: .5rem;
+					color: $green;
 				}
 			}
 		}
