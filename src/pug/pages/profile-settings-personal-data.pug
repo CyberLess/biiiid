@@ -58,3 +58,26 @@ block content
 									+e.P.form-text.p.color-gray-light Обо мне
 									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
 									+e.DIV.form-input_textarea-count 0/250
+							+e.block
+								+e.row.flex._justify
+									+e.H2.block-title.h2 Языки
+								+e.form-row.flex._justify
+									+e.LABEL.form-label._select(for="#language")
+										+e.P.form-text.p.color-gray-light Язык
+										+e.form-select.slct__
+											select(name='order', id="language")
+												option(selected disabled hidden) Ваш язык
+												option Русский
+												option Английский
+									+e.LABEL.form-label._select(for="#level")
+										+e.P.form-text.p.color-gray-light Уровень
+										+e.form-select.slct__
+											select(name='order', id="language")
+												option(selected disabled hidden) Ваш уровень
+												option Базовый
+												option Разговорный
+												option Свободный
+												option Родной
+									+e.form-label._select._controls
+										+e.A.form-select._add(href='#') Добавить язык
+										+e.A.form-select._delete(href='#') Отменить

@@ -66,18 +66,31 @@
 			position: relative;
 			display: flex;
 			flex-direction: column;
-			width: 335/703*100%;
+			width: 335/703 * 100%;
 			margin-bottom: 4rem;
 
 			&_fluid {
 				width: 100%;
+			}
+
+			&_select {
+				width: 212/703 * 100%;
+				margin-top: 4rem;
+			}
+
+			&_controls {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				flex-direction: row;
+				align-items: flex-end;
 			}
 		}
 
 		&-input {
 			display: block;
 			width: 100%;
-			max-width: 335/703*100%;
+			max-width: 335/703 * 100%;
 			padding: 1.6rem;
 			border: 1px solid rgba(42, 45, 52, 0.15);
 			color: #000;
@@ -214,13 +227,44 @@
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
-				margin-top: .8rem;
+				margin-top: 0.8rem;
 
 				a {
 					display: block;
-					margin-left: .5rem;
+					margin-left: 0.5rem;
 					color: $green;
 				}
+			}
+		}
+
+		&-select {
+			.selectric {
+				height: auto;
+				padding: 1.6rem;
+				color: rgba(42, 45, 52, 0.5);
+
+				.label {
+					margin: 0;
+					font-size: 1.6rem;
+					line-height: 1.9rem;
+					font-weight: normal;
+				}
+			}
+
+			&_add,
+			&_delete {
+				display: block;
+				margin-bottom: 1.7rem;
+			}
+
+			&_add {
+				color: $green;
+				text-decoration: underline;
+			}
+
+			&_delete {
+				color: rgba(42, 45, 52, .5);
+				text-decoration: none;
 			}
 		}
 	}
