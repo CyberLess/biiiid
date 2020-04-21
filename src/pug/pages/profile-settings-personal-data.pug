@@ -62,24 +62,20 @@ block content
 								+e.H2.block-title.h2 Языки
 							+e.form-row
 								+e.form-select._selected
-									+e.form-select._selected-language.flex
-										+e.P.form-text.p.language Русский
-										+e.P.form-text.p.language-level (Родной)
-										+e.A.form-select._delete(href='javascript:void(0);')
-											+icon('cls')
 							+e.form-row.flex._justify
 								+e.LABEL.form-label._select(for="language")
 									+e.P.form-text.p Язык
 									+e.form-select.slct__
 										select(name='order', id="language")
-											option(selected disabled hidden) Ваш язык
+											option(selected disabled hidden value=0) Ваш язык
 											option Русский
 											option Английский
+									+e.SMALL.form-select._error Выберите хотя бы один язык
 								+e.LABEL.form-label._select(for="level")
 									+e.P.form-text.p Уровень
 									+e.form-select.slct__
 										select(name='order', id="level")
-											option(selected disabled hidden) Ваш уровень
+											option(selected disabled hidden value=0) Ваш уровень
 											option Базовый
 											option Разговорный
 											option Свободный
