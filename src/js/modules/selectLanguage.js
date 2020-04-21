@@ -10,7 +10,6 @@ var selectLanguage = {
 	slctLvl: '',
 	add: document.querySelector('.profile__form-select_add'),
 	decline: document.querySelector('.profile__form-select_decline'),
-	delete: document.querySelectorAll('.profile__form-select_delete'),
 	events: {
 		showSelects: () => {
 			if (!selectLanguage.labelsActive) {
@@ -32,7 +31,6 @@ var selectLanguage = {
 			selectLanguage.isValid = false
 		},
 		delete: elm => {
-			console.log('delete')
 			elm.parentElement.remove()
 		}
 	},
@@ -62,7 +60,9 @@ var selectLanguage = {
 		selectLanguage.slctLang = selectLanguage.language.value
 		selectLanguage.slctLvl = selectLanguage.level.value
 		selectLanguage.wrapper.insertAdjacentHTML('beforeend', selectLanguage.render(selectLanguage.slctLang, selectLanguage.slctLvl))
-		selectLanguage.init()
+		document.querySelectorAll('.profile__form-select_delete').forEach(button => button.addEventListener('click', () => {
+			selectLanguage.events.delete(button)
+		}))
 	},
 	render: (lang, lvl) => {
 		const template = `
@@ -80,7 +80,7 @@ var selectLanguage = {
 	init: () => {
 		selectLanguage.add.addEventListener('click', selectLanguage.events.showSelects)
 		selectLanguage.decline.addEventListener('click', selectLanguage.events.hideSelects)
-		selectLanguage.delete.forEach(button => button.addEventListener('click', () => {
+		document.querySelectorAll('.profile__form-select_delete').forEach(button => button.addEventListener('click', () => {
 			selectLanguage.events.delete(button)
 		}))
 	}
