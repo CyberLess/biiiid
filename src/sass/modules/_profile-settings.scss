@@ -49,6 +49,9 @@
 		}
 
 		&-row {
+			position: relative;
+			transition: all .5s ease;
+
 			&.flex {
 				.profile__form-label {
 					.profile__form-input {
@@ -74,17 +77,29 @@
 			}
 
 			&_select {
-				display: none;
+				position: absolute;
+				bottom: -100000px;
 				width: 212/703 * 100%;
 				margin-top: 2rem;
+				transition: all .5s ease;
+				z-index: -1;
+
+				&.is-active {
+					position: relative;
+					bottom: 0;
+					z-index: unset;
+				}
 			}
 
 			&_controls {
+				position: relative;
+				bottom: 0;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
 				flex-direction: row;
 				align-items: flex-end;
+				z-index: unset;
 			}
 		}
 
@@ -276,14 +291,25 @@
 			}
 
 			&_add {
+				position: relative;
+				transition: all .5s ease;
 				color: $green;
 				text-decoration: underline;
 			}
 
 			&_decline {
-				display: none;
+				position: fixed;
+				bottom: -100000px;
 				color: rgba(42, 45, 52, .5);
 				text-decoration: none;
+				transition: all .5s ease;
+				z-index: -1;
+
+				&.is-active {
+					position: relative;
+					bottom: 0;
+					z-index: unset;
+				}
 			}
 
 			&_delete {
