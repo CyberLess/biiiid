@@ -15,7 +15,7 @@
 
 	&__menu {
 		list-style: none;
-		border: 1px solid rgba($color: #2a2d34, $alpha: 0.2);
+		border: 1px solid rgba($color: $gray-light, $alpha: 0.2);
 
 		&-item {
 			display: block;
@@ -31,7 +31,7 @@
 	&__back {
 		display: flex;
 		align-items: center;
-		color: rgba($color: #2a2d34, $alpha: 0.5);
+		color: rgba($color: $gray-light, $alpha: 0.5);
 		font-weight: bold;
 		font-size: 1.4rem;
 		line-height: 1.6rem;
@@ -45,7 +45,7 @@
 
 	&__form {
 		&.profile__form_personal-data {
-			padding-top: 40px;
+			padding-top: 4rem;
 		}
 
 		&-row {
@@ -59,7 +59,7 @@
 		}
 
 		&-text {
-			margin-bottom: 20px;
+			margin-bottom: 2rem;
 		}
 
 		&-label {
@@ -74,8 +74,9 @@
 			}
 
 			&_select {
+				display: none;
 				width: 212/703 * 100%;
-				margin-top: 4rem;
+				margin-top: 2rem;
 			}
 
 			&_controls {
@@ -119,6 +120,7 @@
 					align-items: center;
 					width: 100px;
 					height: 100px;
+					padding: 0;
 					border: 1px solid transparent;
 					border-radius: 51px;
 					overflow: hidden;
@@ -251,8 +253,24 @@
 				}
 			}
 
+			&_selected {
+				margin-top: 2rem;
+
+				&-language {
+					align-items: center;
+
+					.profile__form-text {
+						margin-right: 0.8rem;
+
+						&.language-level {
+							color: rgba($color: $gray-light, $alpha: .5);
+						}
+					}
+				}
+			}
+
 			&_add,
-			&_delete {
+			&_decline {
 				display: block;
 				margin-bottom: 1.7rem;
 			}
@@ -262,9 +280,17 @@
 				text-decoration: underline;
 			}
 
-			&_delete {
+			&_decline {
+				display: none;
 				color: rgba(42, 45, 52, .5);
 				text-decoration: none;
+			}
+
+			&_delete {
+				width: 11px;
+				height: 11px;
+				margin: 0 .8rem 1.8rem;
+				opacity: .3;
 			}
 		}
 	}

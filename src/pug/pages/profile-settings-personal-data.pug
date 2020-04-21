@@ -32,7 +32,7 @@ block content
 						+b.FORM.profile__form._personal-data
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="#file")
-									+e.P.form-text.p.color-gray-light Ваша фотография
+									+e.P.form-text.p Ваша фотография
 									+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png")
 									+b.DIV.profile__form-input_file-button
 										p.profile__form-input_file-p.p Загрузить фото
@@ -41,43 +41,49 @@ block content
 										//- img.profile__form-input_avatar(src="", alt="")
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="#name")
-									+e.P.form-text.p.color-gray-light Логин (имя на сайте)
+									+e.P.form-text.p Логин (имя на сайте)
 									+e.INPUT.form-input.p(type="text", id="nickname", name="nickname", disabled, placeholder="Some Name")
 									+e.SMALL.form-input__hint.small
 										| Ссылка на ваш профиль
 										a(href="joboba.com/malyavka1989") joboba.com/malyavka1989
 							+e.form-row.flex._justify
 								+e.LABEL.form-label(for="#firstname")
-									+e.P.form-text.p.color-gray-light Имя
+									+e.P.form-text.p Имя
 									+e.INPUT.form-input.p(type="text", id="firstname", name="firstname", placeholder="Как вас зовут", onfocus="this.placeholder=''", onblur="this.placeholder='Как вас зовут'")
 								+e.LABEL.form-label(for="#lastname")
-									+e.P.form-text.p.color-gray-light Фамилия
+									+e.P.form-text.p Фамилия
 									+e.INPUT.form-input.p(type="text", id="lastname", name="lastname", placeholder="Настоящая фамилия", onfocus="this.placeholder=''", onblur="this.placeholder='Настоящая фамилия'")
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="#about")
-									+e.P.form-text.p.color-gray-light Обо мне
+									+e.P.form-text.p Обо мне
 									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
 									+e.DIV.form-input_textarea-count 0/250
-							+e.block
-								+e.row.flex._justify
-									+e.H2.block-title.h2 Языки
-								+e.form-row.flex._justify
-									+e.LABEL.form-label._select(for="#language")
-										+e.P.form-text.p.color-gray-light Язык
-										+e.form-select.slct__
-											select(name='order', id="language")
-												option(selected disabled hidden) Ваш язык
-												option Русский
-												option Английский
-									+e.LABEL.form-label._select(for="#level")
-										+e.P.form-text.p.color-gray-light Уровень
-										+e.form-select.slct__
-											select(name='order', id="language")
-												option(selected disabled hidden) Ваш уровень
-												option Базовый
-												option Разговорный
-												option Свободный
-												option Родной
-									+e.form-label._select._controls
-										+e.A.form-select._add(href='#') Добавить язык
-										+e.A.form-select._delete(href='#') Отменить
+							+e.row.flex._justify
+								+e.H2.block-title.h2 Языки
+							+e.form-row
+								+e.form-select._selected
+									+e.form-select._selected-language.flex
+										+e.P.form-text.p.language Русский
+										+e.P.form-text.p.language-level (Родной)
+										+e.A.form-select._delete(href='javascript:void(0);')
+											+icon('cls')
+							+e.form-row.flex._justify
+								+e.LABEL.form-label._select(for="#language")
+									+e.P.form-text.p Язык
+									+e.form-select.slct__
+										select(name='order', id="language")
+											option(selected disabled hidden) Ваш язык
+											option Русский
+											option Английский
+								+e.LABEL.form-label._select(for="#level")
+									+e.P.form-text.p Уровень
+									+e.form-select.slct__
+										select(name='order', id="level")
+											option(selected disabled hidden) Ваш уровень
+											option Базовый
+											option Разговорный
+											option Свободный
+											option Родной
+								+e.form-label._select._controls
+									+e.A.form-select._add(href='javascript:void(0);') Добавить язык
+									+e.A.form-select._decline(href='javascript:void(0);') Отменить

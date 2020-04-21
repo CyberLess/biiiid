@@ -1,7 +1,3 @@
-import {
-	config
-} from "../config";
-
 var previewAvatar = {
 	input: document.querySelector('#file'),
 	target: document.querySelector('.profile__form-input_file-button'),

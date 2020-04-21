@@ -35,6 +35,10 @@ import {
 	textareaLength
 } from "./modules/textareaLength";
 import {
+	selectLanguage
+}
+from "./modules/selectLanguage";
+import {
 	config
 } from "./config";
 
@@ -54,6 +58,7 @@ App.prototype.init = () => {
 	player.init();
 	previewAvatar.init();
 	textareaLength.init();
+	selectLanguage.init();
 
 	config.log('app init')
 };
