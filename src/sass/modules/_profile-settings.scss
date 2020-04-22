@@ -50,7 +50,7 @@
 
 		&-row {
 			position: relative;
-			transition: all .5s ease;
+			transition: all 0.5s ease;
 
 			&.flex {
 				.profile__form-label {
@@ -78,15 +78,17 @@
 
 			&_select {
 				position: absolute;
-				bottom: -100000px;
+				left: -100px;
 				width: 212/703 * 100%;
 				margin-top: 2rem;
-				transition: all .5s ease;
+				transition: all 0.5s ease;
+				opacity: 0;
 				z-index: -1;
 
 				&.is-active {
 					position: relative;
-					bottom: 0;
+					left: 0;
+					opacity: 1;
 					z-index: unset;
 				}
 
@@ -103,12 +105,13 @@
 
 			&_controls {
 				position: relative;
-				bottom: 0;
+				left: 0;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
 				flex-direction: row;
 				align-items: flex-end;
+				opacity: 1;
 				z-index: unset;
 			}
 		}
@@ -288,7 +291,7 @@
 						margin-right: 0.8rem;
 
 						&.language-level {
-							color: rgba($color: $gray-light, $alpha: .5);
+							color: rgba($color: $gray-light, $alpha: 0.5);
 						}
 					}
 				}
@@ -302,22 +305,24 @@
 
 			&_add {
 				position: relative;
-				transition: all .5s ease;
+				transition: all 0.5s ease;
 				color: $green;
 				text-decoration: underline;
 			}
 
 			&_decline {
 				position: fixed;
-				bottom: -100000px;
-				color: rgba(42, 45, 52, .5);
+				right: -100px;
+				color: rgba(42, 45, 52, 0.5);
 				text-decoration: none;
-				transition: all .5s ease;
+				transition: all 0.5s ease;
+				opacity: 0;
 				z-index: -1;
 
 				&.is-active {
 					position: relative;
-					bottom: 0;
+					right: 0;
+					opacity: 1;
 					z-index: unset;
 				}
 			}
@@ -325,8 +330,8 @@
 			&_delete {
 				width: 11px;
 				height: 11px;
-				margin: 0 .8rem 1.8rem;
-				opacity: .3;
+				margin: 0 0.8rem 1.8rem;
+				opacity: 0.3;
 			}
 
 			&_error {
