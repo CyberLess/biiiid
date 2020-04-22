@@ -62,7 +62,7 @@ block content
 								+e.H2.block-title.h2 Языки
 							+e.form-row
 								+e.form-select._selected
-							+e.form-row.flex._justify
+							+e.form-row._select-wrapper.flex._justify
 								+e.LABEL.form-label._select(for="language")
 									+e.P.form-text.p Язык
 									+e.form-select.slct__
@@ -83,3 +83,20 @@ block content
 								+e.form-label._select._controls
 									+e.A.form-select._add(href='javascript:void(0);') Добавить язык
 									+e.A.form-select._decline(href='javascript:void(0);') Отменить
+							+e.row._socials
+								+e.H2.block-title.h2 Социальные сети
+								+e.form-social._wrapper
+									+e.form-social._icon
+										+icon('fb')
+									+e.A.form-social._link.color-green(href="#" target="_blank") Привязать
+										+icon('cls')
+								+e.form-social._wrapper.is-linked
+									+e.form-social._icon
+										+icon('vk')
+									+e.A.form-social._link.color-green(href="#" target="_blank") Отвязать
+										+icon('cls')
+								+e.form-social._wrapper
+									+e.form-social._icon
+										+icon('instagram')
+									+e.A.form-social._link.color-green(href="#" target="_blank") Привязать
+										+icon('cls')
