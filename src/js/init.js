@@ -56,9 +56,9 @@ App.prototype.init = () => {
 	order.init();
 	menu.init();
 	player.init();
-	previewAvatar.init();
 	textareaLength.init();
 	selectLanguage.init();
+	previewAvatar.init();
 
 	config.log('app init')
 };

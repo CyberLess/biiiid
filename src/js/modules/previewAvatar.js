@@ -3,7 +3,6 @@ var previewAvatar = {
 	target: document.querySelector('.profile__form-input_file-button'),
 	avatar: {
 		img: document.querySelector('.profile__form-input_avatar'),
-		source: document.querySelector('.profile__form-input_avatar').parentElement.querySelector('source'),
 	},
 	buttonText: document.querySelector('.profile__form-input_file-p'),
 	events: {
@@ -17,7 +16,7 @@ var previewAvatar = {
 	changeImage: () => {
 		let loadedImage = URL.createObjectURL(event.target.files[0]);
 		previewAvatar.avatar.img.src = loadedImage;
-		previewAvatar.avatar.source.setAttribute('srcset', loadedImage);
+		document.querySelector('.profile__form-input_avatar').parentElement.querySelector('source').setAttribute('srcset', loadedImage);
 	},
 	checkImage: () => {
 		const target = previewAvatar.target;
@@ -35,17 +34,13 @@ var previewAvatar = {
 	init: () => {
 		const target = previewAvatar.target;
 		const input = previewAvatar.input;
-		if (target) {
-			target.addEventListener('click', () => {
-				previewAvatar.events.choose()
-			})
+		if (target !== null && target !== undefined) {
+			target.addEventListener('click', previewAvatar.events.choose())
 			input.addEventListener('change', () => {
 				previewAvatar.events.change();
 				previewAvatar.checkImage();
 			})
-
 			previewAvatar.checkImage();
-
 		}
 	}
 }

@@ -137,12 +137,16 @@ var selectLanguage = {
 		return template
 	},
 	init: () => {
-		selectLanguage.add.addEventListener('click', selectLanguage.events.showSelects)
-		selectLanguage.decline.addEventListener('click', selectLanguage.events.hideSelects)
-		document.querySelectorAll('.profile__form-select_delete').forEach(button => button.addEventListener('click', () => {
-			selectLanguage.events.delete(button)
-		}))
-		selectLanguage.filterOptions()
+		[selectLanguage.add, selectLanguage.decline].forEach(el => {
+			if (el !== undefined && el !== null) {
+				selectLanguage.add.addEventListener('click', selectLanguage.events.showSelects)
+				selectLanguage.decline.addEventListener('click', selectLanguage.events.hideSelects)
+				document.querySelectorAll('.profile__form-select_delete').forEach(button => button.addEventListener('click', () => {
+					selectLanguage.events.delete(button)
+				}))
+				selectLanguage.filterOptions()
+			}
+		})
 	}
 }
 
