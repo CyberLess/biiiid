@@ -110,6 +110,21 @@
 						display: block;
 					}
 				}
+
+				&-country {
+					flex-direction: row;
+					flex-wrap: nowrap;
+					margin-bottom: 0;
+
+					.profile__form-select {
+						width: 102/335 * 100%;
+						border-right: none;
+					}
+
+					.profile__form-input_phone {
+						max-width: 232/335 * 100%;
+					}
+				}
 			}
 
 			&_controls {
@@ -312,11 +327,17 @@
 				margin-bottom: 1.7rem;
 			}
 
-			&_add {
+			&_add,
+			&_approve {
 				position: relative;
 				transition: all 0.5s ease;
 				color: $green;
 				text-decoration: underline;
+			}
+
+			&_approve {
+				display: block;
+				margin-left: 3.3rem;
 			}
 
 			&_decline {
@@ -360,7 +381,7 @@
 
 			&.is-linked {
 				.profile__form-social_icon {
-					background-color: #4F6384;
+					background-color: #4f6384;
 				}
 
 				.profile__form-social_link {
@@ -380,9 +401,9 @@
 				width: 35px;
 				height: 35px;
 				margin: 0 2.3rem 0 0;
-				padding: .7rem;
+				padding: 0.7rem;
 				border-radius: 50%;
-				background: #BFC0C2;
+				background: #bfc0c2;
 
 				svg {
 					display: block;
@@ -406,7 +427,7 @@
 					display: none;
 					width: 8px;
 					height: 8px;
-					margin-left: .6rem;
+					margin-left: 0.6rem;
 				}
 			}
 		}

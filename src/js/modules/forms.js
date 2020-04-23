@@ -9,6 +9,7 @@ import {
 import {
 	filters
 } from "./filters";
+import "magnific-popup";
 
 window.Dropzone = require('dropzone');
 
@@ -18,6 +19,8 @@ var forms = {
 
 	mask: () => {
 		var selector = document.querySelectorAll("input[name='phone']");
+		var combo = document.querySelectorAll("input[name='phone-combo']");
+		var sms = document.querySelectorAll("input[name='sms']");
 
 		var im = new Inputmask({
 			"mask": "+7 (999) 999-99-99",
@@ -25,7 +28,76 @@ var forms = {
 			clearIncomplete: true
 		});
 
+		var comboMask = new Inputmask({
+			"mask": "(999) 999-99-99",
+			clearMaskOnLostFocus: true,
+			clearIncomplete: true
+		});
+
+		var smsMask = new Inputmask({
+			"mask": "9",
+			"placeholder": ""
+		});
+
 		im.mask(selector);
+		comboMask.mask(combo);
+		smsMask.mask(sms);
+	},
+
+	sms: {
+		resend: {
+			markup: (content, attr) => {
+				return `<button class="modals__form-resend" ${attr}>${content}</button>`
+			},
+			active: 'Отправить код повторно',
+			disabled: 'Повторый код можно отправить через: 30 сек'
+		},
+		startCountdown: () => {
+			let wrapper = document.querySelector('.modals__form-resend-wrapper')
+			wrapper.innerHTML = forms.sms.resend.markup(forms.sms.resend.disabled, 'disabled');
+		},
+		stopCountdown: () => {
+			let wrapper = document.querySelector('.modals__form-resend-wrapper');
+			wrapper.innerHTML = forms.sms.resend.markup(forms.sms.resend.active, 'enabled');
+		},
+		next: elm => {
+			if (elm.nextElementSibling !== null && elm.nextElementSibling !== undefined) {
+				elm.nextElementSibling.focus()
+			} else {
+				elm.blur()
+				elm.parentElement.classList.add('is-invalid')
+				forms.sms.startCountdown()
+			}
+		},
+		prev: elm => {
+			elm.value = ''
+			if (elm.previousElementSibling !== null && elm.previousElementSibling !== undefined) {
+				elm.previousElementSibling.value = ''
+				elm.previousElementSibling.focus()
+			} else {
+				elm.parentElement.classList.remove('is-invalid')
+			}
+		},
+		init: () => {
+			var sms = document.querySelectorAll("input[name='sms']");
+
+			if (sms) {
+				forms.sms.stopCountdown();
+				sms.forEach((input, index) => {
+					input.addEventListener('keypress', e => {
+						if (e.code != 'Space') {
+							if (e.code == 'Backspace' || e.code == 'Delete' || e.code == 'NumpadDecimal') {
+								if (index > 0) {
+									forms.sms.prev(input)
+								}
+							} else {
+								forms.sms.next(input)
+							}
+						}
+					})
+				})
+			}
+		}
 	},
 
 	number: (event) => {
@@ -66,12 +138,12 @@ var forms = {
 				$(el).find('.dropzone__area').dropzone({
 					url: api.files,
 					previewTemplate: template,
-					uploadprogress: function(file, progress, bytesSent) {
-					    if (file.previewElement) {
-					        var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
-					        progressElement.style.width = progress + "%";
-					        progressElement.querySelector(".progress-text").textContent = `${parseInt(progress)}%`;
-					    }
+					uploadprogress: function (file, progress, bytesSent) {
+						if (file.previewElement) {
+							var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
+							progressElement.style.width = progress + "%";
+							progressElement.querySelector(".progress-text").textContent = `${parseInt(progress)}%`;
+						}
 					}
 				});
 
@@ -312,6 +384,7 @@ var forms = {
 		forms.validate();
 		forms.price.init();
 		forms.events();
+		forms.sms.init();
 
 		$('.js-number').on('keypress keyup blur', forms.number);
 

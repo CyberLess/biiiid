@@ -249,9 +249,6 @@ var modals = {
 				},
 			});
 		}
-
-
-
 	},
 
 	open: (e, modal) => {
