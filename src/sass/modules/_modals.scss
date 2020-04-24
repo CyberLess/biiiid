@@ -1,5 +1,4 @@
 .modals {
-
 	background-color: #fff;
 	position: relative;
 	margin: 30px auto;
@@ -33,7 +32,6 @@
 			max-height: inherit !important;
 			padding: 0;
 		}
-
 	}
 
 	&_vertical {
@@ -67,7 +65,6 @@
 		flex-direction: column;
 		height: 100vh;
 		padding: 3rem 0;
-
 	}
 
 	&__closefluid {
@@ -84,7 +81,6 @@
 	}
 
 	&__inside {
-
 		// 	position: absolute;
 		// 	left: 0;
 		// 	top: 0;
@@ -109,7 +105,7 @@
 	}
 
 	&__content {
-		padding-top: .6rem;
+		padding-top: 0.6rem;
 
 		p {
 			line-height: 2.2rem;
@@ -130,7 +126,7 @@
 			justify-content: flex-end;
 		}
 
-		&>* {
+		& > * {
 			margin-top: -7.2rem;
 			position: relative;
 
@@ -141,7 +137,7 @@
 		}
 
 		&:after {
-			content: '';
+			content: "";
 			display: block;
 			position: absolute;
 			left: 0;
@@ -169,7 +165,7 @@
 
 		&-case {
 			&:after {
-				content: '';
+				content: "";
 				display: inline-block;
 				vertical-align: middle;
 				margin: 0 1rem;
@@ -184,7 +180,6 @@
 				margin-right: 2.4rem;
 				flex-shrink: 0;
 				flex-grow: 0;
-
 			}
 
 			&_content {
@@ -213,9 +208,8 @@
 		position: absolute;
 		left: 3rem;
 		top: 3.8rem;
-		margin-top: -.7rem;
+		margin-top: -0.7rem;
 		cursor: pointer;
-
 	}
 
 	&__title {
@@ -264,10 +258,10 @@
 		&-item {
 			margin-bottom: 2.2rem;
 			display: block;
-			width: 323/574*100%;
+			width: 323/574 * 100%;
 
 			&:nth-child(2n) {
-				width: 251/574*100%;
+				width: 251/574 * 100%;
 			}
 		}
 	}
@@ -291,6 +285,10 @@
 				&.is-invalid {
 					input {
 						border-color: $red;
+					}
+
+					~ .modals__notification {
+						opacity: 1;
 					}
 				}
 
@@ -321,6 +319,16 @@
 					border: none;
 					border-bottom: 1px solid $gray-light;
 				}
+			}
+
+			&__notification {
+				position: absolute;
+				bottom: 9.5rem;
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+				color: $red;
+				opacity: 0;
+				transition: all 0.3s ease;
 			}
 		}
 	}
@@ -354,11 +362,11 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: rgba(#C4C4C4, .3);
+			background: rgba(#c4c4c4, 0.3);
 
 			svg {
 				width: 1.3rem;
-				fill: rgba(#2A2D34, .5);
+				fill: rgba(#2a2d34, 0.5);
 			}
 		}
 
@@ -407,7 +415,7 @@
 			}
 
 			&-case {
-				margin: .25rem 0;
+				margin: 0.25rem 0;
 				font-size: 1.4rem;
 
 				&:after {
@@ -419,12 +427,12 @@
 		&__arrow {
 			width: 2rem;
 
-			&>.owl-left {
+			& > .owl-left {
 				left: auto;
 				margin-left: -2.1rem;
 			}
 
-			&>.owl-right {
+			& > .owl-right {
 				margin-right: -2.1rem;
 			}
 		}
@@ -449,7 +457,7 @@
 
 .mfp-bg {
 	opacity: 0;
-	transition: all .5s ease;
+	transition: all 0.5s ease;
 
 	&.mfp-ready {
 		opacity: 0.5;
@@ -471,14 +479,13 @@
 
 	.modals,
 	.mfp-figure {
-		transition: all .5s ease;
+		transition: all 0.5s ease;
 		opacity: 0;
 		transform: translateY(30px);
 	}
 
 	// animate in
 	&.mfp-ready {
-
 		.modals,
 		.mfp-figure {
 			transform: translate(0, 0);
@@ -488,11 +495,9 @@
 
 	// animate out
 	&.mfp-removing {
-
 		.modals,
 		.mfp-figure {
 			opacity: 0;
 		}
 	}
-
 }

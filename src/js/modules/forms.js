@@ -64,7 +64,6 @@ var forms = {
 			if (elm.nextElementSibling !== null && elm.nextElementSibling !== undefined) {
 				elm.nextElementSibling.focus()
 			} else {
-				elm.blur()
 				elm.parentElement.classList.add('is-invalid')
 				forms.sms.startCountdown()
 			}
@@ -75,25 +74,39 @@ var forms = {
 				elm.previousElementSibling.value = ''
 				elm.previousElementSibling.focus()
 			} else {
-				elm.parentElement.classList.remove('is-invalid')
+				elm.focus()
 			}
+		},
+		isNumber: e =>  {
+			let charCode = (e.which) ? e.which : e.keyCode
+			if (charCode > 31 && (charCode < 48 || (charCode > 57 && charCode != 190 && charCode != 110)))
+				return false;
+			return true;
+		},
+		isControl: e => {
+			let charCode = (e.which) ? e.which : e.keyCode
+			if (charCode == 8 || charCode == 110 || charCode == 46)
+				return true
+			return false
+		},
+		isSpace: e => {
+			let charCode = (e.which) ? e.which : e.keyCode
+			if (charCode == 32)
+				return true
+			return false
 		},
 		init: () => {
 			var sms = document.querySelectorAll("input[name='sms']");
 
 			if (sms) {
 				forms.sms.stopCountdown();
-				sms.forEach((input, index) => {
-					input.addEventListener('keypress', e => {
-						if (e.code != 'Space') {
-							if (e.code == 'Backspace' || e.code == 'Delete' || e.code == 'NumpadDecimal') {
-								if (index > 0) {
-									forms.sms.prev(input)
-								}
-							} else {
+				sms.forEach(input => {
+					input.addEventListener('keyup', e => {
+						if (!forms.sms.isSpace(e))
+							if (forms.sms.isNumber(e))
 								forms.sms.next(input)
-							}
-						}
+							if (forms.sms.isControl(e))
+								forms.sms.prev(input)
 					})
 				})
 			}
