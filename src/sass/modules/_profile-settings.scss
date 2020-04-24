@@ -140,12 +140,16 @@
 			}
 
 			&_checkbox {
-				margin-bottom: 2rem;
 				flex-direction: row;
 
 				&:hover {
 					cursor: pointer;
 				}
+			}
+
+			&_password,
+			&_checkbox {
+				margin-bottom: 2rem;
 			}
 		}
 
