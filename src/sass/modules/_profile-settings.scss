@@ -22,8 +22,13 @@
 			width: 100%;
 			padding: 2.4rem 3.3rem 2.8rem;
 
-			&.is-active {
+			&:hover {
 				background: rgba($color: #f2f2f3, $alpha: 0.4);
+			}
+
+			&.is-active {
+				background: #f2f2f3;
+				font-weight: bold;
 			}
 		}
 	}
@@ -465,7 +470,7 @@
 			z-index: -1;
 
 			&:checked {
-				~.profile__form-checkbox-icon {
+				~ .profile__form-checkbox-icon {
 					background-color: #000;
 
 					svg {
@@ -481,7 +486,7 @@
 				width: 21px;
 				height: 21px;
 				margin-right: 1.5rem;
-				border: 1px solid rgba($color: $gray-light, $alpha: .3);
+				border: 1px solid rgba($color: $gray-light, $alpha: 0.3);
 
 				svg {
 					width: 10px;
