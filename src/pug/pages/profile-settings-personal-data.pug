@@ -56,7 +56,7 @@ block content
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="about")
 									+e.P.form-text.p Обо мне
-									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
+									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", minlength="0", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
 									+e.DIV.form-input_textarea-count 0/250
 							+e.row.flex._justify
 								+e.H2.block-title.h2 Языки
