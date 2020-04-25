@@ -77,21 +77,15 @@ var forms = {
 				elm.focus()
 			}
 		},
-		isNumber: e =>  {
+		isNumber: e => {
 			let charCode = (e.which) ? e.which : e.keyCode
-			if (charCode > 31 && (charCode < 48 || (charCode > 57 && charCode != 190 && charCode != 110)))
+			if (charCode > 31 && (charCode < 48 || (charCode > 57 && charCode != 190 && charCode != 110 && charCode != 32)))
 				return false;
 			return true;
 		},
 		isControl: e => {
 			let charCode = (e.which) ? e.which : e.keyCode
-			if (charCode == 8 || charCode == 110 || charCode == 46)
-				return true
-			return false
-		},
-		isSpace: e => {
-			let charCode = (e.which) ? e.which : e.keyCode
-			if (charCode == 32)
+			if (charCode == 8 || charCode == 110 || charCode == 46 && charCode != 32)
 				return true
 			return false
 		},
@@ -101,12 +95,13 @@ var forms = {
 			if (sms) {
 				forms.sms.stopCountdown();
 				sms.forEach(input => {
+					input.addEventListener('input', e => {
+						if (forms.sms.isNumber(e))
+							forms.sms.next(input)
+					})
 					input.addEventListener('keyup', e => {
-						if (!forms.sms.isSpace(e))
-							if (forms.sms.isNumber(e))
-								forms.sms.next(input)
-							if (forms.sms.isControl(e))
-								forms.sms.prev(input)
+						if (forms.sms.isControl(e))
+							forms.sms.prev(input)
 					})
 				})
 			}
