@@ -45,7 +45,29 @@ var selectLanguage = {
 			*/
 		},
 		delete: elm => {
-			//удаляем выбанный язык
+			//собираем данные об удаляемом языке
+			let lang = elm.parentElement.querySelector('.language')
+			let level = elm.parentElement.querySelector('.language-level')
+
+			let langsOpts = [...(document.querySelector('#language').options)] //конвертируем опции селектов в массив
+			let lvlOpts = [...(document.querySelector('#level').options)] //конвертируем опции селектов в массив
+			//включаем удаленный язык в селекте
+			langsOpts.forEach(option => {
+				if (option.value === lang.dataset.language) {
+					option.removeAttribute('disabled')
+				}
+			})
+			//включаем функцию "Родной"
+			lvlOpts.forEach(option => {
+				if (option.value === level.dataset.level) {
+					option.removeAttribute('disabled')
+				}
+			})
+			//обновляем селекты
+			selectLanguage.language.selectedIndex = 0;
+			selectLanguage.level.selectedIndex = 0;
+			$('select').selectric('refresh');
+			// удаляем язык
 			elm.parentElement.remove()
 		}
 	},
@@ -57,19 +79,25 @@ var selectLanguage = {
 		//удаляем класс для отображения элементы
 		elm.classList.remove('is-active')
 	},
+	isSlectValid: select => {
+		if (select.value == 0) {
+			return false
+		} else {
+			return true
+		}
+	},
 	validate: () => {
-		[selectLanguage.language, selectLanguage.level].forEach(select => {
-			if (select.value === '0' || select.value === 'Ваш язык' || select.value === 'Ваш уровень') {
-				selectLanguage.languageLabel.classList.add('is-invalid')
-				selectLanguage.levelLabel.classList.add('is-invalid')
-				selectLanguage.isValid = false
-			} else {
-				// проверка пройдена
-				selectLanguage.languageLabel.classList.remove('is-invalid')
-				selectLanguage.levelLabel.classList.remove('is-invalid')
-				selectLanguage.isValid = true
-			}
-		})
+		if (!selectLanguage.isSlectValid(selectLanguage.language) || !selectLanguage.isSlectValid(selectLanguage.level)) {
+			selectLanguage.languageLabel.classList.add('is-invalid')
+			selectLanguage.levelLabel.classList.add('is-invalid')
+			selectLanguage.isValid = false
+		} else {
+			// проверка пройдена
+			console.log(selectLanguage.isSlectValid(selectLanguage.language), selectLanguage.isSlectValid(selectLanguage.level))
+			selectLanguage.languageLabel.classList.remove('is-invalid')
+			selectLanguage.levelLabel.classList.remove('is-invalid')
+			selectLanguage.isValid = true
+		}
 		if (selectLanguage.isValid) {
 			//добавляем язык в список выше
 			selectLanguage.setLang()
