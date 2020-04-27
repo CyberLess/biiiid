@@ -5,10 +5,30 @@
 				width: 390/1336 * 100%;
 				margin-right: 10.7rem;
 				padding-top: 0;
+
+				@include max-screen($large_tablet) {
+					display: none;
+				}
 			}
 
 			&_right {
 				width: 703/1336 * 100%;
+
+				@include max-screen($large_tablet) {
+					width: 100%;
+				}
+			}
+		}
+
+		.profile__block-title_main {
+			@include max-screen($large_tablet) {
+				display: none;
+			}
+		}
+
+		.profile__back {
+			@include max-screen($large_tablet) {
+				display: none;
 			}
 		}
 	}
@@ -86,6 +106,10 @@
 			width: 335/703 * 100%;
 			margin-bottom: 4rem;
 
+			@include max-screen($large_tablet) {
+				width: 100%;
+			}
+
 			&_fluid {
 				width: 100%;
 			}
@@ -98,6 +122,10 @@
 				transition: all 0.5s ease;
 				opacity: 0;
 				z-index: -1;
+
+				@include max-screen($large_tablet) {
+					width: 100%;
+				}
 
 				&.is-active {
 					position: relative;
@@ -165,6 +193,10 @@
 			padding: 1.6rem;
 			border: 1px solid rgba(42, 45, 52, 0.15);
 			color: #000;
+
+			@include max-screen($large_tablet) {
+				max-width: 100%;
+			}
 
 			&::placeholder {
 				color: rgba(42, 45, 52, 0.5);
@@ -301,9 +333,16 @@
 				align-items: center;
 				margin-top: 0.8rem;
 
+				@include max-screen($small_mobile) {
+					flex-wrap: wrap;
+				}
+
+				span {
+					margin-right: .5rem;
+				}
+
 				a {
 					display: block;
-					margin-left: 0.5rem;
 					color: $green;
 				}
 			}
@@ -356,6 +395,11 @@
 			&_approve {
 				display: block;
 				margin-left: 3.3rem;
+
+				@include max-screen($large_tablet) {
+					margin-top: 1.6rem;
+					margin-left: 0;
+				}
 			}
 
 			&_decline {
@@ -470,7 +514,7 @@
 			z-index: -1;
 
 			&:checked {
-				~ .profile__form-checkbox-icon {
+				~.profile__form-checkbox-icon {
 					background-color: #000;
 
 					svg {
@@ -506,6 +550,29 @@
 
 		&_submit {
 			padding-top: 1.5rem;
+		}
+	}
+
+	&__block {
+		&-title {
+			&-select {
+				display: none;
+				width: 100%;
+
+				.slct {
+					.selectric {
+						height: 100%;
+
+						.label {
+							padding: 2rem !important;
+						}
+					}
+				}
+
+				@include max-screen($large_tablet) {
+					display: block;
+				}
+			}
 		}
 	}
 }

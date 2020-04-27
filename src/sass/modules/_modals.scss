@@ -126,7 +126,7 @@
 			justify-content: flex-end;
 		}
 
-		& > * {
+		&>* {
 			margin-top: -7.2rem;
 			position: relative;
 
@@ -278,6 +278,11 @@
 		max-width: 450px;
 		padding-bottom: 2rem;
 
+		@include max-screen($large_tablet) {
+			max-width: 90%;
+			padding: 6rem 1.6rem 2rem;
+		}
+
 		.modals {
 			&__form {
 				justify-content: space-between;
@@ -287,7 +292,7 @@
 						border-color: $red;
 					}
 
-					~ .modals__notification {
+					~.modals__notification {
 						opacity: 1;
 					}
 				}
@@ -318,6 +323,11 @@
 					padding: 1.5rem;
 					border: none;
 					border-bottom: 1px solid $gray-light;
+
+					@include max-screen($large_tablet) {
+						text-align: center;
+						padding: 1.5rem .5rem;
+					}
 				}
 			}
 
@@ -427,12 +437,12 @@
 		&__arrow {
 			width: 2rem;
 
-			& > .owl-left {
+			&>.owl-left {
 				left: auto;
 				margin-left: -2.1rem;
 			}
 
-			& > .owl-right {
+			&>.owl-right {
 				margin-right: -2.1rem;
 			}
 		}
@@ -486,6 +496,7 @@
 
 	// animate in
 	&.mfp-ready {
+
 		.modals,
 		.mfp-figure {
 			transform: translate(0, 0);
@@ -495,6 +506,7 @@
 
 	// animate out
 	&.mfp-removing {
+
 		.modals,
 		.mfp-figure {
 			opacity: 0;

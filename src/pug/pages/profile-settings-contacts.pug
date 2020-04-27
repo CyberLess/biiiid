@@ -24,10 +24,18 @@ block content
 				+e.cell._right
 					+e.block
 						+e.row.flex._justify
-							+e.H2.block-title.h2 Контакты
+							+e.H2.block-title._main.h2 Контакты
 							+e.A.back(href="#")
 								+icon('chevronBack')
 								| На страницу профиля
+							+b.profile__block-title-select
+								+e.select.slct__
+									select(name='menu')
+										option Личные данные
+										option Контакты
+										option Финансы
+										option Социальные сети
+										option Смена пароля
 						+e.block-line
 						+b.FORM.profile__form._personal-data._contacts
 							+e.form-row
