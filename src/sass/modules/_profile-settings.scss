@@ -97,6 +97,11 @@
 
 		&-text {
 			margin-bottom: 2rem;
+
+			span {
+				color: rgba(42, 45, 52, 0.5);
+				font-weight: normal;
+			}
 		}
 
 		&-label {
