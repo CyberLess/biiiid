@@ -1,6 +1,6 @@
 .history {
 	padding: 3.7rem 0 12.6rem;
-	background: #e5e5e5;
+	background: #f5f5f5;
 
 	&__p {
 		color: rgba(42, 45, 52, 0.5);
@@ -102,6 +102,10 @@
 			&:hover {
 				cursor: pointer;
 				background-color: rgba($color: $gray-light, $alpha: 0.15);
+			}
+
+			&:first-child {
+				margin-top: 0;
 			}
 
 			&:nth-last-child(2) {
