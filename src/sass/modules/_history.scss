@@ -13,13 +13,13 @@
 		&_cell {
 			position: relative;
 			width: 100%;
-			max-width: 340/1200*100%;
+			max-width: 340/1200 * 100%;
 			padding: 0 3rem;
-			border-right: 1px solid rgba($color: $gray-light, $alpha: .15);
+			border-right: 1px solid rgba($color: $gray-light, $alpha: 0.15);
 		}
 
 		&_fluid {
-			max-width: 520/1200*100%;
+			max-width: 520/1200 * 100%;
 		}
 
 		&_no-border {
@@ -28,13 +28,13 @@
 
 		.info-form {
 			width: 100%;
-			padding: .8rem 0 .7rem;
+			padding: 0.8rem 0 0.7rem;
 
 			&__input {
 				appearance: textfield;
 				display: block;
 				width: 100%;
-				max-width: 200/460*100%;
+				max-width: 200/460 * 100%;
 				padding: 1.2rem 2.4rem;
 				border: 1px solid rgba(42, 45, 52, 0.15);
 				color: #000;
@@ -76,7 +76,7 @@
 
 	&__help {
 		position: absolute;
-		top: .7rem;
+		top: 0.7rem;
 		right: 5.5rem;
 
 		.help-content {
@@ -86,6 +86,85 @@
 	}
 
 	&__table {
+		margin: 3rem 0 0;
+		padding: 1.8rem 3rem 0;
+		background-color: #fff;
+
+		&-row {
+			margin: 1.8rem 0;
+			padding: 1.2rem 0;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+			&:hover {
+				cursor: pointer;
+				background-color: rgba($color: $gray-light, $alpha: 0.15);
+			}
+
+			&:nth-last-child(2) {
+				margin-bottom: 0;
+			}
+		}
+
+		&-footer {
+			padding: 1.6rem;
+		}
+
+		&-more {
+			background-color: transparent;
+			border: none;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&_cell {
+			position: relative;
+			width: 920/1200 * 100%;
+			margin: 0;
+			padding: 0 4rem;
+			background-color: transparent;
+
+			&:first-child,
+			&:last-child {
+				width: 140/1200 * 100%;
+			}
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		&-help {
+			top: 0;
+			right: 0;
+
+			&:hover {
+				.help-content {
+					left: 3px;
+					bottom: 9px;
+				}
+			}
+		}
+
+		&-time,
+		&-cancel {
+			line-height: 1.6rem;
+			color: rgba($color: $gray-light, $alpha: 0.5);
+		}
+
+		&-order {
+			color: $green;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
 		&-header {
 			margin-top: 4.5rem;
 			padding: 0 3rem;
@@ -94,21 +173,20 @@
 
 	&__form-table {
 		display: flex;
-		width: 865/1140*100%;
+		width: 865/1140 * 100%;
 		margin-left: 3rem;
 
 		input {
-			padding: .9rem 5.2rem .8rem 4.5rem;
+			padding: 0.9rem 5.2rem 0.8rem 4.5rem;
 			background: #fff;
 			border: 1px solid rgba(42, 45, 52, 0.15);
 
 			&::placeholder {
-				color: rgba($color: $gray-light, $alpha: .5);
+				color: rgba($color: $gray-light, $alpha: 0.5);
 			}
 		}
 
 		&-date {
-
 			&-wrapper {
 				position: relative;
 				display: flex;
@@ -120,7 +198,7 @@
 					width: 14px;
 					height: 16px;
 					fill: transparent;
-					stroke: #2A2D34;
+					stroke: #2a2d34;
 				}
 			}
 		}
