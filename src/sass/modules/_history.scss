@@ -84,4 +84,57 @@
 			z-index: 50;
 		}
 	}
+
+	&__table {
+		&-header {
+			margin-top: 4.5rem;
+			padding: 0 3rem;
+		}
+	}
+
+	&__form-table {
+		display: flex;
+		width: 865/1140*100%;
+		margin-left: 3rem;
+
+		input {
+			padding: .9rem 5.2rem .8rem 4.5rem;
+			background: #fff;
+			border: 1px solid rgba(42, 45, 52, 0.15);
+
+			&::placeholder {
+				color: rgba($color: $gray-light, $alpha: .5);
+			}
+		}
+
+		&-date {
+
+			&-wrapper {
+				position: relative;
+				display: flex;
+
+				svg {
+					position: absolute;
+					top: 1.1rem;
+					left: 1.6rem;
+					width: 14px;
+					height: 16px;
+					fill: transparent;
+					stroke: #2A2D34;
+				}
+			}
+		}
+
+		&-export {
+			margin-left: 3rem;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		&-search {
+			margin-left: auto;
+			margin-right: 0;
+			padding-left: 4rem;
+		}
+	}
 }

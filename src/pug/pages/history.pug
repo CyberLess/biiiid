@@ -29,3 +29,11 @@ block content
 							+e.INPUT.input.small(type="number" placeholder="Сумма, руб.")
 							+e.BUTTON.button._pay-in.small(placeholder="Сумма, руб.") Пополнить
 							+e.BUTTON.button._pay-out.small(placeholder="Сумма, руб.") Вывести
+				+e.table-header.flex
+					+e.H2.h2.h2 История платежей
+					+e.FORM.form-table.flex._vertical
+						+e.form-table-date-wrapper
+							+e.INPUT.form-table-date.p(type="text", placeholder="01.03.2018 – 30.03.2018")
+							+icon('calendar')
+						+e.A.form-table-export.p(href="javascript:void(0);") Экспорт в Excel
+						+e.INPUT.form-table-search.p(type="text", placeholder="Поиск")
