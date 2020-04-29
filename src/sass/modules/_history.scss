@@ -1,0 +1,87 @@
+.history {
+	padding: 3.7rem 0 12.6rem;
+	background: #e5e5e5;
+
+	&__wrap {
+		max-width: 1264px;
+	}
+
+	&__info {
+		background-color: #fff;
+		padding: 2.2rem 0 2.3rem;
+
+		&_cell {
+			position: relative;
+			width: 100%;
+			max-width: 340/1200*100%;
+			padding: 0 3rem;
+			border-right: 1px solid rgba($color: $gray-light, $alpha: .15);
+		}
+
+		&_fluid {
+			max-width: 520/1200*100%;
+		}
+
+		&_no-border {
+			border: none;
+		}
+
+		.info-form {
+			width: 100%;
+			padding: .8rem 0 .7rem;
+
+			&__input {
+				appearance: textfield;
+				display: block;
+				width: 100%;
+				max-width: 200/460*100%;
+				padding: 1.2rem 2.4rem;
+				border: 1px solid rgba(42, 45, 52, 0.15);
+				color: #000;
+				line-height: 1.6rem;
+
+				&::placeholder {
+					color: rgba(42, 45, 52, 0.5);
+				}
+
+				&::-webkit-outer-spin-button,
+				&::-webkit-inner-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+			}
+
+			&__button {
+				padding: 1.2rem 2.5rem;
+				line-height: 1.6rem;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&_pay-in {
+					border: none;
+					background: #009688;
+					color: #fff;
+				}
+
+				&_pay-out {
+					border: 1px solid #000;
+					color: #000;
+					background: #fff;
+				}
+			}
+		}
+	}
+
+	&__help {
+		position: absolute;
+		top: .7rem;
+		right: 5.5rem;
+
+		.help-content {
+			bottom: -250%;
+			z-index: 50;
+		}
+	}
+}

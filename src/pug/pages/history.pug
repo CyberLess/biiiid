@@ -1,0 +1,31 @@
+extends ../layouts/base
+append vars
+	- title = 'История платежей';
+
+block header
+	+header(true)(class="_hide-search")
+
+block content
+	+b.SECTION.history
+		+e.wrap.wrap
+			+e.row
+				+e.info.flex
+					+e.info._cell.flex._column
+						+e.H2.h2.h2 3760 ₽
+						+e.P.p.p Доступный баланс
+						+e.help.is-help
+							| ?
+							+b.help-content.content.small
+								| Какой-то текст
+					+e.info._cell.flex._column
+						+e.H2.h2.h2 700 ₽
+						+e.P.p.p Баланс на проверке
+						+e.help.is-help
+							| ?
+							+b.help-content.content.small
+								| Какой-то текст
+					+e.info._cell._fluid._no-border.flex
+						+e.FORM.info-form.info-form__.flex._justify
+							+e.INPUT.input.small(type="number" placeholder="Сумма, руб.")
+							+e.BUTTON.button._pay-in.small(placeholder="Сумма, руб.") Пополнить
+							+e.BUTTON.button._pay-out.small(placeholder="Сумма, руб.") Вывести
