@@ -2,6 +2,10 @@
 	padding: 3.7rem 0 12.6rem;
 	background: #f5f5f5;
 
+	&__heading {
+		margin-bottom: 3px;
+	}
+
 	&__p {
 		color: rgba(42, 45, 52, 0.5);
 	}
@@ -101,7 +105,7 @@
 
 			&:hover {
 				cursor: pointer;
-				background-color: rgba($color: $gray-light, $alpha: 0.15);
+				background: rgba($color: #f2f2f3, $alpha: 0.4);
 			}
 
 			&:first-child {
@@ -174,6 +178,10 @@
 				font-weight: normal;
 				color: $green;
 			}
+		}
+
+		&-date {
+			margin-bottom: 2px;
 		}
 
 		&-order {
