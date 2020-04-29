@@ -2,6 +2,10 @@
 	padding: 3.7rem 0 12.6rem;
 	background: #e5e5e5;
 
+	&__p {
+		color: rgba(42, 45, 52, 0.5);
+	}
+
 	&__wrap {
 		max-width: 1264px;
 	}
@@ -140,6 +144,8 @@
 		}
 
 		&-help {
+			width: 20px;
+			height: 20px;
 			top: 0;
 			right: 0;
 
@@ -155,6 +161,15 @@
 		&-cancel {
 			line-height: 1.6rem;
 			color: rgba($color: $gray-light, $alpha: 0.5);
+		}
+
+		&-price {
+			font-weight: 500;
+
+			&_payout {
+				font-weight: normal;
+				color: $green;
+			}
 		}
 
 		&-order {
