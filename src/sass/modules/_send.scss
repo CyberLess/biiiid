@@ -1,0 +1,60 @@
+.send {
+	padding-left: 4rem;
+
+	@include max-screen($messages_large_mobile) {
+		padding-top: 2.8rem;
+		padding-left: 0;
+	}
+
+	&_no-active {
+		display: none;
+	}
+
+	&__typing-now {
+		display: block;
+		margin-bottom: 1.3rem;
+		padding-left: 2.2rem;
+
+		font-size: 1.4rem;
+		color: #2A2D34;
+
+		opacity: 0.5;
+
+		@include max-screen($messages_large_mobile) {
+			margin-bottom: 1rem;
+			padding-left: 1rem;
+		}
+	}
+
+	&__bill {
+		margin-bottom: 1.5rem;
+		padding: .6rem 1.5rem;
+		border: 1px solid #8131E8;
+
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+		color: #8131E8;
+
+		cursor: pointer;
+		transition: .2s ease;
+
+		background-color: transparent;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.2rem;
+			line-height: 1.4rem;
+		}
+
+		&:hover,
+		&:focus {
+			border-color: #949699;
+
+			color: #949699;
+		}
+
+		&:active {
+			border-color: #000000;
+			color: #000000;
+		}
+	}
+}

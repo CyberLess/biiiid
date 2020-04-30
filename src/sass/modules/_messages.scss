@@ -1,0 +1,14 @@
+.messages {
+	padding-top: 3.5rem;
+
+	@include max-screen($large_tablet) {
+		padding-top: 0;
+		padding-bottom: 3rem;
+	}
+
+	&__wrap {
+		display: flex;
+		height: 100%;
+	}
+}
+

@@ -1,0 +1,188 @@
+TEMPLATE(id="message-pre")
+	+b.UL.messages-pre
+		+e.LI.message
+			+e.image-block
+				+e.SPAN.online
+				+e.image-wrap
+					+e.IMG.author-avatar(src="/img/avatar-woman.jpg")
+			+e.content-wrap
+				+e.text-top
+					+e.SPAN.author-name Елена
+					+e.SPAN.date-and-delivery
+						+e.delivery-icon
+							+icon('delivered')
+							+icon('messageread')
+						+e.TIME.date(datetime="2019-10-21") 21.10.2019
+				+e.text-bottom
+					+e.SPAN.prev-text Привет, давай работать вместе, мне понравило...
+					+e.SPAN.quantity-wrap
+						+e.SPAN.quantity 0
+
+TEMPLATE(id="messages-content-wrap")
+	+b.messages-dialogs
+		+e.content-wrap
+			+e.dialog-wrap
+				+e.scrollbar
+					+e.handle
+
+				+e.dialog-frame
+					+e.UL.dialog-list.dialog__
+						+e.LI.message Тест
+
+TEMPLATE(id="dialog-header")
+	+b.messages-dialogs__header.dialog-header__
+		+e.BUTTON.to-prevs-wrap
+			+icon('dialogarrow')
+		+e.image-wrap
+			+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+		+e.text-wrap
+			+e.B.author-name Евгений
+			+e.author-info
+				+e.SPAN.online-status
+					+e.SPAN.online-text Был(а) вчера в&nbsp;
+					+e.SPAN.online-time 14:45
+				+e.SPAN.status-divider |
+				+e.SPAN.user-time-wrap Сейчас у пользователя&nbsp;
+					+e.SPAN.user-time 12:45
+
+TEMPLATE(id="user-message")
+	+e.UL.dialog-list.dialog__
+		+e.LI.message
+			+e.image-wrap
+				+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+			+e.message-text-wrap
+				+e.text-top
+					+e.B.author-name._user Евгений Н.
+					+e.TIME.time(datetime="2019-10-21T12:15") 12:15
+
+				+e.message-text
+					+e.SPAN.text-wrap
+						| Смотри, мне карту желательно делать квадратной, чтобы радиус смотрелся красиво. это возможно?
+						br
+						| мне нравится задумка поиска в мобильном приложении hh.ru android,
+
+TEMPLATE(id="my-message")
+	+e.UL.dialog-list.dialog__
+		+e.LI.message
+			+e.image-wrap
+				+e.IMG.author-avatar(src="/img/avatar-me.jpg")
+			+e.message-text-wrap
+				+e.text-top
+					+e.B.author-name Я
+					+e.TIME.time(datetime="2019-10-21T12:18") 12:18
+				+e.message-text
+					+e.SPAN.text-wrap Последнее предложение не понял. Справа можно и так лучше но тогда мы карту закрывшем получается
+					+e.icons-wrap
+						+icon('delivered')
+						+icon('messageread')
+
+TEMPLATE(id="attached-file")
+	+b.A.dialog__attached-file(href="#")
+		+e.attached-icon-wrap
+			+icon('file')
+		+e.SPAN.attached-name Myclip_11231441.doc
+		+e.SPAN.attached-size-wrap
+			| (
+			+e.SPAN.attached-size 16 МБ
+			| )
+
+TEMPLATE(id="video-item")
+	+b.dialog__video-container
+		+e.video-item
+			+e.video-wrap
+				+e.player.player__._fluid._big.js-player(data-file="/app/media/test-awakening.mp4")
+					+e.IMG.preview.object-fit(src="/img/test-awakening.jpg")
+					+e.container
+					+e.center
+						+e.nav._default
+							+e.nav-button
+								+e.nav-icon._play
+									+icon('play')
+								+e.nav-icon._pause
+									+icon('pause')
+					+e.bottom
+						+e.panel.flex._vertical
+							+e.panel-time.small
+							+e.voice.flex._vertical
+								+e.voice-button
+									+e.voice-icon._default
+										+icon('voiceDefault')
+									+e.voice-icon._small
+										+icon('voiceSmall')
+									+e.voice-icon._none
+										+icon('voiceNone')
+								+e.voice-range
+									+e.voice-field
+										+e.voice-bar
+										+e.voice-dot
+							+e.fullscreen.js-fullscreen
+								+e.fullscreen-icon._default
+									+icon('fullscreen')
+								+e.fullscreen-icon._opened
+									+icon('fsactive')
+						+e.bar._static
+							+e.bar-row
+								+e.bar-cell._left
+									+e.nav._default
+										+e.nav-button
+											+e.nav-icon._play
+												+icon('play')
+											+e.nav-icon._pause
+												+icon('pause')
+								+e.bar-cell._right
+									+e.bar-line
+										+e.bar-progress
+										+e.bar-dot
+
+			+e.SPAN.video-info
+				+e.SPAN.video-name myc_1.mp4
+				+e.SPAN.video-size-wrap
+					| (
+					+e.SPAN.video-size 16 МБ
+					| )
+				+e.A.video-download(href="#")
+					+e.download-icon-wrap
+						+icon('downloadarrow')
+
+TEMPLATE(id="my-bill")
+	+b.dialog__bill-wrap
+		+e.TABLE.bill-table
+			+e.TR.table-row._head
+				+e.TH.table-head(colspan="2") Счет на оплату
+			+e.TR.table-row
+				+e.TD.table-cell._order-name(colspan="2") Сделать логотип для завода Молока
+			+e.TR.table-row
+				+e.TD.table-cell._text Срок
+				+e.TD.table-cell._details._time 2 дня
+			+e.TR.row
+				+e.TD.table-cell._text Цена, ₽
+				+e.TD.table-cell._details._price 1 500,00
+
+		+e.buttons-wrap
+			+e.BUTTON.order-bth._cancel Отменить
+
+TEMPLATE(id="customer-bill")
+	+b.dialog__bill-wrap
+		+e.TABLE.bill-table
+			+e.TR.table-row._head
+				+e.TH.table-head(colspan="2") Счет на оплату
+			+e.TR.table-row
+				+e.TD.table-cell._order-name(colspan="2") Сделать логотип для завода Молока
+			+e.TR.table-row
+				+e.TD.table-cell._text Срок
+				+e.TD.table-cell._details._time 2 дня
+			+e.TR.row
+				+e.TD.table-cell._text Цена, ₽
+				+e.TD.table-cell._details._price 1 500,00
+
+		+e.buttons-wrap
+			+e.BUTTON.order-bth._refuse Отказаться
+			+e.BUTTON.order-bth._accept Принять
+
+TEMPLATE(id="empty")
+	+b.messages-dialogs
+		+e.content-wrap
+			+e.header.dialog-header._empty
+
+			+e.dialog-wrap
+				+e.empty.p У вас нет активных диалогов

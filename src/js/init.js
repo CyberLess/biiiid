@@ -8,12 +8,19 @@ import { filters } from "./modules/filters";
 import { menu } from "./modules/menu";
 import { player } from "./modules/player";
 import { order } from "./modules/order";
+import { messagesScroll } from "./modules/messages-scroll";
+import { messageHeight } from "./modules/message-height";
+import { dropPreview } from "./modules/drop-preview";
+import { messageVideo } from "./modules/message-video";
+import { messagePre } from "./modules/message-pre";
+import { setDialogHeader } from "./modules/set-dialog-header";
+import { setDialogContent } from "./modules/set-dialog-content";
+import { getMessages } from "./modules/get-messages";
 import { config } from "./config";
 
 var App = () => {};
 
 App.prototype.init = () => {
-
 	defaults.init();
 	forms.init();
 	modals.init();
@@ -24,8 +31,16 @@ App.prototype.init = () => {
 	order.init();
 	menu.init();
 	player.init();
+	messagesScroll.init();
+	messageHeight.init();
+	dropPreview.init();
+	messageVideo.init();
+	messagePre.init();
+	setDialogHeader.init();
+	setDialogContent.init();
+	getMessages.init();
 
-	config.log('app init')
+	config.log("app init");
 };
 
 export { App };

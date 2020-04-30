@@ -1,5 +1,5 @@
 import { config } from "../config";
-import 'jquery-ui/ui/widgets/draggable';
+import 'jquery-ui/ui/widgets/slider';
 
 
 var player = {
@@ -56,16 +56,16 @@ var player = {
 			playerContainer
 				.find('.player__bar-dot')
 				.removeAttr('style')
-				.css('left', x);
+				.css('left', `${x}%`);
 		}
 
 		playerContainer
 			.find('.player__bar-progress')
 			.removeAttr('style')
-			.width(x);
+			.width(`${x}%`);
 
-		let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
-		let sound_position = item.duration / 100 * position;
+		// let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
+		let sound_position = item.duration / 100 * x;
 		
 		item.currentTime = sound_position;
 
@@ -337,31 +337,17 @@ var player = {
 					let $item = $(e.currentTarget);
 					player.play(e, $item);
 				})
-			}
+			}			
 
-			
-
-			$(el).find('.player__bar-line').on('click', e => {
-
-				let $this = $(e.currentTarget);
-				let $player = $this.closest('.js-player');
-				let x = e.pageX - $this.offset().left;
-
-				player.position(x, $player);
-
-			})
-
-			$(el).find('.player__voice-dot').draggable({ 
-				axis: "x", 
-				containment: "parent",
-				drag: function() {
-					let $this = $(this).parent();
+			$(el).find('.player__voice-field').slider({
+				min: 0,
+				max: 100,
+				step: 1,
+				value: 100,
+				slide: function( event, ui ) {
+					let $this = $(this);
 					let $player = $this.closest('.js-player');
-					let $bar = $player.find('.player__voice-field');
 					let $voice = $player.find('.player__voice');
-					let x = $(this).offset().left - $bar.offset().left;
-
-					var l = ( 100 * parseFloat($(this).position().left / ($(this).parent().width() - $(this).width()/2)) );
 
 					$voice.addClass('is-active')
 					$player.addClass('is-ui-active')
@@ -369,17 +355,13 @@ var player = {
 					$player
 						.find('.player__voice-bar')
 						.removeAttr('style')
-						.width(x);
+						.width(`${ui.value}%`);
 
-					config.log('player sound', l)
+					let mute = (ui.value == 0) ? 1 : 0;
 
-					let mute = (l == 0) ? 1 : 0;
-
-					player.sound($player, l, mute);
-					// let position = 100 / (playerContainer.find('.player__bar-line').width() / x);
-					// let sound_position = item.duration / 100 * position;
+					player.sound($player, ui.value, mute);
 				},
-				stop: function() {
+				stop: function(event, ui) {
 					let $this = $(this);
 					let $player = $this.closest('.js-player');				
 					let item = $player.find('.player__item')[0];				
@@ -388,30 +370,24 @@ var player = {
 					let $voice = $player.find('.player__voice');
 					$voice.removeClass('is-active')	
 					$player.removeClass('is-ui-active')
-
-					// item.play();
-					// $player.addClass('is-playing')
-					// $button.addClass('is-active')	
 				}
-			});
+			})
 
-			$(el).find('.player__bar-dot').draggable({ 
-				axis: "x", 
-				containment: "parent",
-				drag: function() {
-					let $this = $(this).parent();
+			$(el).find('.player__bar-line').slider({
+				min: 0,
+				max: 100,
+				step: 1,
+				value: 1,
+				slide: function( event, ui ) {
+					let $this = $(this);
 					let $player = $this.closest('.js-player');
 					let $bar = $player.find('.player__bar-line');
-					let x = $(this).offset().left - $bar.offset().left;
 
-					player.position(x, $player, true);
+					player.position(ui.value, $player, true);
 
 					$player.addClass('is-ui-active')
-
-
-					
 				},
-				stop: function() {
+				stop: function(event, ui) {
 					let $this = $(this);
 					let $player = $this.closest('.js-player');				
 					let item = $player.find('.player__item')[0];				
@@ -423,7 +399,7 @@ var player = {
 
 					$player.removeClass('is-ui-active')
 				}
-			});
+			})
 
 			$(el).find('.player__voice-button').on('click', e => {
 
@@ -453,11 +429,7 @@ var player = {
 
 			});
 
-			
-
 		})
-
-		// $(document).on('click', '.js-player', player.play);	
 
 	}
 

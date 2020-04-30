@@ -19,6 +19,7 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-changed": "^4.0.2",
     "gulp-cheerio": "^1.0.0",
     "gulp-cssmin": "^0.2.0",
     "gulp-html-prettify": "0.0.1",
@@ -45,6 +46,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
+    "baron": "^3.0.3",
     "dropzone": "^5.7.0",
     "gulp-open": "^3.0.1",
     "inputmask": "^5.0.3",
