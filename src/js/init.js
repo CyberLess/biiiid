@@ -16,6 +16,11 @@ import { messagePre } from "./modules/message-pre";
 import { setDialogHeader } from "./modules/set-dialog-header";
 import { setDialogContent } from "./modules/set-dialog-content";
 import { getMessages } from "./modules/get-messages";
+
+import { previewAvatar } from "./modules/previewAvatar";
+import { textareaLength } from "./modules/textareaLength";
+import { selectLanguage } from "./modules/selectLanguage";
+
 import { config } from "./config";
 
 var App = () => {};
@@ -39,6 +44,9 @@ App.prototype.init = () => {
 	setDialogHeader.init();
 	setDialogContent.init();
 	getMessages.init();
+	textareaLength.init();
+	selectLanguage.init();
+	previewAvatar.init();
 
 	config.log("app init");
 };

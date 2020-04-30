@@ -5,6 +5,7 @@ require("jquery-ui-touch-punch");
 import "selectric";
 import { config } from "../config";
 import { filters } from "./filters";
+import "magnific-popup";
 
 window.Dropzone = require("dropzone");
 
@@ -13,6 +14,8 @@ Dropzone.autoDiscover = false;
 var forms = {
 	mask: () => {
 		var selector = document.querySelectorAll("input[name='phone']");
+		var combo = document.querySelectorAll("input[name='phone-combo']");
+		var sms = document.querySelectorAll("input[name='sms']");
 
 		var im = new Inputmask({
 			mask: "+7 (999) 999-99-99",
@@ -20,7 +23,105 @@ var forms = {
 			clearIncomplete: true,
 		});
 
+		var comboMask = new Inputmask({
+			mask: "(999) 999-99-99",
+			clearMaskOnLostFocus: true,
+			clearIncomplete: true,
+		});
+
+		var smsMask = new Inputmask({
+			mask: "9",
+			placeholder: "",
+		});
+
 		im.mask(selector);
+		comboMask.mask(combo);
+		smsMask.mask(sms);
+	},
+
+	sms: {
+		resend: {
+			markup: (content, attr) => {
+				return `<button class="modals__form-resend" ${attr}>${content}</button>`;
+			},
+			active: "Отправить код повторно",
+			disabled: "Повторый код можно отправить через: 30 сек",
+		},
+		startCountdown: () => {
+			let wrapper = document.querySelector(".modals__form-resend-wrapper");
+			wrapper.innerHTML = forms.sms.resend.markup(
+				forms.sms.resend.disabled,
+				"disabled"
+			);
+		},
+		stopCountdown: () => {
+			let wrapper = document.querySelector(".modals__form-resend-wrapper");
+			wrapper.innerHTML = forms.sms.resend.markup(
+				forms.sms.resend.active,
+				"enabled"
+			);
+		},
+		next: (elm) => {
+			if (
+				elm.nextElementSibling !== null &&
+				elm.nextElementSibling !== undefined
+			) {
+				elm.nextElementSibling.focus();
+			} else {
+				elm.parentElement.classList.add("is-invalid");
+				forms.sms.startCountdown();
+			}
+		},
+		prev: (elm) => {
+			elm.value = "";
+			if (
+				elm.previousElementSibling !== null &&
+				elm.previousElementSibling !== undefined
+			) {
+				elm.previousElementSibling.value = "";
+				elm.previousElementSibling.focus();
+			} else {
+				elm.focus();
+			}
+		},
+		isNumber: (e) => {
+			let charCode = e.which ? e.which : e.keyCode;
+			if (
+				charCode > 31 &&
+				(charCode < 48 ||
+					(charCode > 57 &&
+						charCode != 190 &&
+						charCode != 110 &&
+						charCode != 32))
+			)
+				return false;
+			return true;
+		},
+		isControl: (e) => {
+			let charCode = e.which ? e.which : e.keyCode;
+			if (
+				charCode == 8 ||
+				charCode == 110 ||
+				(charCode == 46 && charCode != 32)
+			)
+				return true;
+			return false;
+		},
+		init: () => {
+			var sms = document.querySelectorAll("input[name='sms']");
+
+			if (sms) {
+				forms.sms.stopCountdown();
+				sms.forEach((input) => {
+					input.addEventListener("input", (e) => {
+						if (forms.sms.isNumber(e)) forms.sms.next(input);
+					});
+					input.addEventListener("keyup", (e) => {
+						if (forms.sms.isControl(e)) forms.sms.prev(input);
+					});
+				});
+			}
+		},
 	},
 
 	number: (event) => {
@@ -38,10 +139,7 @@ var forms = {
 			config.log("trigger dropzone", $item);
 
 			// $item.get(0).dropzone
-			$item
-				.find(".dropzone__area")
-				.get(0)
-				.dropzone.hiddenFileInput.click();
+			$item.find(".dropzone__area").get(0).dropzone.hiddenFileInput.click();
 		},
 
 		init: () => {
@@ -76,6 +174,8 @@ var forms = {
 	select: () => {
 		let $select = $("select");
 
+		let $select = $("select");
+
 		if (!$select.length) return false;
 
 		$select
@@ -93,6 +193,16 @@ var forms = {
 
 				if (val.length == 0 && placeholder) {
 					$select.find(".label").text(placeholder);
+
+					let $select = $(element).closest(".select");
+
+					let placeholder = $select.attr("data-placeholder")
+						? $select.data("placeholder")
+						: false;
+
+					if (val.length == 0 && placeholder) {
+						$select.find(".label").text(placeholder);
+					}
 				}
 			});
 	},
@@ -103,12 +213,8 @@ var forms = {
 
 			let $slider = $item,
 				path = $slider.find(".range__line"),
-				min = Number(
-					$slider.find(".range__min").text().replace(/ /g, "")
-				),
-				max = Number(
-					$slider.find(".range__max").text().replace(/ /g, "")
-				),
+				min = Number($slider.find(".range__min").text().replace(/ /g, "")),
+				max = Number($slider.find(".range__max").text().replace(/ /g, "")),
 				range = $slider.find(".ui-slider-range");
 
 			$slider.find('input[type="text"]').val("").trigger("change");
@@ -136,13 +242,7 @@ var forms = {
 				}
 			};
 
-			let update_tag = (
-				min_input,
-				max_input,
-				name,
-				value,
-				add = true
-			) => {
+			let update_tag = (min_input, max_input, name, value, add = true) => {
 				let min_name = min_input.attr("name");
 				let max_name = max_input.attr("name");
 
@@ -157,12 +257,8 @@ var forms = {
 
 			$(".range").each(function () {
 				let slider = $(this),
-					min = Number(
-						slider.find(".range__min").text().replace(/ /g, "")
-					),
-					max = Number(
-						slider.find(".range__max").text().replace(/ /g, "")
-					),
+					min = Number(slider.find(".range__min").text().replace(/ /g, "")),
+					max = Number(slider.find(".range__max").text().replace(/ /g, "")),
 					path = slider.find(".range__line"),
 					min_input = slider.find(".range__input_min"),
 					max_input = slider.find(".range__input_max");
@@ -211,12 +307,8 @@ var forms = {
 
 				slider.find(".range__input").on({
 					"change keyup input": function () {
-						let minval = min_input.val()
-								? Number(min_input.val())
-								: min,
-							maxval = max_input.val()
-								? Number(max_input.val())
-								: max;
+						let minval = min_input.val() ? Number(min_input.val()) : min,
+							maxval = max_input.val() ? Number(max_input.val()) : max;
 
 						if (maxval < minval) maxval = minval;
 
@@ -226,12 +318,8 @@ var forms = {
 						active_set(min, max, path);
 					},
 					focusout: function () {
-						let minval = min_input.val()
-								? Number(min_input.val())
-								: min,
-							maxval = max_input.val()
-								? Number(max_input.val())
-								: max;
+						let minval = min_input.val() ? Number(min_input.val()) : min,
+							maxval = max_input.val() ? Number(max_input.val()) : max;
 
 						if ($(this).val() != "") {
 							if ($(this).hasClass("range__input_min")) {
@@ -256,16 +344,10 @@ var forms = {
 					//just nothing, empty
 				},
 				highlight: (element, errorClass, validClass) => {
-					$(element)
-						.parent()
-						.addClass(errorClass)
-						.removeClass(validClass);
+					$(element).parent().addClass(errorClass).removeClass(validClass);
 				},
 				unhighlight: (element, errorClass, validClass) => {
-					$(element)
-						.parent()
-						.removeClass(errorClass)
-						.addClass(validClass);
+					$(element).parent().removeClass(errorClass).addClass(validClass);
 				},
 				submitHandler: (form) => {
 					var data = $(form).serialize();
@@ -309,6 +391,7 @@ var forms = {
 		forms.validate();
 		forms.price.init();
 		forms.events();
+		forms.sms.init();
 
 		$(".js-number").on("keypress keyup blur", forms.number);
 

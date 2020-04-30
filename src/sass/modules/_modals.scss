@@ -1,5 +1,4 @@
-.modals{
-
+.modals {
 	background-color: #fff;
 	position: relative;
 	margin: 30px auto;
@@ -7,45 +6,44 @@
 	max-width: 1000px;
 	width: 90%;
 
-	&_filter{
+	&_filter {
 		padding: 0;
 		max-width: 690px;
 	}
 
-	&_service{
+	&_service {
 		max-width: 702px;
 		// min-height: 555px;
 		padding: 7.9rem 8.2rem;
 	}
 
-	&_media{
+	&_media {
 		width: auto;
 		max-width: 1280px;
 
 		user-select: none;
-		
+
 		background: transparent;
 		margin: 0 auto;
 		padding: 0 4rem;
 		// overflow: hidden;
 
-		img.mfp-img{
-			max-height: inherit!important;
+		img.mfp-img {
+			max-height: inherit !important;
 			padding: 0;
 		}
-
 	}
 
-	&_vertical{
+	&_vertical {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
 	}
 
-	&_right{
-		.modals{
-			&__close{
+	&_right {
+		.modals {
+			&__close {
 				left: auto;
 				right: 1.7rem;
 				top: 1.7rem;
@@ -54,7 +52,7 @@
 		}
 	}
 
-	&__check{
+	&__check {
 		width: 6.8rem;
 		display: block;
 		margin: auto;
@@ -62,17 +60,16 @@
 		fill: #009688;
 	}
 
-	&__container{
+	&__container {
 		display: flex;
-	    flex-direction: column;
+		flex-direction: column;
 		height: 100vh;
 		padding: 3rem 0;
-
 	}
 
-	&__closefluid{
+	&__closefluid {
 		position: absolute;
-		z-index:8000;
+		z-index: 8000;
 		right: 0;
 		top: 0;
 		margin-top: 3rem;
@@ -83,40 +80,39 @@
 		cursor: pointer;
 	}
 
-	&__inside{
-		
-	// 	position: absolute;
-	// 	left: 0;
-	// 	top: 0;
-	// 	width: 100%;
-	// 	height: 100%;	
-		
-	// 	.mfp-img{
-	// 		max-height: 100%!important;
-	// 	}	
+	&__inside {
+		// 	position: absolute;
+		// 	left: 0;
+		// 	top: 0;
+		// 	width: 100%;
+		// 	height: 100%;
+
+		// 	.mfp-img{
+		// 		max-height: 100%!important;
+		// 	}
 	}
 
-	&__part{
-	    &_static{
-    	    flex: 0 0 auto;
-	    }
+	&__part {
+		&_static {
+			flex: 0 0 auto;
+		}
 
-	    &_fluid{
-	    	position: relative;
-    	    flex: 1 0 auto;
-    	    // overflow: hidden;
-	    }
+		&_fluid {
+			position: relative;
+			flex: 1 0 auto;
+			// overflow: hidden;
+		}
 	}
 
-	&__content{
-		padding-top: .6rem;
+	&__content {
+		padding-top: 0.6rem;
 
-		p{
+		p {
 			line-height: 2.2rem;
 		}
 	}
 
-	&__arrow{
+	&__arrow {
 		margin-top: 0;
 		height: 100%;
 		display: flex;
@@ -126,22 +122,22 @@
 		top: 0;
 		cursor: pointer;
 
-		&_right{
+		&_right {
 			justify-content: flex-end;
 		}
 
-		&>*{
+		&>* {
 			margin-top: -7.2rem;
 			position: relative;
 
-			&.owl-right{
+			&.owl-right {
 				right: 0;
 				margin-right: -3.6rem;
 			}
 		}
 
-		&:after{
-			content: '';
+		&:after {
+			content: "";
 			display: block;
 			position: absolute;
 			left: 0;
@@ -151,25 +147,25 @@
 			height: 100%;
 		}
 
-		&_right{
+		&_right {
 			left: auto;
 			right: 0;
 		}
 	}
 
-	&__avatar{
+	&__avatar {
 		width: 4rem;
 		border-radius: 50%;
 	}
 
-	&__author{
+	&__author {
 		padding-bottom: 3rem;
 		display: flex;
 		color: #fff;
 
-		&-case{
-			&:after{
-				content: '';
+		&-case {
+			&:after {
+				content: "";
 				display: inline-block;
 				vertical-align: middle;
 				margin: 0 1rem;
@@ -179,16 +175,15 @@
 			}
 		}
 
-		&-cell{
-			&_avatar{
+		&-cell {
+			&_avatar {
 				margin-right: 2.4rem;
 				flex-shrink: 0;
 				flex-grow: 0;
-
 			}
 
-			&_content{
-			    min-width: 0;
+			&_content {
+				min-width: 0;
 				flex-shrink: 1;
 				flex-grow: 1;
 				max-width: 100%;
@@ -196,35 +191,34 @@
 		}
 	}
 
-	&__input{
+	&__input {
 		margin-bottom: 3rem;
 	}
 
-	&__button{
+	&__button {
 		width: 262px;
 	}
 
-	&__name{
+	&__name {
 		margin-bottom: 3rem;
 	}
 
-	&__close{
+	&__close {
 		// display: none;
 		position: absolute;
 		left: 3rem;
 		top: 3.8rem;
-		margin-top: -.7rem;
+		margin-top: -0.7rem;
 		cursor: pointer;
-
 	}
 
-	&__title{
+	&__title {
 		font-size: 1.8rem;
 		line-height: 2.1rem;
 		text-align: center;
 	}
 
-	&__top{
+	&__top {
 		border-bottom: 1px solid rgba(42, 45, 52, 0.15);
 		height: 8rem;
 		display: flex;
@@ -232,207 +226,290 @@
 		justify-content: center;
 	}
 
-	&__center{
+	&__center {
 		padding: 3rem 0;
 		padding-left: 4.3rem;
 		padding-right: 3rem;
 	}
 
-	&__inner{
+	&__inner {
 		max-height: 54.9rem;
 		padding-right: 4rem;
 
-		.border-link{
+		.border-link {
 			margin-bottom: 4rem;
 		}
 	}
 
-	&__label{
+	&__label {
 		margin-bottom: 3.1rem;
 	}
 
-	&__bottom{
+	&__bottom {
 		height: 7.6rem;
 		padding-right: 4rem;
 		padding-left: 3rem;
 		border-top: 1px solid rgba(42, 45, 52, 0.15);
 	}
 
-	&__list{
+	&__list {
 		padding-bottom: 9px;
 
-		&-item{
+		&-item {
 			margin-bottom: 2.2rem;
 			display: block;
-			width: 323/574*100%;
+			width: 323/574 * 100%;
 
-			&:nth-child(2n){
-				width: 251/574*100%;
+			&:nth-child(2n) {
+				width: 251/574 * 100%;
 			}
 		}
 	}
 
-	&__box{
-		&:not(:last-child){
+	&__box {
+		&:not(:last-child) {
 			border-bottom: 1px solid rgba(42, 45, 52, 0.15);
 			margin-bottom: 4rem;
 		}
 	}
 
+	&_sms {
+		flex-direction: column;
+		max-width: 450px;
+		padding-bottom: 2rem;
+
+		@include max-screen($large_tablet) {
+			max-width: 90%;
+			padding: 6rem 1.6rem 2rem;
+		}
+
+		.modals {
+			&__form {
+				justify-content: space-between;
+
+				&.is-invalid {
+					input {
+						border-color: $red;
+					}
+
+					~.modals__notification {
+						opacity: 1;
+					}
+				}
+
+				&-resend {
+					border: none;
+					background-color: transparent;
+					font-size: 1.2rem;
+					line-height: 1.4rem;
+					color: $green;
+
+					&:disabled {
+						pointer-events: none;
+						color: #949699;
+					}
+
+					&:hover {
+						cursor: pointer;
+					}
+				}
+			}
+
+			&__input {
+				&-sms {
+					width: 100%;
+					max-width: 50/330 * 100%;
+					margin-bottom: 8.5rem;
+					padding: 1.5rem;
+					border: none;
+					border-bottom: 1px solid $gray-light;
+
+					@include max-screen($large_tablet) {
+						text-align: center;
+						padding: 1.5rem .5rem;
+					}
+				}
+			}
+
+			&__notification {
+				position: absolute;
+				bottom: 9.5rem;
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+				color: $red;
+				opacity: 0;
+				transition: all 0.3s ease;
+			}
+		}
+	}
+
 	@include max-screen($large_tablet) {
-		&_service{
+		&_service {
 			padding: 3.9rem 4.2rem;
 		}
 	}
+
 	@include max-screen($large_mobile) {
-		&_media{
+		&_media {
 			padding: 0 2rem;
 		}
-		&_service{
+
+		&_service {
 			padding: 4rem 2rem;
 			padding-top: 5.8rem;
 		}
 
-		&_right{
-			.modals__close{
+		&_right {
+			.modals__close {
 				right: 0;
 				top: 0;
 			}
 		}
 
-		&__close{
+		&__close {
 			width: 3.3rem;
 			height: 3.3rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: rgba(#C4C4C4, .3);
+			background: rgba(#c4c4c4, 0.3);
 
-			svg{
+			svg {
 				width: 1.3rem;
-				fill: rgba(#2A2D34, .5);
+				fill: rgba(#2a2d34, 0.5);
 			}
 		}
-		
-		&__input{
+
+		&__input {
 			margin-bottom: 2rem;
 		}
 
-		&__check{
-		    margin: auto auto 2rem;
-	        width: 4.8rem;
+		&__check {
+			margin: auto auto 2rem;
+			width: 4.8rem;
 		}
 
-		&__button{
+		&__button {
 			width: 100%;
 		}
 
-		&__content{
+		&__content {
 			padding-top: 0;
 			width: 85%;
 			margin: auto;
 		}
 
-		&__name{
+		&__name {
 			margin-bottom: 2rem;
 			text-align: center;
 
-			&_small{
+			&_small {
 				font-size: 2rem;
 				line-height: 2.3rem;
 			}
 		}
 
-		&__closefluid{
+		&__closefluid {
 			width: 2rem;
 			margin-top: 2rem;
 			margin-right: 2rem;
 		}
 
-		&__author{
-			&-info{
+		&__author {
+			&-info {
 				display: block;
 			}
-			&-link{
+
+			&-link {
 				font-size: 1.4rem;
 			}
-			&-case{
-				margin: .25rem 0;
+
+			&-case {
+				margin: 0.25rem 0;
 				font-size: 1.4rem;
-				&:after{
+
+				&:after {
 					display: none;
 				}
 			}
 		}
 
-		&__arrow{
+		&__arrow {
 			width: 2rem;
-			&>.owl-left{
+
+			&>.owl-left {
 				left: auto;
 				margin-left: -2.1rem;
 			}
-			&>.owl-right{
+
+			&>.owl-right {
 				margin-right: -2.1rem;
 			}
 		}
 	}
 }
 
-.mfp-figure{
-	&:after{
+.mfp-figure {
+	&:after {
 		display: none;
 	}
 }
 
-.mfp-title{
+.mfp-title {
 	padding-right: 0;
 }
 
-.mfp-bg{
+.mfp-bg {
 	background-color: rgb(0, 0, 0);
-	opacity: 0.5;	
-	// opacity: 0.749;	
+	opacity: 0.5;
+	// opacity: 0.749;
 }
 
-.mfp-bg{
+.mfp-bg {
 	opacity: 0;
-	transition: all .5s ease; 
+	transition: all 0.5s ease;
 
-	&.mfp-ready{
-		opacity: 0.5;	
+	&.mfp-ready {
+		opacity: 0.5;
 	}
 
-	&.mfp-removing{
+	&.mfp-removing {
 		opacity: 0;
 	}
 }
-.mfp-title{
+
+.mfp-title {
 	color: inherit;
 }
-.css-modal-animate{
+
+.css-modal-animate {
 	// start state
-	
+
 	overflow: hidden;
 
-	.modals, .mfp-figure{
-		transition: all .5s ease; 
+	.modals,
+	.mfp-figure {
+		transition: all 0.5s ease;
 		opacity: 0;
 		transform: translateY(30px);
 	}
 
 	// animate in
-	&.mfp-ready{
-		.modals, .mfp-figure{
+	&.mfp-ready {
+
+		.modals,
+		.mfp-figure {
 			transform: translate(0, 0);
 			opacity: 1;
 		}
 	}
 
 	// animate out
-	&.mfp-removing{	
-		.modals, .mfp-figure{
+	&.mfp-removing {
+
+		.modals,
+		.mfp-figure {
 			opacity: 0;
 		}
 	}
-
 }

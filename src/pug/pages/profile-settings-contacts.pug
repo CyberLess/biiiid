@@ -1,0 +1,57 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Настройки профиля (контакты)';
+	- body.classList = "is-have-mobile-nav";
+
+block header
+	+header(true)
+
+block content
+
+	include ../layouts/mobile-filters
+
+	+b.SECTION.profile.profile__settings
+		+e.wrap.wrap
+			+e.row.flex._center
+				+e.cell._left
+					+e.NAV.menu
+						+e.A.menu-item(href="#") Личные данные
+						+e.A.menu-item.is-active(href="#") Контакты
+						+e.A.menu-item(href="#") Финансы
+						+e.A.menu-item(href="#") Социальные сети
+						+e.A.menu-item(href="#") Смена пароля
+				+e.cell._right
+					+e.block
+						+e.row.flex._justify
+							+e.H2.block-title._main.h2 Контакты
+							+e.A.back(href="#")
+								+icon('chevronBack')
+								| На страницу профиля
+							+b.profile__block-title-select
+								+e.select.slct__
+									select(name='menu')
+										option Личные данные
+										option Контакты
+										option Финансы
+										option Социальные сети
+										option Смена пароля
+						+e.block-line
+						+b.FORM.profile__form._personal-data._contacts
+							+e.form-row
+								+e.LABEL.form-label._fluid(for="email")
+									+e.P.form-text.p Email адрес
+									+e.INPUT.form-input.p(type="email", id="email", name="email", placeholder="max.terry@example.com", onfocus="this.placeholder=''", onblur="this.placeholder='max.terry@example.com'")
+							+e.form-row
+								+e.form-label._fluid
+									+e.P.form-text.p Ваш телефон
+									+e.form-row.flex._vertical
+										+e.form-label._select-country.flex
+											+e.form-select.slct__
+												select(name='select-country', id="country")
+													option(selected value="+7") +7
+													option(value="+3") +3
+											+e.INPUT.form-input._phone.p(type="text", id="phone", name="phone-combo", placeholder="(999) 923–45–67")
+										+e.A.form-select._approve.js-modal(href='#sms', data-modal="#sms") Подтвердить
+						+e.row._submit.flex._right
+							+e.BUTTON.form-submit.p Сохранить
