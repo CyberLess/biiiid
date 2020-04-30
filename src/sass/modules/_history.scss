@@ -69,6 +69,10 @@
 			width: 100%;
 			padding: 0.8rem 0 0.7rem;
 
+			@include max-screen($large_tablet) {
+				padding: 0;
+			}
+
 			&__input {
 				appearance: textfield;
 				display: block;
@@ -121,6 +125,60 @@
 				}
 			}
 		}
+
+		&_simple {
+			.history {
+				&__info {
+					&_cell {
+						max-width: 50%;
+						align-items: center;
+
+						.history__p {
+							order: 1;
+							margin-right: 2rem;
+						}
+
+						.history__heading {
+							order: 2;
+						}
+
+						.is-help {
+							display: none;
+						}
+
+						@include max-screen($large_tablet) {
+							max-width: 100%;
+							align-items: unset;
+
+							.history__p,
+							.history__heading {
+								order: unset;
+							}
+
+							.is-help {
+								display: inline-flex;
+							}
+						}
+					}
+
+					.info-form {
+						input {
+							margin-right: 2rem;
+
+							@include max-screen($large_tablet) {
+								margin-right: unset;
+							}
+						}
+
+						&__button {
+							@include max-screen($large_tablet) {
+								max-width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&__help {
@@ -131,6 +189,10 @@
 		.help-content {
 			bottom: -250%;
 			z-index: 50;
+		}
+
+		@include max-screen($large_tablet) {
+			right: 2rem;
 		}
 	}
 
