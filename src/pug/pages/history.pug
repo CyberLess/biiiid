@@ -39,19 +39,19 @@ block content
 						+e.INPUT.form-table-search.p(type="text", placeholder="Поиск")
 				+e.table
 					+e.table-row.flex
-						+e.table._cell.flex._column._start._vertical
+						+e.table._cell.flex._column
 							+e.table-date.p 12.02.2018
-							+e.table-time.p.small 10:12
+							+e.table-time.p.small.css-text-left 10:12
 						+e.table._cell.flex._column._left
 							+e.table-name.p Вывод средств
-						+e.table._cell.flex._column._bottom._vertical
+							+e.A.table-cancel._is-mobile.p.small(href="javascript:void(0);")  Отменить
+						+e.table._cell.flex._column._bottom
 							+e.table-price.p − 15 075 ₽
 							+e.A.table-cancel.p.small(href="javascript:void(0);")  Отменить
-
 					+e.table-row.flex
-						+e.table._cell.flex._column._start._vertical
+						+e.table._cell.flex._column
 							+e.table-date.p 11.02.2018
-							+e.table-time.p.small 5:10
+							+e.table-time.p.small.css-text-left 5:10
 						+e.table._cell.flex._column._left
 							+e.table-name.p
 								| Вывод средств &nbsp;
@@ -64,8 +64,35 @@ block content
 									| Будет доступен для
 									br
 									| вывода <span>15.02.2020<span>
-						+e.table._cell.flex._column._bottom._vertical
-							+e.table-price._payout.p − 15 075 ₽
+						+e.table._cell.flex._column._bottom
+							+e.table-price._payout.p + 15 ₽
 							+e.A.table-cancel.p.small(href="javascript:void(0);")  Отменить
+					+e.table-row.flex
+						+e.table._cell.flex._column
+							+e.table-date.p 12.02.2018
+							+e.table-time.p.small.css-text-left 10:12
+						+e.table._cell.flex._column._left
+							+e.table-name.p Вывод средств
+							+e.A.table-cancel._is-mobile.p.small(href="javascript:void(0);")  Отменить
+						+e.table._cell.flex._column._bottom
+							+e.table-price.p + 15 075 ₽
+					+e.table-row.flex
+						+e.table._cell.flex._column
+							+e.table-date.p 11.02.2018
+							+e.table-time.p.small.css-text-left 5:10
+						+e.table._cell.flex._column._left
+							+e.table-name.p
+								| Вывод средств &nbsp;
+								+e.A.table-order(href="javascript:void(0)") Веб-дизайн для сайта визитки
+							+e.table-help.history__help.is-help
+								+icon('clock')
+								+b.help-content.content.small
+									b Платеж на проверке.
+									br
+									| Будет доступен для
+									br
+									| вывода <span>15.02.2020<span>
+						+e.table._cell.flex._column._bottom
+							+e.table-price._payout.p + 155 ₽
 					+e.table-footer.flex._center
 						+e.BUTTON.table-more.p Показать еще

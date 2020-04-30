@@ -2,8 +2,16 @@
 	padding: 3.7rem 0 12.6rem;
 	background: #f5f5f5;
 
+	@include max-screen($large_tablet) {
+		padding-bottom: 4rem;
+	}
+
 	&__heading {
 		margin-bottom: 3px;
+
+		@include max-screen($large_tablet) {
+			font-weight: 500;
+		}
 	}
 
 	&__p {
@@ -12,11 +20,19 @@
 
 	&__wrap {
 		max-width: 1264px;
+
+		@include max-screen($large_tablet) {
+			padding: 0;
+		}
 	}
 
 	&__info {
 		background-color: #fff;
 		padding: 2.2rem 0 2.3rem;
+
+		@include max-screen($large_tablet) {
+			flex-direction: column;
+		}
 
 		&_cell {
 			position: relative;
@@ -24,10 +40,25 @@
 			max-width: 340/1200 * 100%;
 			padding: 0 3rem;
 			border-right: 1px solid rgba($color: $gray-light, $alpha: 0.15);
+
+			@include max-screen($large_tablet) {
+				max-width: 100%;
+				margin-bottom: 2rem;
+				padding: 0 2rem;
+
+				&:last-child {
+					margin-top: 1rem;
+					margin-bottom: 0;
+				}
+			}
 		}
 
 		&_fluid {
 			max-width: 520/1200 * 100%;
+
+			@include max-screen($large_tablet) {
+				max-width: 100%;
+			}
 		}
 
 		&_no-border {
@@ -57,11 +88,21 @@
 					-webkit-appearance: none;
 					margin: 0;
 				}
+
+				@include max-screen($large_tablet) {
+					max-width: 100%;
+				}
 			}
 
 			&__button {
 				padding: 1.2rem 2.5rem;
 				line-height: 1.6rem;
+
+				@include max-screen($large_tablet) {
+					margin-top: 1rem;
+					width: 100%;
+					max-width: 46.4%;
+				}
 
 				&:hover {
 					cursor: pointer;
@@ -95,26 +136,46 @@
 
 	&__table {
 		margin: 3rem 0 0;
-		padding: 1.8rem 3rem 0;
 		background-color: #fff;
 
+		@include max-screen($large_tablet) {
+			margin-top: 2rem;
+		}
+
 		&-row {
-			margin: 1.8rem 0;
-			padding: 1.2rem 0;
-			border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+			position: relative;
+			padding: 3rem 0 1.2rem;
+			transition: all .3s ease;
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				display: block;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 1140px;
+				height: 1px;
+				background-color: rgba($color: $gray-light, $alpha: 0.15);
+				transition: all .3s ease;
+				transform: translateX(-50%);
+			}
 
 			&:hover {
 				cursor: pointer;
 				background: rgba($color: #f2f2f3, $alpha: 0.4);
+
+				&::after {
+					max-width: 100%;
+				}
 			}
 
-			&:first-child {
-				margin-top: 0;
+			@include max-screen($large_desktop) {
+				flex-direction: column;
+				padding: 1.2rem 0;
 			}
 
-			&:nth-last-child(2) {
-				margin-bottom: 0;
-			}
 		}
 
 		&-footer {
@@ -132,36 +193,83 @@
 
 		&_cell {
 			position: relative;
-			width: 920/1200 * 100%;
+			width: (1200 - 190*2)/1200 * 100%;
 			margin: 0;
-			padding: 0 4rem;
 			background-color: transparent;
 
 			&:first-child,
 			&:last-child {
-				width: 140/1200 * 100%;
+				width: 190/1200 * 100%;
 			}
 
 			&:first-child {
-				padding-left: 0;
+				padding-left: 3rem;
+				padding-right: 4rem;
 			}
 
 			&:last-child {
-				padding-right: 0;
+				padding-left: 4rem;
+				padding-right: 3rem;
+			}
+
+			@include max-screen($large_tablet) {
+				flex-direction: column;
+				width: 100%;
+				max-width: 197/320*100%;
+				padding: 0 2rem;
+
+				&:first-child,
+				&:last-child {
+					width: 100%;
+					padding: 0 2rem;
+				}
+
+				&:last-child {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					transform: translateY(-50%);
+				}
+
+				&:nth-child(2) {
+					padding-right: 0;
+					flex-direction: row;
+				}
 			}
 		}
 
 		&-help {
-			width: 20px;
-			height: 20px;
+			width: 2rem;
+			height: 2rem;
 			top: 0;
 			right: 0;
 
+			.help-content {
+				bottom: 0;
+				right: unset;
+				top: unset;
+				left: 3px;
+			}
+
 			&:hover {
 				.help-content {
-					left: 3px;
-					bottom: 9px;
+					bottom: 10px;
 				}
+			}
+
+			@include max-screen($large_tablet) {
+				width: 1.4rem;
+				height: 1.4rem;
+				top: -1.6rem;
+				left: 9.2rem;
+			}
+		}
+
+		&-time {
+			margin-left: 2.3rem;
+
+			@include max-screen($large_tablet) {
+				display: none;
 			}
 		}
 
@@ -169,6 +277,17 @@
 		&-cancel {
 			line-height: 1.6rem;
 			color: rgba($color: $gray-light, $alpha: 0.5);
+		}
+
+		&-cancel {
+			@include max-screen($large_tablet) {
+				display: none;
+
+				&_is-mobile {
+					display: inline;
+					margin-left: 1rem;
+				}
+			}
 		}
 
 		&-price {
@@ -190,11 +309,31 @@
 			&:hover {
 				cursor: pointer;
 			}
+
+			@include max-screen($large_tablet) {
+				display: block;
+				max-width: 167px;
+				margin-top: 3px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		&-name {
+			@include max-screen($large_tablet) {
+				margin-bottom: 3px;
+			}
 		}
 
 		&-header {
 			margin-top: 4.5rem;
 			padding: 0 3rem;
+
+			@include max-screen($large_tablet) {
+				flex-direction: column;
+				padding: 0 2rem;
+			}
 		}
 	}
 
@@ -202,6 +341,14 @@
 		display: flex;
 		width: 865/1140 * 100%;
 		margin-left: 3rem;
+
+		@include max-screen($large_desktop) {
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
 
 		input {
 			padding: 0.9rem 5.2rem 0.8rem 4.5rem;
@@ -211,12 +358,22 @@
 			&::placeholder {
 				color: rgba($color: $gray-light, $alpha: 0.5);
 			}
+
+			@include max-screen($large_desktop) {
+				width: 100%;
+			}
 		}
 
 		&-date {
 			&-wrapper {
 				position: relative;
 				display: flex;
+
+				@include max-screen($large_desktop) {
+					width: 100%;
+					margin-top: 2rem;
+					margin-bottom: 1rem;
+				}
 
 				svg {
 					position: absolute;
@@ -234,6 +391,14 @@
 			margin-left: 3rem;
 			text-decoration: underline;
 			cursor: pointer;
+
+			@include max-screen($large_desktop) {
+				margin: 2rem 0;
+			}
+
+			@include max-screen($large_tablet) {
+				display: none;
+			}
 		}
 
 		&-search {
