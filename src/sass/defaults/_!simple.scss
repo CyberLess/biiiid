@@ -52,6 +52,7 @@ body {
 	position: relative;
 	color: $default;
 	font-family: 'Roboto';
+	overflow-x: hidden;
 
 	&.js-lock {
 		overflow-x: hidden;
@@ -66,13 +67,14 @@ body {
 
 }
 
-input, textarea {
-    -webkit-appearance: none;
-    appearance: none;
-    -moz-appearance: none;
-    color: inherit;
-    font-family: inherit;
-    border-radius: 0;
+input,
+textarea {
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	color: inherit;
+	font-family: inherit;
+	border-radius: 0;
 }
 
 main {

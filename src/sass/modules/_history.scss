@@ -171,7 +171,7 @@
 				}
 			}
 
-			@include max-screen($large_desktop) {
+			@include max-screen($large_tablet) {
 				flex-direction: column;
 				padding: 1.2rem 0;
 			}
@@ -193,13 +193,14 @@
 
 		&_cell {
 			position: relative;
-			width: (1200 - 190*2)/1200 * 100%;
+			width: 100%;
+			max-width: (1200 - 190*2)/1200 * 100%;
 			margin: 0;
 			background-color: transparent;
 
 			&:first-child,
 			&:last-child {
-				width: 190/1200 * 100%;
+				max-width: 190/1200 * 100%;
 			}
 
 			&:first-child {
@@ -215,7 +216,6 @@
 			@include max-screen($large_tablet) {
 				flex-direction: column;
 				width: 100%;
-				max-width: 197/320*100%;
 				padding: 0 2rem;
 
 				&:first-child,
@@ -224,10 +224,16 @@
 					padding: 0 2rem;
 				}
 
+				&:not(:last-child) {
+					max-width: 197/320*100%;
+				}
+
 				&:last-child {
+					max-width: 113/320*100%;
 					position: absolute;
 					top: 50%;
 					right: 0;
+					padding-left: 0;
 					transform: translateY(-50%);
 				}
 
@@ -260,6 +266,11 @@
 			@include max-screen($large_tablet) {
 				width: 1.4rem;
 				height: 1.4rem;
+				top: -1.8rem;
+				left: 10rem;
+			}
+
+			@include max-screen($large_mobile) {
 				top: -1.6rem;
 				left: 9.2rem;
 			}
@@ -280,12 +291,16 @@
 		}
 
 		&-cancel {
+			&_is-mobile {
+				display: none;
+				margin-left: 1rem;
+			}
+
 			@include max-screen($large_tablet) {
 				display: none;
 
 				&_is-mobile {
-					display: inline;
-					margin-left: 1rem;
+					display: block;
 				}
 			}
 		}
