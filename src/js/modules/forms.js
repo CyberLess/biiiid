@@ -23,13 +23,7 @@ var forms = {
 		var pay = document.querySelectorAll("input[name='pay-in-out']");
 
 		var im = new Inputmask({
-			mask: "+7 (999) 999-99-99",
-			clearMaskOnLostFocus: true,
-			clearIncomplete: true,
-		});
-
-		var comboMask = new Inputmask({
-			mask: "(999) 999-99-99",
+			"mask": "+7 (999) 999-99-99",
 			clearMaskOnLostFocus: true,
 			clearIncomplete: true
 		});
@@ -119,91 +113,6 @@ var forms = {
 				})
 			}
 		}
-	},
-
-	sms: {
-		resend: {
-			markup: (content, attr) => {
-				return `<button class="modals__form-resend" ${attr}>${content}</button>`;
-			},
-			active: "Отправить код повторно",
-			disabled: "Повторый код можно отправить через: 30 сек",
-		},
-		startCountdown: () => {
-			let wrapper = document.querySelector(".modals__form-resend-wrapper");
-			wrapper.innerHTML = forms.sms.resend.markup(
-				forms.sms.resend.disabled,
-				"disabled"
-			);
-		},
-		stopCountdown: () => {
-			let wrapper = document.querySelector(".modals__form-resend-wrapper");
-			wrapper.innerHTML = forms.sms.resend.markup(
-				forms.sms.resend.active,
-				"enabled"
-			);
-		},
-		next: (elm) => {
-			if (
-				elm.nextElementSibling !== null &&
-				elm.nextElementSibling !== undefined
-			) {
-				elm.nextElementSibling.focus();
-			} else {
-				elm.parentElement.classList.add("is-invalid");
-				forms.sms.startCountdown();
-			}
-		},
-		prev: (elm) => {
-			elm.value = "";
-			if (
-				elm.previousElementSibling !== null &&
-				elm.previousElementSibling !== undefined
-			) {
-				elm.previousElementSibling.value = "";
-				elm.previousElementSibling.focus();
-			} else {
-				elm.focus();
-			}
-		},
-		isNumber: (e) => {
-			let charCode = e.which ? e.which : e.keyCode;
-			if (
-				charCode > 31 &&
-				(charCode < 48 ||
-					(charCode > 57 &&
-						charCode != 190 &&
-						charCode != 110 &&
-						charCode != 32))
-			)
-				return false;
-			return true;
-		},
-		isControl: (e) => {
-			let charCode = e.which ? e.which : e.keyCode;
-			if (
-				charCode == 8 ||
-				charCode == 110 ||
-				(charCode == 46 && charCode != 32)
-			)
-				return true;
-			return false;
-		},
-		init: () => {
-			var sms = document.querySelectorAll("input[name='sms']");
-
-			if (sms) {
-				forms.sms.stopCountdown();
-				sms.forEach((input) => {
-					input.addEventListener("input", (e) => {
-						if (forms.sms.isNumber(e)) forms.sms.next(input);
-					});
-					input.addEventListener("keyup", (e) => {
-						if (forms.sms.isControl(e)) forms.sms.prev(input);
-					});
-				});
-			}
-		},
 	},
 
 	number: (event) => {
