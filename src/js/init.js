@@ -8,6 +8,9 @@ import { filters } from "./modules/filters";
 import { menu } from "./modules/menu";
 import { player } from "./modules/player";
 import { order } from "./modules/order";
+import { previewAvatar } from "./modules/previewAvatar";
+import { textareaLength } from "./modules/textareaLength";
+import { selectLanguage } from "./modules/selectLanguage";
 import { messagesScroll } from "./modules/messages-scroll";
 import { messageHeight } from "./modules/message-height";
 import { dropPreview } from "./modules/drop-preview";
@@ -41,6 +44,9 @@ App.prototype.init = () => {
 	setDialogContent.init();
 	getMessages.init();
 	notifications.init();
+	textareaLength.init();
+	selectLanguage.init();
+	previewAvatar.init();
 
 	config.log("app init");
 };

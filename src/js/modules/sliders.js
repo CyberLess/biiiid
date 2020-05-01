@@ -1,6 +1,10 @@
 import 'owl.carousel';
-import { player } from "./player";
-import { config } from "../config";
+import {
+	player
+} from "./player";
+import {
+	config
+} from "../config";
 require('sly-scrolling/dist/sly');
 
 
@@ -15,8 +19,8 @@ var sliders = {
 		autoplay: false,
 		autoWidth: false,
 		dots: false,
-		margin: 30,	
-		navText: ['<svg class="icon icon-arrow" viewBox="0 0 12 7"><use xlink:href="/app/icons/sprite.svg#arw"></use></svg>', '<svg class="icon icon-arrow" viewBox="0 0 12 7"><use xlink:href="/app/icons/sprite.svg#arw"></use></svg>']	
+		margin: 30,
+		navText: ['<svg class="icon icon-arrow" viewBox="0 0 12 7"><use xlink:href="/app/icons/sprite.svg#arw"></use></svg>', '<svg class="icon icon-arrow" viewBox="0 0 12 7"><use xlink:href="/app/icons/sprite.svg#arw"></use></svg>']
 	},
 
 	build: (item) => {
@@ -25,12 +29,12 @@ var sliders = {
 
 		let current = JSON.parse(JSON.stringify(sliders.settings));
 
-		if(item == '.js-case-slider'){
+		if (item == '.js-case-slider') {
 
 			current['mouseDrag'] = false;
 			current['loop'] = true;
 
-			$this.on('changed.owl.carousel', function(event) {
+			$this.on('changed.owl.carousel', function (event) {
 				let $slider = $(event.target);
 
 				$slider.find('.js-player').each((i, el) => {
@@ -52,21 +56,21 @@ var sliders = {
 
 				config.log('change owl carousel', current)
 
-				$parent.find('.thumbnails__box').sly('activate', current); 
+				$parent.find('.thumbnails__box').sly('activate', current);
 			})
 
 	},
 
 	init: (slider = false) => {
 
-		if(slider === false){
-			$.each( sliders.items, (index, item) => {
+		if (slider === false) {
+			$.each(sliders.items, (index, item) => {
 				sliders.build(item)
 			});
-		}else{
+		} else {
 
 			config.log('init single slider', sliders.items[slider])
-			
+
 			sliders.build(sliders.items[slider])
 		}
 
@@ -74,4 +78,6 @@ var sliders = {
 
 };
 
-export { sliders }
+export {
+	sliders
+}

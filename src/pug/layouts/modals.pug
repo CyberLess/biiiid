@@ -23,10 +23,10 @@
 							+e.icon
 								+icon('doc')
 							+e.name
-								+e.SPAN(data-dz-name) 
+								+e.SPAN(data-dz-name)
 								+e.SPAN.size
 									| &nbsp;(
-									span(data-dz-size) 
+									span(data-dz-size)
 									| )
 								+e.SPAN.status(data-dz-uploadprogress)
 									+e.IMG.status-preload(src="/app/img/preload.svg")
@@ -47,7 +47,7 @@
 		+e.name._small.h2 Сообщение успешно отправлено
 		+e.content.content.is-gray
 			p
-				| Вся переписка доступна 
+				| Вся переписка доступна
 				br
 				| в разделе Сообщения
 
@@ -65,10 +65,10 @@
 							+e.icon
 								+icon('doc')
 							+e.name
-								+e.SPAN(data-dz-name) 
+								+e.SPAN(data-dz-name)
 								+e.SPAN.size
 									| &nbsp;(
-									span(data-dz-size) 
+									span(data-dz-size)
 									| )
 								+e.SPAN.status(data-dz-uploadprogress)
 									+e.IMG.status-preload(src="/app/img/preload.svg")
@@ -89,5 +89,15 @@
 		+e.name._small.h2 Сообщение успешно отправлено
 		+e.content.content.is-gray
 			p
-				| Средства поступят на счет 
+				| Средства поступят на счет
 				| в течение 1-2 банковских дней
+
++b.modals._sms._vertical._right.mfp-hide#sms
+	+e.name.h2 Введите код из SMS
+	+e.FORM.form.form.flex
+		+e.INPUT.input-sms.h2(type="text" tabindex="0" name="sms")
+		+e.INPUT.input-sms.h2(type="text" tabindex="1" name="sms")
+		+e.INPUT.input-sms.h2(type="text" tabindex="2" name="sms")
+		+e.INPUT.input-sms.h2(type="text" tabindex="3" name="sms")
+	+e.P.notification Введенный код не верный
+	+e.form-resend-wrapper

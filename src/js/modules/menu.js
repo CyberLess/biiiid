@@ -1,4 +1,6 @@
-import { config } from "../config";
+import {
+	config
+} from "../config";
 
 var menu = {
 
@@ -20,7 +22,7 @@ var menu = {
 
 	resize: () => {
 
-		if($(window).width() > 1024){
+		if ($(window).width() > 1024) {
 			menu.close()
 		}
 
@@ -33,12 +35,12 @@ var menu = {
 
 		$list.empty()
 
-		categories.forEach((cat,index) => {
+		categories.forEach((cat, index) => {
 			$list.append(
 				`<li class="menu-modal__content-item">
 					<a class="menu-modal__content-link small js-mobile-open-links ${(index == 0 ? "is-active" : "")}" href="${cat.link}">${cat.name}</a>
 				</li>`
-            );
+			);
 		})
 
 		$('.menu-modal__panel_cats').addClass('is-visible')
@@ -77,13 +79,13 @@ var menu = {
 						`<li class="menu-modal__content-item">
 							<a class="menu-modal__content-link small" href="${link.href}">${link.name} ${help}</a>
 						</li>`
-		            );
+					);
 
 				})
 
 
 			})
-		
+
 
 		})
 
@@ -96,7 +98,7 @@ var menu = {
 
 	build: () => {
 
-		categories.forEach((cat,index) => {
+		categories.forEach((cat, index) => {
 
 			let $template = '';
 
@@ -104,48 +106,48 @@ var menu = {
 				`<li class="categories__list-item js-cetegories-parent">
 					<a class="categories__list-link ${(index == 0 ? "is-active" : "")} p" href="${cat.link}">${cat.name}</a>
 				</li>`
-            );
+			);
 
 			$template += `<div class="categories__content ${(index == 0 ? "is-active" : "")} flex">`;
 
-            cat.list.forEach((column) => {
+			cat.list.forEach((column) => {
 
-            	$template += `<div class="categories__part">`;
+				$template += `<div class="categories__part">`;
 
-	            	column.forEach((box) => {
+				column.forEach((box) => {
 
-	            		$template += '<div class="categories__box">';
+					$template += '<div class="categories__box">';
 
-		            		$template += `<div class="categories__label p">${box.boxName}</div>`;
+					$template += `<div class="categories__label p">${box.boxName}</div>`;
 
-		            		$template += `<ul class="categories__list">`;
+					$template += `<ul class="categories__list">`;
 
-			            		box.boxlist.forEach((link) => {
+					box.boxlist.forEach((link) => {
 
-			            			let help = (typeof link.help !== 'undefined') ? link.help : '';
+						let help = (typeof link.help !== 'undefined') ? link.help : '';
 
-			            			$template += `
+						$template += `
 										<li class="categories__list-item">
 											<a class="categories__list-link categories__list-link_gray p" href="${link.href}">${link.name}</a>
 											${help}
 										</li>
 			            			`;
 
-			            		})
+					})
 
-		            		$template += `</ul>`;
+					$template += `</ul>`;
 
-	            		$template += '</div>';
+					$template += '</div>';
 
-	            	})
+				})
 
-            	$template += '</div>';
+				$template += '</div>';
 
-            });
+			});
 
-            $template += '</div>';
+			$template += '</div>';
 
-            $('.categories__cell_right').append($template);
+			$('.categories__cell_right').append($template);
 
 		});
 
@@ -171,4 +173,6 @@ var menu = {
 
 };
 
-export { menu }
+export {
+	menu
+}

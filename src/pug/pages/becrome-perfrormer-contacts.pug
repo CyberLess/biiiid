@@ -1,0 +1,36 @@
+extends ../layouts/performer
+
+append vars
+	- title = 'Стать исполнителем (контакты)';
+
+
+block content
+	+b.SECTION.become-performer
+		+e.header.flex._bottom
+			+e.A.logo.h2(href='/') bIIIId
+			+e.step.p Шаг 2 из 3. Давайте знакомиться
+			+e.afterline(style="width: 75%")
+		+e.wrapper
+			+e.H2.block-title.h2 Контакты
+			+e.P.block-subtitle.p Для того, чтобы продолжить работу с сайтом, следует подтвердить свой Email. Для защиты вашего аккаунта в случае утери доступа к почтовому ящику, пожалуйста, подтвердите номер вашего телефона.
+			+e.FORM.form
+				+b.profile.become-performer__form-row
+					+e.form-row
+						+e.LABEL.form-label._fluid(for="email")
+							+e.P.form-text.p.b Ваш Email * <span>(видно только вам)<span>
+							+e.form-row.flex._vertical
+								+e.INPUT.form-input.p(type="email", id="email", name="email", placeholder="max.terry@example.com", onfocus="this.placeholder=''", onblur="this.placeholder='max.terry@example.com'")
+								+e.A.form-select._approve.js-modal(href='#sms', data-modal="#sms") Подтвердить
+					+e.form-row
+						+e.form-label._fluid
+							+e.P.form-text.p.b Ваш телефон * <span>(видно только вам)<span>
+							+e.form-row.flex._vertical
+								+e.form-label._select-country.flex
+									+e.form-select.slct__
+										select(name='select-country', id="country")
+											option(selected value="+7") +7
+											option(value="+3") +3
+									+e.INPUT.form-input._phone.p(type="text", id="phone", name="phone-combo", placeholder="(999) 923–45–67")
+								+e.A.form-select._approve.js-modal(href='#sms', data-modal="#sms") Подтвердить
+			+e.row._submit.flex._right
+				+e.BUTTON.form-submit.p Сохранить

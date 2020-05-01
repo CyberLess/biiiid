@@ -1,0 +1,55 @@
+extends ../layouts/performer
+
+append vars
+	- title = 'Стать исполнителем (персональные данные)';
+
+
+block content
+	+b.SECTION.become-performer
+		+e.header.flex._bottom
+			+e.A.logo.h2(href='/') bIIIId
+			+e.step.p Шаг 1 из 3. Давайте знакомиться
+			+e.afterline(style="width: 25%")
+		+e.wrapper
+			+e.H2.block-title.h2 Личные данные
+			+e.P.block-subtitle.p Расскажите немного о себе. Эта информация будет отображаться в профиле, <br> чтобы потенциальные покупатели узнали о вас больше
+			+e.FORM.form
+				+e.form-row.flex._justify
+					+e.LABEL.form-label(for="firstname")
+						+e.P.form-text.p.b Имя * <span>(не видно другим)<span>
+						+e.INPUT.form-input.p(type="text", id="firstname", name="firstname", placeholder="Как вас зовут", onfocus="this.placeholder=''", onblur="this.placeholder='Как вас зовут'")
+					+e.LABEL.form-label(for="lastname")
+						+e.P.form-text.p.b Фамилия * <span>(не видно другим)<span>
+						+e.INPUT.form-input.p(type="text", id="lastname", name="lastname", placeholder="Настоящая фамилия", onfocus="this.placeholder=''", onblur="this.placeholder='Настоящая фамилия'")
+				+b.profile.become-performer__form-row
+					+e.LABEL.form-label._fluid(for="file")
+						+e.P.form-text.p.b Фотография профиля *
+						+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png")
+						+b.DIV.profile__form-input_file-button
+							p.profile__form-input_file-p.p Загрузить фото
+							.backdrop-filter
+							img.profile__form-input_avatar(src="/img/avatar-profile-setts.png", alt="")
+				+b.profile.become-performer__form-row
+					+e.LABEL.form-label._fluid(for="about")
+						+e.P.form-text.p.b Обо мне *
+						+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", minlength="0", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
+						+e.DIV.form-input_textarea-count 0/250
+				+e.form-section
+					+e.P.form-text.p.b Язык * <span>(укажите языки, на которых вы говорите)<span>
+					+e.form-row.flex._justify
+						+e.LABEL.form-label._select(for="language")
+							+e.form-select.slct__
+								select(name='select-language', id="language")
+									option(selected disabled hidden value=0) Ваш язык
+									option Русский
+									option Английский
+						+e.LABEL.form-label._select(for="level")
+							+e.form-select.slct__
+								select(name='select-language-level', id="level")
+									option(selected disabled hidden value=0) Ваш уровень
+									option Базовый
+									option Разговорный
+									option Свободный
+									option Родной
+			+e.row._submit.flex._right
+				+e.BUTTON.form-submit.p Сохранить

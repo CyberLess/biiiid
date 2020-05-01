@@ -1,0 +1,112 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Настройки профиля (персональные данные)';
+	- body.classList = "is-have-mobile-nav";
+
+block header
+	+header(true)
+
+block content
+
+	include ../layouts/mobile-filters
+
+	+b.SECTION.profile.profile__settings
+		+e.wrap.wrap
+			+e.row.flex._center
+				+e.cell._left
+					+e.NAV.menu
+						+e.A.menu-item.is-active(href="#") Личные данные
+						+e.A.menu-item(href="#") Контакты
+						+e.A.menu-item(href="#") Финансы
+						+e.A.menu-item(href="#") Социальные сети
+						+e.A.menu-item(href="#") Смена пароля
+				+e.cell._right
+					+e.block
+						+e.row.flex._justify
+							+e.H2.block-title._main.h2 Профиль
+							+e.A.back(href="#")
+								+icon('chevronBack')
+								| На страницу профиля
+							+b.profile__block-title-select
+								+e.select.slct__
+									select(name='menu')
+										option Личные данные
+										option Контакты
+										option Финансы
+										option Социальные сети
+										option Смена пароля
+						+e.block-line
+						+b.FORM.profile__form._personal-data
+							+e.form-row
+								+e.LABEL.form-label._fluid(for="file")
+									+e.P.form-text.p Ваша фотография
+									+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png")
+									+b.DIV.profile__form-input_file-button
+										p.profile__form-input_file-p.p Загрузить фото
+										.backdrop-filter
+										img.profile__form-input_avatar(src="/img/avatar-profile-setts.png", alt="")
+										//- img.profile__form-input_avatar(src="", alt="")
+							+e.form-row
+								+e.LABEL.form-label._fluid(for="name")
+									+e.P.form-text.p Логин (имя на сайте)
+									+e.INPUT.form-input.p(type="text", id="nickname", name="nickname", disabled, placeholder="Some Name")
+									+e.SMALL.form-input__hint.small
+										span Ссылка на ваш профиль
+										a(href="joboba.com/malyavka1989") joboba.com/malyavka1989
+							+e.form-row.flex._justify
+								+e.LABEL.form-label(for="firstname")
+									+e.P.form-text.p Имя
+									+e.INPUT.form-input.p(type="text", id="firstname", name="firstname", placeholder="Как вас зовут", onfocus="this.placeholder=''", onblur="this.placeholder='Как вас зовут'")
+								+e.LABEL.form-label(for="lastname")
+									+e.P.form-text.p Фамилия
+									+e.INPUT.form-input.p(type="text", id="lastname", name="lastname", placeholder="Настоящая фамилия", onfocus="this.placeholder=''", onblur="this.placeholder='Настоящая фамилия'")
+							+e.form-row
+								+e.LABEL.form-label._fluid(for="about")
+									+e.P.form-text.p Обо мне
+									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", minlength="0", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
+									+e.DIV.form-input_textarea-count 0/250
+							+e.row.flex._justify
+								+e.H2.block-title.h2 Языки
+							+e.form-row
+								+e.form-select._selected
+							+e.form-row._select-wrapper.flex._justify
+								+e.LABEL.form-label._select(for="language")
+									+e.P.form-text.p Язык
+									+e.form-select.slct__
+										select(name='select-language', id="language")
+											option(selected disabled hidden value=0) Ваш язык
+											option Русский
+											option Английский
+									+e.SMALL.form-select._error Выберите хотя бы один язык
+								+e.LABEL.form-label._select(for="level")
+									+e.P.form-text.p Уровень
+									+e.form-select.slct__
+										select(name='select-language-level', id="level")
+											option(selected disabled hidden value=0) Ваш уровень
+											option Базовый
+											option Разговорный
+											option Свободный
+											option Родной
+								+e.form-label._select._controls
+									+e.A.form-select._add(href='javascript:void(0);') Добавить язык
+									+e.A.form-select._decline(href='javascript:void(0);') Отменить
+							+e.row._socials
+								+e.H2.block-title.h2 Социальные сети
+								+e.form-social._wrapper
+									+e.form-social._icon
+										+icon('fb')
+									+e.A.form-social._link.color-green(href="#" target="_blank") Привязать
+										+icon('cls')
+								+e.form-social._wrapper.is-linked
+									+e.form-social._icon
+										+icon('vk')
+									+e.A.form-social._link.color-green(href="#" target="_blank") Отвязать
+										+icon('cls')
+								+e.form-social._wrapper
+									+e.form-social._icon
+										+icon('instagram')
+									+e.A.form-social._link.color-green(href="#" target="_blank") Привязать
+										+icon('cls')
+						+e.row._submit.flex._right
+							+e.BUTTON.form-submit.p Сохранить
