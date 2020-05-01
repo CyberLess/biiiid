@@ -26,9 +26,9 @@ block content
 								| Какой-то текст
 					+e.info._cell._fluid._no-border.flex
 						+e.FORM.info-form.info-form__.flex._justify
-							+e.INPUT.input.small(type="text", name="pay-in-out", placeholder="Сумма, руб.")
-							+e.BUTTON.button._pay-in.small(placeholder="Сумма, руб.") Пополнить
-							+e.BUTTON.button._pay-out.small(placeholder="Сумма, руб.") Вывести
+							+e.INPUT.input.small(type="text", name="pay-in-out" placeholder="Сумма, руб.")
+							+e.BUTTON.button._pay-in.small Пополнить
+							+e.BUTTON.button._pay-out.small Вывести
 				+e.table-header.flex
 					+e.H2.h2.h2 История платежей
 					+e.FORM.form-table.flex._vertical
@@ -36,7 +36,10 @@ block content
 							+e.INPUT.form-table-date.p(type="text", placeholder="01.03.2018 – 30.03.2018")
 							+icon('calendar')
 						+e.A.form-table-export.p(href="javascript:void(0);") Экспорт в Excel
-						+e.INPUT.form-table-search.p(type="text", placeholder="Поиск")
+						+e.form-table-search-wrapper
+							+e.BUTTON.form-table-submit
+								+icon('loupe')
+							+e.INPUT.form-table-search.p(type="text", placeholder="Поиск")
 				+e.table
 					+e.table-row.flex
 						+e.table._cell.flex._column

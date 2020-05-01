@@ -74,7 +74,6 @@
 			}
 
 			&__input {
-				appearance: none;
 				display: block;
 				width: 100%;
 				max-width: 200/460 * 100%;
@@ -472,9 +471,44 @@
 		}
 
 		&-search {
-			margin-left: auto;
-			margin-right: 0;
+
 			padding-left: 4rem;
+
+			&-wrapper {
+				position: relative;
+				margin-left: auto;
+				margin-right: 0;
+
+				@include max-screen($large_tablet) {
+					width: 100%;
+					margin-left: 0;
+				}
+			}
+		}
+
+		&-submit {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 4.5rem;
+			height: 100%;
+			border: none;
+			cursor: pointer;
+			background: 0 0;
+			z-index: 5;
+
+			svg {
+				display: block;
+				width: 1.4rem;
+				stroke: $gray-light;
+
+				&:hover {
+					stroke: $green;
+				}
+			}
 		}
 	}
 }

@@ -1,14 +1,14 @@
-.header{
+.header {
 	position: relative;
 
-	&__inner{
+	&__inner {
 		position: relative;
 		z-index: 600;
 		padding: 1.4rem 0;
-		background: #fff;		
+		background: #fff;
 	}
 
-	&__price{
+	&__price {
 		min-width: 93px;
 		font-size: 2rem;
 		line-height: 110%;
@@ -16,136 +16,158 @@
 		margin-left: 7.7rem;
 	}
 
-	&__link{
+	&__link {
 		transition: ease .2s;
 
-		&:hover{
+		&:hover {
 			color: $green;
 		}
-		&:not(:last-child){
+
+		&:not(:last-child) {
 			margin-right: 3.2rem;
 		}
 	}
 
-	&__cell{
-		&_hamburger{
+	&__cell {
+		&_hamburger {
 			display: none;
 		}
-		&_logo{
+
+		&_logo {
 			width: 122/1336*100%;
 		}
-		&_cat{
+
+		&_cat {
 			width: 146/1336*100%;
 		}
-		&_search{
+
+		&_search {
 			width: 420/1336*100%;
 		}
-		&_auth{
+
+		&_auth {
 			width: 648/1336*100%;
 		}
 	}
 
 
 	@include max-screen($large_desktop) {
-		&__link{
-			&:not(:last-child){
+		&__link {
+			&:not(:last-child) {
 				margin-right: 2.2rem;
 			}
 		}
-		&__price{
+
+		&__price {
 			margin-left: 2.7rem;
 		}
 	}
 
 	@include max-screen($large_desktop) {
-		&_default{
-			.header{
-				&__cell{
-					&_logo{
-					    width: 14.13174%
+		&_default {
+			.header {
+				&__cell {
+					&_logo {
+						width: 14.13174%
 					}
-					&_search{
-					    width: 34.43713%;
+
+					&_search {
+						width: 34.43713%;
 					}
-					&_cat{
-					    width: 16.92814%;
+
+					&_cat {
+						width: 16.92814%;
 					}
-					&_auth{
-					    width: 34.50299%;
+
+					&_auth {
+						width: 34.50299%;
 					}
 				}
 			}
 		}
-		&__price{
+
+		&__price {
 			text-align: center;
 		}
-		&__cell{
-			&_search{
+
+		&__cell {
+			&_search {
 				width: 23.43713%;
 			}
-			&_cat{
-			    width: 12.92814%;
+
+			&_cat {
+				width: 12.92814%;
 			}
-			&_auth{
-			    width: 54.50299%;
+
+			&_auth {
+				width: 54.50299%;
 			}
 		}
 	}
 
 	@include max-screen($large_tablet) {
 		padding-bottom: 3rem;
-		&__row{
+
+		&__row {
 			justify-content: space-between;
 			flex-wrap: wrap;
 		}
+
 		&__links,
-		&__price{
+		&__price {
 			display: none;
 		}
-		
-		&__inner{
+
+		&__inner {
 			padding-top: 2rem;
 			padding-bottom: 0;
 		}
-		&__auth{
-			.icon-link__icon{
+
+		&__auth {
+			.icon-link__icon {
 				display: none;
 			}
 		}
-		&__cell{
-			width: auto!important;
-			&_search{
-				width: 100%!important;
+
+		&__cell {
+			width: auto !important;
+
+			&_search {
+				width: 100% !important;
 				margin-top: 2rem;
 				order: 4;
 			}
-			&_logo{
+
+			&_logo {
 				margin-right: 0;
 				order: 2;
 			}
-			&_cat{
-			    display: none;
+
+			&_cat {
+				display: none;
 			}
-			&_hamburger{
+
+			&_hamburger {
 				display: block;
 				order: 1;
 			}
-			&_auth{
+
+			&_auth {
 				order: 3;
-				
-				&.is-login{
+
+				&.is-login {
 					display: none;
 				}
 			}
-		}		
+		}
 	}
 
 	@include max-screen($large_mobile) {
-		&_hide-search{
-			.header__cell_search{
+		&_hide-search {
+			.header__cell_search {
 				display: none;
 			}
-		}		
+		}
 	}
 
 }

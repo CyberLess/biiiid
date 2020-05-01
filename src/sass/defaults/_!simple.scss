@@ -39,7 +39,7 @@ html {
 
 html,
 body {
-
+	overflow-x: hidden;
 	font-size: 62.5%; // 1rem = 10px
 
 	// @include max-screen($large_desktop) {
@@ -52,7 +52,6 @@ body {
 	position: relative;
 	color: $default;
 	font-family: 'Roboto';
-	overflow-x: hidden;
 
 	&.js-lock {
 		overflow-x: hidden;
