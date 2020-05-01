@@ -40,7 +40,7 @@ var forms = {
 		});
 
 		var payMask = new Inputmask({
-			"mask": "999 999",
+			"mask": "999999",
 			"placeholder": ""
 		});
 
