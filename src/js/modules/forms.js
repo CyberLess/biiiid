@@ -21,6 +21,7 @@ var forms = {
 		var selector = document.querySelectorAll("input[name='phone']");
 		var combo = document.querySelectorAll("input[name='phone-combo']");
 		var sms = document.querySelectorAll("input[name='sms']");
+		var pay = document.querySelectorAll("input[name='pay-in-out']");
 
 		var im = new Inputmask({
 			"mask": "+7 (999) 999-99-99",
@@ -39,9 +40,16 @@ var forms = {
 			"placeholder": ""
 		});
 
+		var payMask = new Inputmask({
+			"mask": "999 999",
+			"placeholder": ""
+		});
+
 		im.mask(selector);
 		comboMask.mask(combo);
 		smsMask.mask(sms);
+		smsMask.mask(sms);
+		payMask.mask(pay);
 	},
 
 	sms: {

@@ -74,7 +74,7 @@
 			}
 
 			&__input {
-				appearance: textfield;
+				appearance: none;
 				display: block;
 				width: 100%;
 				max-width: 200/460 * 100%;
@@ -85,12 +85,6 @@
 
 				&::placeholder {
 					color: rgba(42, 45, 52, 0.5);
-				}
-
-				&::-webkit-outer-spin-button,
-				&::-webkit-inner-spin-button {
-					-webkit-appearance: none;
-					margin: 0;
 				}
 
 				@include max-screen($large_tablet) {
@@ -207,10 +201,10 @@
 		&-row {
 			position: relative;
 			padding: 3rem 0 1.2rem;
-			transition: all .3s ease;
+			transition: all 0.3s ease;
 
 			&::after {
-				content: '';
+				content: "";
 				position: absolute;
 				bottom: 0;
 				left: 50%;
@@ -220,7 +214,7 @@
 				max-width: 1140px;
 				height: 1px;
 				background-color: rgba($color: $gray-light, $alpha: 0.15);
-				transition: all .3s ease;
+				transition: all 0.3s ease;
 				transform: translateX(-50%);
 			}
 
@@ -237,7 +231,6 @@
 				flex-direction: column;
 				padding: 1.2rem 0;
 			}
-
 		}
 
 		&-footer {
@@ -256,7 +249,7 @@
 		&_cell {
 			position: relative;
 			width: 100%;
-			max-width: (1200 - 190*2)/1200 * 100%;
+			max-width: (1200 - 190 * 2)/1200 * 100%;
 			margin: 0;
 			background-color: transparent;
 
@@ -287,11 +280,11 @@
 				}
 
 				&:not(:last-child) {
-					max-width: 197/320*100%;
+					max-width: 197/320 * 100%;
 				}
 
 				&:last-child {
-					max-width: 113/320*100%;
+					max-width: 113/320 * 100%;
 					position: absolute;
 					top: 50%;
 					right: 0;
