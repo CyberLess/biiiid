@@ -22,6 +22,7 @@ var dropPreview = {
 			root: dropPrevWrap,
 			scroller: dropArea,
 			bar: '.dropzone__drop-prev-bar',
+			scrollingCls: '_scrolling'
 		});
 
 		$(dropPrevWrap).on('DOMSubtreeModified', function () {

@@ -1,11 +1,7 @@
 .myorder {
 	position: relative;
-	padding: 5rem 0 8rem;
+	padding: 50px 0 80px;
 	z-index: 16;
-
-	@include max-screen($large_tablet) {
-		padding: 0 0 2rem;
-	}
 
 	&__title {
 		@include max-screen($small_desktop) {
@@ -77,14 +73,6 @@
 	}
 
 	&-orders {
-
-		@include max-screen($large_tablet) {
-			.reviews__top_filter {
-				margin-bottom: 4rem;
-				padding-bottom: 0;
-			}
-		}
-
 		.reviews__top-list {
 			width: 100%;
 		}
@@ -134,7 +122,7 @@
 
 					@include max-screen($large_tablet) {
 						width: auto;
-						flex: 1 0 100%;
+						flex: 1 0 60%;
 					}
 				}
 			}
@@ -155,7 +143,7 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			width: 180/1366 * 100%;
+			width: 145/1366 * 100%;
 
 			&:first-child {
 				width: 670/1366 * 100%;
@@ -172,23 +160,8 @@
 				}
 			}
 
-			@include max-screen($large_tablet) {
-				align-items: flex-start;
-			}
-
 			p {
 				color: #2a2d34;
-
-				@include max-screen($large_tablet) {
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					width: 200px;
-
-					&.myorder-orders__price {
-						width: auto;
-					}
-				}
 			}
 
 			span {
@@ -210,11 +183,9 @@
 			}
 
 			@include max-screen($large_mobile) {
-				width: 34%;
 				flex: 0 0 34%;
 
 				&_total {
-					flex: 0 0 34%;
 					margin-left: 85px;
 				}
 			}
@@ -245,20 +216,9 @@
 		&__link {
 			position: absolute;
 			width: 100%;
-			height: calc(100% - 27px);
-			top: 50%;
+			height: 100%;
+			top: 0;
 			left: 0;
-			transform: translateY(-50%);
-
-			&:hover {
-				~.myorder-orders__cell_name {
-					.myorder-orders__details {
-						p {
-							color: $green;
-						}
-					}
-				}
-			}
 		}
 
 		&__status {

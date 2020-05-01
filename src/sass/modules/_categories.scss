@@ -9,14 +9,25 @@
 
 	opacity: 0;
 	visibility: hidden;
-	transition: ease .25s;
+	transition: opacity .25s ease, visibility .25s ease, top .01s ease .25s;
+	// transition: opacity ease .25s, visibility ease .25s;
+	
 
 	padding-top: 1.6rem;
 	padding-bottom: 6rem;
+	// max-height: 0px;
+	// overflow: hidden;
+
+	top: -900vh;
+
+	// display: none;
 
 	&.is-active{
 		opacity: 1;
 		visibility: visible;
+		display: block;
+		top: 100%;
+		transition: opacity .25s ease, visibility .25s ease, top 0s ease 0s;
 	}
 
 	&__label{
@@ -129,5 +140,9 @@
 		&.is-active{
 			display: flex;
 		}
+	}
+
+	@include max-screen($large_tablet) {
+		display: none;
 	}
 }

@@ -20,7 +20,6 @@ var setDialogContent = {
 
 		const FILE_SRC = '/app/media/';
 
-		const $dialogsWrap = $('.messages-dialogs');
 		const $dialogs = $('.messages-dialogs__content-wrap');
 		const $userMessageTemplate = $('#user-message').contents().find('.dialog__message');
 		const $myMessageTemplate = $('#my-message').contents().find('.dialog__message');
@@ -29,7 +28,7 @@ var setDialogContent = {
 		const $videoItemTemplate = $videoContainerTemplate.find('.dialog__video-item');
 		const $myBillTemplate = $('#my-bill').contents('.dialog__bill-wrap');
 		const $userBillTemplate = $('#customer-bill').contents('.dialog__bill-wrap');
-		const $send = $('.send');
+
 
 		const setAuthorName = (authorName, messageAuthor, nameElement) => {
 			if (messageAuthor === 'customer') {
@@ -208,13 +207,7 @@ var setDialogContent = {
 				$dialogList
 			);
 
-			if ($send.hasClass('send_no-active')) {
-				$send.removeClass('send_no-active');
-			}
-
-			$dialogs.remove();
-			$dialogsWrap.prepend($(fragmentWithHeader));
-
+			$dialogs.empty().html(fragmentWithHeader);
 		};
 
 		setDialogContent.init.pushMessagesOnPage = pushMessagesOnPage;

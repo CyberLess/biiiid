@@ -1,24 +1,10 @@
-import {
-	config
-} from "../config";
-import {
-	defaults
-} from "./defaults";
-import {
-	tooltips
-} from "./tooltips";
-import {
-	sliders
-} from "./sliders";
-import {
-	player
-} from "./player";
-import {
-	modals
-} from "./modals";
-import {
-	forms
-} from "./forms";
+import { config } from "../config";
+import { defaults } from "./defaults";
+import { tooltips } from "./tooltips";
+import { sliders } from "./sliders";
+import { player } from "./player";
+import { modals } from "./modals";
+import { forms } from "./forms";
 
 
 var filters = {
@@ -31,8 +17,8 @@ var filters = {
 		checkbox: (item, blockName, reverse = false, checked = false) => {
 
 			let help = item.hasOwnProperty("count") ? `<i>(${item.count})</i>` : '';
-
-			let input =
+			
+			let input = 
 				`<li class="${blockName}__list-item">
 					<label class="${blockName}__${item.type} ${item.type} ${(reverse ? `${item.type}_reverse`: "")}">
 					    <input class="${item.type}__input js-virtual-input" ${(checked ? 'checked=""' : '')} name="${item.name}" type="${item.type}" value="${item.label}"><span class="${item.type}__text"> ${item.label} ${help}<span class="${item.type}__icon"><svg class="icon icon-check" viewBox="0 0 10 7"><use xlink:href="/app/icons/sprite.svg#check"></use></svg></span></span>
@@ -46,21 +32,21 @@ var filters = {
 		slide: (image, source, type) => {
 			let slide, img;
 
-			if (image) {
-				img =
+			if(image){
+				img = 
 					`<picture>
 						${image.hasOwnProperty("webp") ? `<source type="image/webp" srcset="${image.webp}">` : ""}
 						${image.hasOwnProperty("jpg") ? `<img src="${image.jpg}" class="player__preview object-fit" alt="" role="presentation" />` : ""}
 			        </picture>`;
 			}
 
-			slide =
+			slide =  
 				`<div class="case__preview">`;
 
-			if (type) {
+				if (type) {
 
-				slide +=
-					`<div class="case__player player player_fluid js-player" ${(type == "music") ? `data-audio="true"` : ""} ${(source) ? `data-file="${source}"` : ""}>
+					slide += 
+						`<div class="case__player player player_fluid js-player" ${(type == "music") ? `data-audio="true"` : ""} ${(source) ? `data-file="${source}"` : ""}>
 					        ${img}
 					        <div class="player__container"></div>
 					        <div class="player__bar">
@@ -85,11 +71,11 @@ var filters = {
 					        </div>
 					    </div>`;
 
-			} else {
+				}else{
 
-				slide += img;
+					slide += img;
 
-			}
+				}
 
 			slide +=
 				`</div>`;
@@ -100,7 +86,7 @@ var filters = {
 	},
 
 	virtual: {
-
+		
 		form: {},
 
 		rules: {
@@ -118,12 +104,12 @@ var filters = {
 
 			data.forEach((item, index) => {
 
-				let tag = item.hasOwnProperty("tag") ?
+				let tag = item.hasOwnProperty("tag") ? 
 					`<div class="case__top-cell case__top-cell_static">
                         <div class="case__label label ${(item.tag.hasOwnProperty("className")) ? item.tag.className : ""}">${item.tag.label}</div>
                     </div>` : "";
 
-				let rating = item.hasOwnProperty("rating") ?
+                let rating = item.hasOwnProperty("rating") ?
 					`<div class="case__top-cell case__top-cell_static">
 					    <div class="case__rating rating rating_purple small">
 					        <div class="rating__icon">
@@ -134,41 +120,41 @@ var filters = {
 					    </div>
 					</div>` : "";
 
-				let $template =
+				let $template = 
 					`<div class="case__item">`;
 
-				if (item.hasOwnProperty("gallery")) {
+						if (item.hasOwnProperty("gallery")) {
 
-					let gallery_list = "";
+							let gallery_list = "";
 
-					item.gallery.forEach((slide, index) => {
+							item.gallery.forEach((slide,index) => {
 
-						let image = slide.hasOwnProperty("image") ? slide.image : false;
-						let source = slide.hasOwnProperty("source") ? slide.source : false;
-						let type = slide.hasOwnProperty("type") ? slide.type : false;
+								let image = slide.hasOwnProperty("image") ? slide.image : false;
+								let source = slide.hasOwnProperty("source") ? slide.source : false;
+								let type = slide.hasOwnProperty("type") ? slide.type : false;
 
-						gallery_list += filters.template.slide(
+								gallery_list += filters.template.slide(
+									
+									image,
+									source,
+									type,
 
-							image,
-							source,
-							type,
+								);
 
-						);
+							})
 
-					})
-
-					if (item.gallery.length > 1) {
-						$template +=
-							`<div class="case__gallery js-case-slider owl-carousel">
+							if(item.gallery.length > 1){
+								$template +=
+									`<div class="case__gallery js-case-slider owl-carousel">
 										${gallery_list}
 									</div>`;
-					} else {
-						$template += gallery_list;
-					}
+							}else{
+								$template += gallery_list;
+							}
 
-				}
+						}
 
-				$template += `<div class="case__top">
+                    $template += `<div class="case__top">
                             ${tag}
                             <div class="case__top-cell case__top-cell_fluid">
                                 <a href="${item.author.name}" class="case__name nickname nickname_online small">${item.author.name}</a>
@@ -188,7 +174,7 @@ var filters = {
                         </div>
                     </div>`;
 
-				filters.list.append($template);
+                filters.list.append($template);
 
 			})
 		},
@@ -233,22 +219,22 @@ var filters = {
 			let $parent = $this.closest('.tooltip__item').length ? $this.closest('.tooltip__item') : $this.closest('.modals');
 			let $button = $parent.hasClass('modals') ? $(`*[data-modal="#${$parent.attr('id')}"]`) : $(`*[data-tooltip="#${$parent.attr('id')}"]`);
 			let inputLength = $parent.find('input[type="text"]').filter(function () {
-				return !!this.value;
+			    return !!this.value;
 			}).length;
 
 			config.log('button check')
 
 
-			if ($parent.find('input:checked').length || inputLength) {
+			if($parent.find('input:checked').length || inputLength) {
 				$button.addClass('is-active')
-			} else {
+			}else{
 				$button.removeClass('is-active')
 			}
 		},
 
 		check: () => {
 
-
+			
 			let show = false;
 
 			for (var item in filters.virtual.form) {
@@ -258,11 +244,11 @@ var filters = {
 
 				show = true;
 
-				if (filters.virtual.rules.hasOwnProperty(item)) {
+				if(filters.virtual.rules.hasOwnProperty(item)){
 
 
 
-					if (filters.virtual.rules[item].hasOwnProperty("nofilter")) {
+					if(filters.virtual.rules[item].hasOwnProperty("nofilter")){
 						show = false;
 
 						config.log('each filters.virtual.rules has nofilter', item, filters.virtual.rules[item]);
@@ -271,14 +257,14 @@ var filters = {
 				}
 
 			}
-
-			if (!show) {
+			
+			if(!show){
 				filters.virtual.resetItem.removeClass('is-active')
-			} else {
+			}else{
 				filters.virtual.resetItem.addClass('is-active')
 			}
-
-
+			
+			
 			// if(jQuery.isEmptyObject(filters.virtual.form)){
 			// 	filters.virtual.resetItem.removeClass('is-active')
 			// }else{
@@ -292,9 +278,9 @@ var filters = {
 
 			for (var item in filters.virtual.form) {
 
-				if (filters.virtual.rules.hasOwnProperty(item)) {
+				if(filters.virtual.rules.hasOwnProperty(item)){
 
-					if (filters.virtual.rules[item].hasOwnProperty("nofilter")) {
+					if(filters.virtual.rules[item].hasOwnProperty("nofilter")){
 
 						subform[item] = filters.virtual.form[item];
 
@@ -319,7 +305,7 @@ var filters = {
 
 			$('.js-virtual-input').each((i, el) => {
 				filters.virtual.buttonCheck(el);
-			})
+			})			
 
 			$('.mobile-filter__item').remove()
 
@@ -340,7 +326,7 @@ var filters = {
 
 		update: (name, value) => {
 
-			if (value == '')
+			if(value == '')
 				return false;
 
 			filters.virtual.form[name] = value;
@@ -357,9 +343,9 @@ var filters = {
 
 			for (var item in filters.virtual.form) {
 
-				if (Array.isArray(filters.virtual.form[item])) {
+				if(Array.isArray(filters.virtual.form[item])){
 
-					if (filters.virtual.form[item].length <= 1)
+					if(filters.virtual.form[item].length <= 1)
 						filters.virtual.form[item] = filters.virtual.form[item].toString()
 
 				}
@@ -378,14 +364,15 @@ var filters = {
 
 		input: e => {
 
-			let
+			let 
 				$this = $(e),
 				$parent = $this.closest('div'),
 				name = $this.attr('name').replace('[]', ''),
 				type = $this.attr('type'),
-				value = $this.val();
+				value = $this.val()
+			;
 
-			if (type == 'radio' || type == 'checkbox') {
+			if ( type == 'radio' || type == 'checkbox' ) {
 
 				let values = [];
 
@@ -399,26 +386,26 @@ var filters = {
 
 						$(el).prop('checked', check);
 
-						if ($(el).closest('.tooltip__item').length) {
+						if($(el).closest('.tooltip__item').length){
 
 							tooltips.input($(el))
 
 						}
 
 					})
+					
 
-
-					if (check) {
+					if(check){
 
 						values.push($(el).val())
 
 					}
 
-				})
+				}) 
 
 				$(`.js-mobile-filter[data-name="${name}"] .mobile-filter__item`).remove()
 
-				if (!values.length) {
+				if(!values.length){
 
 					// $list.append(`<div class="mobile-filter__item p">${$(el).val()}</div>`)
 
@@ -427,7 +414,7 @@ var filters = {
 
 					delete filters.virtual.form[name];
 
-				} else {
+				}else{
 
 					for (var i in values) {
 
@@ -440,20 +427,20 @@ var filters = {
 
 				}
 
-			} else {
+			}else{
 
 				config.log(`text input name is ${name} and value is ${value}`, $this)
 
-				if (value != '') {
+				if(value != ''){
 
 					$(`input[name="${name}"]`).not($this).val(value);
 
-					filters.virtual.update(name, value);
+					filters.virtual.update(name, value);	
 
-				} else {
+				}else{
 
 					filters.virtual.remove(name);
-
+				
 				}
 
 
@@ -504,7 +491,7 @@ var filters = {
 
 		add: (name, value) => {
 
-			if (filters.tag.rules.hasOwnProperty(name) &&
+			if(filters.tag.rules.hasOwnProperty(name) && 
 				filters.tag.rules[name].hasOwnProperty("notag") &&
 				filters.tag.rules[name]["notag"] == true)
 				return false;
@@ -514,13 +501,13 @@ var filters = {
 			// config.log("merge is ", filters.tag.rules[name])
 
 
-			if (!filters.tag.rules.hasOwnProperty(name) || !filters.tag.rules[name].hasOwnProperty("merge")) {
+			if(!filters.tag.rules.hasOwnProperty(name) || !filters.tag.rules[name].hasOwnProperty("merge")){
 
 				config.log("tag dont have merge")
 
 				filters.tag.list.removeAttr('style').append(filters.tag.template(name, value))
 
-			} else {
+			}else{
 
 				let merge = filters.tag.rules[name]['merge'];
 				let before = filters.tag.rules[name]['before'];
@@ -529,13 +516,13 @@ var filters = {
 
 				config.log("tag have merge", merge)
 
-				if (!filters.virtual.form.hasOwnProperty(merge)) {
+				if(!filters.virtual.form.hasOwnProperty(merge)){
 
 					config.log("merge", filters.virtual.form.hasOwnProperty(merge))
 
 					filters.tag.list.removeAttr('style').append(filters.tag.template(name, value, before, after))
 
-				} else {
+				}else{
 
 					let second = filters.virtual.form[merge];
 					let second_before = filters.tag.rules[merge]['before'];
@@ -543,7 +530,7 @@ var filters = {
 
 					let string = (Number(value) < Number(second)) ? `${value + " " + after} - ${second}` : `${second + ' ' + second_after} - ${value + " " + after}`;
 
-					if ($(`.tag[data-name="${merge}"]`).length)
+					if($(`.tag[data-name="${merge}"]`).length)
 						return false;
 
 					filters.tag.list.removeAttr('style').append(filters.tag.template(name, string, "", after))
@@ -552,7 +539,7 @@ var filters = {
 
 			}
 
-
+			
 
 		},
 
@@ -564,7 +551,7 @@ var filters = {
 			let name = $tag.data('name'),
 				value = $tag.data('value');
 
-			if (Array.isArray(filters.virtual.form[name])) {
+			if(Array.isArray(filters.virtual.form[name])){
 
 				let pos = filters.virtual.form[name].indexOf(value);
 
@@ -574,7 +561,7 @@ var filters = {
 
 				filters.virtual.print("tag delete array item");
 
-			} else {
+			}else{
 
 				config.log("tag is not array");
 
@@ -585,7 +572,7 @@ var filters = {
 
 			$tag.remove();
 
-			if (filters.tag.list.find('.tag').length == 0) {
+			if(filters.tag.list.find('.tag').length == 0){
 				filters.tag.list.empty().hide();
 			}
 
@@ -596,14 +583,14 @@ var filters = {
 		remove: (name, value) => {
 
 			let $item = (value) ? $(`.tag[data-name="${name}"][data-value="${value}"]`) : $(`.tag[data-name="${name}"]`);
-
+				
 			config.log('remove tag', $item);
 
 			$item.remove();
 
 			filters.virtual.print("after remove tag");
 
-			if (filters.tag.list.find('.tag').length == 0) {
+			if(filters.tag.list.find('.tag').length == 0){
 				filters.tag.list.empty().hide();
 			}
 
@@ -621,20 +608,20 @@ var filters = {
 
 			for (var i in filters.virtual.form) {
 
-				if (Array.isArray(filters.virtual.form[i])) {
+				if(Array.isArray(filters.virtual.form[i])){
 
-					filters.virtual.form[i].forEach((item, index) => {
+					filters.virtual.form[i].forEach((item,index) => {
 
 						filters.tag.add(i, item);
 
 					})
 
-				} else {
+				}else{
 
 					filters.tag.add(i, filters.virtual.form[i]);
 
 				}
-
+				
 			}
 
 		}
@@ -657,7 +644,7 @@ var filters = {
 
 	resize: () => {
 
-		if ($(window).width() > 1024) {
+		if($(window).width() > 1024){
 			filters.close()
 		}
 
@@ -673,23 +660,23 @@ var filters = {
 
 			$container.empty();
 
-			filters_data.forEach((cat, index) => {
+			filters_data.forEach((cat,index) => {
 
-				if (cat.hasOwnProperty('status') && cat.status == "mobile") {
+				if(cat.hasOwnProperty('status') && cat.status == "mobile"){
 					return;
 				}
 
-				$template +=
+				$template += 	
 					`<div class="modals__box js-more-box">
 						<div class="modals__label h5">${cat.label}</div>
 						<ul class="modals__list flex flex_vertical">`;
 
-				cat.list.forEach((item) => {
+				cat.list.forEach((item) => {					
 					$template += filters.template.checkbox(item, 'modals');
 				})
 
-				$template +=
-					`</ul>
+				$template += 
+						`</ul>
 					</div>`;
 
 			})
@@ -710,9 +697,9 @@ var filters = {
 
 			$container.empty();
 
-			filters_data.forEach((cat, index) => {
+			filters_data.forEach((cat,index) => {
 
-				$template +=
+				$template += 	
 					`<div class="filter-modal__filter mobile-filter js-mobile-filter" data-id="${index}" data-name="${cat.list[0].name.replace('[]', '')}">
 						<div class="mobile-filter__list">
 							<div class="mobile-filter__label p">${cat.label}</div>
@@ -725,7 +712,7 @@ var filters = {
 					</div>`;
 
 			})
-
+			
 			$container.append($template);
 		}
 
@@ -734,7 +721,7 @@ var filters = {
 	reset: {
 
 		see: (e) => {
-
+			
 			let $this = $(e.currentTarget);
 
 			let $parent = $this.closest('.js-reset-parent');
@@ -742,13 +729,13 @@ var filters = {
 			let $reset = $parent.find('.js-reset-filters');
 
 			let inputLength = $parent.find('input[type="text"]').filter(function () {
-				return !!this.value;
+			    return !!this.value;
 			}).length;
 
 			config.log('see trigger', inputLength);
 
-			if ($parent.find('input:checked').length ||
-				inputLength) {
+			if($parent.find('input:checked').length 
+				|| inputLength){
 
 				$reset.removeClass('is-gray')
 
@@ -763,10 +750,10 @@ var filters = {
 			let $parent = $this.closest('.js-reset-parent');
 
 			let inputLength = $parent.find('input[type="text"]').filter(function () {
-				return !!this.value;
+			    return !!this.value;
 			}).length;
 
-			if (!$parent.find('input:checked').length && !inputLength)
+			if(!$parent.find('input:checked').length && !inputLength)
 				return false;
 
 			$parent.find('input:checked').prop('checked', false);
@@ -820,7 +807,7 @@ var filters = {
 
 		filters.mobile_panel_values.find(`input:checked`).each((i, el) => {
 
-			$mylist.append(`<div class="mobile-filter__item p">${$(el).val()}</div>`)
+		    $mylist.append(`<div class="mobile-filter__item p">${$(el).val()}</div>`)
 
 		});
 	},
@@ -831,19 +818,19 @@ var filters = {
 		let $template = '';
 		let $getlist = $(`.js-mobile-filter[data-id="${id}"]`);
 
-
+		
 		$container.empty();
 
 		filters.mobile_panel_values.find('.menu-modal__head span').text(current.label);
 
 		config.log("open mobile checkbox items", current.list, $getlist.text())
 
-		current.list.forEach((item, index) => {
+		current.list.forEach((item,index) => {
 
 			let checked = $getlist.text().replace(/&nbsp;/gi, " ").indexOf(item.label.replace(/&nbsp;/gi, " ")) !== -1;
 
 			$template += filters.template.checkbox(item, 'menu-modal', true, checked);
-
+			
 		})
 
 		filters.mobile_panel_values.attr('data-id', id)
@@ -864,7 +851,7 @@ var filters = {
 		filters.setup.mobile();
 
 		filters.virtual.send();
-
+		
 		$(document).on('click', '.js-close-mobile-filter', filters.closeMobile)
 
 		$(document).on('click', '.js-mobile-filter', e => {
@@ -884,12 +871,12 @@ var filters = {
 			$('.filter-modal').find('.js-virtual-input').each((i, el) => {
 				filters.virtual.buttonCheck(el);
 				filters.virtual.input(el);
-			})
+			})		
 
 			filters.tag.update();
-			filters.virtual.send();
-
-			filters.close();
+			filters.virtual.send();		
+			
+			filters.close();		
 
 		})
 
@@ -915,9 +902,9 @@ var filters = {
 
 		$(document).on('change', '.js-virtual-input', e => {
 
+			
 
-
-			if ($(e.currentTarget).hasClass('js-send-input')) {
+			if($(e.currentTarget).hasClass('js-send-input')){
 				filters.virtual.input(e.currentTarget);
 				filters.virtual.send();
 				filters.tag.update();
@@ -944,6 +931,4 @@ var filters = {
 
 };
 
-export {
-	filters
-}
+export { filters }

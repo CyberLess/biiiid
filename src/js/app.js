@@ -1,6 +1,4 @@
-import {
-	App
-} from './init';
+import { App } from './init';
 
 var app = new App();
 

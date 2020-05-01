@@ -1,27 +1,24 @@
 import "magnific-popup";
-import {
-	config
-} from "../config";
-import {
-	player
-} from "./player";
+import { config } from "../config";
+import { player } from "./player";
 
 var modals = {
 
 	close: (e) => {
 
-		if (e)
+		if(e)
 			e.preventDefault();
 
 		config.log('close modal');
 
-		$.magnificPopup.close();
+		$.magnificPopup.close();	
 
 	},
 
-	gallery: {
+	gallery:  {
 
-		image: `<div class="modals modals_media">
+		image: 
+			`<div class="modals modals_media">
 
 				<div class="modals__container">
 					<div class="modals__part modals__part_static">
@@ -43,7 +40,7 @@ var modals = {
 							<div class="mfp-figure">
 								<div class="mfp-img"></div>
 							</div>
-						</div>
+						</div>					
 					</div>
 				</div>
 			</div>`,
@@ -175,7 +172,7 @@ var modals = {
 										    </div>
 										</div>
 									</div>
-								</div>
+								</div>					
 							</div>
 						</div>
 					</div>`;
@@ -184,13 +181,13 @@ var modals = {
 		defaultHeight: 0,
 
 		imageHeight: (item) => {
+			
+            let img = item.find('.mfp-figure');
+            let maxHeight = img.closest('.modals__part_fluid').height();
 
-			let img = item.find('.mfp-figure');
-			let maxHeight = img.closest('.modals__part_fluid').height();
+            modals.gallery.defaultHeight = maxHeight;
 
-			modals.gallery.defaultHeight = maxHeight;
-
-			img.css('max-height', `${maxHeight}px`);
+            img.css('max-height', `${maxHeight}px`);
 		},
 
 		init: () => {
@@ -206,7 +203,7 @@ var modals = {
 					enabled: true,
 					navigateByImgClick: false,
 					arrowMarkup: '<div class="modals__arrow modals__arrow_%dir% owl-nav owl-nav_big"><button type="button" role="presentation" class="owl-%dir%"><svg class="icon icon-arrow" viewBox="0 0 12 7"><use xlink:href="/app/icons/sprite.svg#arw"></use></svg></button></div>', // markup of an arrow button
-					preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+					preload: [0,1] // Will preload 0 - before current, and 1 after the current image
 				},
 				image: {
 					markup: modals.gallery.image,
@@ -214,48 +211,51 @@ var modals = {
 				},
 				callbacks: {
 					// change: modals.gallery.imageHeight(),
-					// resize: modals.gallery.imageHeight(),
-					beforeOpen: () => {
-						$('html, body').addClass('js-lock')
-					},
-					afterClose: () => {
-						$('html, body').removeClass('js-lock')
-					},
-					change: function (item) {
-						let img = this.content.find('.mfp-figure');
-						img.css('max-height', `${modals.gallery.defaultHeight}px`);
+			        // resize: modals.gallery.imageHeight(),
+			        beforeOpen: () => {
+			        	$('html, body').addClass('js-lock')
+			        },
+			        afterClose: () => {
+			        	$('html, body').removeClass('js-lock')
+			        },
+			        change: function(item) {
+			        	let img = this.content.find('.mfp-figure');
+			        	img.css('max-height', `${modals.gallery.defaultHeight}px`);
 
-						if (item.el.hasClass("js-video-link")) {
-							let $name = this.content.find('.modals__author-case'),
-								$player = this.content.find('.js-player');
+			        	if(item.el.hasClass("js-video-link")){
+			        		let $name = this.content.find('.modals__author-case'),
+			        			$player = this.content.find('.js-player');
 
 							$name.text(item.el.attr('title'))
 							player.init($player);
-						}
-					},
-					resize: function () {
-						modals.gallery.imageHeight(this.content)
-					},
-					elementParse: function (item) {
+			        	}
+			        },
+			        resize: function() {
+			        	modals.gallery.imageHeight(this.content)
+			        },
+					elementParse: function(item) {
 						// the class name
-						if (item.el.hasClass("js-video-link")) {
+						if(item.el.hasClass("js-video-link")){
 							config.log("is modal video in gallery")
 							item.type = 'inline';
 							item.src = modals.gallery.inline(item.el.attr('href'), item.el.data('video'));
-						} else {
+						}else {
 							item.type = 'image';
 						}
 					}
 				},
 			});
 		}
+
+
+
 	},
 
 	open: (e, modal) => {
 
 		e = e || false;
 
-		if (e) e.preventDefault();
+		if(e) e.preventDefault();
 
 		// modals.close();
 
@@ -263,12 +263,12 @@ var modals = {
 
 		modal = modal || (e != false ? ($(e.currentTarget).attr('href') ? $(e.currentTarget).attr('href') : $(e.currentTarget).data('modal')) : e);
 
-		if (!modal)
+		if(!modal)
 			return false;
 
 		let open = $.magnificPopup.instance.isOpen;
 
-		if (open) {
+		if(open){
 
 			var mfp = $.magnificPopup.instance;
 
@@ -285,33 +285,35 @@ var modals = {
 			// call update method to refresh counters (if required)
 			mfp.updateItemHTML();
 
-		} else {
-			if (e && $(e.currentTarget).attr('data-youtube')) {
-				$(modal + ' iframe').attr('src', 'https://www.youtube.com/embed/' + $(e.currentTarget).data('youtube') + '?autoplay=1&showinfo=0&rel=0&controls=0')
+		}else{
+			if(e && $(e.currentTarget).attr('data-youtube')){
+				$(modal + ' iframe').attr('src', 'https://www.youtube.com/embed/'+$(e.currentTarget).data('youtube')+'?autoplay=1&showinfo=0&rel=0&controls=0')
 			}
 
-			if (e && $(e.currentTarget).attr('data-input')) {
+			if(e && $(e.currentTarget).attr('data-input')){
 				$(modal + ' input[name="form"]').val($(e.currentTarget).data('input'))
-			}
+			}	
 
 			$.magnificPopup.open({
 				tClose: 'Закрыть',
 				removalDelay: 600,
 				fixedContentPos: true,
 				fixedBgPos: true,
-				overflowY: 'scroll',
+				overflowY: 'scroll',			
 				closeMarkup: '<div class="modals__close close js-close-modal"><svg class="icon icon-close close2" viewBox="0 0 612 612"><use xlink:href="/app/icons/sprite.svg#cls"></use></svg></div>',
-				mainClass: 'css-modal-animate',
+				mainClass: 'css-modal-animate',				
 				items: {
 					src: modal,
 					type: 'inline'
 				},
 				callbacks: {
-					beforeOpen: () => {},
+					beforeOpen: () => {
+					},
 
-					beforeClose: () => {}
+					beforeClose: () => {
+					}
 				}
-			}, 0);
+			}, 0);			
 		}
 
 
@@ -334,6 +336,4 @@ var modals = {
 };
 
 
-export {
-	modals
-};
+export { modals };

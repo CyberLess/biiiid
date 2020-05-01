@@ -12,6 +12,10 @@
 	}
 
 	&_empty {
+		@include max-screen($messages_large_mobile) {
+			display: none;
+		}
+
 		@include min-screen($messages_large_mobile + 1) {
 			height: 6.8rem;
 		}

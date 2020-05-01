@@ -29,6 +29,11 @@
 		height: 90%;
 
 		transform: translateY(-50%);
+
+		opacity: 0;
+
+		transition-property: opacity;
+		transition-duration: .2s;
 	}
 
 	&__textarea-scroll-handle {
@@ -104,6 +109,11 @@
 
 		width: 3px;
 		height: 100%;
+
+		opacity: 0;
+
+		transition-property: opacity;
+		transition-duration: .2s;
 	}
 
 	.dropzone__drop-prev-bar {

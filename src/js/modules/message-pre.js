@@ -3,9 +3,13 @@ import { messagesScroll } from "./messages-scroll";
 import { getMessages } from "./get-messages";
 
 var messagePre = {
+	$dialogsBlock: $('.messages-dialogs'),
+
 	closeMobile: () => {
-		$('.messages-dialogs').hide();
+		messagePre.$dialogsBlock.hide();
 		$('.messages-pre').show();
+		messageHeight.$send.addClass('send_no-active');
+		messagePre.$dialogsBlock.css('opacity', '0');
 		messageHeight.init.correctHeight();
 	},
 
@@ -117,48 +121,23 @@ var messagePre = {
 		// 	setSendDate(userObject['messages'][userObject['messages'].length - 1]['sendDate']);
 		// };
 
-		// Начало тестового временного кода
 		const $messagesPre = $('.messages-pre');
 		const $message = $messagesPre.find('.messages-pre__message');
 		const $link = $messagesPre.find('.messages-pre__dialog-link');
 		const $dialog = $('.messages-dialogs');
 
-		const isHidden = (id) => {
-			const $dialog = $(`.messages-dialogs__content-wrap[data-user-id=${id}]`);
-
-			return {
-				isHidden: !$dialog,
-				dialog: $dialog
-			}
-		};
-
 		const openMobile = (id) => {
 			$messagesPre.hide();
-			$('.messages-dialogs').show();
-			const hiddenDialog = isHidden(id);
+			messagePre.$dialogsBlock.show();
 
-			if (hiddenDialog.isHidden) {
-				hiddenDialog.dialog.show();
-			} else {
-				getMessages.init.getDialog(id, getMessages.params);
-			}
-
-			// messageHeight.init.correctHeight();
-			// messagesScroll.init.onDialogOpen();
+			getMessages.getDialog(id, getMessages.params);
 		};
 
 		const openDesktop = (id, currentItem) => {
 			if (!currentItem.hasClass('messages-pre__message_opened')) {
 				$message.removeClass('messages-pre__message_opened');
 				currentItem.addClass('messages-pre__message_opened');
-
-				const hiddenDialog = isHidden(id);
-
-				if (hiddenDialog.isHidden) {
-					hiddenDialog.dialog.show();
-				} else {
-					getMessages.init.getDialog(id, getMessages.params);
-				}
+				getMessages.getDialog(id, getMessages.params);
 			}
 		};
 
@@ -182,11 +161,14 @@ var messagePre = {
 
 		$(window).resize(function () {
 		  if ($(window).width() >= 920) {
-				$dialog.css('display', '');
+				$dialog.css({
+					display: '',
+					opacity: ''
+				});
 				$messagesPre.css('display', '');
 			}
 		});
-		// Конец тестового временного кода
+
 	}
 };
 

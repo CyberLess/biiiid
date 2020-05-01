@@ -12,9 +12,54 @@
 		}
 	}
 
+	&__empty {
+		@include max-screen($messages_large_mobile) {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__error {
+		margin-bottom: 1rem;
+		margin-right: .6rem;
+
+		text-align: center;
+	}
+
+	&__back {
+		display: block;
+		width: 100%;
+		border: none;
+
+		color: #009688;
+		text-decoration: underline;
+
+		background-color: transparent;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			color: #7b8580;
+		}
+
+		&:active {
+			color: #000000;
+			text-decoration: none;
+		}
+
+		@include min-screen($messages_large_mobile + 1) {
+			display: none;
+		}
+	}
+
 	@include max-screen($messages_large_mobile) {
 		display: none;
 		width: 100%;
+		opacity: 0;
+
+		transition-property: opacity;
+		transition-duration: .2s;
 	}
 
 	&__dialog-frame {
@@ -34,9 +79,6 @@
 		height: 55vh;
 		padding-top: 1.4rem;
 
-		transition-duration: .2s;
-		transition-property: height;
-
 		@include max-screen($messages_large_mobile) {
 			height: 42vh;
 			padding-top: 0;
@@ -51,6 +93,11 @@
 
 		width: 3px;
 		height: 98%;
+
+		opacity: 0;
+
+		transition-property: opacity;
+		transition-duration: .2s;
 
 		@include max-screen($messages_large_mobile) {
 			right: .4rem;
@@ -78,6 +125,27 @@
 	&_online {
 		.dialog__author-name_user {
 			color: #009688;
+		}
+	}
+
+	&__try-again {
+		margin-bottom: 1rem;
+		border: none;
+
+		color: #009688;
+		text-decoration: underline;
+
+		background-color: transparent;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			color: #7b8580;
+		}
+
+		&:active {
+			color: #000000;
+			text-decoration: none;
 		}
 	}
 }

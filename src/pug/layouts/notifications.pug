@@ -1,0 +1,120 @@
++b.notifications
+	+e.top
+		+e.BUTTON.toggle._notifications._active Уведомления
+		+e.BUTTON.toggle._messages Сообщения
+
+	+e.additional-wrap
+		+e.scrollbar
+			+e.handle
+
+		+e.list-wrap._notifications
+			+e.UL.list
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date Сегодня
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 21.03.19
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 17.03.19
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 14.03.19
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 04.03.18
+
+	+e.additional-wrap
+		+e.scrollbar
+			+e.handle
+
+		+e.list-wrap_messages
+			+e.UL.list
+				+e.LI.item._unread
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date Сегодня
+							+e.quantity 1
+
+				+e.LI.item._unread
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 21.03.19
+							+e.quantity 4
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 17.03.19
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 14.03.19
+
+				+e.LI.item
+					+e.A.link(href="#")
+						+e.image-wrap
+							+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+						+e.content-wrap
+							+e.name Stanislav
+							+e.text Вам поступил новый заказ “Верстка сайта под ключ #123123” от Евгения
+						+e.date 04.03.18
+
+	+e.bottom._notifications
+		+e.sound-wrap
+			+e.INPUT.sound-check(type="checkbox" name="sound" id="notifications-sound" checked)
+			+e.LABEL.sound-label(for="notifications-sound")
+				+icon('soundoff')
+				+icon('soundon')
+
+		+e.BUTTON.settings-wrap
+			+icon('settings')
+
+		+e.A.show-all(href="#") Показать все

@@ -53,6 +53,7 @@ var messagesScroll = {
 			root: $($messagesPrevWrap)[0],
 			scroller: $($framePrev)[0],
 			bar: $($scrollPrevHandle)[0],
+			scrollingCls: '_scrolling'
 		});
 
 		if ($($dialogWrap)[0]) {
@@ -60,6 +61,7 @@ var messagesScroll = {
 				root: $($dialogWrap)[0],
 				scroller: $($frameDialog)[0],
 				bar: $($scrollBarHandle)[0],
+				scrollingCls: '_scrolling'
 			});
 		}
 

@@ -1,6 +1,8 @@
 import baron from 'baron';
 
 var messageHeight = {
+	$send: $('.send'),
+
 	init: () => {
 		const LARGE_MOBILE = 580;
 		const MEDIUM_MOBILE = 920;
@@ -42,17 +44,33 @@ var messageHeight = {
 			}
 		};
 
+		const showSend = () => {
+			if (messageHeight.$send.hasClass('send_no-active')) {
+				messageHeight.$send.removeClass('send_no-active');
+			}
+		};
+
 		const correctHeight = () => {
 			setBottom();
 
-			if ($(window).width() <= LARGE_MOBILE && $($dialogWrap)[0] && $($dialogFrame)[0] && $($preFrame)[0] && $($sendWrap)[0]) {
-				$dialogWrap.height($(window).height() - $dialogWrap.offset().top - $sendWrap.outerHeight() - bottom);
-				$dialogFrame.height($(window).height() - $dialogFrame.offset().top - $sendWrap.outerHeight() - bottom);
-				$preFrame.height($(window).height() - $preFrame.offset().top - bottom);
-			} else if ($($dialogWrap)[0] && $($dialogFrame)[0] && $($preFrame)[0] && $($sendWrap)[0]) {
-				$dialogWrap.height($(window).height() - $dialogWrap.offset().top - $sendWrap.outerHeight() - bottom /2);
-				$dialogFrame.height($(window).height() - $dialogFrame.offset().top - $sendWrap.outerHeight() - bottom / 2);
+			if ($(window).width() <= LARGE_MOBILE) {
+				if ($($dialogWrap)[0] && $($dialogFrame)[0] && $($preFrame)[0] && $($sendWrap)[0]) {
+					$dialogWrap.height($(window).height() - $dialogWrap.offset().top - $sendWrap.outerHeight() - bottom);
+					$dialogFrame.height($(window).height() - $dialogFrame.offset().top - $sendWrap.outerHeight() - bottom);
+
+					showSend();
+				}
+
 				$preFrame.height($(window).height() - $preFrame.offset().top - bottom / 2);
+			} else {
+				if ($($dialogWrap)[0] && $($dialogFrame)[0] && $($preFrame)[0] && $($sendWrap)[0]) {
+					$dialogWrap.height($(window).height() - $dialogWrap.offset().top - $sendWrap.outerHeight() - bottom / 2);
+					$dialogFrame.height($(window).height() - $dialogFrame.offset().top - $sendWrap.outerHeight() - bottom / 2);
+
+					showSend();
+				}
+
+				$preFrame.height($(window).height() - $preFrame.offset().top - bottom / 2 +13);
 			}
 		};
 
@@ -72,6 +90,7 @@ var messageHeight = {
 					root: $($inputsWrap)[0],
 					scroller: $($textareaFrameWrap)[0],
 					bar: $($textareaScrollHandle)[0],
+					scrollingCls: '_scrolling'
 				});
 			}
 		};

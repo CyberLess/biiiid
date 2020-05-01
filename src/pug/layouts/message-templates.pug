@@ -19,15 +19,14 @@ TEMPLATE(id="message-pre")
 						+e.SPAN.quantity 0
 
 TEMPLATE(id="messages-content-wrap")
-	+b.messages-dialogs
-		+e.content-wrap
-			+e.dialog-wrap
-				+e.scrollbar
-					+e.handle
+	+e.messages-fragment-wrap
+		+b.messages-dialogs__dialog-wrap
+			+e.scrollbar
+				+e.handle
 
-				+e.dialog-frame
-					+e.UL.dialog-list.dialog__
-						+e.LI.message Тест
+			+e.dialog-frame
+				+e.UL.dialog-list.dialog__
+					+e.LI.message Тест
 
 TEMPLATE(id="dialog-header")
 	+b.messages-dialogs__header.dialog-header__
@@ -185,4 +184,4 @@ TEMPLATE(id="empty")
 			+e.header.dialog-header._empty
 
 			+e.dialog-wrap
-				+e.empty.p У вас нет активных диалогов
+				+e.empty.p Загрузка...

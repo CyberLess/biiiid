@@ -1,12 +1,6 @@
-import {
-	player
-} from "./player";
-import {
-	sliders
-} from "./sliders";
-import {
-	config
-} from "../config";
+import { player } from "./player";
+import { sliders } from "./sliders";
+import { config } from "../config";
 require('sly-scrolling/dist/sly');
 
 var thumbnails = {
@@ -15,7 +9,7 @@ var thumbnails = {
 
 	init: () => {
 
-		if (!thumbnails.items.length)
+		if(!thumbnails.items.length)
 			return false;
 
 		config.log('thumbnails init')
@@ -50,7 +44,7 @@ var thumbnails = {
 				dragHandle: 1,
 				dynamicHandle: 1,
 				clickBar: 1,
-			}).sly('on', 'active', (eventName, itemIndex) => {
+			}).sly('on', 'active', (eventName, itemIndex ) => {
 
 				let $parent = $box.closest('.js-slider-parent');
 
@@ -59,15 +53,13 @@ var thumbnails = {
 				owl.owlCarousel();
 
 				owl.trigger('to.owl.carousel', [itemIndex]);
-
+				
 			});
-
+				
 		})
 
 	}
 
 };
 
-export {
-	thumbnails
-};
+export {thumbnails};

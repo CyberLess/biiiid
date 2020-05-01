@@ -1,6 +1,7 @@
 var setDialogHeader = {
 	IMG_SRC: '/app/img/',
 	fragment: document.createDocumentFragment(),
+	$dialogWrap: $('#messages-content-wrap').contents('.messages__messages-fragment-wrap'),
 
 	setAvatar: (avatarData, avatarImg, avatarWebp) => {
 		avatarImg.attr('src', `${setDialogHeader.IMG_SRC}${avatarData}.jpg`);
@@ -16,8 +17,6 @@ var setDialogHeader = {
 		const $headerOnlineTime = $dialogHeaderTemplate.find('.dialog-header__online-time');
 		const $headerUserTime = $dialogHeaderTemplate.find('.dialog-header__user-time');
 
-		const $dialogWrapTemplate = $('#messages-content-wrap').contents('.messages-dialogs');
-		const $dialogWrap = $dialogWrapTemplate.find('.messages-dialogs__content-wrap');
 		const $dialogsWrap = $('.messages-dialogs');
 
 		const setHeaderName = (nameData) => {
@@ -54,8 +53,8 @@ var setDialogHeader = {
 		};
 
 		const makeDialogFragment = () => {
-			$dialogWrap.prepend($dialogHeaderTemplate);
-			setDialogHeader.fragment.appendChild($($dialogWrap)[0]);
+			setDialogHeader.$dialogWrap.prepend($dialogHeaderTemplate);
+			setDialogHeader.fragment.appendChild($(setDialogHeader.$dialogWrap)[0]);
 
 			return setDialogHeader.fragment;
 		};
