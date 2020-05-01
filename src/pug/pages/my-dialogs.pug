@@ -1,0 +1,12 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Мои сообщения';
+
+block header
+	+header(true)
+
+block content
+	include ../layouts/messages
+
+block footer

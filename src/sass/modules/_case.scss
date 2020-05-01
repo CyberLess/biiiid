@@ -6,6 +6,10 @@
 		margin-top: 3rem;
 	}
 
+	&__link{
+		transition: ease .1s;
+	}
+
 	&__list{
 		margin-left: -23px;
 		margin-right: -23px;
@@ -80,6 +84,9 @@
 
 		&:hover{
 			.case{
+				&__link{
+					color: $green;
+				}
 				&__like{
 					opacity: 1;
 					visibility: visible;
@@ -133,6 +140,19 @@
 	&__gallery{
 		margin-bottom: 2.4rem;
 		overflow: hidden;
+
+		.owl-nav{
+			opacity: 0;
+			transition: ease .1s;
+			visibility: hidden;
+		}
+
+		&:hover{
+			.owl-nav{
+				opacity: 1;
+				visibility: visible;
+			}			
+		}
 
 		&_noscope{
 			margin-bottom: 0;

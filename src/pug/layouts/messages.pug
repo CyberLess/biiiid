@@ -1,0 +1,173 @@
++b.SECTION.messages
+	+e.wrap.wrap
+		+b.messages-pre
+			+e.cell._search
+				+b.FORM.search(action="/")
+					+e.INPUT.input(type="text" name="search-messages" placeholder="Поиск по сообщениям")
+					+e.BUTTON.submit
+						+icon('loupe')
+					+e.sound-wrap
+						+e.INPUT.sound-check(type="checkbox" name="sound" id="sound" checked)
+						+e.LABEL.sound-label(for="sound")
+							+icon('soundoff')
+							+icon('soundon')
+
+			+e.messages-list-wrap
+				+e.scrollbar
+					+e.handle
+				+e.massages-frame
+					+e.UL.list
+
+						+e.LI.message._unread._online
+							+e.A.dialog-link(href="#" data-user-id="1")
+							+e.image-block
+								+e.SPAN.online
+								+e.image-wrap
+									+e.IMG.author-avatar(src="/img/avatar-woman.jpg")
+							+e.content-wrap
+								+e.text-top
+									+e.SPAN.author-name Елена
+									+e.SPAN.date-and-delivery
+										+e.delivery-icon
+											+icon('delivered')
+											+icon('messageread')
+										+e.TIME.date(datetime="2019-10-21") 21.10.2019
+								+e.text-bottom
+									+e.SPAN.prev-text Привет, давай работать вместе, мне понравилось, как ты озвучиваешь...
+									+e.SPAN.quantity-wrap
+										+e.SPAN.quantity 1
+
+						+e.LI.message._unread._online
+							+e.A.dialog-link(href="#" data-user-id="2")
+							+e.image-block
+								+e.SPAN.online
+								+e.image-wrap
+									+e.IMG.author-avatar(src="/img/avatar-andrew.jpg")
+							+e.content-wrap
+								+e.text-top
+									+e.SPAN.author-name Андрей
+									+e.SPAN.date-and-delivery
+										+e.delivery-icon
+											+icon('delivered')
+											+icon('messageread')
+										+e.TIME.date(datetime="2019-10-21") 21.10.2019
+								+e.text-bottom
+									+e.SPAN.prev-text Привет, давай работать вместе, мне понравилось, как ты озвучиваешь...
+									+e.SPAN.quantity-wrap
+										+e.SPAN.quantity 23
+
+						+e.LI.message._delivered._read
+							+e.A.dialog-link(href="#" data-user-id="3")
+							+e.image-block
+								+e.SPAN.online
+								+e.image-wrap
+									+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
+							+e.content-wrap
+								+e.text-top
+									+e.SPAN.author-name Евгений
+									+e.SPAN.date-and-delivery
+										+e.delivery-icon
+											+icon('delivered')
+											+icon('messageread')
+										+e.TIME.date(datetime="2019-10-21") 21.10.2019
+								+e.text-bottom
+									+e.SPAN.prev-text Давай, давай работать вместе, мне понравилось твоё творчество
+									+e.SPAN.quantity-wrap
+										+e.SPAN.quantity 0
+
+						+e.LI.message._read
+							+e.A.dialog-link(href="#" data-user-id="4")
+							+e.image-block
+								+e.SPAN.online
+								+e.image-wrap
+									+e.IMG.author-avatar(src="/img/avatar-maria.jpg")
+							+e.content-wrap
+								+e.text-top
+									+e.SPAN.author-name Мария
+									+e.SPAN.date-and-delivery
+										+e.delivery-icon
+											+icon('delivered')
+											+icon('messageread')
+										+e.TIME.date(datetime="2019-10-21") 21.10.2019
+								+e.text-bottom
+									+e.SPAN.prev-text Давай, давай работать вместе, мне понравилось твоё
+									+e.SPAN.quantity-wrap
+										+e.SPAN.quantity 0
+
+						+e.LI.message
+							+e.A.dialog-link(href="#" data-user-id="5")
+							+e.image-block
+								+e.SPAN.online
+								+e.image-wrap
+									+e.IMG.author-avatar(src="/img/avatar-kate.jpg")
+							+e.content-wrap
+								+e.text-top
+									+e.SPAN.author-name Екатерина
+									+e.SPAN.date-and-delivery
+										+e.delivery-icon
+											+icon('delivered')
+											+icon('messageread')
+										+e.TIME.date(datetime="2019-10-21") 21.10.2019
+								+e.text-bottom
+									+e.SPAN.prev-text Печатает...
+									+e.SPAN.quantity-wrap
+										+e.SPAN.quantity 0
+
+		+b.messages-dialogs
+			+e.content-wrap
+				+e.header.dialog-header._empty
+
+				+e.dialog-wrap
+					+e.empty.p У вас нет активных диалогов
+
+			+e.send-wrap.send__._no-active
+				+e.SPAN.typing-now Евгений Н. печатает...
+				+e.BUTTON.bill Выставить счёт
+				+e.FORM.form.dialog-form__(action="/" method="POST" autocomplete="off" enctype="multipart/form-data")
+					+e.inputs-wrap.input
+						+e.textarea-scrollbar
+							+e.textarea-scroll-handle
+
+						+e.textarea-wrap
+							+e.textarea-frame-wrap
+								+e.TEXTAREA.message-text(
+									type="text"
+									placeholder="Напишите сообщение..."
+									name="message"
+									rows="1")
+
+						+e.dropzone-wrap
+
+							+e.dropzone.dropzone__.js-dropzone
+								+e.drop-prev-scrollbar
+									+e.drop-prev-bar
+								+e.area
+									+e.INPUT.file(name="file" type="file" multiple)
+									+e.preview
+										+e.item
+											+e.row.flex._vertical
+												+e.icon
+													+icon('doc')
+												+e.name
+													+e.SPAN(data-dz-name)
+													+e.SPAN.size
+														| &nbsp;(
+														span(data-dz-size)
+														| )
+													+e.SPAN.status(data-dz-uploadprogress)
+														+e.IMG.status-preload(src="/app/img/preload.svg")
+														span.progress-text
+													+e.SPAN.remove.js-remove-file(data-dz-remove)
+														+icon('delete')
+
+						+e.upload-wrap
+							+e.BUTTON.upload-btn.js-dropzone-trigger.js-without(type="button")
+								+e.icon-upload-wrap
+									+icon('clip')
+								+b.SPAN.visually-hidden Выберите файл
+					+e.BUTTON.send-btn(type="submit")
+						+b.SPAN.visually-hidden Отправить сообщение
+						+e.icon-send-wrap
+							+icon('send')
+
+	include message-templates

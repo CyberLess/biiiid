@@ -1,0 +1,151 @@
+.messages-dialogs {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+
+
+	@include min-screen($messages_large_mobile + 1) {
+		min-width: 52.5rem;
+
+		&__empty {
+			padding: .6rem 4rem;
+		}
+	}
+
+	&__empty {
+		@include max-screen($messages_large_mobile) {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__error {
+		margin-bottom: 1rem;
+		margin-right: .6rem;
+
+		text-align: center;
+	}
+
+	&__back {
+		display: block;
+		width: 100%;
+		border: none;
+
+		color: #009688;
+		text-decoration: underline;
+
+		background-color: transparent;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			color: #7b8580;
+		}
+
+		&:active {
+			color: #000000;
+			text-decoration: none;
+		}
+
+		@include min-screen($messages_large_mobile + 1) {
+			display: none;
+		}
+	}
+
+	@include max-screen($messages_large_mobile) {
+		display: none;
+		width: 100%;
+		opacity: 0;
+
+		transition-property: opacity;
+		transition-duration: .2s;
+	}
+
+	&__dialog-frame {
+		flex-shrink: 1;
+		height: 54vh;
+
+		@include max-screen($large_mobile) {
+
+		}
+	}
+
+	&__dialog-wrap {
+		position: relative;
+
+		overflow: hidden;
+		flex-shrink: 0;
+		height: 55vh;
+		padding-top: 1.4rem;
+
+		@include max-screen($messages_large_mobile) {
+			height: 42vh;
+			padding-top: 0;
+		}
+	}
+
+	&__scrollbar {
+		position: absolute;
+		z-index: 1000;
+		top: .5rem;
+		right: 1.6rem;
+
+		width: 3px;
+		height: 98%;
+
+		opacity: 0;
+
+		transition-property: opacity;
+		transition-duration: .2s;
+
+		@include max-screen($messages_large_mobile) {
+			right: .4rem;
+		}
+	}
+
+	&__handle {
+		position: absolute;
+		width: 3px;
+
+		background-color: #2a2d34;
+		opacity: .15;
+	}
+
+	&__dialog-list {
+		margin-top: -.4rem;
+	}
+
+	&__send-wrap {
+		flex-shrink: 0;
+		margin-top: auto;
+		margin-bottom: 2px;
+	}
+
+	&_online {
+		.dialog__author-name_user {
+			color: #009688;
+		}
+	}
+
+	&__try-again {
+		margin-bottom: 1rem;
+		border: none;
+
+		color: #009688;
+		text-decoration: underline;
+
+		background-color: transparent;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			color: #7b8580;
+		}
+
+		&:active {
+			color: #000000;
+			text-decoration: none;
+		}
+	}
+}

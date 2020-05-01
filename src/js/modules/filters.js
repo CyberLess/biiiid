@@ -66,7 +66,7 @@ var filters = {
 					        <div class="player__bar">
 					            <div class="player__bar-line">
 					                <div class="player__bar-progress"></div>
-					                <div class="player__bar-dot"></div>
+					                <div class="player__bar-dot ui-slider-handle"></div>
 					            </div>
 					        </div>
 					        <div class="player__nav">
@@ -175,8 +175,8 @@ var filters = {
                             </div>
 							${rating}
                         </div>
-                        <div class="case__content content">
-                            <p>${item.name}</p>
+                        <div class="case__content">
+                        	<a href="#" class="case__link p">${item.name}</a>
                         </div>
                         <div class="case__bottom flex flex_justify flex_vertical">
                             <div class="case__price h6">${(item.hasOwnProperty("price")) ? item.price : ""}</div>

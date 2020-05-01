@@ -1,0 +1,39 @@
+.messages {
+	padding-top: 3.5rem;
+
+
+	&__wrap {
+		display: flex;
+		height: 100%;
+	}
+
+	&__preloader {
+		position: absolute;
+		z-index: 1000;
+		top: 50vh;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+	}
+
+	@include max-screen($large_tablet) {
+		padding-top: 0;
+		padding-bottom: 3rem;
+	}
+
+	@include max-screen($large_mobile) {
+		padding-top: 0;
+		padding-bottom: 0rem;
+	}
+}
+
+._scrolling {
+	.messages-dialogs__scrollbar,
+	.messages-pre__scrollbar,
+	.dialog-form__textarea-scrollbar,
+	.dropzone__drop-prev-scrollbar,
+	.notifications__scrollbar {
+		opacity: 1;
+	}
+}
+
