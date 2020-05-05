@@ -81,9 +81,9 @@ App.prototype.init = () => {
 	order.init();
 	menu.init();
 	player.init();
-	messagesScroll.init();
-	messageHeight.init();
-	dropPreview.init();
+	// messagesScroll.init();
+	// messageHeight.init();
+	// dropPreview.init();
 	messageVideo.init();
 	messagePre.init();
 	setDialogHeader.init();
