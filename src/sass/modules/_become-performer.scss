@@ -1,5 +1,6 @@
 .become-performer {
 	padding: 3.7rem 5rem 8.8rem;
+	overflow: hidden;
 
 	@include max-screen($small_tablet) {
 		padding: 2rem;
@@ -8,7 +9,7 @@
 	&__header {
 		position: relative;
 		padding-bottom: 1.5rem;
-		border-bottom: 1px solid #DFE0E1;
+		border-bottom: 1px solid #dfe0e1;
 
 		@include max-screen($small_tablet) {
 			align-items: center;
@@ -72,9 +73,9 @@
 
 		&-label {
 			width: 100%;
-			max-width: 374/815*100%;
+			max-width: 374/815 * 100%;
 
-			@include max-screen ($large_tablet) {
+			@include max-screen($large_tablet) {
 				max-width: 100%;
 				margin-bottom: 2rem;
 			}
@@ -123,7 +124,7 @@
 			background-color: $green;
 			border: none;
 
-			@include max-screen ($small_tablet) {
+			@include max-screen($small_tablet) {
 				width: 100%;
 			}
 

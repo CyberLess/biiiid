@@ -89,7 +89,7 @@ App.prototype.init = () => {
 	setDialogHeader.init();
 	setDialogContent.init();
 	getMessages.init();
-	notifications.init();
+	// notifications.init();
 	textareaLength.init();
 	selectLanguage.init();
 	previewAvatar.init();
