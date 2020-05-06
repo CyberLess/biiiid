@@ -23,8 +23,7 @@
 
 	&__list-wrap {
 		min-width: 392px;
-		height: 34.1rem;
-		border-bottom: 1px solid rgba(42, 45, 52, .15);
+		max-height: 34.1rem;
 
 		&_messages {
 			display: none;
@@ -40,7 +39,7 @@
 		width: 3px;
 		height: 98%;
 
-		opacity: 0;
+		//opacity: 0;
 
 		transition-property: opacity;
 		transition-duration: .2s;
@@ -108,6 +107,7 @@
 		}
 
 		&_unread {
+			.notifications__name,
 			.notifications__text {
 				font-weight: 500;
 				color: #2A2D34;
@@ -121,8 +121,6 @@
 
 		font-size: 1.2rem;
 
-		//transition-property: background-color;
-		//transition-duration: .2s;
 
 		&:hover,
 		&:focus {
@@ -177,10 +175,23 @@
 		background-color: rgba(42, 45, 52, .3);
 	}
 
+	&__file-icon-wrap {
+		display: inline-block;
+		width: 1.6rem;
+		margin-left: -.2rem;
+		margin-right: .4rem;
+
+		fill: none;
+		stroke: #2A2D34;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
 	&__bottom {
 		display: flex;
 		align-items: center;
 		padding: 1.3rem 1.6rem;
+		border-top: 1px solid rgba(42, 45, 52, .15);
 
 		&_notifications {
 			.notifications__show-all {

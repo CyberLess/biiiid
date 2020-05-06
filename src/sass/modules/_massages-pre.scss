@@ -8,6 +8,13 @@
 
 	@include max-screen($messages_large_mobile) {
 		width: 100%;
+		border: none;
+	}
+
+	&__cell_search {
+		@include max-screen($messages_large_mobile) {
+			margin: 0 2rem .7rem;
+		}
 	}
 
 	&__messages-list-wrap {
@@ -17,10 +24,10 @@
 	}
 
 	&__massages-frame {
+		width: calc(100% + 10px) !important;
+		max-width: calc(100% + 10px) !important;
 		height: 67.9vh;
-
-		//transition-property: height;
-		//transition-duration: .2s;
+		padding-right: 10px;
 	}
 
 	&__scrollbar {
@@ -32,7 +39,7 @@
 		width: 3px;
 		height: 98%;
 
-		opacity: 0;
+		//opacity: 0;
 
 		transition-property: opacity;
 		transition-duration: .2s;
@@ -55,6 +62,10 @@
 			font-size: 1.6rem;
 
 			background-color: #ffffff;
+
+			@include max-screen($messages_large_mobile) {
+				border: 1px solid rgba(42, 45, 52, 0.15);
+			}
 
 			@include max-screen($large_mobile) {
 				padding: 2rem 4rem 1.8rem 3.5rem;
@@ -145,6 +156,7 @@
 
 	&__list {
 		list-style: none;
+		width: calc(100% + 10px);
 	}
 
 	&__message {
@@ -153,8 +165,8 @@
 		display: flex;
 		padding: 1.5rem 1.5rem 1.4rem 2.4rem;
 
-		@include max-screen($large_mobile) {
-			padding: 1.2rem 1.2rem 1.2rem 1.3rem;
+		@include max-screen($messages_large_mobile) {
+			padding: 1.4rem 2rem 1.2rem;
 		}
 
 		&:hover,
@@ -324,8 +336,8 @@
 		margin-left: auto;
 
 		@include max-screen($large_mobile) {
-			top: 1.2rem;
-			right: 1.2rem;
+			top: 1.6rem;
+			right: 2rem;
 		}
 
 		.icon-messageread {
@@ -407,8 +419,11 @@
 		opacity: .3;
 
 		@include max-screen($large_mobile) {
-			right: 1.2rem;
-			bottom: 1rem;
+			right: 1.9rem;
+			bottom: 1.2rem;
+
+			min-width: 16px;
+			min-height: 16px;
 		}
 	}
 
@@ -419,6 +434,10 @@
 		font-size: 1.2rem;
 		font-weight: normal;
 		color: #ffffff;
+
+		@include max-screen($messages_large_mobile) {
+			font-size: .9rem;
+		}
 	}
 }
 

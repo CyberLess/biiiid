@@ -20,6 +20,7 @@
 				display: block;
 
 				@include max-screen($messages_large_mobile) {
+					top: -1.3rem;
 					right: 0;
 				}
 			}
@@ -34,6 +35,7 @@
 				display: block;
 
 				@include max-screen($messages_large_mobile) {
+					top: -1.4rem;
 					right: 0;
 				}
 			}
@@ -88,15 +90,20 @@
 		color: rgba(42, 45, 52, .5);
 
 		opacity: .5;
+
+		@include max-screen($messages_large_mobile) {
+			margin-top: 0.1rem;
+		}
 	}
 
 	&__message-text {
 		position: relative;
 
 		line-height: 1.6;
+		word-break: break-word;
 
 		@include max-screen($messages_large_mobile) {
-			padding-right: 3rem;
+			padding-right: 0;
 		}
 	}
 
@@ -127,6 +134,7 @@
 	}
 
 	&__attached-icon-wrap {
+		flex-shrink: 0;
 		width: 2.2rem;
 		margin-right: .6rem;
 
@@ -177,6 +185,8 @@
 
 
 	&__video-info {
+		position: relative;
+
 		display: flex;
 		flex-wrap: wrap;
 
@@ -199,6 +209,10 @@
 	}
 
 	&__video-download {
+		position: absolute;
+		top: 0;
+		right: 0;
+
 		width: 2.8rem;
 		margin-left: auto;
 		padding-top: .5rem;
@@ -278,17 +292,10 @@
 		margin-top: 1.4rem;
 	}
 
-	&__order-bth {
-		font-weight: 500;
-
-		font-size: 1.4rem;
-		line-height: 1.6rem;
-
-		background-color: transparent;
-		cursor: pointer;
+	&__order-btn {
+		height: 3.4rem;
 
 		transition: ease .2s;
-
 
 		@include max-screen($large_mobile) {
 			font-size: 1.2rem;
@@ -297,7 +304,7 @@
 
 		&_cancel {
 			margin-left: auto;
-			padding: .9rem 1.4rem 1rem;
+			padding: .7rem 1.4rem 1rem;
 			border: 1px solid #2A2D34;
 
 			color: #2A2D34;
@@ -334,11 +341,9 @@
 			width: 55%;
 			margin-left: auto;
 			padding: .9rem 1.4rem 1rem;
-			border: none;
 
-			color: #ffffff;
-
-			background-color: #009688;
+			font-size: 1.4rem;
+			font-weight: normal;
 
 			&:hover,
 			&:focus {

@@ -1,110 +1,111 @@
 import baron from 'baron';
 
 var messageHeight = {
-	$send: $('.send'),
+	LARGE_MOBILE: 580,
+	MEDIUM_MOBILE: 920,
+	BOTTOM_MOBILE: 20,
+	BOTTOM_MID_MOBILE: 40,
+	BOTTOM_DESK: 120,
+	bottom: '',
 
-	init: () => {
-		const LARGE_MOBILE = 580;
-		const MEDIUM_MOBILE = 920;
+	$send: '',
+	$preFrame: '',
+	$sendWrap: '',
+	$inputsWrap: '',
+	$dialogFrame: '',
+	$dialogWrap: '',
 
-		const BOTTOM_MOBILE = 20;
-		const BOTTOM_MID_MOBILE = 40;
-		const BOTTOM_DESK = 120;
-		let bottom;
+	setBottom: () => {
+		switch (true) {
+			case $(window).width() <= messageHeight.LARGE_MOBILE:
+				messageHeight.bottom = messageHeight.BOTTOM_MOBILE;
+				break;
+			case $(window).width() <= messageHeight.MEDIUM_MOBILE:
+				messageHeight.bottom = messageHeight.BOTTOM_MID_MOBILE;
+				break;
+			default:
+				messageHeight.bottom = messageHeight.BOTTOM_DESK;
+		}
+	},
 
-		const setBottom = () => {
-			switch (true) {
-				case $(window).width() <= LARGE_MOBILE:
-					bottom = BOTTOM_MOBILE;
-					break;
-				case $(window).width() <= MEDIUM_MOBILE:
-					bottom = BOTTOM_MID_MOBILE;
-					break;
-				default:
-					bottom = BOTTOM_DESK;
+	showOrHideScroll: ($textareaFrameWrap, $textareaScrollHandle) => {
+		const $textareaFrame = messageHeight.$inputsWrap.find('.dialog-form__textarea-frame-wrap');
+		if ($textareaFrame.height() > $textareaFrameWrap.height()) {
+			$textareaScrollHandle.css('opacity', '1');
+		} else {
+			$textareaScrollHandle.css('opacity', '0');
+		}
+	},
+
+	showSend: () => {
+		if (messageHeight.$send.hasClass('send_no-active')) {
+			messageHeight.$send.removeClass('send_no-active');
+		}
+	},
+
+	correctHeight: () => {
+		messageHeight.setBottom();
+
+		if ($(window).width() < messageHeight.MEDIUM_MOBILE) {
+			if ($(messageHeight.$dialogWrap)[0] && $(messageHeight.$dialogFrame)[0] && $(messageHeight.$preFrame)[0] && $(messageHeight.$sendWrap)[0]) {
+				messageHeight.$dialogWrap.height($(window).height() - messageHeight.$dialogWrap.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom);
+				messageHeight.$dialogFrame.height($(window).height() - messageHeight.$dialogFrame.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom);
+
+				messageHeight.showSend();
 			}
-		};
 
-		const $preFrame = $('.messages-pre__massages-frame');
-		const $sendWrap = $('.messages-dialogs__send-wrap');
-		const $inputsWrap = $('.dialog-form__inputs-wrap');
-		const $textarea = $inputsWrap.find('textarea.dialog-form__message-text');
-		const $textareaFrameWrap = $inputsWrap.find('.dialog-form__textarea-wrap');
-		const $textareaFrame = $inputsWrap.find('.dialog-form__textarea-frame-wrap');
-		const $textareaScrollHandle = $inputsWrap.find('.dialog-form__textarea-scroll-handle');
+			messageHeight.$preFrame.height($(window).height() - messageHeight.$preFrame.offset().top);
+		} else {
+			if ($(messageHeight.$dialogWrap)[0] && $(messageHeight.$dialogFrame)[0] && $(messageHeight.$preFrame)[0] && $(messageHeight.$sendWrap)[0]) {
+				messageHeight.$dialogWrap.height($(window).height() - messageHeight.$dialogWrap.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom / 2);
+				messageHeight.$dialogFrame.height($(window).height() - messageHeight.$dialogFrame.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom / 2);
 
-		const $dialogFrame = $('.messages-dialogs__dialog-frame');
-		const $dialogWrap = $('.messages-dialogs__dialog-wrap');
-
-		const showOrHideScroll = () => {
-			if ($textareaFrame.height() > $textareaFrameWrap.height()) {
-				$textareaScrollHandle.css('opacity', '1');
-			} else {
-				$textareaScrollHandle.css('opacity', '0');
+				messageHeight.showSend();
 			}
-		};
 
-		const showSend = () => {
-			if (messageHeight.$send.hasClass('send_no-active')) {
-				messageHeight.$send.removeClass('send_no-active');
-			}
-		};
+			messageHeight.$preFrame.height($(window).height() - messageHeight.$preFrame.offset().top - messageHeight.bottom / 2 + 26);
+		}
+	},
 
-		const correctHeight = () => {
-			setBottom();
-
-			if ($(window).width() <= LARGE_MOBILE) {
-				if ($($dialogWrap)[0] && $($dialogFrame)[0] && $($preFrame)[0] && $($sendWrap)[0]) {
-					$dialogWrap.height($(window).height() - $dialogWrap.offset().top - $sendWrap.outerHeight() - bottom);
-					$dialogFrame.height($(window).height() - $dialogFrame.offset().top - $sendWrap.outerHeight() - bottom);
-
-					showSend();
-				}
-
-				$preFrame.height($(window).height() - $preFrame.offset().top - bottom / 2);
-			} else {
-				if ($($dialogWrap)[0] && $($dialogFrame)[0] && $($preFrame)[0] && $($sendWrap)[0]) {
-					$dialogWrap.height($(window).height() - $dialogWrap.offset().top - $sendWrap.outerHeight() - bottom / 2);
-					$dialogFrame.height($(window).height() - $dialogFrame.offset().top - $sendWrap.outerHeight() - bottom / 2);
-
-					showSend();
-				}
-
-				$preFrame.height($(window).height() - $preFrame.offset().top - bottom / 2 +13);
-			}
-		};
-
-		const setTextareaListeners = () => {
-			$textarea.on('input', function(e) {
-				$(this).height(`${1}px`);
-				$(this).height(`${this.scrollHeight}px`);
-				showOrHideScroll();
-			});
-
-			$inputsWrap.on('DOMSubtreeModified input', function () {
-				correctHeight();
-			});
-
-			if ($($inputsWrap)[0]) {
-				baron({
-					root: $($inputsWrap)[0],
-					scroller: $($textareaFrameWrap)[0],
-					bar: $($textareaScrollHandle)[0],
-					scrollingCls: '_scrolling'
-				});
-			}
-		};
-
-		setTextareaListeners();
-
-		$(window).resize(() => {
-			correctHeight();
+	setTextareaListeners: ($textarea, $textareaFrameWrap, $textareaScrollHandle) => {
+		$textarea.on('input', function(e) {
+			$(this).height(`${1}px`);
+			$(this).height(`${this.scrollHeight}px`);
+			messageHeight.showOrHideScroll($textareaFrameWrap, $textareaScrollHandle);
 		});
 
-		correctHeight();
-		showOrHideScroll();
+		messageHeight.$inputsWrap.on('DOMSubtreeModified input', function () {
+			messageHeight.correctHeight();
+		});
 
-		messageHeight.init.correctHeight = correctHeight;
+		if ($(messageHeight.$inputsWrap)[0]) {
+			baron({
+				root: $(messageHeight.$inputsWrap)[0],
+				scroller: $($textareaFrameWrap)[0],
+				bar: $($textareaScrollHandle)[0],
+			});
+		}
+	},
+
+	init: () => {
+		messageHeight.$send = $('.send');
+		messageHeight.$preFrame = $('.messages-pre__massages-frame');
+		messageHeight.$sendWrap = $('.messages-dialogs__send-wrap');
+		messageHeight.$inputsWrap = $('.dialog-form__inputs-wrap');
+		messageHeight.$dialogFrame = $('.messages-dialogs__dialog-frame');
+		messageHeight.$dialogWrap = $('.messages-dialogs__dialog-wrap');
+
+		const $textarea = messageHeight.$inputsWrap.find('textarea.dialog-form__message-text');
+		const $textareaFrameWrap = messageHeight.$inputsWrap.find('.dialog-form__textarea-wrap');
+		const $textareaScrollHandle = messageHeight.$inputsWrap.find('.dialog-form__textarea-scroll-handle');
+
+		messageHeight.setTextareaListeners($textarea, $textareaFrameWrap, $textareaScrollHandle);
+		messageHeight.correctHeight();
+		messageHeight.showOrHideScroll($textareaFrameWrap, $textareaScrollHandle);
+
+		$(window).resize(() => {
+			messageHeight.correctHeight();
+		});
 	}
 };
 

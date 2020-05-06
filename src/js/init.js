@@ -20,6 +20,8 @@ import { setDialogHeader } from "./modules/set-dialog-header";
 import { setDialogContent } from "./modules/set-dialog-content";
 import { getMessages } from "./modules/get-messages";
 import { notifications } from "./modules/notifications";
+import { messageSend } from "./modules/message-send";
+import { bill } from "./modules/bill";
 import { config } from "./config";
 
 var App = () => {};
@@ -47,6 +49,8 @@ App.prototype.init = () => {
 	textareaLength.init();
 	selectLanguage.init();
 	previewAvatar.init();
+	bill.init();
+	messageSend.init();
 
 	config.log("app init");
 };

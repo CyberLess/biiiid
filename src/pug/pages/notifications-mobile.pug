@@ -1,0 +1,12 @@
+extends ../layouts/base
+
+append vars
+    - title = 'Уведомления мобильная версия';
+
+block header
+    +header(true)(class="_hide-search")
+
+block content
+    include ../layouts/mobile-notifications
+
+block footer

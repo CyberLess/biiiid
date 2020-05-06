@@ -1,10 +1,15 @@
 .messages {
 	padding-top: 3.5rem;
+	padding-bottom: 0;
 
 
 	&__wrap {
 		display: flex;
 		height: 100%;
+
+		@include max-screen($messages_large_mobile) {
+			padding: 0;
+		}
 	}
 
 	&__preloader {
@@ -18,22 +23,20 @@
 
 	@include max-screen($large_tablet) {
 		padding-top: 0;
-		padding-bottom: 3rem;
 	}
 
 	@include max-screen($large_mobile) {
 		padding-top: 0;
-		padding-bottom: 0rem;
 	}
 }
 
-._scrolling {
-	.messages-dialogs__scrollbar,
-	.messages-pre__scrollbar,
-	.dialog-form__textarea-scrollbar,
-	.dropzone__drop-prev-scrollbar,
-	.notifications__scrollbar {
-		opacity: 1;
-	}
-}
+//._scrolling {
+//	.messages-dialogs__scrollbar,
+//	.messages-pre__scrollbar,
+//	.dialog-form__textarea-scrollbar,
+//	.dropzone__drop-prev-scrollbar,
+//	.notifications__scrollbar {
+//		opacity: 1;
+//	}
+//}
 

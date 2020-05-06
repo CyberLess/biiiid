@@ -1,21 +1,71 @@
 import { messageHeight } from "./message-height";
-import { messagesScroll } from "./messages-scroll";
 import { getMessages } from "./get-messages";
+import { messageSend } from "./message-send";
 
 var messagePre = {
+	MAX_SYMBOLS_QUANTITY: 94,
+
 	$dialogsBlock: $('.messages-dialogs'),
+	$messagesPre: $('.messages-pre'),
+	$message: () => {
+		return messagePre.$messagesPre.find('.messages-pre__message');
+	},
+
+	cropMessageText: (text) => {
+		if (text.length > messagePre.MAX_SYMBOLS_QUANTITY) {
+			const result = text.substr(0, messagePre.MAX_SYMBOLS_QUANTITY);
+
+			return `${result}`;
+		}
+
+		return text;
+	},
 
 	closeMobile: () => {
 		messagePre.$dialogsBlock.hide();
-		$('.messages-pre').show();
+		messagePre.$messagesPre.show();
 		messageHeight.$send.addClass('send_no-active');
 		messagePre.$dialogsBlock.css('opacity', '0');
-		messageHeight.init.correctHeight();
+		messageHeight.correctHeight();
+	},
+
+	openMobile: (id) => {
+		messagePre.$messagesPre.hide();
+		messagePre.$dialogsBlock.show();
+
+		getMessages.getDialog(id, getMessages.params);
+	},
+
+	openDesktop: (id, currentItem, $message) => {
+		if (!currentItem.hasClass('messages-pre__message_opened')) {
+			$message.removeClass('messages-pre__message_opened');
+			currentItem.addClass('messages-pre__message_opened');
+			getMessages.getDialog(id, getMessages.params);
+		}
+	},
+
+	openDialog: (evt) => {
+
+		if ($(evt.target).hasClass('messages-pre__dialog-link')) {
+			const userId = evt.target.getAttribute('data-user-id');
+			const $parent = $(evt.target).parent();
+
+			if ($parent.hasClass('messages-pre__message')) {
+				$parent.removeClass('messages-pre__message_unread');
+			}
+
+			if ($(window).width() < messageHeight.MEDIUM_MOBILE) {
+				messagePre.openMobile(Number(userId));
+			} else {
+				const $current = $(evt.target).parent();
+				messagePre.openDesktop(Number(userId), $current, messagePre.$message());
+			}
+		}
 	},
 
 	init: () => {
 		// Писал логику для загрузки превьюшек по аяксу, но она оказалась вроде как не нужна
-		// const MAX_SYMBOLS_QUANTITY = 94;
+		//
 		// const IMG_SRC = '/app/img/';
 		//
 		// const preConditionsMap = {
@@ -79,15 +129,6 @@ var messagePre = {
 		// 	$authorImgWebp.attr('srcset', `${IMG_SRC}${avatarData}.webp`);
 		// };
 		//
-		// const cropMessageText = (text) => {
-		// 	if (text.length > MAX_SYMBOLS_QUANTITY) {
-		// 		const result = text.substr(0, MAX_SYMBOLS_QUANTITY);
-		//
-		// 		return `${result}...`;
-		// 	}
-		//
-		// 	return text;
-		// };
 		//
 		// const setText = (authorNameData, textData) => {
 		// 	$authorName.text(authorNameData);
@@ -121,51 +162,21 @@ var messagePre = {
 		// 	setSendDate(userObject['messages'][userObject['messages'].length - 1]['sendDate']);
 		// };
 
-		const $messagesPre = $('.messages-pre');
-		const $message = $messagesPre.find('.messages-pre__message');
-		const $link = $messagesPre.find('.messages-pre__dialog-link');
-		const $dialog = $('.messages-dialogs');
-
-		const openMobile = (id) => {
-			$messagesPre.hide();
-			messagePre.$dialogsBlock.show();
-
-			getMessages.getDialog(id, getMessages.params);
-		};
-
-		const openDesktop = (id, currentItem) => {
-			if (!currentItem.hasClass('messages-pre__message_opened')) {
-				$message.removeClass('messages-pre__message_opened');
-				currentItem.addClass('messages-pre__message_opened');
-				getMessages.getDialog(id, getMessages.params);
-			}
-		};
-
-		const openDialog = (evt) => {
-			if ($(evt.target).hasClass('messages-pre__dialog-link')) {
-				const userId = evt.target.getAttribute('data-user-id');
-
-				if ($(window).width() < 920) {
-					openMobile(Number(userId));
-				} else {
-					const $current = $(evt.target).parent();
-					openDesktop(Number(userId), $current);
-				}
-			}
-		};
+		const $link = messagePre.$messagesPre.find('.messages-pre__dialog-link');
 
 		$link.click(function (evt) {
 			evt.preventDefault();
-			openDialog(evt);
+			messagePre.openDialog(evt);
+			messageSend.cleanTextarea();
 		});
 
 		$(window).resize(function () {
-		  if ($(window).width() >= 920) {
-				$dialog.css({
+		  if ($(window).width() >= messageHeight.MEDIUM_MOBILE) {
+				messagePre.$dialogsBlock.css({
 					display: '',
 					opacity: ''
 				});
-				$messagesPre.css('display', '');
+				messagePre.$messagesPre.css('display', '');
 			}
 		});
 

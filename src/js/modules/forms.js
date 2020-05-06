@@ -354,7 +354,15 @@ var forms = {
 						required: true,
 						minlength: 10,
 					},
-				},
+
+					billDescription: {
+						required: true,
+					},
+
+					billPrice: {
+						required: true
+					}
+				}
 			});
 		});
 	},
