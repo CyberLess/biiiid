@@ -360,9 +360,9 @@ var forms = {
 					},
 
 					billPrice: {
-						required: true
-					}
-				}
+						required: true,
+					},
+				},
 			});
 		});
 	},

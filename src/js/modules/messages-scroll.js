@@ -1,8 +1,10 @@
-import baron from 'baron';
+import baron from "baron";
 
 var messagesScroll = {
 	$frameDialog: () => {
-		return $('.messages-dialogs__dialog-wrap').find('.messages-dialogs__dialog-frame');
+		return $(".messages-dialogs__dialog-wrap").find(
+			".messages-dialogs__dialog-frame"
+		);
 	},
 
 	showHideScrollbar: (messagesList, messagesFrame, scrollBar) => {
@@ -22,18 +24,37 @@ var messagesScroll = {
 	},
 
 	init: () => {
-		messagesScroll.init.$messagesPrevWrap = $('.messages-pre__messages-list-wrap');
-		messagesScroll.init.$messagesPrev = $('.messages-pre__list');
-		messagesScroll.init.$dialogWrap =  $('.messages-dialogs__dialog-wrap');
+		messagesScroll.init.$messagesPrevWrap = $(
+			".messages-pre__messages-list-wrap"
+		);
 
-		messagesScroll.init.$framePrev = messagesScroll.init.$messagesPrevWrap.find('.messages-pre__massages-frame');
-		messagesScroll.init.$scrollBarPrev = messagesScroll.init.$messagesPrevWrap.find('.messages-pre__scrollbar');
-		messagesScroll.init.$scrollPrevHandle = messagesScroll.init.$messagesPrevWrap.find('.messages-pre__handle');
+		if (!messagesScroll.init.$messagesPrevWrap.length) return false;
 
-		messagesScroll.init.$frameDialog = messagesScroll.init.$dialogWrap.find('.messages-dialogs__dialog-frame');
-		messagesScroll.init.$scrollBarDialog = messagesScroll.init.$dialogWrap.find('.messages-dialogs__scrollbar');
-		messagesScroll.init.$scrollBarHandle = messagesScroll.init.$dialogWrap.find('.messages-dialogs__handle');
-		messagesScroll.init.$dialog = messagesScroll.init.$dialogWrap.find('.dialog');
+		messagesScroll.init.$messagesPrev = $(".messages-pre__list");
+		messagesScroll.init.$dialogWrap = $(".messages-dialogs__dialog-wrap");
+
+		messagesScroll.init.$framePrev = messagesScroll.init.$messagesPrevWrap.find(
+			".messages-pre__massages-frame"
+		);
+		messagesScroll.init.$scrollBarPrev = messagesScroll.init.$messagesPrevWrap.find(
+			".messages-pre__scrollbar"
+		);
+		messagesScroll.init.$scrollPrevHandle = messagesScroll.init.$messagesPrevWrap.find(
+			".messages-pre__handle"
+		);
+
+		messagesScroll.init.$frameDialog = messagesScroll.init.$dialogWrap.find(
+			".messages-dialogs__dialog-frame"
+		);
+		messagesScroll.init.$scrollBarDialog = messagesScroll.init.$dialogWrap.find(
+			".messages-dialogs__scrollbar"
+		);
+		messagesScroll.init.$scrollBarHandle = messagesScroll.init.$dialogWrap.find(
+			".messages-dialogs__handle"
+		);
+		messagesScroll.init.$dialog = messagesScroll.init.$dialogWrap.find(
+			".dialog"
+		);
 
 		// const isMobile = {
 		// 	Android: function () {
@@ -70,33 +91,60 @@ var messagesScroll = {
 			});
 		}
 
-		messagesScroll.init.$messagesPrev.on('DOMSubtreeModified', function () {
-			messagesScroll.showHideScrollbar(messagesScroll.init.$messagesPrev, messagesScroll.init.$framePrev, messagesScroll.init.$scrollBarPrev);
+		messagesScroll.init.$messagesPrev.on("DOMSubtreeModified", function () {
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$messagesPrev,
+				messagesScroll.init.$framePrev,
+				messagesScroll.init.$scrollBarPrev
+			);
 		});
 
-		messagesScroll.init.$frameDialog.on('DOMSubtreeModified', function () {
-			messagesScroll.showHideScrollbar(messagesScroll.init.$dialog, messagesScroll.init.$frameDialog, messagesScroll.init.$scrollBarDialog);
+		messagesScroll.init.$frameDialog.on("DOMSubtreeModified", function () {
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$dialog,
+				messagesScroll.init.$frameDialog,
+				messagesScroll.init.$scrollBarDialog
+			);
 		});
 
 		$(window).resize(() => {
-			if ($(messagesScroll.init.$framePrev)[0] && $(messagesScroll.init.$frameDialog)[0]) {
+			if (
+				$(messagesScroll.init.$framePrev)[0] &&
+				$(messagesScroll.init.$frameDialog)[0]
+			) {
 				baron($(messagesScroll.init.$framePrev)[0]).update();
 				baron($(messagesScroll.init.$frameDialog)[0]).update();
 			}
-			messagesScroll.showHideScrollbar(messagesScroll.init.$messagesPrev, messagesScroll.init.$framePrev, messagesScroll.init.$scrollBarPrev);
-			messagesScroll.showHideScrollbar(messagesScroll.init.$dialog, messagesScroll.init.$frameDialog, messagesScroll.init.$scrollBarDialog);
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$messagesPrev,
+				messagesScroll.init.$framePrev,
+				messagesScroll.init.$scrollBarPrev
+			);
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$dialog,
+				messagesScroll.init.$frameDialog,
+				messagesScroll.init.$scrollBarDialog
+			);
 		});
 
-		messagesScroll.showHideScrollbar(messagesScroll.init.$messagesPrev, messagesScroll.init.$framePrev, messagesScroll.init.$scrollBarPrev);
-		messagesScroll.showHideScrollbar(messagesScroll.init.$dialog, messagesScroll.init.$frameDialog, messagesScroll.init.$scrollBarDialog);
+		messagesScroll.showHideScrollbar(
+			messagesScroll.init.$messagesPrev,
+			messagesScroll.init.$framePrev,
+			messagesScroll.init.$scrollBarPrev
+		);
+		messagesScroll.showHideScrollbar(
+			messagesScroll.init.$dialog,
+			messagesScroll.init.$frameDialog,
+			messagesScroll.init.$scrollBarDialog
+		);
 
 		messagesScroll.init.correctedScrollElems = [
 			messagesScroll.init.$framePrev,
-			messagesScroll.init.$framePrev
+			messagesScroll.init.$framePrev,
 		];
 
 		messagesScroll.onDialogOpen();
-	}
+	},
 };
 
 export { messagesScroll };

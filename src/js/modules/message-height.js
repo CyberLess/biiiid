@@ -1,4 +1,4 @@
-import baron from 'baron';
+import baron from "baron";
 
 var messageHeight = {
 	LARGE_MOBILE: 580,
@@ -6,14 +6,14 @@ var messageHeight = {
 	BOTTOM_MOBILE: 20,
 	BOTTOM_MID_MOBILE: 40,
 	BOTTOM_DESK: 120,
-	bottom: '',
+	bottom: "",
 
-	$send: '',
-	$preFrame: '',
-	$sendWrap: '',
-	$inputsWrap: '',
-	$dialogFrame: '',
-	$dialogWrap: '',
+	$send: "",
+	$preFrame: "",
+	$sendWrap: "",
+	$inputsWrap: "",
+	$dialogFrame: "",
+	$dialogWrap: "",
 
 	setBottom: () => {
 		switch (true) {
@@ -29,17 +29,19 @@ var messageHeight = {
 	},
 
 	showOrHideScroll: ($textareaFrameWrap, $textareaScrollHandle) => {
-		const $textareaFrame = messageHeight.$inputsWrap.find('.dialog-form__textarea-frame-wrap');
+		const $textareaFrame = messageHeight.$inputsWrap.find(
+			".dialog-form__textarea-frame-wrap"
+		);
 		if ($textareaFrame.height() > $textareaFrameWrap.height()) {
-			$textareaScrollHandle.css('opacity', '1');
+			$textareaScrollHandle.css("opacity", "1");
 		} else {
-			$textareaScrollHandle.css('opacity', '0');
+			$textareaScrollHandle.css("opacity", "0");
 		}
 	},
 
 	showSend: () => {
-		if (messageHeight.$send.hasClass('send_no-active')) {
-			messageHeight.$send.removeClass('send_no-active');
+		if (messageHeight.$send.hasClass("send_no-active")) {
+			messageHeight.$send.removeClass("send_no-active");
 		}
 	},
 
@@ -47,34 +49,75 @@ var messageHeight = {
 		messageHeight.setBottom();
 
 		if ($(window).width() < messageHeight.MEDIUM_MOBILE) {
-			if ($(messageHeight.$dialogWrap)[0] && $(messageHeight.$dialogFrame)[0] && $(messageHeight.$preFrame)[0] && $(messageHeight.$sendWrap)[0]) {
-				messageHeight.$dialogWrap.height($(window).height() - messageHeight.$dialogWrap.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom);
-				messageHeight.$dialogFrame.height($(window).height() - messageHeight.$dialogFrame.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom);
+			if (
+				$(messageHeight.$dialogWrap)[0] &&
+				$(messageHeight.$dialogFrame)[0] &&
+				$(messageHeight.$preFrame)[0] &&
+				$(messageHeight.$sendWrap)[0]
+			) {
+				messageHeight.$dialogWrap.height(
+					$(window).height() -
+						messageHeight.$dialogWrap.offset().top -
+						messageHeight.$sendWrap.outerHeight() -
+						messageHeight.bottom
+				);
+				messageHeight.$dialogFrame.height(
+					$(window).height() -
+						messageHeight.$dialogFrame.offset().top -
+						messageHeight.$sendWrap.outerHeight() -
+						messageHeight.bottom
+				);
 
 				messageHeight.showSend();
 			}
 
-			messageHeight.$preFrame.height($(window).height() - messageHeight.$preFrame.offset().top);
+			messageHeight.$preFrame.height(
+				$(window).height() - messageHeight.$preFrame.offset().top
+			);
 		} else {
-			if ($(messageHeight.$dialogWrap)[0] && $(messageHeight.$dialogFrame)[0] && $(messageHeight.$preFrame)[0] && $(messageHeight.$sendWrap)[0]) {
-				messageHeight.$dialogWrap.height($(window).height() - messageHeight.$dialogWrap.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom / 2);
-				messageHeight.$dialogFrame.height($(window).height() - messageHeight.$dialogFrame.offset().top - messageHeight.$sendWrap.outerHeight() - messageHeight.bottom / 2);
+			if (
+				$(messageHeight.$dialogWrap)[0] &&
+				$(messageHeight.$dialogFrame)[0] &&
+				$(messageHeight.$preFrame)[0] &&
+				$(messageHeight.$sendWrap)[0]
+			) {
+				messageHeight.$dialogWrap.height(
+					$(window).height() -
+						messageHeight.$dialogWrap.offset().top -
+						messageHeight.$sendWrap.outerHeight() -
+						messageHeight.bottom / 2
+				);
+				messageHeight.$dialogFrame.height(
+					$(window).height() -
+						messageHeight.$dialogFrame.offset().top -
+						messageHeight.$sendWrap.outerHeight() -
+						messageHeight.bottom / 2
+				);
 
 				messageHeight.showSend();
 			}
 
-			messageHeight.$preFrame.height($(window).height() - messageHeight.$preFrame.offset().top - messageHeight.bottom / 2 + 26);
+			messageHeight.$preFrame.height(
+				$(window).height() -
+					messageHeight.$preFrame.offset().top -
+					messageHeight.bottom / 2 +
+					26
+			);
 		}
 	},
 
-	setTextareaListeners: ($textarea, $textareaFrameWrap, $textareaScrollHandle) => {
-		$textarea.on('input', function(e) {
+	setTextareaListeners: (
+		$textarea,
+		$textareaFrameWrap,
+		$textareaScrollHandle
+	) => {
+		$textarea.on("input", function (e) {
 			$(this).height(`${1}px`);
 			$(this).height(`${this.scrollHeight}px`);
 			messageHeight.showOrHideScroll($textareaFrameWrap, $textareaScrollHandle);
 		});
 
-		messageHeight.$inputsWrap.on('DOMSubtreeModified input', function () {
+		messageHeight.$inputsWrap.on("DOMSubtreeModified input", function () {
 			messageHeight.correctHeight();
 		});
 
@@ -88,25 +131,38 @@ var messageHeight = {
 	},
 
 	init: () => {
-		messageHeight.$send = $('.send');
-		messageHeight.$preFrame = $('.messages-pre__massages-frame');
-		messageHeight.$sendWrap = $('.messages-dialogs__send-wrap');
-		messageHeight.$inputsWrap = $('.dialog-form__inputs-wrap');
-		messageHeight.$dialogFrame = $('.messages-dialogs__dialog-frame');
-		messageHeight.$dialogWrap = $('.messages-dialogs__dialog-wrap');
+		messageHeight.$send = $(".send");
 
-		const $textarea = messageHeight.$inputsWrap.find('textarea.dialog-form__message-text');
-		const $textareaFrameWrap = messageHeight.$inputsWrap.find('.dialog-form__textarea-wrap');
-		const $textareaScrollHandle = messageHeight.$inputsWrap.find('.dialog-form__textarea-scroll-handle');
+		if (!messageHeight.$send.length) return false;
 
-		messageHeight.setTextareaListeners($textarea, $textareaFrameWrap, $textareaScrollHandle);
+		messageHeight.$preFrame = $(".messages-pre__massages-frame");
+		messageHeight.$sendWrap = $(".messages-dialogs__send-wrap");
+		messageHeight.$inputsWrap = $(".dialog-form__inputs-wrap");
+		messageHeight.$dialogFrame = $(".messages-dialogs__dialog-frame");
+		messageHeight.$dialogWrap = $(".messages-dialogs__dialog-wrap");
+
+		const $textarea = messageHeight.$inputsWrap.find(
+			"textarea.dialog-form__message-text"
+		);
+		const $textareaFrameWrap = messageHeight.$inputsWrap.find(
+			".dialog-form__textarea-wrap"
+		);
+		const $textareaScrollHandle = messageHeight.$inputsWrap.find(
+			".dialog-form__textarea-scroll-handle"
+		);
+
+		messageHeight.setTextareaListeners(
+			$textarea,
+			$textareaFrameWrap,
+			$textareaScrollHandle
+		);
 		messageHeight.correctHeight();
 		messageHeight.showOrHideScroll($textareaFrameWrap, $textareaScrollHandle);
 
 		$(window).resize(() => {
 			messageHeight.correctHeight();
 		});
-	}
+	},
 };
 
 export { messageHeight };
