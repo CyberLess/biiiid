@@ -19,7 +19,7 @@
 					+e.UL.list
 
 						+e.LI.message._unread._online
-							+e.A.dialog-link(href="#" data-user-id="1")
+							+e.A.dialog-link(href="#" data-user-id="1" draggable="false")
 							+e.image-block
 								+e.SPAN.online
 								+e.image-wrap
@@ -38,7 +38,7 @@
 										+e.SPAN.quantity 1
 
 						+e.LI.message._unread._online
-							+e.A.dialog-link(href="#" data-user-id="2")
+							+e.A.dialog-link(href="#" data-user-id="2" draggable="false")
 							+e.image-block
 								+e.SPAN.online
 								+e.image-wrap
@@ -57,7 +57,7 @@
 										+e.SPAN.quantity 23
 
 						+e.LI.message._delivered._read
-							+e.A.dialog-link(href="#" data-user-id="3")
+							+e.A.dialog-link(href="#" data-user-id="3" draggable="false")
 							+e.image-block
 								+e.SPAN.online
 								+e.image-wrap
@@ -76,7 +76,7 @@
 										+e.SPAN.quantity 0
 
 						+e.LI.message._read
-							+e.A.dialog-link(href="#" data-user-id="4")
+							+e.A.dialog-link(href="#" data-user-id="4" draggable="false")
 							+e.image-block
 								+e.SPAN.online
 								+e.image-wrap
@@ -95,7 +95,7 @@
 										+e.SPAN.quantity 0
 
 						+e.LI.message
-							+e.A.dialog-link(href="#" data-user-id="5")
+							+e.A.dialog-link(href="#" data-user-id="5" draggable="false")
 							+e.image-block
 								+e.SPAN.online
 								+e.image-wrap
@@ -122,7 +122,7 @@
 
 			+e.send-wrap.send__._no-active
 				+e.SPAN.typing-now Евгений Н. печатает...
-				+e.BUTTON.bill Выставить счёт
+				+e.BUTTON.bill.js-modal(data-modal="#bill") Выставить счёт
 				+e.FORM.form.dialog-form__(action="/" method="POST" autocomplete="off" enctype="multipart/form-data")
 					+e.inputs-wrap.input
 						+e.textarea-scrollbar

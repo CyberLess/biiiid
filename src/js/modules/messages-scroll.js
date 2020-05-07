@@ -1,93 +1,150 @@
-import baron from 'baron';
+import baron from "baron";
 
 var messagesScroll = {
+	$frameDialog: () => {
+		return $(".messages-dialogs__dialog-wrap").find(
+			".messages-dialogs__dialog-frame"
+		);
+	},
+
+	showHideScrollbar: (messagesList, messagesFrame, scrollBar) => {
+		if (messagesList.height() <= messagesFrame.height()) {
+			scrollBar.hide();
+		} else {
+			scrollBar.show();
+		}
+	},
+
+	onDialogOpen: () => {
+		const $frameDialog = messagesScroll.$frameDialog();
+
+		if ($($frameDialog)[0]) {
+			$($frameDialog)[0].scrollTop = $($frameDialog)[0].scrollHeight;
+		}
+	},
+
 	init: () => {
-		const $messagesPrevWrap = $('.messages-pre__messages-list-wrap');
-		const $framePrev = $messagesPrevWrap.find('.messages-pre__massages-frame');
-		const $scrollBarPrev = $messagesPrevWrap.find('.messages-pre__scrollbar');
-		const $scrollPrevHandle = $messagesPrevWrap.find('.messages-pre__handle');
-		const $messagesPrev = $('.messages-pre__list');
+		messagesScroll.init.$messagesPrevWrap = $(
+			".messages-pre__messages-list-wrap"
+		);
 
-		const $dialogWrap =  $('.messages-dialogs__dialog-wrap');
-		const $frameDialog = $dialogWrap.find('.messages-dialogs__dialog-frame');
-		const $scrollBarDialog = $dialogWrap.find('.messages-dialogs__scrollbar');
-		const $scrollBarHandle = $dialogWrap.find('.messages-dialogs__handle');
-		const $dialog = $dialogWrap.find('.dialog');
+		if (!messagesScroll.init.$messagesPrevWrap.length) return false;
 
-		const isMobile = {
-			Android: function () {
-				return navigator.userAgent.match(/Android/i);
-			},
-			BlackBerry: function () {
-				return navigator.userAgent.match(/BlackBerry/i);
-			},
-			iOS: function () {
-				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-			},
-			Opera: function () {
-				return navigator.userAgent.match(/Opera Mini/i);
-			},
-			Windows: function () {
-				return navigator.userAgent.match(/IEMobile/i);
-			},
-			any: function () {
-				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-			}
-		};
+		messagesScroll.init.$messagesPrev = $(".messages-pre__list");
+		messagesScroll.init.$dialogWrap = $(".messages-dialogs__dialog-wrap");
 
-		const showHideScrollbar = (messagesList, messagesFrame, scrollBar) => {
-			if (messagesList.height() <= messagesFrame.height() || isMobile.any()) {
-				scrollBar.hide();
-			} else {
-				scrollBar.show();
-			}
-		};
+		messagesScroll.init.$framePrev = messagesScroll.init.$messagesPrevWrap.find(
+			".messages-pre__massages-frame"
+		);
+		messagesScroll.init.$scrollBarPrev = messagesScroll.init.$messagesPrevWrap.find(
+			".messages-pre__scrollbar"
+		);
+		messagesScroll.init.$scrollPrevHandle = messagesScroll.init.$messagesPrevWrap.find(
+			".messages-pre__handle"
+		);
 
-		const onDialogOpen = () => {
-			if ($($frameDialog)[0]) {
-				$($frameDialog)[0].scrollTop = $($frameDialog)[0].scrollHeight;
-			}
-		};
+		messagesScroll.init.$frameDialog = messagesScroll.init.$dialogWrap.find(
+			".messages-dialogs__dialog-frame"
+		);
+		messagesScroll.init.$scrollBarDialog = messagesScroll.init.$dialogWrap.find(
+			".messages-dialogs__scrollbar"
+		);
+		messagesScroll.init.$scrollBarHandle = messagesScroll.init.$dialogWrap.find(
+			".messages-dialogs__handle"
+		);
+		messagesScroll.init.$dialog = messagesScroll.init.$dialogWrap.find(
+			".dialog"
+		);
+
+		// const isMobile = {
+		// 	Android: function () {
+		// 		return navigator.userAgent.match(/Android/i);
+		// 	},
+		// 	BlackBerry: function () {
+		// 		return navigator.userAgent.match(/BlackBerry/i);
+		// 	},
+		// 	iOS: function () {
+		// 		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		// 	},
+		// 	Opera: function () {
+		// 		return navigator.userAgent.match(/Opera Mini/i);
+		// 	},
+		// 	Windows: function () {
+		// 		return navigator.userAgent.match(/IEMobile/i);
+		// 	},
+		// 	any: function () {
+		// 		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		// 	}
+		// };
 
 		baron({
-			root: $($messagesPrevWrap)[0],
-			scroller: $($framePrev)[0],
-			bar: $($scrollPrevHandle)[0],
-			scrollingCls: '_scrolling'
+			root: $(messagesScroll.init.$messagesPrevWrap)[0],
+			scroller: $(messagesScroll.init.$framePrev)[0],
+			bar: $(messagesScroll.init.$scrollPrevHandle)[0],
 		});
 
-		if ($($dialogWrap)[0]) {
+		if ($(messagesScroll.init.$dialogWrap)[0]) {
 			baron({
-				root: $($dialogWrap)[0],
-				scroller: $($frameDialog)[0],
-				bar: $($scrollBarHandle)[0],
-				scrollingCls: '_scrolling'
+				root: $(messagesScroll.init.$dialogWrap)[0],
+				scroller: $(messagesScroll.init.$frameDialog)[0],
+				bar: $(messagesScroll.init.$scrollBarHandle)[0],
 			});
 		}
 
-		$messagesPrev.on('DOMSubtreeModified', function () {
-			showHideScrollbar($messagesPrev, $framePrev, $scrollBarPrev);
+		messagesScroll.init.$messagesPrev.on("DOMSubtreeModified", function () {
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$messagesPrev,
+				messagesScroll.init.$framePrev,
+				messagesScroll.init.$scrollBarPrev
+			);
 		});
 
-		$frameDialog.on('DOMSubtreeModified', function () {
-			showHideScrollbar($dialog, $frameDialog, $scrollBarDialog);
+		messagesScroll.init.$frameDialog.on("DOMSubtreeModified", function () {
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$dialog,
+				messagesScroll.init.$frameDialog,
+				messagesScroll.init.$scrollBarDialog
+			);
 		});
 
 		$(window).resize(() => {
-			if ($($framePrev)[0] && $($frameDialog)[0]) {
-				baron($($framePrev)[0]).update();
-				baron($($frameDialog)[0]).update();
+			if (
+				$(messagesScroll.init.$framePrev)[0] &&
+				$(messagesScroll.init.$frameDialog)[0]
+			) {
+				baron($(messagesScroll.init.$framePrev)[0]).update();
+				baron($(messagesScroll.init.$frameDialog)[0]).update();
 			}
-			showHideScrollbar($messagesPrev, $framePrev, $scrollBarPrev);
-			showHideScrollbar($dialog, $frameDialog, $scrollBarDialog);
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$messagesPrev,
+				messagesScroll.init.$framePrev,
+				messagesScroll.init.$scrollBarPrev
+			);
+			messagesScroll.showHideScrollbar(
+				messagesScroll.init.$dialog,
+				messagesScroll.init.$frameDialog,
+				messagesScroll.init.$scrollBarDialog
+			);
 		});
 
-		showHideScrollbar($messagesPrev, $framePrev, $scrollBarPrev);
-		showHideScrollbar($dialog, $frameDialog, $scrollBarDialog);
-		onDialogOpen();
+		messagesScroll.showHideScrollbar(
+			messagesScroll.init.$messagesPrev,
+			messagesScroll.init.$framePrev,
+			messagesScroll.init.$scrollBarPrev
+		);
+		messagesScroll.showHideScrollbar(
+			messagesScroll.init.$dialog,
+			messagesScroll.init.$frameDialog,
+			messagesScroll.init.$scrollBarDialog
+		);
 
-		messagesScroll.init.onDialogOpen = onDialogOpen;
-	}
+		messagesScroll.init.correctedScrollElems = [
+			messagesScroll.init.$framePrev,
+			messagesScroll.init.$framePrev,
+		];
+
+		messagesScroll.onDialogOpen();
+	},
 };
 
 export { messagesScroll };

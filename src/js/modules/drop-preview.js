@@ -1,42 +1,48 @@
-import baron from 'baron';
+import baron from "baron";
 
 var dropPreview = {
-	init: () => {
-		const dropPrevWrap = document.querySelector('.dialog-form__dropzone-wrap');
-		const dropArea = dropPrevWrap.querySelector('.dialog-form__dropzone');
-		const $scrollHandle = $(dropPrevWrap).find('.dropzone__drop-prev-bar');
+	dropPrevWrap: document.querySelector(".dialog-form__dropzone-wrap"),
 
-		$(dropPrevWrap).on('DOMSubtreeModified', function () {
+	init: () => {
+		if (!$(dropPreview.dropPrevWrap).length) return false;
+
+		const dropArea = dropPreview.dropPrevWrap.querySelector(
+			".dialog-form__dropzone"
+		);
+		const $scrollHandle = $(dropPreview.dropPrevWrap).find(
+			".dropzone__drop-prev-bar"
+		);
+
+		$(dropPreview.dropPrevWrap).on("DOMSubtreeModified", function () {
 			if ($(this).height() >= 130) {
 				$scrollHandle.css({
-					opacity: 1
+					opacity: 1,
 				});
 			} else {
 				$scrollHandle.css({
-					opacity: 0
+					opacity: 0,
 				});
 			}
 		});
 
 		baron({
-			root: dropPrevWrap,
+			root: dropPreview.dropPrevWrap,
 			scroller: dropArea,
-			bar: '.dropzone__drop-prev-bar',
-			scrollingCls: '_scrolling'
+			bar: ".dropzone__drop-prev-bar",
 		});
 
-		$(dropPrevWrap).on('DOMSubtreeModified', function () {
-			if($(this).height() > 0) {
+		$(dropPreview.dropPrevWrap).on("DOMSubtreeModified", function () {
+			if ($(this).height() > 0) {
 				$(this).css({
-					marginTop: '3.6rem'
-				})
+					marginTop: "3.6rem",
+				});
 			} else {
 				$(this).css({
-					marginTop: ''
-				})
+					marginTop: "",
+				});
 			}
 		});
-	}
+	},
 };
 
 export { dropPreview };

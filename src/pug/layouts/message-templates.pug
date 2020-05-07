@@ -76,7 +76,7 @@ TEMPLATE(id="my-message")
 						+icon('messageread')
 
 TEMPLATE(id="attached-file")
-	+b.A.dialog__attached-file(href="#")
+	+b.A.dialog__attached-file(href="#" draggable="false")
 		+e.attached-icon-wrap
 			+icon('file')
 		+e.SPAN.attached-name Myclip_11231441.doc
@@ -139,7 +139,7 @@ TEMPLATE(id="video-item")
 					| (
 					+e.SPAN.video-size 16 МБ
 					| )
-				+e.A.video-download(href="#")
+				+e.A.video-download(href="#" draggable="false")
 					+e.download-icon-wrap
 						+icon('downloadarrow')
 
@@ -158,7 +158,8 @@ TEMPLATE(id="my-bill")
 				+e.TD.table-cell._details._price 1 500,00
 
 		+e.buttons-wrap
-			+e.BUTTON.order-bth._cancel Отменить
+			+e.BUTTON.order-btn._cancel.is-regular.border-button._light
+				+e.text Отменить
 
 TEMPLATE(id="customer-bill")
 	+b.dialog__bill-wrap
@@ -175,8 +176,9 @@ TEMPLATE(id="customer-bill")
 				+e.TD.table-cell._details._price 1 500,00
 
 		+e.buttons-wrap
-			+e.BUTTON.order-bth._refuse Отказаться
-			+e.BUTTON.order-bth._accept Принять
+			+e.BUTTON.order-btn._cancel.is-regular.border-button._light
+				+e.text Отказаться
+			+e.BUTTON.order-btn._accept.btn.is-regular Принять
 
 TEMPLATE(id="empty")
 	+b.messages-dialogs

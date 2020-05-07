@@ -1,72 +1,28 @@
-import {
-	defaults
-} from "./modules/defaults";
-import {
-	forms
-} from "./modules/forms";
-import {
-	modals
-} from "./modules/modals";
-import {
-	tooltips
-} from "./modules/tooltips";
-import {
-	sliders
-} from "./modules/sliders";
-import {
-	thumbnails
-} from "./modules/thumbnails";
-import {
-	filters
-} from "./modules/filters";
-import {
-	menu
-} from "./modules/menu";
-import {
-	player
-} from "./modules/player";
-import {
-	order
-} from "./modules/order";
-import {
-	previewAvatar
-} from "./modules/previewAvatar";
-import {
-	textareaLength
-} from "./modules/textareaLength";
-import {
-	selectLanguage
-} from "./modules/selectLanguage";
-import {
-	messagesScroll
-} from "./modules/messages-scroll";
-import {
-	messageHeight
-} from "./modules/message-height";
-import {
-	dropPreview
-} from "./modules/drop-preview";
-import {
-	messageVideo
-} from "./modules/message-video";
-import {
-	messagePre
-} from "./modules/message-pre";
-import {
-	setDialogHeader
-} from "./modules/set-dialog-header";
-import {
-	setDialogContent
-} from "./modules/set-dialog-content";
-import {
-	getMessages
-} from "./modules/get-messages";
-import {
-	notifications
-} from "./modules/notifications";
-import {
-	config
-} from "./config";
+import { defaults } from "./modules/defaults";
+import { forms } from "./modules/forms";
+import { modals } from "./modules/modals";
+import { tooltips } from "./modules/tooltips";
+import { sliders } from "./modules/sliders";
+import { thumbnails } from "./modules/thumbnails";
+import { filters } from "./modules/filters";
+import { menu } from "./modules/menu";
+import { player } from "./modules/player";
+import { order } from "./modules/order";
+import { previewAvatar } from "./modules/previewAvatar";
+import { textareaLength } from "./modules/textareaLength";
+import { selectLanguage } from "./modules/selectLanguage";
+import { messagesScroll } from "./modules/messages-scroll";
+import { messageHeight } from "./modules/message-height";
+import { dropPreview } from "./modules/drop-preview";
+import { messageVideo } from "./modules/message-video";
+import { messagePre } from "./modules/message-pre";
+import { setDialogHeader } from "./modules/set-dialog-header";
+import { setDialogContent } from "./modules/set-dialog-content";
+import { getMessages } from "./modules/get-messages";
+import { notifications } from "./modules/notifications";
+import { messageSend } from "./modules/message-send";
+import { bill } from "./modules/bill";
+import { config } from "./config";
 
 var App = () => {};
 
@@ -81,22 +37,22 @@ App.prototype.init = () => {
 	order.init();
 	menu.init();
 	player.init();
-	// messagesScroll.init();
-	// messageHeight.init();
-	// dropPreview.init();
+	messagesScroll.init();
+	messageHeight.init();
+	dropPreview.init();
 	messageVideo.init();
 	messagePre.init();
 	setDialogHeader.init();
 	setDialogContent.init();
 	getMessages.init();
-	// notifications.init();
+	notifications.init();
 	textareaLength.init();
 	selectLanguage.init();
 	previewAvatar.init();
+	bill.init();
+	messageSend.init();
 
 	config.log("app init");
 };
 
-export {
-	App
-};
+export { App };

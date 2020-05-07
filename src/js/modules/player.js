@@ -1,6 +1,4 @@
-import {
-	config
-} from "../config";
+import { config } from "../config";
 import "jquery-ui/ui/widgets/slider";
 
 var player = {
@@ -103,9 +101,9 @@ var player = {
 			req.onload = function () {
 				if (this.status === 200) {
 					let template =
-						type == "video" ?
-						`<video controls="false" autoplay="false" width="300" height="170" class="player__item object-fit"><source src="${file}" type="video/mp4"/></video>` :
-						`<audio class="player__item"><source src="${file}" type="audio/mpeg"></audio>`;
+						type == "video"
+							? `<video controls="false" autoplay="false" width="300" height="170" class="player__item object-fit"><source src="${file}" type="video/mp4"/></video>`
+							: `<audio class="player__item"><source src="${file}" type="audio/mpeg"></audio>`;
 
 					let video = template;
 
@@ -262,12 +260,12 @@ var player = {
 
 			config.log("player is muted");
 		} else {
-			let volume = $sound.attr("data-volume") ?
-				$sound.attr("data-volume") :
-				100;
-			let position = $sound.attr("data-position") ?
-				$sound.attr("data-position") :
-				100;
+			let volume = $sound.attr("data-volume")
+				? $sound.attr("data-volume")
+				: 100;
+			let position = $sound.attr("data-position")
+				? $sound.attr("data-position")
+				: 100;
 
 			$dot.css("left", `${position}px`);
 			$progress.css("width", `${position}px`);
@@ -416,6 +414,4 @@ var player = {
 	},
 };
 
-export {
-	player
-};
+export { player };

@@ -8,70 +8,69 @@ var setDialogHeader = {
 		avatarWebp.attr('srcset', `${setDialogHeader.IMG_SRC}${avatarData}.webp`);
 	},
 
+	setHeaderName: (nameData) => {
+		setDialogHeader.init.$headerName.text(nameData);
+	},
+
+	setHeaderLastVisit: (lastVisit) => {
+		if (lastVisit === 'Онлайн') {
+			setDialogHeader.init.$headerOnlineText.text('Онлайн');
+			setDialogHeader.init.$headerOnlineTime.text('');
+		} else {
+			setDialogHeader.init.$headerOnlineText.text('Был(а) ');
+			setDialogHeader.init.$headerOnlineTime.text(lastVisit);
+		}
+	},
+
+	setUserTime: (userTime) => {
+		setDialogHeader.init.$headerUserTime.text(userTime);
+	},
+
+	setHeaderTime: (lastVisitData, userTimeData) => {
+		setDialogHeader.setHeaderLastVisit(lastVisitData);
+		setDialogHeader.setUserTime(userTimeData);
+	},
+
+	setHeaderOnline: (lastVisitDate) => {
+		if (lastVisitDate === 'Онлайн') {
+			setDialogHeader.init.$dialogHeaderTemplate.addClass('dialog-header_online');
+			setDialogHeader.init.$dialogsWrap.addClass('messages-dialogs_online');
+		} else {
+			setDialogHeader.init.$dialogHeaderTemplate.removeClass('dialog-header_online');
+			setDialogHeader.init.$dialogsWrap.removeClass('messages-dialogs_online');
+		}
+	},
+
+	setHeader: (
+		avatarData,
+		nameData,
+		lastVisitData,
+		userTimeData
+	) => {
+		setDialogHeader.setHeaderOnline(lastVisitData);
+		setDialogHeader.setAvatar(avatarData, setDialogHeader.init.$headerImgJpg, setDialogHeader.init.$headerImgWebp);
+		setDialogHeader.setHeaderName(nameData);
+		setDialogHeader.setHeaderTime(lastVisitData, userTimeData);
+
+		return setDialogHeader.makeDialogFragment();
+	},
+
+	makeDialogFragment: () => {
+		setDialogHeader.$dialogWrap.prepend(setDialogHeader.init.$dialogHeaderTemplate);
+		setDialogHeader.fragment.appendChild($(setDialogHeader.$dialogWrap)[0]);
+
+		return setDialogHeader.fragment;
+	},
+
 	init: () => {
-		const $dialogHeaderTemplate = $('#dialog-header').contents('.dialog-header');
-		const $headerImgJpg = $dialogHeaderTemplate.find('.dialog-header__author-avatar');
-		const $headerImgWebp = $headerImgJpg.prev();
-		const $headerName = $dialogHeaderTemplate.find('.dialog-header__author-name');
-		const $headerOnlineText = $dialogHeaderTemplate.find('.dialog-header__online-text');
-		const $headerOnlineTime = $dialogHeaderTemplate.find('.dialog-header__online-time');
-		const $headerUserTime = $dialogHeaderTemplate.find('.dialog-header__user-time');
-
-		const $dialogsWrap = $('.messages-dialogs');
-
-		const setHeaderName = (nameData) => {
-			$headerName.text(nameData);
-		};
-
-		const setHeaderLastVisit = (lastVisit) => {
-			if (lastVisit === 'Онлайн') {
-				$headerOnlineText.text('Онлайн');
-				$headerOnlineTime.text('');
-			} else {
-				$headerOnlineText.text('Был(а) ');
-				$headerOnlineTime.text(lastVisit);
-			}
-		};
-
-		const setUserTime = (userTime) => {
-			$headerUserTime.text(userTime);
-		};
-
-		const setHeaderTime = (lastVisitData, userTimeData) => {
-			setHeaderLastVisit(lastVisitData);
-			setUserTime(userTimeData);
-		};
-
-		const setHeaderOnline = (lastVisitDate) => {
-			if (lastVisitDate === 'Онлайн') {
-				$dialogHeaderTemplate.addClass('dialog-header_online');
-				$dialogsWrap.addClass('messages-dialogs_online');
-			} else {
-				$dialogHeaderTemplate.removeClass('dialog-header_online');
-				$dialogsWrap.removeClass('messages-dialogs_online');
-			}
-		};
-
-		const makeDialogFragment = () => {
-			setDialogHeader.$dialogWrap.prepend($dialogHeaderTemplate);
-			setDialogHeader.fragment.appendChild($(setDialogHeader.$dialogWrap)[0]);
-
-			return setDialogHeader.fragment;
-		};
-
-		setDialogHeader.init.setHeader = (
-			avatarData,
-			nameData,
-			lastVisitData,
-			userTimeData
-		) => {
-			setHeaderOnline(lastVisitData);
-			setDialogHeader.setAvatar(avatarData, $headerImgJpg, $headerImgWebp);
-				setHeaderName(nameData);
-				setHeaderTime(lastVisitData, userTimeData);
-
-				return makeDialogFragment();
-		};
+		setDialogHeader.init.$dialogHeaderTemplate = $('#dialog-header').contents('.dialog-header');
+		setDialogHeader.init.$headerImgJpg = setDialogHeader.init.$dialogHeaderTemplate.find('.dialog-header__author-avatar');
+		setDialogHeader.init.$headerImgWebp = setDialogHeader.init.$headerImgJpg.prev();
+		setDialogHeader.init.$headerName = setDialogHeader.init.$dialogHeaderTemplate.find('.dialog-header__author-name');
+		setDialogHeader.init.$headerOnlineText = setDialogHeader.init.$dialogHeaderTemplate.find('.dialog-header__online-text');
+		setDialogHeader.init.$headerOnlineTime = setDialogHeader.init.$dialogHeaderTemplate.find('.dialog-header__online-time');
+		setDialogHeader.init.$headerUserTime = setDialogHeader.init.$dialogHeaderTemplate.find('.dialog-header__user-time');
+		setDialogHeader.init.$dialogsWrap = $('.messages-dialogs');
 	}
 };
 

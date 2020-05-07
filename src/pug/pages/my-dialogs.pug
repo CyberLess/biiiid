@@ -4,9 +4,10 @@ append vars
 	- title = 'Мои сообщения';
 
 block header
-	+header(true)
+	+header(true)(class="_hide-search")
 
 block content
 	include ../layouts/messages
+	include ../layouts/bill
 
 block footer

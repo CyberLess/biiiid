@@ -3,12 +3,8 @@ import validate from "jquery-validation";
 import "jquery-ui/ui/widgets/slider";
 require("jquery-ui-touch-punch");
 import "selectric";
-import {
-	config
-} from "../config";
-import {
-	filters
-} from "./filters";
+import { config } from "../config";
+import { filters } from "./filters";
 import "magnific-popup";
 
 window.Dropzone = require("dropzone");
@@ -20,99 +16,112 @@ var forms = {
 		var selector = document.querySelectorAll("input[name='phone']");
 		var combo = document.querySelectorAll("input[name='phone-combo']");
 		var sms = document.querySelectorAll("input[name='sms']");
-		var pay = document.querySelectorAll("input[name='pay-in-out']");
 
 		var im = new Inputmask({
-			"mask": "+7 (999) 999-99-99",
+			mask: "+7 (999) 999-99-99",
 			clearMaskOnLostFocus: true,
-			clearIncomplete: true
+			clearIncomplete: true,
 		});
 
 		var comboMask = new Inputmask({
-			"mask": "(999) 999-99-99",
+			mask: "(999) 999-99-99",
 			clearMaskOnLostFocus: true,
-			clearIncomplete: true
+			clearIncomplete: true,
 		});
 
 		var smsMask = new Inputmask({
-			"mask": "9",
-			"placeholder": ""
-		});
-
-		var payMask = new Inputmask({
-			"mask": "999999",
-			"placeholder": ""
+			mask: "9",
+			placeholder: "",
 		});
 
 		im.mask(selector);
 		comboMask.mask(combo);
 		smsMask.mask(sms);
-		smsMask.mask(sms);
-		payMask.mask(pay);
 	},
 
 	sms: {
 		resend: {
 			markup: (content, attr) => {
-				return `<button class="modals__form-resend" ${attr}>${content}</button>`
+				return `<button class="modals__form-resend" ${attr}>${content}</button>`;
 			},
-			active: 'Отправить код повторно',
-			disabled: 'Повторый код можно отправить через: 30 сек'
+			active: "Отправить код повторно",
+			disabled: "Повторый код можно отправить через: 30 сек",
 		},
 		startCountdown: () => {
-			let wrapper = document.querySelector('.modals__form-resend-wrapper')
-			wrapper.innerHTML = forms.sms.resend.markup(forms.sms.resend.disabled, 'disabled');
+			let wrapper = document.querySelector(".modals__form-resend-wrapper");
+			wrapper.innerHTML = forms.sms.resend.markup(
+				forms.sms.resend.disabled,
+				"disabled"
+			);
 		},
 		stopCountdown: () => {
-			let wrapper = document.querySelector('.modals__form-resend-wrapper');
-			wrapper.innerHTML = forms.sms.resend.markup(forms.sms.resend.active, 'enabled');
+			let wrapper = document.querySelector(".modals__form-resend-wrapper");
+			wrapper.innerHTML = forms.sms.resend.markup(
+				forms.sms.resend.active,
+				"enabled"
+			);
 		},
-		next: elm => {
-			if (elm.nextElementSibling !== null && elm.nextElementSibling !== undefined) {
-				elm.nextElementSibling.focus()
+		next: (elm) => {
+			if (
+				elm.nextElementSibling !== null &&
+				elm.nextElementSibling !== undefined
+			) {
+				elm.nextElementSibling.focus();
 			} else {
-				elm.parentElement.classList.add('is-invalid')
-				forms.sms.startCountdown()
+				elm.parentElement.classList.add("is-invalid");
+				forms.sms.startCountdown();
 			}
 		},
-		prev: elm => {
-			elm.value = ''
-			if (elm.previousElementSibling !== null && elm.previousElementSibling !== undefined) {
-				elm.previousElementSibling.value = ''
-				elm.previousElementSibling.focus()
+		prev: (elm) => {
+			elm.value = "";
+			if (
+				elm.previousElementSibling !== null &&
+				elm.previousElementSibling !== undefined
+			) {
+				elm.previousElementSibling.value = "";
+				elm.previousElementSibling.focus();
 			} else {
-				elm.focus()
+				elm.focus();
 			}
 		},
-		isNumber: e => {
-			let charCode = (e.which) ? e.which : e.keyCode
-			if (charCode > 31 && (charCode < 48 || (charCode > 57 && charCode != 190 && charCode != 110 && charCode != 32)))
+		isNumber: (e) => {
+			let charCode = e.which ? e.which : e.keyCode;
+			if (
+				charCode > 31 &&
+				(charCode < 48 ||
+					(charCode > 57 &&
+						charCode != 190 &&
+						charCode != 110 &&
+						charCode != 32))
+			)
 				return false;
 			return true;
 		},
-		isControl: e => {
-			let charCode = (e.which) ? e.which : e.keyCode
-			if (charCode == 8 || charCode == 110 || charCode == 46 && charCode != 32)
-				return true
-			return false
+		isControl: (e) => {
+			let charCode = e.which ? e.which : e.keyCode;
+			if (
+				charCode == 8 ||
+				charCode == 110 ||
+				(charCode == 46 && charCode != 32)
+			)
+				return true;
+			return false;
 		},
 		init: () => {
 			var sms = document.querySelectorAll("input[name='sms']");
 
 			if (sms) {
 				forms.sms.stopCountdown();
-				sms.forEach(input => {
-					input.addEventListener('input', e => {
-						if (forms.sms.isNumber(e))
-							forms.sms.next(input)
-					})
-					input.addEventListener('keyup', e => {
-						if (forms.sms.isControl(e))
-							forms.sms.prev(input)
-					})
-				})
+				sms.forEach((input) => {
+					input.addEventListener("input", (e) => {
+						if (forms.sms.isNumber(e)) forms.sms.next(input);
+					});
+					input.addEventListener("keyup", (e) => {
+						if (forms.sms.isControl(e)) forms.sms.prev(input);
+					});
+				});
 			}
-		}
+		},
 	},
 
 	number: (event) => {
@@ -176,9 +185,9 @@ var forms = {
 
 				let $select = $(element).closest(".select");
 
-				let placeholder = $select.attr("data-placeholder") ?
-					$select.data("placeholder") :
-					false;
+				let placeholder = $select.attr("data-placeholder")
+					? $select.data("placeholder")
+					: false;
 
 				if (val.length == 0 && placeholder) {
 					$select.find(".label").text(placeholder);
@@ -217,7 +226,8 @@ var forms = {
 				if (
 					min != Number(slider.slider("values", 0)) ||
 					max != Number(slider.slider("values", 1))
-				) {}
+				) {
+				}
 			};
 
 			let update_tag = (min_input, max_input, name, value, add = true) => {
@@ -344,6 +354,14 @@ var forms = {
 						required: true,
 						minlength: 10,
 					},
+
+					billDescription: {
+						required: true,
+					},
+
+					billPrice: {
+						required: true,
+					},
 				},
 			});
 		});
@@ -387,6 +405,4 @@ var forms = {
 	},
 };
 
-export {
-	forms
-};
+export { forms };

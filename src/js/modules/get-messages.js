@@ -5,6 +5,7 @@ import { player } from "./player";
 import { messagePre } from "./message-pre";
 import { setDialogHeader } from "./set-dialog-header";
 import {messageVideo} from "./message-video";
+import { messagesDragAndDrop } from "./messages-drag-end-drop";
 
 var getMessages = {
 	$emptyTemplate: $('#empty').contents('.messages-dialogs').find('.messages-dialogs__content-wrap'),
@@ -53,14 +54,21 @@ var getMessages = {
 
 		$('.messages-dialogs').css('opacity', '1');
 		$('.messages__preloader').remove();
-		$('.send').css('opacity', '0');
+		$('.send').css({
+			opacity: '0',
+			display: 'none'
+		});
+		window.messages.currentMessageUserId = false;
 	},
 
 	getDialog: (id, params) => {
 		$.ajax(params.ID_TO_URL[id], {
 			success: (resp) => {
-				setDialogContent.init.pushMessagesOnPage(resp);
-				$('.send').css('opacity', '1');
+				setDialogContent.pushMessagesOnPage(resp);
+				$('.send').css({
+					opacity: '1',
+					display: 'block'
+				});
 			},
 
 			beforeSend: () => {
@@ -76,6 +84,7 @@ var getMessages = {
 					player.init();
 					messageVideo.init();
 					getMessages.debugSvgInDialog();
+					messagesDragAndDrop.init();
 
 					if ($(window).width() < 920) {
 						const $dialogClose = $('.dialog-header__to-prevs-wrap');
