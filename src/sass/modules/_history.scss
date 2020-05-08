@@ -312,6 +312,14 @@
 					flex-direction: row;
 				}
 			}
+
+			@media screen and (min-width: 769px) and (max-width: 860px) {
+				max-width: 60%;
+
+				&:last-child {
+					max-width: 20%;
+				}
+			}
 		}
 
 		&-help {
@@ -493,10 +501,13 @@
 			@include max-screen($small_tablet) {
 				display: none;
 			}
+
+			@media screen and (min-width: 769px) and (max-width: 860px) {
+				display: none;
+			}
 		}
 
 		&-search {
-
 			padding-left: 4rem;
 
 			&-wrapper {

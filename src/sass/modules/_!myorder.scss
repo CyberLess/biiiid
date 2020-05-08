@@ -29,6 +29,10 @@
 			max-width: 80%;
 		}
 
+		@media screen and (min-width: 769px) and (max-width: 860px) {
+			width: 74%;
+		}
+
 		@include max-screen($small_tablet) {
 			max-width: 100%;
 		}
@@ -216,6 +220,14 @@
 						flex: 0 0 100%;
 						padding-bottom: 1rem;
 					}
+
+					@media screen and (min-width: 769px) and (max-width: 860px) {
+						width: 35%;
+					}
+				}
+
+				@media screen and (min-width: 769px) and (max-width: 860px) {
+					width: 16%;
 				}
 			}
 
@@ -250,6 +262,15 @@
 					width: 283/728 * 100%;
 					flex: 1 0 28%;
 				}
+
+				@media screen and (min-width: 769px) and (max-width: 860px) {
+					width: 35%;
+				}
+
+			}
+
+			@media screen and (min-width: 769px) and (max-width: 860px) {
+				width: 16%;
 			}
 
 			// @include max-screen($large_tablet) {
