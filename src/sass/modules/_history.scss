@@ -340,8 +340,12 @@
 
 		&-time,
 		&-cancel {
-			line-height: 1.6rem;
+			line-height: 1.5;
 			color: rgba($color: $gray-light, $alpha: 0.5);
+
+			@include max-screen($large_mobile) {
+				line-height: 1.6rem;
+			}
 		}
 
 		&-cancel {
@@ -411,7 +415,7 @@
 		width: 865/1140 * 100%;
 		margin-left: 3rem;
 
-		@include max-screen($large_desktop) {
+		@include max-screen($large_tablet) {
 			flex-direction: column;
 			align-items: flex-start;
 			width: 100%;
@@ -438,7 +442,7 @@
 				position: relative;
 				display: flex;
 
-				@include max-screen($large_desktop) {
+				@include max-screen($large_tablet) {
 					width: 100%;
 					margin-top: 2rem;
 					margin-bottom: 1rem;
@@ -461,9 +465,9 @@
 			text-decoration: underline;
 			cursor: pointer;
 
-			@include max-screen($large_desktop) {
-				margin: 2rem 0;
-			}
+			// @include max-screen($small_desktop) {
+			// 	margin: 2rem 0;
+			// }
 
 			@include max-screen($large_tablet) {
 				display: none;
