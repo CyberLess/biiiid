@@ -414,6 +414,7 @@
 
 		&__name {
 			color: #2a2d34;
+			margin-bottom: 2px;
 
 			@include max-screen($large_tablet) {
 				white-space: nowrap;
