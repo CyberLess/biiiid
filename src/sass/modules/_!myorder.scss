@@ -129,15 +129,16 @@
 					}
 				}
 			}
-
-
-
-
 		}
 
 		&__table {
 			padding-bottom: 3.8rem;
 			border-bottom: 1px solid #dfe0e1;
+
+			@include max-screen($large_mobile) {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
 		}
 
 		&__header {
@@ -205,12 +206,12 @@
 						width: 470/1024 * 100%;
 					}
 
-					@include max-screen($large_mobile) {
-						width: 60%;
-						flex: 0 0 60%;
-					}
+					// @include max-screen($large_mobile) {
+					// 	width: 60%;
+					// 	flex: 0 0 60%;
+					// }
 
-					@include max-screen($small_mobile) {
+					@include max-screen($large_mobile) {
 						width: 100%;
 						flex: 0 0 100%;
 						padding-bottom: 1rem;
