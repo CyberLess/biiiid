@@ -2,14 +2,14 @@
 	padding: 3.7rem 0 12.6rem;
 	background: #f5f5f5;
 
-	@include max-screen($large_tablet) {
+	@include max-screen($small_tablet) {
 		padding-bottom: 4rem;
 	}
 
 	&__heading {
 		margin-bottom: 3px;
 
-		@include max-screen($large_tablet) {
+		@include max-screen($small_tablet) {
 			font-weight: 500;
 		}
 	}
@@ -21,7 +21,7 @@
 	&__wrap {
 		max-width: 1264px;
 
-		@include max-screen($large_tablet) {
+		@include max-screen($small_tablet) {
 			padding: 0;
 		}
 	}
@@ -30,7 +30,7 @@
 		background-color: #fff;
 		padding: 2.2rem 0 2.3rem;
 
-		@include max-screen($large_tablet) {
+		@include max-screen($small_tablet) {
 			flex-direction: column;
 		}
 
@@ -41,7 +41,7 @@
 			padding: 0 3rem;
 			border-right: 1px solid rgba($color: $gray-light, $alpha: 0.15);
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				max-width: 100%;
 				margin-bottom: 2rem;
 				padding: 0 2rem;
@@ -56,7 +56,7 @@
 		&_fluid {
 			max-width: 520/1200 * 100%;
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				max-width: 100%;
 			}
 		}
@@ -69,7 +69,7 @@
 			width: 100%;
 			padding: 0.8rem 0 0.7rem;
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				padding: 0;
 			}
 
@@ -88,6 +88,18 @@
 
 				@include max-screen($large_tablet) {
 					max-width: 100%;
+					margin-bottom: 1rem;
+				}
+
+				&.is-single {
+					@include max-screen($large_tablet) {
+						max-width: 200/460 * 100%;
+						margin-bottom: unset;
+					}
+
+					@include max-screen($small_tablet) {
+						max-width: 100%;
+					}
 				}
 			}
 
@@ -96,6 +108,10 @@
 				line-height: 1.6rem;
 
 				@include max-screen($large_tablet) {
+					width: 49%;
+				}
+
+				@include max-screen($small_tablet) {
 					margin-top: 1rem;
 					width: 100%;
 					max-width: 46.4%;
@@ -139,7 +155,7 @@
 							display: none;
 						}
 
-						@include max-screen($large_tablet) {
+						@include max-screen($small_tablet) {
 							max-width: 100%;
 							align-items: unset;
 
@@ -158,13 +174,13 @@
 						input {
 							margin-right: 2rem;
 
-							@include max-screen($large_tablet) {
+							@include max-screen($small_tablet) {
 								margin-right: unset;
 							}
 						}
 
 						&__button {
-							@include max-screen($large_tablet) {
+							@include max-screen($small_tablet) {
 								max-width: 100%;
 							}
 						}
@@ -184,7 +200,7 @@
 			z-index: 50;
 		}
 
-		@include max-screen($large_tablet) {
+		@include max-screen($small_tablet) {
 			right: 2rem;
 		}
 	}
@@ -193,7 +209,7 @@
 		margin: 3rem 0 0;
 		background-color: #fff;
 
-		@include max-screen($large_tablet) {
+		@include max-screen($small_tablet) {
 			margin-top: 2rem;
 		}
 
@@ -226,7 +242,7 @@
 				}
 			}
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				flex-direction: column;
 				padding: 1.2rem 0;
 			}
@@ -267,7 +283,7 @@
 				padding-right: 3rem;
 			}
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				flex-direction: column;
 				width: 100%;
 				padding: 0 2rem;
@@ -317,7 +333,7 @@
 				}
 			}
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				width: 1.4rem;
 				height: 1.4rem;
 				top: -1.8rem;
@@ -333,7 +349,7 @@
 		&-time {
 			margin-left: 2.3rem;
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				display: none;
 			}
 		}
@@ -354,7 +370,7 @@
 				margin-left: 1rem;
 			}
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				display: none;
 
 				&_is-mobile {
@@ -383,7 +399,7 @@
 				cursor: pointer;
 			}
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				display: block;
 				max-width: 167px;
 				margin-top: 3px;
@@ -394,7 +410,7 @@
 		}
 
 		&-name {
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				margin-bottom: 3px;
 			}
 		}
@@ -403,7 +419,7 @@
 			margin-top: 4.5rem;
 			padding: 0 3rem;
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				flex-direction: column;
 				padding: 0 2rem;
 			}
@@ -415,7 +431,12 @@
 		width: 865/1140 * 100%;
 		margin-left: 3rem;
 
-		@include max-screen($large_tablet) {
+		@include max-screen($large_desktop) {
+			width: 100%;
+			margin: 1rem 0 0 0;
+		}
+
+		@include max-screen($small_tablet) {
 			flex-direction: column;
 			align-items: flex-start;
 			width: 100%;
@@ -442,7 +463,7 @@
 				position: relative;
 				display: flex;
 
-				@include max-screen($large_tablet) {
+				@include max-screen($small_tablet) {
 					width: 100%;
 					margin-top: 2rem;
 					margin-bottom: 1rem;
@@ -469,7 +490,7 @@
 			// 	margin: 2rem 0;
 			// }
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				display: none;
 			}
 		}
@@ -483,7 +504,7 @@
 				margin-left: auto;
 				margin-right: 0;
 
-				@include max-screen($large_tablet) {
+				@include max-screen($small_tablet) {
 					width: 100%;
 					margin-left: 0;
 				}
