@@ -101,16 +101,38 @@
 	}
 
 	&-orders {
+		.reviews__top {
 
-		@include max-screen($large_tablet) {
-			.reviews__top_filter {
-				margin-bottom: 4rem;
-				padding-bottom: 0;
+			&-list {
+				width: 100%;
 			}
-		}
 
-		.reviews__top-list {
-			width: 100%;
+			&_filter {
+				@include max-screen($large_tablet) {
+					margin-bottom: 4rem;
+					padding-bottom: 0;
+				}
+
+				@include max-screen($large_mobile) {
+					margin-bottom: 2rem;
+
+					&::after {
+						bottom: 0px;
+					}
+				}
+			}
+
+			&-item {
+				@include max-screen($large_mobile) {
+					&::before {
+						bottom: 0px;
+					}
+				}
+			}
+
+
+
+
 		}
 
 		&__table {
@@ -151,6 +173,17 @@
 
 			@include max-screen($large_mobile) {
 				padding: 1.3rem 0 1.4rem;
+
+				&::after {
+					position: absolute;
+					bottom: 0;
+					left: -20px;
+					content: '';
+					display: block;
+					background-color: rgba(42, 45, 52, .15);
+					width: calc(100% + 40px);
+					height: 1px;
+				}
 			}
 
 			.myorder-orders__cell {
@@ -173,13 +206,14 @@
 					}
 
 					@include max-screen($large_mobile) {
-						width: 30%;
-						flex: 0 0 20%;
+						width: 60%;
+						flex: 0 0 60%;
 					}
 
 					@include max-screen($small_mobile) {
 						width: 100%;
 						flex: 0 0 100%;
+						padding-bottom: 1rem;
 					}
 				}
 			}
@@ -234,19 +268,43 @@
 				}
 			}
 
+			&_total {
+				@include max-screen($large_mobile) {
+					order: 3;
+					align-items: flex-end;
+				}
+			}
+
 			@include max-screen($small_tablet) {
 				width: auto;
 				flex: 1 0 20%;
 			}
 
 			@include max-screen($large_mobile) {
-				width: 30%;
-				flex: 0 0 20%;
+				width: 50%;
+				flex: 0 0 50%;
 			}
 		}
 
 		&__details {
 			display: flex;
+
+			@include max-screen($large_mobile) {
+				width: 100%;
+				flex-wrap: wrap;
+
+				picture {
+					display: block;
+					width: 100%;
+					height: 100%;
+					padding: 0 0 1rem 0;
+
+					img {
+						width: 100%;
+						height: 100%
+					}
+				}
+			}
 		}
 
 		&__img {
