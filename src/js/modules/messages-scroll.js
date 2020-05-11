@@ -27,9 +27,6 @@ var messagesScroll = {
 		messagesScroll.init.$messagesPrevWrap = $(
 			".messages-pre__messages-list-wrap"
 		);
-
-		if (!messagesScroll.init.$messagesPrevWrap.length) return false;
-
 		messagesScroll.init.$messagesPrev = $(".messages-pre__list");
 		messagesScroll.init.$dialogWrap = $(".messages-dialogs__dialog-wrap");
 

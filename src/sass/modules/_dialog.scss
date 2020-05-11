@@ -14,7 +14,7 @@
 		&_read {
 			svg.icon-messageread {
 				position: absolute;
-				top: .5rem;
+				top: 0.5rem;
 				right: -2.5rem;
 
 				display: block;
@@ -29,7 +29,7 @@
 		&_delivered {
 			svg.icon-delivered {
 				position: absolute;
-				top: .5rem;
+				top: 0.5rem;
 				right: -2rem;
 
 				display: block;
@@ -59,7 +59,7 @@
 
 	&__message-text-wrap {
 		width: 100%;
-		margin-top: .2rem;
+		margin-top: 0.2rem;
 
 		font-size: 1.6rem;
 
@@ -71,7 +71,7 @@
 	&__text-top {
 		display: flex;
 		align-items: flex-start;
-		margin-bottom: .5rem;
+		margin-bottom: 0.5rem;
 
 		@include max-screen($messages_large_mobile) {
 			margin-bottom: 0;
@@ -87,9 +87,9 @@
 	}
 
 	&__time {
-		color: rgba(42, 45, 52, .5);
+		color: rgba(42, 45, 52, 0.5);
 
-		opacity: .5;
+		opacity: 0.5;
 
 		@include max-screen($messages_large_mobile) {
 			margin-top: 0.1rem;
@@ -136,20 +136,20 @@
 	&__attached-icon-wrap {
 		flex-shrink: 0;
 		width: 2.2rem;
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 
 		fill: none;
-		stroke: #2A2D34;
+		stroke: #2a2d34;
 		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
 
 	&__attached-name {
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 	}
 
 	&__attached-size-wrap {
-		opacity: .3;
+		opacity: 0.3;
 	}
 
 	&__video-container {
@@ -180,9 +180,8 @@
 
 		width: 154px;
 		height: 92px;
-		margin-bottom: .5rem;
+		margin-bottom: 0.5rem;
 	}
-
 
 	&__video-info {
 		position: relative;
@@ -194,18 +193,18 @@
 	}
 
 	&__video-name {
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 	}
 
 	&__video-size-wrap {
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 
-		opacity: .3;
+		opacity: 0.3;
 	}
 
 	&__download-icon-wrap {
 		display: block;
-		width: .7rem;
+		width: 0.7rem;
 	}
 
 	&__video-download {
@@ -215,7 +214,7 @@
 
 		width: 2.8rem;
 		margin-left: auto;
-		padding-top: .5rem;
+		padding-top: 0.5rem;
 		padding-right: 1rem;
 		padding-left: 1rem;
 
@@ -234,31 +233,31 @@
 	&__bill-wrap {
 		width: 100%;
 		max-width: 38rem;
-		margin-top: .8rem;
+		margin-top: 0.8rem;
 	}
 
 	&__bill-table {
 		width: 100%;
-		border: 1px solid #F2F3F3;
+		border: 1px solid #f2f3f3;
 		border-collapse: collapse;
 	}
 
 	&__table-row {
 		&_head {
-			background-color: #F2F3F3;
+			background-color: #f2f3f3;
 		}
 
 		&:not(:first-of-type) {
-			border-top: 1px solid #F2F3F3;
+			border-top: 1px solid #f2f3f3;
 		}
 
 		&:not(:last-of-type) {
-			border-bottom: 1px solid #F2F3F3;
+			border-bottom: 1px solid #f2f3f3;
 		}
 	}
 
 	&__table-head {
-		padding: .9rem 1.2rem 1rem;
+		padding: 0.9rem 1.2rem 1rem;
 
 		font-size: 1.4rem;
 		line-height: 1.6rem;
@@ -295,7 +294,7 @@
 	&__order-btn {
 		height: 3.4rem;
 
-		transition: ease .2s;
+		transition: ease 0.2s;
 
 		@include max-screen($large_mobile) {
 			font-size: 1.2rem;
@@ -304,10 +303,10 @@
 
 		&_cancel {
 			margin-left: auto;
-			padding: .7rem 1.4rem 1rem;
-			border: 1px solid #2A2D34;
+			padding: 0.7rem 1.4rem 0.9rem;
+			border: 1px solid #2a2d34;
 
-			color: #2A2D34;
+			color: #2a2d34;
 
 			&:hover,
 			&:focus {
@@ -316,8 +315,8 @@
 			}
 
 			&:active {
-				color: #2A2D34;
-				border-color: #2A2D34;
+				color: #2a2d34;
+				border-color: #2a2d34;
 			}
 		}
 
@@ -333,14 +332,14 @@
 			}
 
 			&:active {
-				color: #2A2D34;
+				color: #2a2d34;
 			}
 		}
 
 		&_accept {
 			width: 55%;
 			margin-left: auto;
-			padding: .9rem 1.4rem 1rem;
+			padding: 0.9rem 1.4rem 0.9rem;
 
 			font-size: 1.4rem;
 			font-weight: normal;
@@ -351,7 +350,7 @@
 			}
 
 			&:active {
-				background-color: #2A2D34;
+				background-color: #2a2d34;
 			}
 		}
 	}

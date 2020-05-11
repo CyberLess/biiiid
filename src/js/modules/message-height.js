@@ -114,7 +114,10 @@ var messageHeight = {
 		$textarea.on("input", function (e) {
 			$(this).height(`${1}px`);
 			$(this).height(`${this.scrollHeight}px`);
-			messageHeight.showOrHideScroll($textareaFrameWrap, $textareaScrollHandle);
+			messageHeight.showOrHideScroll(
+				$textareaFrameWrap,
+				$textareaScrollHandle
+			);
 		});
 
 		messageHeight.$inputsWrap.on("DOMSubtreeModified input", function () {
@@ -132,9 +135,6 @@ var messageHeight = {
 
 	init: () => {
 		messageHeight.$send = $(".send");
-
-		if (!messageHeight.$send.length) return false;
-
 		messageHeight.$preFrame = $(".messages-pre__massages-frame");
 		messageHeight.$sendWrap = $(".messages-dialogs__send-wrap");
 		messageHeight.$inputsWrap = $(".dialog-form__inputs-wrap");
@@ -157,7 +157,10 @@ var messageHeight = {
 			$textareaScrollHandle
 		);
 		messageHeight.correctHeight();
-		messageHeight.showOrHideScroll($textareaFrameWrap, $textareaScrollHandle);
+		messageHeight.showOrHideScroll(
+			$textareaFrameWrap,
+			$textareaScrollHandle
+		);
 
 		$(window).resize(() => {
 			messageHeight.correctHeight();

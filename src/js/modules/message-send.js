@@ -109,36 +109,40 @@ var messageSend = {
     return '';
   },
 
-  getBillSendData: () => {
-    if (bill.$billTextarea.val() === '') {
-      return '';
+  getBillSendData: (isBill) => {
+    if (isBill) {
+      return {
+        title: bill.$billTextarea.val(),
+        price: `${config.numberWithSpaces(bill.$priceInput.val())},00`,
+        time: `${bill.$quantitySelect.val()} ${bill.$hoursDaySelectric.find('.selectric .label').text().toLowerCase()}`
+      }
     }
 
-    return {
-      title: bill.$billTextarea.val(),
-      price: `${config.numberWithSpaces(bill.$priceInput.val())},00`,
-      time: `${bill.$quantitySelect.val()} ${bill.$hoursDaySelectric.find('.selectric .label').text().toLowerCase()}`
-    }
+    return '';
   },
 
-  onFormSubmit: () => {
-    const newMessageData = {
+  defineSendData: (isBill) => {
+    messageSend.onFormSubmit.newMessageData = {
       authorName: 'Я',
       avatarData: 'avatar-me',
       messageData: {
         messageAuthor: 'me',
         status: 'no-opened',
-        text: messageSend.$textarea.val(),
-        files: messageSend.createFilesArray(),
+        text: isBill ? '' : messageSend.$textarea.val(),
+        files: isBill ? '' : messageSend.createFilesArray(),
         sendDate: new Date(),
-        bill: messageSend.getBillSendData()
+        bill: messageSend.getBillSendData(isBill)
       }
     };
+  },
+
+  onFormSubmit: (isBill) => {
+    messageSend.defineSendData(isBill);
 
     const elementsLength = messageSend.$dialogForm.find('.dropzone__item').length - 1;
 
     if (messageSend.$textarea.val() !== '' || elementsLength !== 0 || messageSend.bill !== '') {
-      messageSend.pushMessageInDialog(newMessageData, setDialogContent.init.$myMessageTemplate);
+      messageSend.pushMessageInDialog(messageSend.onFormSubmit.newMessageData, setDialogContent.init.$myMessageTemplate);
 
       if (elementsLength !== 0) {
         let filesText = 'файлов';
@@ -174,7 +178,9 @@ var messageSend = {
   },
 
   init: () => {
-    messageSend.$dialogForm.on('submit', messageSend.onFormSubmit);
+    messageSend.$dialogForm.on('submit', function () {
+      messageSend.onFormSubmit(false);
+    });
     messageSend.$textarea.on('keydown', messageSend.onEnterKeydown)
       .on('keyup', (evt) => {
         while (messageSend.pressed.includes(evt.keyCode)) {

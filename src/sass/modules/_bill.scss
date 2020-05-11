@@ -1,18 +1,18 @@
 .bill {
   position: absolute;
   z-index: 1001;
-  top: 50%;
-  left: 50%;
 
   width: 71%;
   max-width: 90.2rem;
   min-height: 50rem;
   padding: 8rem;
 
-  transform: translate(-50%, -50%) !important;
-
   background-color: #ffffff;
   box-shadow: 0 0 100px rgba(0, 0, 0, .2);
+
+  @include max-screen($large_mobile) {
+    padding: 4rem 1.8rem !important;
+  }
 
   &__close-btn {
     position: absolute;
@@ -28,6 +28,11 @@
 
     transition-property: background-color;
     background-color: rgba(196, 196, 196, 0.3);
+
+    @include max-screen($large_mobile) {
+      width: 3rem;
+      height: 3rem;
+    }
 
     &:hover,
     &:focus {
@@ -53,6 +58,11 @@
       height: .3rem;
 
       background-color: rgba(0, 0, 0, 0.7);
+
+      @include max-screen($large_mobile) {
+        width: 1.7rem;
+        height: .2rem;
+      }
     }
 
     &::before {
@@ -71,6 +81,10 @@
   &__bill-title {
     display: block;
     margin-bottom: 3rem;
+
+    @include max-screen($large_mobile) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__textarea-wrap {
@@ -105,6 +119,10 @@
     &_textarea {
       bottom: 0;
       left: 0;
+
+      @include max-screen($large_mobile) {
+        bottom: -.7rem;
+      }
     }
 
     &_price {
@@ -121,6 +139,14 @@
     padding: 1.2rem 2.4rem 1rem;
     border: 1px solid rgba(42, 45, 52, 0.15);
     resize: none;
+
+    font-size: 1.6rem;
+
+    @include max-screen($large_mobile) {
+      height: 11rem;
+      margin-bottom: .8rem;
+      padding: 1.8rem 1.4rem;
+    }
 
     &::-webkit-input-placeholder {
       color: rgba(42, 45, 52, 0.6);
@@ -139,6 +165,10 @@
     line-height: 1.6rem;
     color: rgba(42, 45, 52, 0.6);
     text-align: right;
+
+    @include max-screen($large_mobile) {
+      font-size: 1.2rem;
+    }
   }
 
   &__chars-max {
@@ -153,6 +183,10 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 4rem;
+
+    @include max-screen($large_mobile) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__params-slogan {
@@ -160,10 +194,24 @@
 
     font-size: 1.4rem;
     line-height: 1.6rem;
+
+    @include max-screen($large_mobile) {
+      &_price {
+        display: none;
+      }
+    }
   }
 
   &__params-text {
     margin-right: 2.2rem;
+
+    @include max-screen($large_mobile) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 1.2rem;
+
+      font-size: 1.6rem;
+    }
   }
 
   &__params-content-wrap {
@@ -172,11 +220,29 @@
 
     &_deadlines {
       margin-right: 4rem;
+
+      @include max-screen(707px) {
+        margin-bottom: 2rem;
+      }
+
+      @include max-screen($large_mobile) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
     }
 
     &_price {
+      @include max-screen($large_mobile) {
+        width: 100%;
+      }
+
       .bill__params-text {
         margin-right: 1.5rem;
+
+        @include max-screen($large_mobile) {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -184,20 +250,49 @@
   &__deadlines {
     display: flex;
     align-items: center;
+
+    @include max-screen($large_mobile) {
+      flex-wrap: wrap;
+      margin-bottom: 2.3rem;
+    }
+  }
+
+  &__form-row {
+    @include max-screen($large_mobile) {
+      width: 100%;
+    }
+  }
+
+  &__form-label {
+    @include max-screen($large_mobile) {
+      width: 100%;
+    }
   }
 
   &__form-select {
     &_quantity {
       width: 8.5rem;
       margin-right: 1rem;
+
+      @include max-screen($large_mobile) {
+        width: 46%;
+        margin-right: 2rem;
+      }
     }
 
     &_hours-days {
       width: 10.8rem;
+
+      @include max-screen($large_mobile) {
+        width: 45%;
+        margin-left: auto;
+      }
     }
 
     .selectric {
-      border-color: #2A2D34;
+      &:hover {
+        border-color: #2A2D34;
+      }
     }
 
     .selectric-open {
@@ -205,6 +300,12 @@
 
       .selectric {
         border-color: rgba(42, 45, 52, 0.2);
+
+        &:hover,
+        &:focus,
+        &:focus-within {
+          border-color: #2A2D34;
+        }
       }
     }
 
@@ -216,10 +317,18 @@
   &__price-label {
     display: flex;
     align-items: center;
+
+    @include max-screen($large_mobile) {
+      flex-wrap: wrap;
+    }
   }
 
   &__price-input-wrap {
     position: relative;
+
+    @include max-screen($large_mobile) {
+      width: 100%;
+    }
 
     &.error {
       .bill__price-input {
@@ -235,9 +344,18 @@
   &__price-input {
     width: 12.9rem;
     padding: .8rem 3rem .7rem 1.5rem;
-    border: 1px solid #2a2d34;
+    border: 1px solid rgba(42, 45, 52, 0.2);
 
     -moz-appearance: textfield;
+
+    @include max-screen($large_mobile) {
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid #2a2d34;
+    }
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -264,6 +382,12 @@
     transition-property: background-color;
 
     background-color: #009688;
+
+    @include max-screen($large_mobile) {
+      width: 100%;
+
+      font-size: 1.6rem;
+    }
 
     &:hover,
     &:focus {

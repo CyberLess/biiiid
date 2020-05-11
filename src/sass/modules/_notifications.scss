@@ -11,10 +11,9 @@
 	background-color: #ffffff;
 	box-shadow: 0 4px 150px 0 rgba(0, 0, 0, 0.15);
 
-
 	&__top {
-		padding: 1.8rem 4rem .2rem 7rem;
-		border-bottom: 1px solid rgba(42, 45, 52, .15);
+		padding: 1.8rem 4rem 0.2rem 7rem;
+		border-bottom: 1px solid rgba(42, 45, 52, 0.15);
 	}
 
 	&__additional-wrap {
@@ -24,6 +23,8 @@
 	&__list-wrap {
 		min-width: 392px;
 		max-height: 34.1rem;
+		width: calc(100% + 10px) !important;
+		max-width: calc(100% + 10px) !important;
 
 		&_messages {
 			display: none;
@@ -34,7 +35,7 @@
 		position: absolute;
 		z-index: 1000;
 		top: 1%;
-		right: .4rem;
+		right: 0.4rem;
 
 		width: 3px;
 		height: 98%;
@@ -42,7 +43,7 @@
 		//opacity: 0;
 
 		transition-property: opacity;
-		transition-duration: .2s;
+		transition-duration: 0.2s;
 	}
 
 	&__handle {
@@ -50,7 +51,7 @@
 		width: 3px;
 
 		background-color: #2a2d34;
-		opacity: .15;
+		opacity: 0.15;
 	}
 
 	&__list {
@@ -78,9 +79,9 @@
 		}
 
 		&_active {
-			color: #2A2D34;
+			color: #2a2d34;
 
-			box-shadow: 0 3px 0 0 #2A2D34;
+			box-shadow: 0 3px 0 0 #2a2d34;
 		}
 	}
 
@@ -100,17 +101,14 @@
 		}
 
 		.notifications__link {
-			padding-top: .7rem;
-			padding-right: 1rem;
-			padding-bottom: .6rem;
-			padding-left: 1.6rem;
+			padding: 0.7rem 1rem 0.6rem 1.6rem;
 		}
 
 		&_unread {
 			.notifications__name,
 			.notifications__text {
 				font-weight: 500;
-				color: #2A2D34;
+				color: #2a2d34;
 			}
 		}
 	}
@@ -121,10 +119,9 @@
 
 		font-size: 1.2rem;
 
-
 		&:hover,
 		&:focus {
-			background-color: #FAFAFA;
+			background-color: #fafafa;
 		}
 	}
 
@@ -132,7 +129,7 @@
 		overflow: hidden;
 		width: 4rem;
 		height: 4rem;
-		margin-top: .5rem;
+		margin-top: 0.5rem;
 		margin-right: 1.6rem;
 		border-radius: 50%;
 	}
@@ -144,10 +141,10 @@
 
 	&__name {
 		display: block;
-		margin-bottom: .5rem;
+		margin-bottom: 0.5rem;
 
 		font-size: 1.3rem;
-		color: #2A2D34;
+		color: #2a2d34;
 	}
 
 	&__text {
@@ -167,22 +164,22 @@
 		top: -2.5rem;
 		right: 0;
 
-		padding: .3rem .65rem .2rem;
+		padding: 0.3rem 0.65rem 0.2rem;
 		border-radius: 3rem;
 
 		color: #ffffff;
 
-		background-color: rgba(42, 45, 52, .3);
+		background-color: rgba(42, 45, 52, 0.3);
 	}
 
 	&__file-icon-wrap {
 		display: inline-block;
 		width: 1.6rem;
-		margin-left: -.2rem;
-		margin-right: .4rem;
+		margin-left: -0.2rem;
+		margin-right: 0.4rem;
 
 		fill: none;
-		stroke: #2A2D34;
+		stroke: #2a2d34;
 		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
@@ -191,7 +188,7 @@
 		display: flex;
 		align-items: center;
 		padding: 1.3rem 1.6rem;
-		border-top: 1px solid rgba(42, 45, 52, .15);
+		border-top: 1px solid rgba(42, 45, 52, 0.15);
 
 		&_notifications {
 			.notifications__show-all {
@@ -221,11 +218,11 @@
 
 		.icon-soundon {
 			display: none;
-			margin-top: -.7rem;
+			margin-top: -0.7rem;
 		}
 
 		.icon-soundoff {
-			margin-top: -.7rem;
+			margin-top: -0.7rem;
 		}
 	}
 
@@ -251,11 +248,11 @@
 
 		font-size: 1.4rem;
 		line-height: 1.6rem;
-		color: #2A2D34;
+		color: #2a2d34;
 
 		&:hover,
 		&:focus {
-			opacity: .5;
+			opacity: 0.5;
 		}
 	}
 }

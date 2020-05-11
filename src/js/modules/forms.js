@@ -48,14 +48,18 @@ var forms = {
 			disabled: "Повторый код можно отправить через: 30 сек",
 		},
 		startCountdown: () => {
-			let wrapper = document.querySelector(".modals__form-resend-wrapper");
+			let wrapper = document.querySelector(
+				".modals__form-resend-wrapper"
+			);
 			wrapper.innerHTML = forms.sms.resend.markup(
 				forms.sms.resend.disabled,
 				"disabled"
 			);
 		},
 		stopCountdown: () => {
-			let wrapper = document.querySelector(".modals__form-resend-wrapper");
+			let wrapper = document.querySelector(
+				".modals__form-resend-wrapper"
+			);
 			wrapper.innerHTML = forms.sms.resend.markup(
 				forms.sms.resend.active,
 				"enabled"
@@ -139,7 +143,10 @@ var forms = {
 			config.log("trigger dropzone", $item);
 
 			// $item.get(0).dropzone
-			$item.find(".dropzone__area").get(0).dropzone.hiddenFileInput.click();
+			$item
+				.find(".dropzone__area")
+				.get(0)
+				.dropzone.hiddenFileInput.click();
 		},
 
 		init: () => {
@@ -201,8 +208,12 @@ var forms = {
 
 			let $slider = $item,
 				path = $slider.find(".range__line"),
-				min = Number($slider.find(".range__min").text().replace(/ /g, "")),
-				max = Number($slider.find(".range__max").text().replace(/ /g, "")),
+				min = Number(
+					$slider.find(".range__min").text().replace(/ /g, "")
+				),
+				max = Number(
+					$slider.find(".range__max").text().replace(/ /g, "")
+				),
 				range = $slider.find(".ui-slider-range");
 
 			$slider.find('input[type="text"]').val("").trigger("change");
@@ -230,7 +241,13 @@ var forms = {
 				}
 			};
 
-			let update_tag = (min_input, max_input, name, value, add = true) => {
+			let update_tag = (
+				min_input,
+				max_input,
+				name,
+				value,
+				add = true
+			) => {
 				let min_name = min_input.attr("name");
 				let max_name = max_input.attr("name");
 
@@ -245,8 +262,12 @@ var forms = {
 
 			$(".range").each(function () {
 				let slider = $(this),
-					min = Number(slider.find(".range__min").text().replace(/ /g, "")),
-					max = Number(slider.find(".range__max").text().replace(/ /g, "")),
+					min = Number(
+						slider.find(".range__min").text().replace(/ /g, "")
+					),
+					max = Number(
+						slider.find(".range__max").text().replace(/ /g, "")
+					),
 					path = slider.find(".range__line"),
 					min_input = slider.find(".range__input_min"),
 					max_input = slider.find(".range__input_max");
@@ -295,8 +316,12 @@ var forms = {
 
 				slider.find(".range__input").on({
 					"change keyup input": function () {
-						let minval = min_input.val() ? Number(min_input.val()) : min,
-							maxval = max_input.val() ? Number(max_input.val()) : max;
+						let minval = min_input.val()
+								? Number(min_input.val())
+								: min,
+							maxval = max_input.val()
+								? Number(max_input.val())
+								: max;
 
 						if (maxval < minval) maxval = minval;
 
@@ -306,8 +331,12 @@ var forms = {
 						active_set(min, max, path);
 					},
 					focusout: function () {
-						let minval = min_input.val() ? Number(min_input.val()) : min,
-							maxval = max_input.val() ? Number(max_input.val()) : max;
+						let minval = min_input.val()
+								? Number(min_input.val())
+								: min,
+							maxval = max_input.val()
+								? Number(max_input.val())
+								: max;
 
 						if ($(this).val() != "") {
 							if ($(this).hasClass("range__input_min")) {
@@ -332,10 +361,16 @@ var forms = {
 					//just nothing, empty
 				},
 				highlight: (element, errorClass, validClass) => {
-					$(element).parent().addClass(errorClass).removeClass(validClass);
+					$(element)
+						.parent()
+						.addClass(errorClass)
+						.removeClass(validClass);
 				},
 				unhighlight: (element, errorClass, validClass) => {
-					$(element).parent().removeClass(errorClass).addClass(validClass);
+					$(element)
+						.parent()
+						.removeClass(errorClass)
+						.addClass(validClass);
 				},
 				submitHandler: (form) => {
 					var data = $(form).serialize();
