@@ -1,6 +1,6 @@
 var textareaLength = {
-	target: document.querySelector('.profile__form-input_textarea'),
-	output: document.querySelector('.profile__form-input_textarea-count'),
+	target: document.querySelector('textarea[data-textarea]'),
+	output: document.querySelector('div[data-textcounter]'),
 	isControl: e => {
 		let charCode = (e.which) ? e.which : e.keyCode
 		if (charCode == 8 || charCode == 110 || charCode == 46)
