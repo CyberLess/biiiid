@@ -22,18 +22,6 @@ var getMessages = {
 
 	preloader: `<img class="messages__preloader" src="/app/img/preload.svg" alt="Загрузка...">`,
 
-	debugSvgInDialog: () => {
-		const $svgElems = setDialogHeader.$dialogWrap.find('svg');
-
-		for (let i = 0; i < $svgElems.length; i += 1) {
-			const $svgWrap = $($svgElems[i]).parent();
-			const $svgCopy = $svgWrap.html();
-
-			$svgWrap.html('');
-			$svgWrap.html(`${$svgCopy}`);
-		}
-	},
-
 	onError: () => {
 		const openedId = Number($('.messages-pre__message_opened').find('.messages-pre__dialog-link').attr('data-user-id'));
 		const $messagesEmpty = $('.messages-dialogs__empty');
@@ -83,7 +71,6 @@ var getMessages = {
 					messagesScroll.init();
 					player.init();
 					messageVideo.init();
-					getMessages.debugSvgInDialog();
 					messagesDragAndDrop.init();
 
 					if ($(window).width() < 920) {

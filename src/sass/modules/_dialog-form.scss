@@ -263,6 +263,9 @@
 		}
 
 		.icon-clip {
+			width: 1.8rem;
+			height: 2.2rem;
+
 			fill: #7F7F7F;
 		}
 
@@ -319,6 +322,16 @@
 		stroke-width: 2;
 		stroke-linecap: round;
 		stroke-linejoin: round;
+
+		.icon-send {
+			width: 3rem;
+			height: 3rem;
+
+			@include max-screen($messages_large_mobile) {
+				width: 2.4rem;
+				height: 2.4rem;
+			}
+		}
 	}
 
 	&__icon-upload-wrap {

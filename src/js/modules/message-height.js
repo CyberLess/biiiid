@@ -6,6 +6,7 @@ var messageHeight = {
 	BOTTOM_MOBILE: 20,
 	BOTTOM_MID_MOBILE: 40,
 	BOTTOM_DESK: 120,
+	AMENDMENT: 5,
 	bottom: "",
 
 	$send: "",
@@ -65,7 +66,7 @@ var messageHeight = {
 					$(window).height() -
 						messageHeight.$dialogFrame.offset().top -
 						messageHeight.$sendWrap.outerHeight() -
-						messageHeight.bottom
+						messageHeight.bottom - messageHeight.AMENDMENT
 				);
 
 				messageHeight.showSend();

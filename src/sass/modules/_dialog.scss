@@ -193,6 +193,7 @@
 	}
 
 	&__video-name {
+		max-width: 13rem;
 		margin-right: 0.6rem;
 	}
 
@@ -232,7 +233,6 @@
 
 	&__bill-wrap {
 		width: 100%;
-		max-width: 38rem;
 		margin-top: 0.8rem;
 	}
 
@@ -338,11 +338,18 @@
 
 		&_accept {
 			width: 55%;
-			margin-left: auto;
+			max-width: 30rem;
+			min-height: 1.4rem;
+			margin-left: 3rem;
 			padding: 0.9rem 1.4rem 0.9rem;
 
 			font-size: 1.4rem;
 			font-weight: normal;
+
+			@include max-screen($messages_large_mobile) {
+				width: 50%;
+				margin-left: auto;
+			}
 
 			&:hover,
 			&:focus {

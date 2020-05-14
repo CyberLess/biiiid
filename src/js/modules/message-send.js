@@ -56,7 +56,6 @@ var messageSend = {
     messagesScroll.onDialogOpen();
     player.init();
     messageVideo.init();
-    getMessages.debugSvgInDialog();
   },
 
   createFilesArray: () => {

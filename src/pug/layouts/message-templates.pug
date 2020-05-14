@@ -31,7 +31,10 @@ TEMPLATE(id="messages-content-wrap")
 TEMPLATE(id="dialog-header")
 	+b.messages-dialogs__header.dialog-header__
 		+e.BUTTON.to-prevs-wrap
-			+icon('dialogarrow')
+			<svg class="icon icon-dialogarrow" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M19 9L2 9M2 9L10 1M2 9L10 17" stroke="#95969A" stroke-width="2"/>
+			</svg>
+
 		+e.image-wrap
 			+e.IMG.author-avatar(src="/img/avatar-eugene.jpg")
 		+e.text-wrap
@@ -72,13 +75,19 @@ TEMPLATE(id="my-message")
 				+e.message-text
 					+e.SPAN.text-wrap Последнее предложение не понял. Справа можно и так лучше но тогда мы карту закрывшем получается
 					+e.icons-wrap
-						+icon('delivered')
-						+icon('messageread')
+						svg(class="icon icon-delivered" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg")
+							path(opacity="0.3" d="M4.13636 7.1194L1.03409 4.29851L0 5.23881L4.13636 9L13 0.940299L11.9659 0L4.13636 7.1194Z" fill="#2A2D34")
+
+						svg(class="icon icon-messageread" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1")
+							path(d="M4.13636 7.1194L1.03409 4.29851L0 5.23881L4.13636 9L13 0.940299L11.9659 0L4.13636 7.1194Z" fill="#009688")
+							path(d="M17.1364 7.1194L14.0341 4.29851L13 5.23881L17.1364 9L26 0.940299L24.9659 0L17.1364 7.1194Z" fill="#009688")
 
 TEMPLATE(id="attached-file")
 	+b.A.dialog__attached-file(href="#" draggable="false")
 		+e.attached-icon-wrap
-			+icon('file')
+			svg(class="icon icon-file" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+				path(d="M8.6665 1.33325H3.99984C3.64622 1.33325 3.30708 1.47373 3.05703 1.72378C2.80698 1.97382 2.6665 2.31296 2.6665 2.66659V13.3333C2.6665 13.6869 2.80698 14.026 3.05703 14.2761C3.30708 14.5261 3.64622 14.6666 3.99984 14.6666H11.9998C12.3535 14.6666 12.6926 14.5261 12.9426 14.2761C13.1927 14.026 13.3332 13.6869 13.3332 13.3333V5.99992L8.6665 1.33325Z" stroke="#2A2D34" stroke-linecap="round" stroke-linejoin="round")
+				path(d="M8.6665 1.33325V5.99992H13.3332" stroke="#2A2D34" stroke-linecap="round" stroke-linejoin="round")
 		+e.SPAN.attached-name Myclip_11231441.doc
 		+e.SPAN.attached-size-wrap
 			| (
@@ -96,38 +105,90 @@ TEMPLATE(id="video-item")
 						+e.nav._default
 							+e.nav-button
 								+e.nav-icon._play
-									+icon('play')
+									svg(class="icon icon-play" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+										path(d="M9 6L0 11.1962V0.803848L9 6Z" fill="white")
 								+e.nav-icon._pause
-									+icon('pause')
+									svg(class="icon icon-pause" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+										rect(x="6.85742" width="2.74286" height="12" fill="white")
+										rect(width="2.74286" height="12" fill="white")
 					+e.bottom
 						+e.panel.flex._vertical
 							+e.panel-time.small
 							+e.voice.flex._vertical
 								+e.voice-button
 									+e.voice-icon._default
-										+icon('voiceDefault')
+										svg(class="icon icon-voiceDefault" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+											g(clip-path="url(#clip0)")
+												path(fill-rule="evenodd" clip-rule="evenodd" d="M5.24003 5.1899L11.82 1.8999V17.5699L5.24003 14.2799H1.82003C1.58065 14.2812 1.34339 14.2351 1.12198 14.1441C0.900567 14.0531 0.699404 13.9191 0.530137 13.7498C0.360869 13.5805 0.22686 13.3794 0.135866 13.158C0.0448719 12.9365 -0.00129844 12.6993 2.77806e-05 12.4599V6.9999C2.414e-05 6.76137 0.0471705 6.52518 0.138756 6.30493C0.230342 6.08467 0.36456 5.8847 0.533695 5.71649C0.70283 5.54829 0.903545 5.41517 1.1243 5.3248C1.34505 5.23443 1.5815 5.18858 1.82003 5.1899H5.24003ZM17 1.9999C18.9774 4.09407 20.0545 6.88023 20 9.7599C20.0571 12.643 18.9798 15.4333 17 17.5299L15.57 16.3799C16.4358 15.5135 17.1156 14.4795 17.5678 13.3412C18.0201 12.2029 18.2352 10.9842 18.2 9.7599C18.2317 8.53601 18.015 7.31839 17.5629 6.18059C17.1109 5.04278 16.433 4.0084 15.57 3.1399L17 1.9999ZM16.38 9.7599C16.4055 7.70434 15.6142 5.72266 14.18 4.2499L12.72 5.3699C13.3107 5.93003 13.7784 6.6069 14.0935 7.35749C14.4085 8.10808 14.564 8.91599 14.55 9.7299C14.5642 10.5453 14.4088 11.3548 14.0938 12.107C13.7788 12.8593 13.311 13.5379 12.72 14.0999L14.16 15.2399C14.8706 14.511 15.4307 13.6492 15.8082 12.7038C16.1856 11.7583 16.3732 10.7478 16.36 9.7299L16.38 9.7599Z" fill="white")
+											defs
+												clipPath(id="clip0")
+													rect(width="20" height="20" fill="white")
+
 									+e.voice-icon._small
-										+icon('voiceSmall')
+										<svg class="icon icon-voiceSmall" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0)">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M11.82 1.8999L5.24003 5.1899H1.82003C1.5815 5.18858 1.34505 5.23443 1.1243 5.3248C0.903545 5.41517 0.70283 5.54829 0.533695 5.71649C0.36456 5.8847 0.230342 6.08467 0.138756 6.30493C0.0471705 6.52518 2.414e-05 6.76137 2.77806e-05 6.9999V12.4499C-0.00129844 12.6893 0.0448719 12.9265 0.135866 13.148C0.22686 13.3694 0.360869 13.5705 0.530137 13.7398C0.699404 13.9091 0.900567 14.0431 1.12198 14.1341C1.34339 14.2251 1.58065 14.2712 1.82003 14.2699H5.24003L11.82 17.5599V1.8999ZM16.36 9.7299C16.3855 7.67433 15.5942 5.69266 14.16 4.2199L12.72 5.3699C13.3107 5.93003 13.7784 6.6069 14.0935 7.35749C14.4085 8.10808 14.564 8.91599 14.55 9.7299C14.5642 10.5453 14.4088 11.3548 14.0938 12.107C13.7788 12.8593 13.311 13.5379 12.72 14.0999L14.16 15.2399C14.8706 14.511 15.4307 13.6492 15.8082 12.7038C16.1856 11.7583 16.3732 10.7478 16.36 9.7299Z" fill="white"/>
+										</g>
+										<defs>
+										<clipPath id="clip0">
+										<rect width="20" height="20" fill="white"/>
+										</clipPath>
+										</defs>
+										</svg>
 									+e.voice-icon._none
-										+icon('voiceNone')
+										<svg class="icon icon-voiceNone" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0)">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M1.55003 0L0.270028 1.29L4.17003 5.19H1.82003C1.5815 5.18868 1.34505 5.23453 1.1243 5.3249C0.903545 5.41527 0.70283 5.54838 0.533695 5.71659C0.36456 5.88479 0.230342 6.08477 0.138756 6.30503C0.0471705 6.52528 2.414e-05 6.76146 2.77806e-05 7V12.45C-0.00129844 12.6894 0.0448719 12.9266 0.135866 13.1481C0.22686 13.3695 0.360869 13.5706 0.530137 13.7399C0.699404 13.9092 0.900567 14.0432 1.12198 14.1342C1.34339 14.2252 1.58065 14.2713 1.82003 14.27H5.24003L11.82 17.56V12.84L18.45 19.47L19.73 18.18L1.55003 0ZM11.82 7.72V1.9L7.94003 3.84L11.82 7.72ZM14.51 10.39L16.06 12C16.263 11.2742 16.364 10.5237 16.36 9.77C16.3855 7.71443 15.5942 5.73276 14.16 4.26L12.72 5.37C13.3107 5.93013 13.7784 6.60699 14.0935 7.35759C14.4085 8.10818 14.564 8.91609 14.55 9.73C14.55 10 14.53 10.19 14.51 10.41V10.39ZM17.51 13.39L18.89 14.77C19.628 13.1927 20.0071 11.4714 20 9.73C20.0466 6.86065 18.9701 4.0867 17 2L15.55 3.11C16.413 3.9785 17.0909 5.01288 17.5429 6.15068C17.995 7.28849 18.2117 8.5061 18.18 9.73C18.1889 10.9887 17.9581 12.2376 17.5 13.41L17.51 13.39Z" fill="white"/>
+										</g>
+										<defs>
+										<clipPath id="clip0">
+										<rect width="20" height="19.47" fill="white"/>
+										</clipPath>
+										</defs>
+										</svg>
 								+e.voice-range
 									+e.voice-field
 										+e.voice-bar
 										+e.voice-dot
 							+e.fullscreen.js-fullscreen
 								+e.fullscreen-icon._default
-									+icon('fullscreen')
+									<svg class="icon icon-fullscreen" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 2H4V7H2V2Z" fill="white"/>
+									<path d="M2 18H4V13H2V18Z" fill="white"/>
+									<path d="M18 2H16V7H18V2Z" fill="white"/>
+									<path d="M18 18H16V13H18V18Z" fill="white"/>
+									<path d="M2 2H7V4H2V2Z" fill="white"/>
+									<path d="M2 18H7V16H2V18Z" fill="white"/>
+									<path d="M18 2H13V4H18V2Z" fill="white"/>
+									<path d="M18 18H13V16H18V18Z" fill="white"/>
+									</svg>
+
 								+e.fullscreen-icon._opened
-									+icon('fsactive')
+									<svg class="icon icon-fsactive" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M3 0H5V5H3V0Z" fill="white"/>
+									<path d="M3 16H5V11H3V16Z" fill="white"/>
+									<path d="M13 0H11V5H13V0Z" fill="white"/>
+									<path d="M13 16H11V11H13V16Z" fill="white"/>
+									<path d="M5 3V5H0L5.96046e-08 3L5 3Z" fill="white"/>
+									<path d="M5 13V11H0L5.96046e-08 13H5Z" fill="white"/>
+									<path d="M11 3V5H16V3L11 3Z" fill="white"/>
+									<path d="M11 13V11H16V13H11Z" fill="white"/>
+									</svg>
+
 						+e.bar._static
 							+e.bar-row
 								+e.bar-cell._left
 									+e.nav._default
 										+e.nav-button
 											+e.nav-icon._play
-												+icon('play')
+												<svg class="icon icon-play" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M9 6L0 11.1962V0.803848L9 6Z" fill="white"/>
+												</svg>
 											+e.nav-icon._pause
-												+icon('pause')
+												<svg class="icon icon-pause" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<rect x="6.85742" width="2.74286" height="12" fill="white"/>
+												<rect width="2.74286" height="12" fill="white"/>
+												</svg>
 								+e.bar-cell._right
 									+e.bar-line
 										+e.bar-progress
@@ -141,7 +202,10 @@ TEMPLATE(id="video-item")
 					| )
 				+e.A.video-download(href="#" draggable="false")
 					+e.download-icon-wrap
-						+icon('downloadarrow')
+						<svg class="icon icon-downloadarrow" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M6.68211 4.00018H4.77529V0.333291C4.77529 0.236022 4.7453 0.156229 4.68578 0.0936936C4.6265 0.0313407 4.55028 0 4.45768 0H2.55051C2.45784 0 2.38165 0.0313407 2.32206 0.0936936C2.26243 0.156265 2.23266 0.236022 2.23266 0.333291V4.00004H0.325628C0.180006 4.00004 0.0806523 4.06954 0.0276359 4.20833C-0.0253806 4.34044 -0.00207284 4.46179 0.0971765 4.57303L3.27549 7.90634C3.3484 7.96877 3.42448 8 3.50394 8C3.58329 8 3.65947 7.96877 3.73246 7.90634L6.90082 4.58354C6.96699 4.50025 7 4.41659 7 4.33355C7 4.23642 6.97026 4.15648 6.91049 4.09384C6.85104 4.03138 6.77485 4.00018 6.68211 4.00018Z" fill="#009688"/>
+						</svg>
+
 
 TEMPLATE(id="my-bill")
 	+b.dialog__bill-wrap
