@@ -1,6 +1,21 @@
 import baron from "baron";
 
 var messagesScroll = {
+
+	startY: 0,
+
+	debugScroll: (evt) => {
+		if (evt.type === 'touchstart') {
+			messagesScroll.startY = evt.originalEvent.targetTouches[0].clientY;
+		} else if (evt.type === 'touchmove') {
+			if (evt.originalEvent.targetTouches[0].clientY !== messagesScroll.startY) {
+				const difference = messagesScroll.startY - evt.originalEvent.targetTouches[0].clientY;
+				$(messagesScroll.init.$frameDialog)[0].scrollTop = $(messagesScroll.init.$frameDialog)[0].scrollTop + difference;
+				messagesScroll.startY = evt.originalEvent.targetTouches[0].clientY;
+			}
+		}
+	},
+
 	$frameDialog: () => {
 		return $(".messages-dialogs__dialog-wrap").find(
 			".messages-dialogs__dialog-frame"
@@ -141,6 +156,8 @@ var messagesScroll = {
 		];
 
 		messagesScroll.onDialogOpen();
+
+		$('.messages__messages-fragment-wrap').on('touchstart touchmove', messagesScroll.debugScroll);
 	},
 };
 
