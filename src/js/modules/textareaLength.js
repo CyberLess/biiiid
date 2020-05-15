@@ -1,5 +1,5 @@
 var textareaLength = {
-	target: document.querySelector('textarea[data-textarea]'),
+	target: document.querySelector('[data-textarea]'),
 	output: document.querySelector('div[data-textcounter]'),
 	isControl: e => {
 		let charCode = (e.which) ? e.which : e.keyCode
