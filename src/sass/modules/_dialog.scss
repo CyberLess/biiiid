@@ -234,6 +234,10 @@
 	&__bill-wrap {
 		width: 100%;
 		margin-top: 0.8rem;
+
+		@include max-screen($messages_large_mobile) {
+			padding-right: 1rem;
+		}
 	}
 
 	&__bill-table {
@@ -257,17 +261,28 @@
 	}
 
 	&__table-head {
-		padding: 0.9rem 1.2rem 1rem;
+		padding: 1.8rem 2.3rem 1.8rem;
 
-		font-size: 1.4rem;
 		line-height: 1.6rem;
 		font-weight: normal;
+
+		@include max-screen($large_mobile) {
+			padding: 0.9rem 1.2rem 1rem;
+		}
 	}
 
 	&__table-cell {
-		padding: 1.3rem 1.1rem 1.3rem 1.2rem;
+		padding: 1.3rem 1.1rem 1.3rem 2.4rem;
 
 		line-height: 1.4rem;
+
+		@include min-screen($small_desktop) {
+			line-height: 2.4rem;
+		}
+
+		@include max-screen($large_mobile) {
+			padding: 1.3rem 1.1rem 1.3rem 1.2rem;
+		}
 
 		&_order-name {
 			line-height: 1.5;
@@ -288,76 +303,62 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		margin-top: 1.4rem;
+		margin-top: 2rem;
+
+		@include max-screen($large_mobile) {
+			margin-top: 1.4rem;
+		}
 	}
 
 	&__order-btn {
-		height: 3.4rem;
-
-		transition: ease 0.2s;
+		height: 3.8rem;
 
 		@include max-screen($large_mobile) {
+			height: 3.4rem;
+
 			font-size: 1.2rem;
 			line-height: 1.4rem;
 		}
 
 		&_cancel {
+			width: 13.5rem;
 			margin-left: auto;
 			padding: 0.7rem 1.4rem 0.9rem;
 			border: 1px solid #2a2d34;
 
 			color: #2a2d34;
+			font-weight: 500;
 
-			&:hover,
-			&:focus {
-				color: #949699;
-				border-color: #949699;
-			}
-
-			&:active {
-				color: #2a2d34;
-				border-color: #2a2d34;
+			.dialog__text {
+				@include max-screen($large_mobile) {
+					margin-bottom: -1px;
+				}
 			}
 		}
 
 		&_refuse {
-			margin-right: 2rem;
+			margin-left: auto;
+			margin-right: 1rem;
 			border: none;
 
 			color: #009688;
 
-			&:hover,
-			&:focus {
-				color: #949699;
-			}
-
-			&:active {
-				color: #2a2d34;
+			@include max-screen($large_mobile) {
+				margin-right: 0;
 			}
 		}
 
 		&_accept {
-			width: 55%;
+			width: 13.5rem;
 			max-width: 30rem;
 			min-height: 1.4rem;
-			margin-left: 3rem;
 			padding: 0.9rem 1.4rem 0.9rem;
 
-			font-size: 1.4rem;
 			font-weight: normal;
 
 			@include max-screen($messages_large_mobile) {
-				width: 50%;
-				margin-left: auto;
-			}
-
-			&:hover,
-			&:focus {
-				background-color: #949699;
-			}
-
-			&:active {
-				background-color: #2a2d34;
+				width: 10.5rem;
+				padding: 0.9rem 1.4rem 0.9rem;
 			}
 		}
 	}

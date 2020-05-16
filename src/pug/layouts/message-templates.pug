@@ -222,14 +222,14 @@ TEMPLATE(id="my-bill")
 				+e.TD.table-cell._details._price 1 500,00
 
 		+e.buttons-wrap
-			+e.BUTTON.order-btn._cancel.is-regular.border-button._light
+			+e.BUTTON.order-btn._cancel.p.border-button._light
 				+e.text Отменить
 
 TEMPLATE(id="customer-bill")
 	+b.dialog__bill-wrap
 		+e.TABLE.bill-table
 			+e.TR.table-row._head
-				+e.TH.table-head(colspan="2") Счет на оплату
+				+e.TH.table-head.p(colspan="2") Счет на оплату
 			+e.TR.table-row
 				+e.TD.table-cell._order-name(colspan="2") Сделать логотип для завода Молока
 			+e.TR.table-row
@@ -240,9 +240,9 @@ TEMPLATE(id="customer-bill")
 				+e.TD.table-cell._details._price 1 500,00
 
 		+e.buttons-wrap
-			+e.BUTTON.order-btn._cancel.is-regular.border-button._light
+			+e.BUTTON.order-btn._refuse.is-regular.p.border-button._light
 				+e.text Отказаться
-			+e.BUTTON.order-btn._accept.btn.is-regular Принять
+			+e.BUTTON.order-btn._accept.btn.is-regular.p Принять
 
 TEMPLATE(id="empty")
 	+b.messages-dialogs
