@@ -9,6 +9,14 @@
 	}
 
 	&__wrap {
+		@include max-screen($large_tablet) {
+			padding: 0 3rem;
+		}
+
+		@include max-screen($small_tablet) {
+			padding: 0 2rem;
+		}
+
 		@include max-screen($large_mobile) {
 			padding-left: 0;
 			padding-right: 0;
@@ -158,11 +166,18 @@
 			background: #ffffff;
 			border: 1px solid rgba(42, 45, 52, 0.15);
 
+			@include max-screen($small_desktop) {
+				width: 730/1140 * 100%;
+			}
+
 			@include max-screen($large_tablet) {
-				width: 100%;
+				width: 600/964 * 100%;
+				padding-left: 4rem;
+				padding-right: 4rem;
 			}
 
 			@include max-screen($small_tablet) {
+				width: 100%;
 				padding: 4rem 2rem;
 			}
 		}
@@ -332,6 +347,18 @@
 				margin-left: auto;
 				margin-right: 8.5rem;
 
+				@include max-screen($small_desktop) {
+					margin-right: 6.5rem;
+				}
+
+				@include max-screen($large_tablet) {
+					margin-right: 0;
+				}
+
+				@include max-screen($small_tablet) {
+					margin-right: 3rem;
+				}
+
 				@include max-screen($small_mobile) {
 					margin: unset;
 				}
@@ -449,12 +476,18 @@
 			opacity: 0;
 			transition: all 0.3s ease;
 
-			&-label {
-				margin-bottom: 1.8rem;
+			@include max-screen($small_desktop) {
+				max-width: 325px;
+				padding: 3.3rem 3rem;
+				right: calc(-325px - 8.6rem);
 			}
 
-			@include max-screen($large_tablet) {
+			@include max-screen($small_tablet) {
 				display: none;
+			}
+
+			&-label {
+				margin-bottom: 1.8rem;
 			}
 		}
 	}
