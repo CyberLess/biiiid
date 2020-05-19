@@ -29,58 +29,66 @@ block content
 						+e.A.link.p(href="#")
 							+e.IMG.back_img(src="/img/arrow-back.png")
 							| Назад ко всем услугам
+		+e.wrap.wrap.flex._justify
 			+e.FORM.info-wrapper
 				+e.H2.header.h2 Добавление новой услуги
 				+e.info-body
-					+e.LABEL.info-label.flex._column(for="name")
+					+e.LABEL.info-label.flex._column.has-hint(for="name")
 						+e.H3.info-header.p Название услуги
 						+e.INPUT.info-input.p(type="text", id="name", name="name", placeholder="Озвучу текст для аудио и видео ролика", minlength="0", maxlength="90", rows="1", onfocus="this.placeholder=''", onblur="this.placeholder='Озвучу текст для аудио и видео ролика'", data-textarea)
 						+e.DIV.info-input-counter.small(data-textcounter) 0/90
-					+e.info-row.flex._column
-						+e.H3.info-header.p Название услуги
-						+e.info-row.flex._justify
-							+e.LABEL.info-label._select.flex._column(for="category")
-								+e.info-select.slct__
-									select(name='select-category', id="category")
-										option(selected disabled hidden value=0) Выберите категорию
-										option Первая
-										option Вторая
-							+e.LABEL.info-label._select.flex._column(for="subcategory")
-								+e.info-select.slct__
-									select(name='select-subcategory', id="subcategory")
-										option(selected disabled hidden value=0) Выберите подкатегорию
-										option Третья
-										option Четвертая
-					+e.info-row._checkboxes.flex
-						+e.info-row.flex
-							+e.H3.info-header.p Пол
-							+e.info-row.flex._column
-								+e.LABEL.info-label._checkbox.flex._vertical(for="male")
-									+e.INPUT.info-input._checkbox(type="radio", id="male", name="sex" checked)
-									+e.DIV.info-input-text.flex._vertical.p
-										+e.DIV.info-input-box
-										p Мужской
-								+e.LABEL.info-label._checkbox.flex._vertical(for="female")
-									+e.INPUT.info-input._checkbox(type="radio", id="female", name="sex")
-									+e.DIV.info-input-text.flex._vertical.p
-										+e.DIV.info-input-box
-										p Женский
-						+e.info-row._last.flex
-							+e.H3.info-header.p Возраст
-							+e.info-row.flex._column
-								+e.LABEL.info-label._checkbox.flex._vertical(for="young")
-									+e.INPUT.info-input._checkbox(type="checkbox", id="young", name="age" checked)
-									+e.DIV.info-input-text.flex._vertical.p
-										+e.DIV.info-input-box
-											+icon('check')
-										p Молодой
-								+e.LABEL.info-label._checkbox.flex._vertical(for="adult")
-									+e.INPUT.info-input._checkbox(type="checkbox", id="adult", name="age")
-									+e.DIV.info-input-text.flex._vertical.p
-										+e.DIV.info-input-box
-											+icon('check')
-										p Взрослый
-					+e.info-row.flex._column
+						+e.DIV.info-hint
+							+e.P.info-hint-label.h6 Добавьте несколько примеров
+							+e.P.info-hint-text.p Это позволит заказчикам быстрее находить ваши услуги в каталоге, и сделает вашу страницу более привлекательной.
+					+e.info-row.has-hint
+						+e.info-row.flex._column.has-hint
+							+e.H3.info-header.p Название услуги
+							+e.info-row.flex._justify
+								+e.LABEL.info-label._select.flex._column(for="category")
+									+e.info-select.slct__
+										select(name='select-category', id="category")
+											option(selected disabled hidden value=0) Выберите категорию
+											option Первая
+											option Вторая
+								+e.LABEL.info-label._select.flex._column(for="subcategory")
+									+e.info-select.slct__
+										select(name='select-subcategory', id="subcategory")
+											option(selected disabled hidden value=0) Выберите подкатегорию
+											option Третья
+											option Четвертая
+						+e.info-row._checkboxes.flex
+							+e.info-row.flex
+								+e.H3.info-header.p Пол
+								+e.info-row.flex._column
+									+e.LABEL.info-label._checkbox.flex._vertical(for="male")
+										+e.INPUT.info-input._checkbox(type="radio", id="male", name="sex" checked)
+										+e.DIV.info-input-text.flex._vertical.p
+											+e.DIV.info-input-box
+											p Мужской
+									+e.LABEL.info-label._checkbox.flex._vertical(for="female")
+										+e.INPUT.info-input._checkbox(type="radio", id="female", name="sex")
+										+e.DIV.info-input-text.flex._vertical.p
+											+e.DIV.info-input-box
+											p Женский
+							+e.info-row._last.flex
+								+e.H3.info-header.p Возраст
+								+e.info-row.flex._column
+									+e.LABEL.info-label._checkbox.flex._vertical(for="young")
+										+e.INPUT.info-input._checkbox(type="checkbox", id="young", name="age" checked)
+										+e.DIV.info-input-text.flex._vertical.p
+											+e.DIV.info-input-box
+												+icon('check')
+											p Молодой
+									+e.LABEL.info-label._checkbox.flex._vertical(for="adult")
+										+e.INPUT.info-input._checkbox(type="checkbox", id="adult", name="age")
+										+e.DIV.info-input-text.flex._vertical.p
+											+e.DIV.info-input-box
+												+icon('check')
+											p Взрослый
+						+e.DIV.info-hint
+							+e.P.info-hint-label.h6 Добавьте несколько примеров
+							+e.P.info-hint-text.p Это позволит заказчикам быстрее находить ваши услуги в каталоге, и сделает вашу страницу более привлекательной.
+					+e.info-row.flex._column.has-hint
 						+e.H3.info-header.p Обложка услуги
 						+e.LABEL.info-label._file(for="cover")
 							+e.INPUT.info-input._file(type="file", id="cover", name="cover", accept=".jpg, .jpeg, .png", data-file)
@@ -88,5 +96,8 @@ block content
 								+e.P.info-cover-p.small(data-covertrigger) Загрузить обложку
 								.backdrop-filter
 								+e.IMG.info-cover-cover.data-cover(src="#", alt="", data-cover)
+						+e.DIV.info-hint
+							+e.P.info-hint-label.h6 Добавьте несколько примеров
+							+e.P.info-hint-text.p Это позволит заказчикам быстрее находить ваши услуги в каталоге, и сделает вашу страницу более привлекательной.
 				+e.info-row._submit.flex
 					+e.BUTTON.info-submit.p Продолжить
