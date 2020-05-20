@@ -1,0 +1,40 @@
+extends ../layouts/base
+append vars
+	- title = 'Добавление услуги (шаг 2)';
+
+block header
+	+header(true)
+
+block content
+	+b.SECTION.add-service
+		+e.wrap.wrap
+			+e.head.flex
+				+e.step-wrapper.flex
+					+b.add-service__step.is-active.flex._vertical
+						+e.SPAN.step-index.small 1
+						+e.P.step-descr.p Основное
+						+icon('arrow')
+					+b.add-service__step.is-active.flex._justify._vertical
+						+e.SPAN.step-index.small 2
+						+e.P.step-descr.p Описание
+						+icon('arrow')
+					+b.add-service__step.flex._justify._vertical
+						+e.SPAN.step-index.small 3
+						+e.P.step-descr.p Стоимость и сроки
+						+icon('arrow')
+					+b.add-service__step.flex._justify._vertical
+						+e.SPAN.step-index.small 4
+						+e.P.step-descr.p Загрузить примеры работ
+					+b.add-service__step._back
+						+e.A.link.p(href="#")
+							+e.IMG.back_img(src="/img/arrow-back.png")
+							| Назад ко всем услугам
+		+e.wrap.wrap.flex._justify
+			+e.FORM.info-wrapper
+				+e.H2.header.h2 Описание
+				+e.info-body._no-bottom
+					+e.info-editor-wrapper
+						p.p МЕСТО ДЛЯ РЕДАКТОРА
+				+e.info-row._submit.flex._right
+					+e.BUTTON.info-return.p Предыдущий шаг
+					+e.BUTTON.info-submit.p Продолжить

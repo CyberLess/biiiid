@@ -1,6 +1,6 @@
 extends ../layouts/base
 append vars
-	- title = 'Добавление услуги';
+	- title = 'Добавление услуги (шаг 1)';
 
 block header
 	+header(true)
@@ -99,5 +99,5 @@ block content
 						+e.DIV.info-hint
 							+e.P.info-hint-label.h6 Добавьте несколько примеров
 							+e.P.info-hint-text.p Это позволит заказчикам быстрее находить ваши услуги в каталоге, и сделает вашу страницу более привлекательной.
-				+e.info-row._submit.flex
+				+e.info-row._submit.flex._right
 					+e.BUTTON.info-submit.p Продолжить
