@@ -52,7 +52,7 @@ var setDialogContent = {
 			`0${messageDateTime.getMinutes()}` : messageDateTime.getMinutes();
 
 		if (messageDate < nowDate) {
-			return `${messageDate} ${setDialogContent.init.dateToTextMap[messageMonth]} ${messageHours}:${messageMinutes}`
+			return `${messageDate} ${setDialogContent.dateToTextMap[messageMonth]} ${messageHours}:${messageMinutes}`
 		}
 
 		return `${messageHours}:${messageMinutes}`;

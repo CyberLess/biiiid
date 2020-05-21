@@ -102,14 +102,21 @@ var bill = {
 		setTimeout(bill.resetForm, 1000);
 	},
 
-	init: () => {
-		bill.$priceInput
-			.on("input", function () {
+	setNumberInputListeners: () => {
+		const $numberInputs = $('.js-range-number');
+
+		if ($numberInputs.length > 0) {
+			$numberInputs.on("input", function () {
 				bill.setAndRangeNumberOnInput($(this)[0]);
 			})
-			.on("keydown", function (evt) {
-				bill.onBackspaceKeydown(evt, this);
-			});
+				.on("keydown", function (evt) {
+					bill.onBackspaceKeydown(evt, this);
+				});
+		}
+	},
+
+	init: () => {
+		bill.setNumberInputListeners();
 
 		bill.$billTextarea.on("input", function () {
 			bill.countCharsOnInput($(this), bill.$textareaCharsQuantity);
