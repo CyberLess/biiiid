@@ -1,0 +1,125 @@
+extends ../layouts/base
+append vars
+	- title = 'Добавление услуги (шаг 3)';
+
+block header
+	+header(true)
+
+block content
+	+b.SECTION.add-service
+		+e.wrap.wrap
+			+e.head.flex
+				+e.step-wrapper.flex
+					+b.add-service__step.is-active.flex._vertical
+						+e.SPAN.step-index.small 1
+						+e.P.step-descr.p Основное
+						+icon('arrow')
+					+b.add-service__step.is-active.flex._justify._vertical
+						+e.SPAN.step-index.small 2
+						+e.P.step-descr.p Описание
+						+icon('arrow')
+					+b.add-service__step.is-active.flex._justify._vertical
+						+e.SPAN.step-index.small 3
+						+e.P.step-descr.p Стоимость и сроки
+						+icon('arrow')
+					+b.add-service__step.flex._justify._vertical
+						+e.SPAN.step-index.small 4
+						+e.P.step-descr.p Загрузить примеры работ
+					+b.add-service__step._back
+						+e.A.link.p(href="#")
+							+e.IMG.back_img(src="/img/arrow-back.png")
+							| Назад ко всем услугам
+		+e.wrap.wrap.flex._justify
+			+e.FORM.info-wrapper
+				+e.H2.header.h2 Стоимость и сроки
+				+e.info-body
+					+e.info-banner
+						+e.P.info-banner-label Стоимость заказа рассчитывается исходя из объема текста и выбранных дополнительных услуг.  При заказе, клиент указывает количество слов в тексте и наш умный калькулятор показывается финальную стоимость работ.
+					+e.info-row
+						+e.H3.info-header.p Стоимость
+						+e.info-row.flex
+							+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+								p.p Объем текста
+								+e.INPUT.info-input._mini(type="text", name='text-volume',id="time-field", placeholder="30", inputmode="numeric")
+								+e.LABEL.info-label._select._select-mini
+									+e.info-select.slct__
+											select(name='select-time', id="time")
+												option(selected) Сек
+												option Мин
+												option Слов
+								+e.LABEL.info-label.flex._vertical(for="price-volume")
+									p.p Стоимость
+									+e.INPUT.info-input._med(type="text", name='textprice',id="price-field", placeholder="1200", inputmode="numeric")
+									p.p ₽
+						+e.info-row.flex
+							+e.LABEL.info-label._combo.flex._vertical(for="text-add")
+								p.p Каждые дополнительные
+								+e.INPUT.info-input._mini(type="text", name='text-add',id="time-field-add", placeholder="30", inputmode="numeric")
+								+e.LABEL.info-label._select._select-mini
+									+e.info-select.slct__
+											select(name='select-time-add', id="time-add")
+												option(selected) Сек
+												option Мин
+												option Слов
+								+e.LABEL.info-label.flex._vertical(for="price-volume-add")
+									p.p будут стоить
+									+e.INPUT.info-input._med(type="text", name='textprice-add',id="price-field-add", placeholder="1200", inputmode="numeric")
+									p.p ₽
+						+e.info-row.flex
+							+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+								p.p Сроки выполнения
+								+e.LABEL.info-label._select._select-med
+									+e.info-select.slct__
+											select(name='select-deadline', id="deadline")
+												option(selected) 1 день
+												option Мин
+												option Слов
+						+e.info-row.flex
+							+e.A.info-show.small(href="javascript:void(0);") + Добавить цену за страницу А4
+							+e.info-row.flex.is-hidden
+								+e.LABEL.info-label._additional.flex._vertical(for="price-volume-a4")
+										+e.P.info-label._hidden.p Страница текста А4
+											+e.info-help.is-help
+												| ?
+												+b.help-content.content.small
+													| Какой-то текст
+										p.p Стоимость
+										+e.INPUT.info-input._med(type="text", name='textprice-a4',id="price-field-a4", placeholder="1200", inputmode="numeric")
+										p.p ₽
+										+e.A.info-hide(href="javascript:void(0);")
+											+icon('close')
+								+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+									p.p Сроки выполнения
+									+e.LABEL.info-label._select._select-med
+										+e.info-select.slct__
+												select(name='select-deadline', id="deadline-a4")
+													option(selected) 1 день
+													option Мин
+													option Слов
+
+						+e.info-row.flex
+							+e.A.info-show.small(href="javascript:void(0);") + Добавить цену за один час записи
+							+e.info-row.flex.is-hidden
+								+e.LABEL.info-label._additional.flex._vertical(for="price-volume-hour")
+									+e.P.info-label._hidden.p Один час записи
+										+e.info-help.is-help
+											| ?
+											+b.help-content.content.small
+												| Какой-то текст
+									p.p Стоимость
+									+e.INPUT.info-input._med(type="text", name='textprice-hour',id="price-field-hour", placeholder="1200", inputmode="numeric")
+									p.p ₽
+									+e.A.info-hide(href="javascript:void(0);")
+										+icon('close')
+								+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+									p.p Сроки выполнения
+									+e.LABEL.info-label._select._select-med
+										+e.info-select.slct__
+												select(name='select-deadline', id="deadline-hour")
+													option(selected) 1 день
+													option Мин
+													option Слов
+
+				+e.info-row._submit.flex._right
+					+e.BUTTON.info-return.p Предыдущий шаг
+					+e.BUTTON.info-submit.p Продолжить

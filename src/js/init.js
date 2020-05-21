@@ -22,6 +22,7 @@ import { getMessages } from "./modules/get-messages";
 import { notifications } from "./modules/notifications";
 import { messageSend } from "./modules/message-send";
 import { bill } from "./modules/bill";
+import { addService } from "./modules/addService";
 import { config } from "./config";
 
 var App = () => {};
@@ -51,6 +52,7 @@ App.prototype.init = () => {
 	previewAvatar.init();
 	bill.init();
 	messageSend.init();
+	addService.init();
 
 	config.log("app init");
 };
