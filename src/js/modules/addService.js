@@ -29,6 +29,7 @@ var addService = {
 				}
 
 				elm.parentElement.parentElement.classList.remove('is-active');
+				document.querySelector('.add-service__info-show[data-action=new-service]').classList.remove('is-hidden')
 				name = '';
 				descr = '';
 				serviceName = '';
@@ -173,9 +174,13 @@ var addService = {
 				let target = trigger.dataset.action;
 
 				document.querySelectorAll('[data-action-target="show-edit-controls"]').forEach(menu => {
-					if (menu.classList.contains('is-active')) {
-						menu.classList.remove('is-active')
-					}
+					document.addEventListener('click', e => {
+						if (e.target.classList.contains('icon')) {
+							menu.classList.add('is-active')
+						} else {
+							menu.classList.remove('is-active')
+						}
+					})
 				})
 
 				if (target === 'deleteServ') {
@@ -183,10 +188,10 @@ var addService = {
 				} else if (target === 'edit') {
 					trigger.parentElement.parentElement.parentElement.classList.add('is-active')
 				} else if (target === 'show-edit-controls') {
-					console.log('clicked')
 					trigger.parentElement.querySelector(`[data-action-target=${target}]`).classList.add('is-active')
 				} else if (target === 'cancel') {
 					trigger.parentElement.parentElement.classList.remove('is-active')
+					document.querySelector('.add-service__info-show[data-action=new-service]').classList.remove('is-hidden')
 				} else if (target === 'save') {
 					addService.events.saveService(trigger);
 				} else if (target === 'create-new') {
