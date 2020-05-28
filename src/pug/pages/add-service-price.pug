@@ -49,7 +49,7 @@ block content
 												option Слов
 								+e.LABEL.info-label._price.flex._vertical(for="price-volume")
 									p.p Стоимость
-									+e.INPUT.info-input._med(type="text", name='textprice',id="price-field", placeholder="1200", inputmode="numeric")
+									+e.INPUT.info-input._med(type="text", name='textprice',id="price-field", placeholder="1200", inputmode="numeric", data-price)
 									p.p ₽
 						+e.info-row.flex
 							+e.LABEL.info-label._combo.flex._vertical(for="text-add")
@@ -63,7 +63,7 @@ block content
 												option Слов
 								+e.LABEL.info-label._price.flex._vertical(for="price-volume-add")
 									p.p будут стоить
-									+e.INPUT.info-input._med(type="text", name='textprice-add',id="price-field-add", placeholder="1200", inputmode="numeric")
+									+e.INPUT.info-input._med(type="text", name='textprice-add',id="price-field-add", placeholder="1200", inputmode="numeric", data-price)
 									p.p ₽
 						+e.info-row.flex
 							+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
@@ -84,7 +84,7 @@ block content
 												+b.help-content.content.small
 													| Какой-то текст
 										p.p Стоимость
-										+e.INPUT.info-input._med(type="text", name='textprice-a4',id="price-field-a4", placeholder="1200", inputmode="numeric")
+										+e.INPUT.info-input._med(type="text", name='textprice-a4',id="price-field-a4", placeholder="1200", inputmode="numeric", data-price)
 										p.p ₽
 										+e.A.info-hide(href="javascript:void(0);")
 											+icon('close')
@@ -107,7 +107,7 @@ block content
 											+b.help-content.content.small
 												| Какой-то текст
 									p.fluid-text.p Стоимость
-									+e.INPUT.info-input._med(type="text", name='textprice-hour',id="price-field-hour", placeholder="1200", inputmode="numeric")
+									+e.INPUT.info-input._med(type="text", name='textprice-hour',id="price-field-hour", placeholder="1200", inputmode="numeric", data-price)
 									p.p ₽
 									+e.A.info-hide(href="javascript:void(0);")
 										+icon('close')
@@ -144,7 +144,7 @@ block content
 
 							+e.LABEL.info-label.flex._vertical(for="add-price")
 								p.p Цена
-								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric")
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
 								p.p ₽
 						+e.info-row._preinstalled.flex._justify
 							+e.LABEL.additional.flex._vertical(for="service-2")
@@ -165,7 +165,7 @@ block content
 
 							+e.LABEL.info-label.flex._vertical(for="add-price")
 								p.p Цена
-								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric")
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
 								p.p ₽
 						+e.info-row._preinstalled.flex._justify
 							+e.LABEL.additional.flex._vertical(for="service-4")
@@ -186,7 +186,7 @@ block content
 
 							+e.LABEL.info-label.flex._vertical(for="add-price")
 								p.p Цена
-								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric")
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
 								p.p ₽
 						+e.info-row._preinstalled.flex._justify
 							+e.LABEL.additional.flex._vertical(for="service-3")
@@ -207,7 +207,7 @@ block content
 
 							+e.LABEL.info-label.flex._vertical(for="add-price")
 								p.p Цена
-								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric")
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
 								p.p ₽
 						//- добавление вручную
 						//- +e.info-row._handled.flex._justify(data-action-target="edit")
@@ -287,7 +287,7 @@ block content
 										option 3
 						+e.LABEL.info-label.flex._vertical(for="handled-price")
 							p.p Цена
-							+e.INPUT.info-input._med(type="text", name='handled-price',id="handled-price", placeholder="1200", inputmode="numeric")
+							+e.INPUT.info-input._med(type="text", name='handled-price',id="handled-price", placeholder="1200", inputmode="numeric", data-price)
 							p.p ₽
 						+e.additional-editor-more
 							+e.A.additional-editor-more-button(href="javascript:void(0);", data-action="show-edit-controls")

@@ -1,4 +1,7 @@
 import 'selectric';
+import { bill } from './bill';
+
+bill.$priceInput = $('[data-price]');
 
 var addService = {
 	events: {
@@ -52,8 +55,12 @@ var addService = {
 				document.querySelector('.add-service__info-show[data-action=new-service]').classList.remove('is-hidden')
 				elm.parentElement.parentElement.classList.remove('is-active')
 				$('select').selectric('refresh');
-				addService.init()
+				addService.init();
 			}
+		},
+		setPriceInputs: input => {
+			bill.$priceInput = $(`${input}`);
+			bill.init();
 		}
 	},
 	template: (name, descr) => {
@@ -104,7 +111,7 @@ var addService = {
 				</label>
 				<label class="add-service__info-label flex flex_vertical" for="handled-price">
 					<p class="p">Цена</p>
-					<input class="add-service__info-input add-service__info-input_med" type="text" name="handled-price" id="handled-price" placeholder="1200" inputmode="numeric">
+					<input class="add-service__info-input add-service__info-input_med" type="text" name="handled-price" id="handled-price" placeholder="1200" inputmode="numeric" data-price="data-price">
 					<p class="p">₽</p>
 				</label>
 				<div class="add-service__additional-editor-more">
@@ -138,6 +145,8 @@ var addService = {
 		let triggers = document.querySelectorAll('.add-service__info-show');
 		let closers = document.querySelectorAll('.add-service__info-hide');
 		let actionTriggers = document.querySelectorAll('[data-action]');
+
+		addService.events.setPriceInputs('[data-price]');
 
 		if (triggers && closers) {
 			triggers.forEach(button => {
