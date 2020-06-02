@@ -1,0 +1,155 @@
+.mainpage {
+	padding: 2.8rem 0 7rem;
+
+	&__wrap {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__left {
+		width: 100%;
+		max-width: 73.3rem;
+		padding-top: 7.8rem;
+	}
+
+	&__right {
+		display: flex;
+		justify-self: flex-end;
+		width: 100%;
+		max-width: 53rem;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	&__header {
+		margin-bottom: 2.4rem;
+		font-weight: bold;
+		font-size: 5.7rem;
+		line-height: 6.7rem;
+		color: #2a2d34;
+	}
+
+	&__subheader {
+		margin-bottom: 4rem;
+		font-size: 2rem;
+		line-height: 140%;
+		color: #7a7a7a;
+	}
+
+	&__button {
+		display: block;
+		width: 100%;
+		margin: 0 1.5rem;
+		padding: 1.5rem;
+		border-radius: 3px;
+		font-weight: 500;
+		font-size: 1.8rem;
+		line-height: 2.1rem;
+		text-align: center;
+
+		&:first-child {
+			max-width: 22.6rem;
+			margin-left: 0;
+			background: #606edb;
+			color: #fff;
+			border-color: #606edb;
+		}
+
+		&:last-child {
+			max-width: 24.4rem;
+			margin-right: 0;
+			border: 1px solid rgba(96, 110, 219, 0.2);
+			background-color: #fff;
+			color: #606edb;
+		}
+
+		&-wrapper {
+			display: flex;
+		}
+	}
+
+	&__partners {
+		width: 100%;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 8.5rem;
+		overflow: hidden;
+
+		.icon {
+			fill: #dddff2;
+			height: 4.8rem;
+
+			&-vkBlue {
+				width: 4.8rem;
+			}
+
+			&-mailBlue {
+				width: 11.6rem;
+			}
+
+			&-gosBlue {
+				width: 13rem;
+			}
+
+			&-cloudBlue {
+				width: 6.6rem;
+			}
+
+			&-bitrixBlue {
+				width: 12.3rem;
+			}
+
+			&-decaBlue {
+				width: 12rem;
+			}
+
+			&-gisBlue {
+				width: 8rem;
+			}
+		}
+	}
+
+	&-become {
+		&__h2 {
+			font-weight: bold;
+			font-size: 4.7rem;
+			line-height: 130%;
+			color: #2a2d34;
+		}
+
+		&__outer {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 6rem;
+			background-color: #ffe48a;
+
+			.icon {
+				position: absolute;
+				bottom: -2.1rem;
+				left: 44rem;
+				width: 9.8rem;
+				fill: #fff;
+			}
+		}
+
+		&__a {
+			display: block;
+			width: 100%;
+			max-width: 22.6rem;
+			margin-right: calc(24.4rem - 6rem);
+			padding: 1.5rem 3rem;
+			color: #fff;
+			background-color: #ff608f;
+			border-radius: 3px;
+			text-align: center;
+		}
+	}
+}

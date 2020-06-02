@@ -1,0 +1,33 @@
+extends ../layouts/base
+append vars
+	- title = 'Главная страница';
+
+block header
+	+header(true)
+
+block content
+	+b.SECTION.mainpage
+		+e.wrap.wrap
+			+e.left
+				+e.H1.header.h1 Услуги фрилансеров по заранее известной цене
+				+e.P.subheader.p Разместите свое портфолио или делайте заказы у профессионалов. <br> У нас единый профиль для всех.
+				+e.button-wrapper
+					+e.A.button.p(href="#") Присоединиться
+					+e.A.button.p(href="#") Посмотреть все услуги
+			+e.right
+				+e.IMG.img(src="/img/landing_1.png")
+		+e.wrap.wrap
+			+e.partners
+				+icon('vkBlue')
+				+icon('mailBlue')
+				+icon('gosBlue')
+				+icon('cloudBlue')
+				+icon('bitrixBlue')
+				+icon('decaBlue')
+				+icon('gisBlue')
+	+b.SECTION.mainpage-become
+		+e.wrap.wrap
+			+e.outer
+				+icon('logoWhite')
+				+e.H2.h2.h2 Стать <br> заказчиком или <br> исполнителем
+				+e.A.a.p(href="#") Присоединиться
