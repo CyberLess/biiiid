@@ -735,5 +735,20 @@
 				}
 			}
 		}
+
+		&__all {
+			display: block;
+			margin: 1.5rem auto;
+			width: 100%;
+			max-width: 24.4rem;
+			padding: 1.5rem 1rem;
+			border: 1px solid rgba(96, 110, 219, 0.2);
+			border-radius: 3px;
+			font-weight: 500;
+			font-size: 1.8rem;
+			line-height: 2.1rem;
+			color: #606edb;
+			text-align: center;
+		}
 	}
 }
