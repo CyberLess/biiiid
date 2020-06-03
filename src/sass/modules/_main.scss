@@ -426,4 +426,39 @@
 			}
 		}
 	}
+
+	&-order {
+		padding: 7rem 0;
+
+		&__header {
+			margin-bottom: 3rem;
+			font-weight: bold;
+			font-size: 4.7rem;
+			line-height: 140%;
+			color: #2a2d34;
+
+			@include max-screen($small_tablet) {
+				margin-bottom: 2.4rem;
+			}
+
+			@include max-screen($large_mobile) {
+				font-size: 3.6rem;
+				line-height: 122%;
+			}
+		}
+
+		&__subheader {
+			margin-bottom: 3rem;
+			font-weight: normal;
+			font-size: 2rem;
+			line-height: 140%;
+			color: #7a7a7a;
+
+			img {
+				position: relative;
+				top: 0.3rem;
+				margin-left: 0.8rem;
+			}
+		}
+	}
 }
