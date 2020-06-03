@@ -19,16 +19,21 @@ var cardMain = {
 		if (cardMain.card) {
 			cardMain.card.forEach(card => {
 				if (cardMain.viewport > 581) {
+					card.removeEventListener('click', () => {})
 					card.addEventListener('mouseover', () => { cardMain.setActive(card) })
 					card.addEventListener('mouseleave', () => { cardMain.setInactive(card) })
 				} else {
-					let trigger = card.querySelector('.mainpage-order__card-header')
-					trigger.addEventListener('click', () => {
+					// let trigger = card.querySelector('.mainpage-order__card-header')
+					card.addEventListener('click', () => {
 						// cardMain.setAllInactive(cardMain.card)
 						cardMain.toggleActive(card)
 					})
 				}
 			})
+			window.addEventListener('resize', () => {
+				cardMain.init()
+				console.log('resized viewport:' + cardMain.viewport)
+			});
 		}
 	 }
 }
