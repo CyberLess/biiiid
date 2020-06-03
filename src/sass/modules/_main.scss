@@ -10,6 +10,11 @@
 		width: 100%;
 		max-width: 73.3rem;
 		padding-top: 7.8rem;
+
+		@include max-screen($small_tablet) {
+			max-width: 100%;
+			padding-top: 0;
+		}
 	}
 
 	&__right {
@@ -17,6 +22,10 @@
 		justify-self: flex-end;
 		width: 100%;
 		max-width: 53rem;
+
+		@include max-screen($small_tablet) {
+			display: none;
+		}
 	}
 
 	&__img {
@@ -31,6 +40,19 @@
 		font-size: 5.7rem;
 		line-height: 6.7rem;
 		color: #2a2d34;
+
+		@include max-screen($small_tablet) {
+			font-size: 4.2rem;
+			line-height: 105%;
+		}
+
+		br {
+			display: none;
+
+			@include max-screen($small_tablet) {
+				display: block;
+			}
+		}
 	}
 
 	&__subheader {
@@ -38,6 +60,14 @@
 		font-size: 2rem;
 		line-height: 140%;
 		color: #7a7a7a;
+
+		@include max-screen($large_mobile) {
+			max-width: 38rem;
+
+			br {
+				display: none;
+			}
+		}
 	}
 
 	&__button {
@@ -81,6 +111,10 @@
 		margin-top: 8.5rem;
 		overflow: hidden;
 
+		@include max-screen($small_tablet) {
+			margin-top: 10rem;
+		}
+
 		.icon {
 			fill: #dddff2;
 			height: 4.8rem;
@@ -103,14 +137,26 @@
 
 			&-bitrixBlue {
 				width: 12.3rem;
+
+				@include max-screen($large_mobile) {
+					display: none;
+				}
 			}
 
 			&-decaBlue {
 				width: 12rem;
+
+				@include max-screen($small_tablet) {
+					display: none;
+				}
 			}
 
 			&-gisBlue {
 				width: 8rem;
+
+				@include max-screen($small_tablet) {
+					display: none;
+				}
 			}
 		}
 	}
@@ -121,6 +167,10 @@
 			font-size: 4.7rem;
 			line-height: 130%;
 			color: #2a2d34;
+
+			@include max-screen($large_mobile) {
+				font-size: 3.7rem;
+			}
 		}
 
 		&__outer {
@@ -131,12 +181,25 @@
 			padding: 6rem;
 			background-color: #ffe48a;
 
+			@include max-screen($small_tablet) {
+				padding: 6.9rem 2rem;
+			}
+
+			@include max-screen($large_mobile) {
+				padding-top: 4rem;
+				padding-bottom: 4rem;
+			}
+
 			.icon {
 				position: absolute;
 				bottom: -2.1rem;
 				left: 44rem;
 				width: 9.8rem;
 				fill: #fff;
+
+				@include max-screen($small_tablet) {
+					display: none;
+				}
 			}
 		}
 
@@ -150,11 +213,25 @@
 			background-color: #ff608f;
 			border-radius: 3px;
 			text-align: center;
+
+			@include max-screen($small_tablet) {
+				margin-right: 0;
+			}
+		}
+
+		&__wrap {
+			@include max-screen($small_tablet) {
+				padding: 0;
+			}
 		}
 	}
 
 	&-easy {
 		padding: 8.5rem 0;
+
+		@include max-screen($small_tablet) {
+			padding-top: 5rem;
+		}
 
 		&__header {
 			margin-bottom: 3rem;
@@ -162,6 +239,10 @@
 			font-size: 4.7rem;
 			line-height: 140%;
 			color: #2a2d34;
+
+			@include max-screen($small_tablet) {
+				margin-bottom: 2.4rem;
+			}
 		}
 
 		&__subheader {
@@ -176,6 +257,10 @@
 			display: flex;
 			width: 100%;
 			margin-top: 3rem;
+
+			@include max-screen($large_mobile) {
+				flex-direction: column;
+			}
 		}
 
 		&__step {
@@ -185,10 +270,19 @@
 			flex-direction: column;
 			width: 50%;
 
+			@include max-screen($large_mobile) {
+				width: 100%;
+				margin-bottom: 4rem;
+			}
+
 			&:first-child {
 				p {
 					width: 100%;
 					padding-left: 6.8rem;
+
+					@include max-screen($small_tablet) {
+						padding-right: 8.3rem;
+					}
 
 					&::after {
 						position: absolute;
@@ -196,16 +290,37 @@
 						top: 0;
 						right: 0;
 						width: 2px;
-						height: 100%;
+						height: 11.2rem;
 						background-color: #2a2d34;
+
+						@include max-screen($large_mobile) {
+							display: none;
+						}
 					}
 				}
 			}
 
 			&:last-child {
 				padding-left: 11.2rem;
+
+				@include max-screen($small_tablet) {
+					padding-left: 3.2rem;
+				}
+
+				@include max-screen($large_mobile) {
+					padding-left: 0;
+				}
+
 				p {
 					padding-left: 6.8rem;
+
+					@include max-screen($small_tablet) {
+						padding-right: 5rem;
+					}
+
+					@include max-screen($large_mobile) {
+						padding-left: 7rem;
+					}
 				}
 			}
 
@@ -217,6 +332,16 @@
 				font-size: 24px;
 				line-height: 140%;
 				color: #2a2d34;
+
+				@include max-screen($small_tablet) {
+					br {
+						display: none;
+
+						&.show-mobile {
+							display: block;
+						}
+					}
+				}
 			}
 
 			&-img {
