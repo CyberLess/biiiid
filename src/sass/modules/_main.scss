@@ -444,6 +444,18 @@
 			@include max-screen($large_mobile) {
 				font-size: 3.6rem;
 				line-height: 122%;
+
+				br {
+					display: block;
+				}
+			}
+
+			br {
+				display: none;
+
+				@include max-screen($large_mobile) {
+					display: block;
+				}
 			}
 		}
 
@@ -458,6 +470,10 @@
 				position: relative;
 				top: 0.3rem;
 				margin-left: 0.8rem;
+
+				@include max-screen($large_tablet) {
+					margin-left: 0.4rem;
+				}
 			}
 		}
 	}
