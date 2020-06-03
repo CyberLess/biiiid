@@ -23,6 +23,7 @@ import { notifications } from "./modules/notifications";
 import { messageSend } from "./modules/message-send";
 import { bill } from "./modules/bill";
 import { addService } from "./modules/addService";
+import { cardMain } from './modules/cardMain'
 import { config } from "./config";
 
 var App = () => {};
@@ -53,7 +54,7 @@ App.prototype.init = () => {
 	bill.init();
 	messageSend.init();
 	addService.init();
-
+	cardMain.init();
 	config.log("app init");
 };
 
