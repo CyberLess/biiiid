@@ -508,7 +508,6 @@
 			margin: 0 4.5rem 4.5rem 0;
 			padding: 3rem;
 			border: 1px solid #2a2d34;
-			transform: all 0.3s ease;
 
 			&:nth-child(4) {
 				margin-right: 0;
@@ -574,7 +573,7 @@
 
 				.mainpage-order__card-menu {
 					z-index: 9;
-					transform: scale(1);
+					transform: scaleY(1);
 
 					@include max-screen($large_mobile) {
 						display: block;
@@ -582,7 +581,7 @@
 						height: auto;
 						margin-bottom: -8rem;
 						padding: 2rem 0 4rem;
-						transform: scale(1);
+						transform: scaleY(1);
 					}
 
 					@include max-screen($small_mobile) {
@@ -680,9 +679,9 @@
 				height: 100%;
 				padding: 8rem 3rem 3rem;
 				background: #606edb;
-				transition: all 0.3s ease;
-				transform: scale(0);
-				transform-origin: bottom center;
+				transform: scaleY(0);
+				transform-origin: top;
+				transition: transform 0.4s cubic-bezier(0.4, 0, 0, 1);
 				z-index: -1;
 
 				@include max-screen($large_mobile) {
@@ -695,7 +694,7 @@
 					margin: 0 0 -6rem 17rem;
 					padding: 0;
 					background-color: transparent;
-					transform: scale(0);
+					transform: scaleY(0);
 					z-index: 0;
 				}
 
