@@ -577,6 +577,7 @@
 					transform: scale(1);
 
 					@include max-screen($large_mobile) {
+						display: block;
 						width: 360 / 580 * 100%;
 						height: auto;
 						margin-bottom: -8rem;
@@ -612,6 +613,7 @@
 			&-header {
 				position: relative;
 				display: flex;
+				height: 2.3rem;
 				font-weight: 500;
 				font-size: 2rem;
 				line-height: 2.3rem;
@@ -684,6 +686,7 @@
 				z-index: -1;
 
 				@include max-screen($large_mobile) {
+					display: none;
 					order: 3;
 					position: relative;
 					top: -6rem;
