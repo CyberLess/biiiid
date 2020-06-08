@@ -553,41 +553,85 @@
 			}
 
 			&.is-active {
-				border-color: #606edb;
-
 				@include max-screen($large_mobile) {
-					border-color: rgba(0, 0, 0, 0.15);
-				}
-
-				.mainpage-order__card-header {
-					color: #fff;
+					border-color: #606edb;
 
 					@include max-screen($large_mobile) {
-						color: #2a2d34;
+						border-color: rgba(0, 0, 0, 0.15);
+					}
 
-						.icon {
-							transform: rotate(270deg);
+					.mainpage-order__card-header {
+						color: #fff;
+
+						@include max-screen($large_mobile) {
+							color: #2a2d34;
+
+							.icon {
+								transform: rotate(270deg);
+							}
+						}
+					}
+
+					.mainpage-order__card-menu {
+						z-index: 9;
+						transform: scaleY(1);
+
+						@include max-screen($large_mobile) {
+							display: block;
+							width: 360 / 580 * 100%;
+							height: auto;
+							margin-bottom: -8rem;
+							padding: 2rem 0 4rem;
+							transform: scaleY(1);
+						}
+
+						@include max-screen($small_mobile) {
+							width: 220 /320 * 100%;
+							margin-bottom: -3.2rem;
+							padding: 2rem 0 4rem;
 						}
 					}
 				}
+			}
 
-				.mainpage-order__card-menu {
-					z-index: 9;
-					transform: scaleY(1);
+			&:hover {
+				@media screen and (min-width: 581px) {
+					border-color: #606edb;
 
 					@include max-screen($large_mobile) {
-						display: block;
-						width: 360 / 580 * 100%;
-						height: auto;
-						margin-bottom: -8rem;
-						padding: 2rem 0 4rem;
-						transform: scaleY(1);
+						border-color: rgba(0, 0, 0, 0.15);
 					}
 
-					@include max-screen($small_mobile) {
-						width: 220 /320 * 100%;
-						margin-bottom: -3.2rem;
-						padding: 2rem 0 4rem;
+					.mainpage-order__card-header {
+						color: #fff;
+
+						@include max-screen($large_mobile) {
+							color: #2a2d34;
+
+							.icon {
+								transform: rotate(270deg);
+							}
+						}
+					}
+
+					.mainpage-order__card-menu {
+						z-index: 9;
+						transform: scaleY(1);
+
+						@include max-screen($large_mobile) {
+							display: block;
+							width: 360 / 580 * 100%;
+							height: auto;
+							margin-bottom: -8rem;
+							padding: 2rem 0 4rem;
+							transform: scaleY(1);
+						}
+
+						@include max-screen($small_mobile) {
+							width: 220 /320 * 100%;
+							margin-bottom: -3.2rem;
+							padding: 2rem 0 4rem;
+						}
 					}
 				}
 			}

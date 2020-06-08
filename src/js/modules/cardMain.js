@@ -9,15 +9,22 @@ var cardMain = {
 	init: () => {
 		if (cardMain.card) {
 				cardMain.card.forEach(card => {
-					card.addEventListener('mouseenter', () => {
-						cardMain.setActive(card)
+					// card.addEventListener('mouseenter', () => {
+					// 	cardMain.setActive(card)
+					// })
+					// card.addEventListener('mouseleave', () => {
+					// 	cardMain.setInactive(card)
+					// })
+					card.addEventListener('click', e => {
+						e.stopPropagation();
+						e.preventDefault();
+						card.classList.toggle('is-active');
 					})
-					card.addEventListener('mouseleave', () => {
-						cardMain.setInactive(card)
-					})
-					card.addEventListener('touchend', () => {
-						card.classList.toggle('is-active')
-					})
+					// card.addEventListener('touchend', e => {
+					// 	e.stopPropagation();
+					// 	e.preventDefault();
+					// 	card.classList.toggle('is-active');
+					// })
 				})
 			}
 		}
