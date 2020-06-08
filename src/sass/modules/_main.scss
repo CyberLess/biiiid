@@ -756,7 +756,8 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				display: block;
+				display: flex;
+				flex-direction: column;
 				width: 100%;
 				height: 100%;
 				padding: 8rem 3rem 3rem;
@@ -765,6 +766,24 @@
 				transform-origin: top;
 				transition: transform 0.4s cubic-bezier(0.4, 0, 0, 1);
 				z-index: -1;
+
+				@include max-screen($large_desktop) {
+					padding-top: 6rem;
+				}
+
+				@include max-screen($small_desktop) {
+					padding-top: 8rem;
+				}
+
+				@media screen and (max-width: 850px) {
+					padding-top: 6rem;
+				}
+
+				@include max-screen($small_tablet) {
+					padding-top: 8rem;
+					padding-left: 4rem;
+					padding-right: 4rem;
+				}
 
 				@include max-screen($large_mobile) {
 					display: none;
