@@ -519,6 +519,14 @@
 				}
 			}
 
+			@include max-screen($large_tablet) {
+				margin: 0 auto 4.5rem;
+
+				&:nth-child(4) {
+					margin-right: auto;
+				}
+			}
+
 			@include max-screen($small_tablet) {
 				width: 34.3rem;
 				margin: 0 4rem 4rem 0;
@@ -646,6 +654,10 @@
 				&:after {
 					content: "";
 					flex: auto;
+
+					@include max-screen($large_tablet) {
+						display: none;
+					}
 				}
 
 				@include max-screen($large_mobile) {
