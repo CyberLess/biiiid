@@ -659,6 +659,7 @@
 			&-header {
 				position: relative;
 				display: flex;
+				height: 2.3rem; //ios mobile iisue fix
 				margin-bottom: 28%;
 				font-weight: 500;
 				font-size: 2rem;
