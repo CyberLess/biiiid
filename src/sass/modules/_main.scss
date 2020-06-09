@@ -583,7 +583,7 @@
 			}
 
 			&:hover {
-				@media screen and (min-width: 581px) {
+				@media screen and (min-width: 581px) and (orientation: landscape) {
 					border-color: #606edb;
 
 					@include max-screen($large_mobile) {

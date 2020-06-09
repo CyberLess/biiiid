@@ -7,7 +7,9 @@ var cardMain = {
 		elm.classList.remove('is-active')
 	},
 	init: () => {
-		if (cardMain.card) {
+		console.log(navigator.userAgent)
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			if (cardMain.card) {
 				cardMain.card.forEach(card => {
 					// card.addEventListener('mouseenter', () => {
 					// 	cardMain.setActive(card)
@@ -28,7 +30,8 @@ var cardMain = {
 				})
 			}
 		}
-	 }
+	}
+}
 
 export {
 	cardMain
