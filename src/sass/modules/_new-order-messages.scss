@@ -1,0 +1,516 @@
+.new-order-messages {
+	background-color: $light-bg;
+
+	&__wrap {
+		position: relative;
+		display: flex;
+		padding-top: 7rem;
+		padding-bottom: 8rem;
+
+		@include max-screen($large_tablet) {
+			flex-direction: column;
+			padding-top: 3rem;
+		}
+
+		@include max-screen($large_mobile) {
+			padding-top: 2rem;
+			padding-bottom: 4rem;
+		}
+	}
+
+	&__ceil {
+		@include max-screen($small_tablet) {
+			width: 100%;
+		}
+
+		&_left {
+			width: 60%;
+			margin-right: 2rem;
+
+			@include max-screen($large_tablet) {
+				order: 1;
+				width: 100%;
+			}
+
+			@include max-screen($large_mobile) {
+				width: calc(100% + 4rem);
+				margin-left: -2rem;
+			}
+		}
+
+		&_right {
+			margin-left: auto;
+			padding-top: 8rem;
+			padding-right: 3.4rem;
+
+			@include max-screen($large_tablet) {
+				width: 100%;
+				padding-top: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
+	&__top {
+		display: flex;
+		align-items: flex-end;
+		margin-bottom: 4rem;
+		padding-bottom: 1.8rem;
+		border-bottom: 1px solid rgba(42, 45, 52, 0.15);
+
+		color: rgba(42, 45, 52, 0.5);
+
+		@include max-screen($large_mobile) {
+			margin-right: 2rem;
+			margin-bottom: 3rem;
+			margin-left: 2rem;
+		}
+
+		a {
+			transition: .2s;
+		}
+
+		a:hover,
+		a:focus {
+			color: #2A2D34;
+		}
+	}
+
+	&__content-wrap {
+		padding-top: 3rem;
+		padding-bottom: 3.8rem;
+		border: 1px solid rgba(42, 45, 52, 0.15);
+
+		background-color: #ffffff;
+
+		@include max-screen($large_tablet) {
+			padding-top: 2rem;
+		}
+
+		@include max-screen($large_mobile) {
+			padding-top: 1.2rem;
+			padding-bottom: 2rem;
+		}
+	}
+
+	&__dialogs {
+		&.messages-dialogs {
+			display: block;
+			opacity: 1;
+		}
+	}
+
+	&__menu {
+		display: flex;
+		flex-wrap: wrap;
+
+		list-style: none;
+		font-size: 1.8rem;
+
+		@include max-screen($small_tablet) {
+			font-size: 1.4rem;
+			line-height: 1.6rem;
+		}
+	}
+
+	&__menu-item {
+		margin-right: 2.3rem;
+
+		@include max-screen($small_tablet) {
+			margin-right: .5rem;
+		}
+
+		&:not(:first-of-type) {
+			.new-order-messages__menu-link {
+				@include min-screen($small_tablet + 1) {
+					padding-left: 1.8rem;
+				}
+
+				@include max-screen($small_tablet) {
+					margin-left: 1.8rem;
+				}
+			}
+		}
+	}
+
+	&__menu-link {
+		padding-right: 1.8rem;
+		padding-bottom: 1.6rem;
+
+		@include max-screen($small_tablet) {
+			padding-right: 0;
+		}
+
+		&_active {
+			font-weight: 500;
+
+			color: #2A2D34;
+			box-shadow: 0 3px 0 0 #2A2D34;
+		}
+	}
+
+	&__to-all-link {
+		position: relative;
+		margin-left: auto;
+
+		@include max-screen($large_tablet) {
+			font-size: 1.4rem;
+		}
+
+		@include max-screen($small_tablet) {
+			display: none;
+		}
+
+		&:hover,
+		&:focus {
+			&::before {
+				border-color: rgb(42, 45, 52);
+			}
+		}
+
+		&::before {
+			content: "";
+
+			position: absolute;
+			top: .6rem;
+			left: -1.8rem;
+
+			width: .5rem;
+			height: .5rem;
+			border-top: 1px solid rgba(42, 45, 52, 0.5);
+			border-left: 1px solid rgba(42, 45, 52, 0.5);
+
+			transform: rotate(-45deg);
+
+			transition: .2s;
+		}
+	}
+
+	.dialog {
+		&__message {
+			padding-right: 2rem;
+
+			@include max-screen($large_tablet) {
+				padding-right: calc(100% - 64.8rem);
+			}
+
+			@include max-screen($large_mobile) {
+				margin-right: 0;
+				padding-left: 0;
+			}
+
+			&_order {
+				position: relative;
+
+				padding-bottom: 2rem;
+
+				@include max-screen($large_mobile) {
+					padding-bottom: 0;
+				}
+
+				&:not(:first-of-type) {
+					padding-top: 6rem;
+
+					@include max-screen($large_mobile) {
+						padding-top: 4rem;
+					}
+
+					&::before {
+						content: "";
+
+						position: absolute;
+						top: 1.4rem;
+						left: 5.3%;
+
+						width: 92%;
+						height: 1px;
+
+						background-color: rgba(42, 45, 52, 0.15);
+
+						@include max-screen($large_mobile) {
+							left: 0;
+							width: 100%;
+						}
+					}
+				}
+
+				.dialog__message-text-wrap {
+					position: relative;
+					bottom: .2rem;
+					margin-top: auto;
+					margin-bottom: auto;
+				}
+
+				.dialog__text-wrap {
+					color: #B4B6B8;
+				}
+			}
+
+			&_user-review {
+				.dialog__message-text-wrap {
+					width: 84%;
+				}
+			}
+		}
+
+		&__top-message-content {
+			display: flex;
+			width: 100%;
+		}
+
+		&__image-wrap {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: -.3rem;
+		}
+
+		&__text-top {
+			align-items: flex-end;
+			margin-bottom: .2rem;
+
+			@include max-screen($large_mobile) {
+				align-items: flex-start;
+				margin-bottom: 0;
+			}
+		}
+
+		&__author-name {
+			margin-right: .3rem;
+
+			font-weight: 500;
+
+			@include max-screen($large_tablet) {
+				font-size: 1.6rem;
+				line-height: 1.9rem;
+			}
+
+			@include max-screen($large_mobile) {
+				font-size: 1.4rem;
+				line-height: 1.6rem;
+			}
+
+			&_user {
+				color: #2473C4;
+			}
+		}
+
+		&__message-text-wrap {
+			margin-top: -.2rem;
+
+			@include max-screen($large_tablet) {
+				font-size: 1.6rem;
+				line-height: 1.9rem;
+			}
+
+			@include max-screen($large_mobile) {
+				width: 83%;
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+			}
+		}
+
+		&__text-wrap {
+			display: block;
+			padding-right: 11rem;
+
+			word-break: break-word;
+
+			@include max-screen($small_desktop) {
+				padding-right: 0;
+			}
+
+			@include max-screen($large_tablet) {
+				padding-right: 2rem;
+			}
+
+			@include max-screen($small_tablet) {
+				padding-right: 0;
+			}
+		}
+
+		&__time {
+			margin-left: .3rem;
+			font-size: 1.4rem;
+
+			@include max-screen($large_mobile) {
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+			}
+		}
+
+		&__date-wrap {
+			margin-left: .5rem;
+
+			@include max-screen($large_mobile) {
+				margin-left: .3rem;
+			}
+
+			&_desktop {
+				@include max-screen($large_mobile) {
+					display: none;
+				}
+			}
+
+			&_mobile {
+				@include min-screen($large_mobile + 1) {
+					display: none;
+				}
+			}
+		}
+
+		&__order-notific {
+			margin-right: .5rem;
+			font-weight: 500;
+
+			@include max-screen($large_mobile) {
+				max-width: 52%;
+				margin-right: .2rem;
+			}
+		}
+
+		&__complete-wrap {
+			display: inline-flex;
+			margin-top: 1.4rem;
+			margin-bottom: 2.4rem;
+			padding: 1.2rem 1.2rem 1rem 1.4rem;
+			border: 1px solid rgba(42, 45, 52, 0.15);
+
+			@include max-screen($large_mobile) {
+				margin-right: 31%;
+				margin-bottom: 0;
+			}
+		}
+
+		&__day {
+			@include max-screen($large_mobile) {
+				display: none;
+			}
+		}
+
+		&__complete-text {
+			display: block;
+
+			font-size: 1.6rem;
+			color: rgba(42, 45, 52, 0.5);
+			text-align: center;
+		}
+
+		&__video-container {
+			@include max-screen($large_mobile) {
+				width: 15.5rem;
+			}
+		}
+
+		&__video-item {
+			margin-bottom: 1rem;
+
+			&:nth-of-type(3n),
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
+		&__order-btn {
+			&_accept {
+				margin-left: 0;
+			}
+
+			&_refuse {
+				margin-left: 1rem;
+
+				@include max-screen($large_mobile) {
+					padding: 0 1.5rem;
+				}
+			}
+		}
+
+		&__bill-wrap {
+			margin-top: 1.2rem;
+			padding-right: 0;
+
+			.dialog__order-btn_refuse {
+				margin-left: auto;
+			}
+		}
+
+		&__table-head {
+			padding: 1.8rem;
+		}
+
+		&__table-cell {
+			padding: 1.3rem 2.5rem 1.3rem 1.6rem;
+		}
+
+		&__buttons-wrap {
+			margin-top: 3rem;
+		}
+
+		&__complete-notific-text {
+			width: 100%;
+			padding: 2rem;
+			font-size: 1.6rem;
+			font-weight: 500;
+			line-height: 1.9rem;
+			background-color: rgba(191, 192, 194, 0.2);
+
+			@include max-screen($large_mobile) {
+				font-size: 1.4rem;
+				line-height: 1.6rem;
+			}
+		}
+
+		&__complete-notific-link {
+			color: #009688;
+			text-decoration: underline;
+		}
+
+		&__review-wrap {
+			width: 100%;
+		}
+
+		&__portfolio-resolution {
+			display: flex;
+			margin-top: 1rem;
+
+			.icon-check {
+				margin-top: .8rem;
+				flex-shrink: 0;
+			}
+		}
+
+		&__resolution-text {
+			margin-left: 1rem;
+		}
+	}
+
+	.send {
+		padding-right: 2.6rem;
+		padding-left: 4rem;
+
+		@include max-screen($large_mobile) {
+			padding-right: 2rem;
+			padding-left: 2rem;
+		}
+
+		&__typing-now {
+			padding-left: .2rem;
+		}
+
+		.dropzone__item {
+			&:nth-of-type(2) {
+				margin-top: 1rem;
+			}
+		}
+	}
+
+	.dialog-form {
+		&__icon-upload-wrap {
+			z-index: 1;
+		}
+
+		&__message-text {
+			width: 100%;
+		}
+	}
+}

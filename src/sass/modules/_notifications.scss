@@ -21,10 +21,10 @@
 	}
 
 	&__list-wrap {
-		min-width: 392px;
-		max-height: 34.1rem;
 		width: calc(100% + 10px) !important;
+		min-width: 392px;
 		max-width: calc(100% + 10px) !important;
+		max-height: 34.1rem;
 
 		&_messages {
 			display: none;
@@ -42,8 +42,8 @@
 
 		//opacity: 0;
 
-		transition-property: opacity;
 		transition-duration: 0.2s;
+		transition-property: opacity;
 	}
 
 	&__handle {
@@ -175,8 +175,8 @@
 	&__file-icon-wrap {
 		display: inline-block;
 		width: 1.6rem;
-		margin-left: -0.2rem;
 		margin-right: 0.4rem;
+		margin-left: -0.2rem;
 
 		fill: none;
 		stroke: #2a2d34;

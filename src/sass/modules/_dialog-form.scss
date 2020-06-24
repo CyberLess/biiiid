@@ -32,8 +32,8 @@
 
 		//opacity: 0;
 
-		transition-property: opacity;
 		transition-duration: .2s;
+		transition-property: opacity;
 	}
 
 	&__textarea-scroll-handle {
@@ -42,10 +42,10 @@
 		width: 3px;
 		max-height: 100%;
 
-		background-color: rgba(42, 45, 52, .15);
+		transition-duration: .3s;
 
 		transition-property: opacity;
-		transition-duration: .3s;
+		background-color: rgba(42, 45, 52, .15);
 	}
 
 	&__textarea-wrap {
@@ -55,7 +55,7 @@
 		max-height: 15rem;
 
 		@include max-screen($messages_large_mobile) {
-		  max-height: 10rem;
+			max-height: 10rem;
 		}
 	}
 
@@ -80,7 +80,7 @@
 			width: calc(100% - 4rem);
 			min-height: 1.7rem;
 
-		  font-size: 1.4rem;
+			font-size: 1.4rem;
 		}
 
 		&::-webkit-input-placeholder {
@@ -114,8 +114,8 @@
 
 		//opacity: 0;
 
-		transition-property: opacity;
 		transition-duration: .2s;
+		transition-property: opacity;
 	}
 
 	.dropzone__drop-prev-bar {
@@ -125,16 +125,16 @@
 		display: block;
 		width: 3px;
 
-		transition-property: opacity;
 		transition-duration: .3s;
+		transition-property: opacity;
 
 		background-color: rgba(42, 45, 52, .15);
 	}
 
 	&__drop-item {
 		display: flex;
-		flex-wrap: wrap;
 		align-items: flex-start;
+		flex-wrap: wrap;
 		max-width: 100%;
 
 		font-size: 1.2rem;
@@ -149,17 +149,17 @@
 			width: 15px;
 			height: 15px;
 
-			transform: translateY(-.1rem) rotate(45deg);
-
 			font-size: 0;
+
+			transform: translateY(-.1rem) rotate(45deg);
 
 			&::before,
 			&::after {
 				content: "";
 
 				position: absolute;
-				left: 50%;
 				top: 50%;
+				left: 50%;
 
 				width: 15px;
 				height: 2px;
@@ -222,14 +222,14 @@
 		stroke: #2A2D34;
 		stroke-opacity: 0.5;
 		stroke-width: 1.5;
-		stroke-linecap:round;
+		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
 
 	&__progress-status {
-		width: 4rem !important;
 		display: flex;
 		flex-shrink: 0;
+		width: 4rem !important;
 		margin-right: 1.4rem;
 		margin-bottom: 1.2rem;
 	}
@@ -294,8 +294,8 @@
 
 		@include max-screen($messages_large_mobile) {
 			width: 2.4rem;
-			margin-left: .6rem;
 			margin-bottom: .8rem;
+			margin-left: .6rem;
 			padding: 0;
 		}
 

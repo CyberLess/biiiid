@@ -1,6 +1,6 @@
 .messages-pre {
-	flex-shrink: 0;
 	align-self: flex-start;
+	flex-shrink: 0;
 	width: 39.3%;
 	border: 1px solid rgba(42, 45, 52, 0.15);
 
@@ -156,8 +156,8 @@
 	}
 
 	&__list {
-		list-style: none;
 		width: calc(100% + 10px);
+		list-style: none;
 	}
 
 	&__message {
@@ -483,8 +483,8 @@
 			}
 
 			.messages-pre__prev-text {
-				color: #2A2D34;
 				font-weight: 600;
+				color: #2A2D34;
 			}
 		}
 	}

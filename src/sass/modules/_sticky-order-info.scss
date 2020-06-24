@@ -1,0 +1,36 @@
+.sticky-order-info {
+	position: sticky;
+	top: 3rem;
+
+	@include max-screen($large_tablet) {
+		position: static;
+	}
+
+	&__order {
+		@include max-screen($large_tablet) {
+			margin-bottom: 4.2rem;
+		}
+
+		@include max-screen($small_tablet) {
+			margin-bottom: 3.1rem;
+		}
+
+		&.sticky-order {
+			@include max-screen($large_mobile) {
+				width: calc(100% + 4rem);
+				margin-right: 0;
+				margin-left: -2rem;
+			}
+		}
+	}
+
+	&__support {
+		margin-top: 3.8rem;
+
+		@include max-screen($large_tablet) {
+			display: none;
+			margin-top: 0;
+			margin-bottom: 2rem;
+		}
+	}
+}

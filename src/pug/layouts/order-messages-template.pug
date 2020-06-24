@@ -1,0 +1,71 @@
++b.SECTION.new-order-messages
+	+e.wrap.wrap
+		+e.ceil._left
+			+e.top
+				+e.UL.menu
+					+e.LI.menu-item
+						+e.A.menu-link._active._dialog(href="#") Переписка по заказу
+					+e.LI.menu-item
+						+e.A.menu-link._details(href="#") Детали заказа
+
+				+e.A.to-all-link.p(href="#") Все заказы
+
+			+e.content-wrap
+				+e.dialog-wrap
+					+e.dialogs.messages-dialogs__
+						+e.UL.dialog-list.dialog__
+
+					+e.send-wrap.send__
+						+e.SPAN.typing-now Евгений Н. печатает...
+						+e.FORM.form.dialog-form__(action="/" method="POST" autocomplete="off" enctype="multipart/form-data")
+							+e.inputs-wrap.input
+								+e.textarea-scrollbar
+									+e.textarea-scroll-handle
+
+								+e.textarea-wrap
+									+e.textarea-frame-wrap
+										+e.TEXTAREA.message-text(
+											placeholder="Напишите сообщение..."
+											name="message"
+											rows="1")
+
+								+e.dropzone-wrap
+
+									+e.dropzone.dropzone__.js-dropzone
+										+e.drop-prev-scrollbar
+											+e.drop-prev-bar
+										+e.area
+											+e.INPUT.file(name="file" type="file" multiple)
+											+e.preview
+												+e.item
+													+e.row.flex._vertical
+														+e.icon
+															+icon('doc')
+														+e.name
+															+e.SPAN(data-dz-name)
+															+e.SPAN.size
+																| &nbsp;(
+																span(data-dz-size)
+																| )
+															+e.SPAN.status(data-dz-uploadprogress)
+																+e.IMG.status-preload(src="/app/img/preload.svg")
+																span.progress-text
+															+e.SPAN.remove.js-remove-file(data-dz-remove)
+																+icon('delete')
+
+								+e.upload-wrap
+									+e.BUTTON.upload-btn.js-dropzone-trigger.js-without(type="button")
+										+e.icon-upload-wrap
+											+icon('clip')
+										+b.SPAN.visually-hidden Выберите файл
+							+e.BUTTON.send-btn(type="submit")
+								+b.SPAN.visually-hidden Отправить сообщение
+								+e.icon-send-wrap
+									+icon('send')
+
+				include order-details
+
+		+e.ceil._right
+			include sticky-order-info
+
+include message-templates

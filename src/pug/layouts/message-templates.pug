@@ -59,9 +59,6 @@ TEMPLATE(id="user-message")
 
 				+e.message-text
 					+e.SPAN.text-wrap
-						| Смотри, мне карту желательно делать квадратной, чтобы радиус смотрелся красиво. это возможно?
-						br
-						| мне нравится задумка поиска в мобильном приложении hh.ru android,
 
 TEMPLATE(id="my-message")
 	+e.UL.dialog-list.dialog__
@@ -73,7 +70,7 @@ TEMPLATE(id="my-message")
 					+e.B.author-name Я
 					+e.TIME.time(datetime="2019-10-21T12:18") 12:18
 				+e.message-text
-					+e.SPAN.text-wrap Последнее предложение не понял. Справа можно и так лучше но тогда мы карту закрывшем получается
+					+e.SPAN.text-wrap
 					+e.icons-wrap
 						svg(class="icon icon-delivered" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg")
 							path(opacity="0.3" d="M4.13636 7.1194L1.03409 4.29851L0 5.23881L4.13636 9L13 0.940299L11.9659 0L4.13636 7.1194Z" fill="#2A2D34")
@@ -95,7 +92,7 @@ TEMPLATE(id="attached-file")
 			| )
 
 TEMPLATE(id="video-item")
-	+b.dialog__video-container
+	+b.SPAN.dialog__video-container
 		+e.video-item
 			+e.video-wrap
 				+e.player.player__._fluid._big.js-player(data-file="/app/media/test-awakening.mp4")
@@ -222,7 +219,7 @@ TEMPLATE(id="my-bill")
 				+e.TD.table-cell._details._price 1 500,00
 
 		+e.buttons-wrap
-			+e.BUTTON.order-btn._cancel.p.border-button._light
+			+e.BUTTON.order-btn._cancel.p.border-button._light.is-regular
 				+e.text Отменить
 
 TEMPLATE(id="customer-bill")
@@ -240,7 +237,7 @@ TEMPLATE(id="customer-bill")
 				+e.TD.table-cell._details._price 1 500,00
 
 		+e.buttons-wrap
-			+e.BUTTON.order-btn._refuse.is-regular.p.border-button._light
+			+e.BUTTON.order-btn._refuse.btn._refuse.is-regular.p._light
 				+e.text Отказаться
 			+e.BUTTON.order-btn._accept.btn.is-regular.p Принять
 
@@ -251,3 +248,5 @@ TEMPLATE(id="empty")
 
 			+e.dialog-wrap
 				+e.empty.p Загрузка...
+
+include new-order-message-templates

@@ -9,6 +9,10 @@
 		&_active{
 			fill: #FF5A5F;
 			stroke: none;
+
+			svg {
+				fill: #FF5A5F;
+			}
 		}
 
 		&:not(:last-child){

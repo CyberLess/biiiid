@@ -72,9 +72,11 @@ var messageHeight = {
 				messageHeight.showSend();
 			}
 
-			messageHeight.$preFrame.height(
-				$(window).height() - messageHeight.$preFrame.offset().top
-			);
+			if ($(messageHeight.$preFrame)[0]) {
+				messageHeight.$preFrame.height(
+					$(window).height() - messageHeight.$preFrame.offset().top
+				);
+			}
 		} else {
 			if (
 				$(messageHeight.$dialogWrap)[0] &&
@@ -98,12 +100,14 @@ var messageHeight = {
 				messageHeight.showSend();
 			}
 
-			messageHeight.$preFrame.height(
-				$(window).height() -
+			if ($(messageHeight.$preFrame)[0]) {
+				messageHeight.$preFrame.height(
+					$(window).height() -
 					messageHeight.$preFrame.offset().top -
 					messageHeight.bottom / 2 +
 					26
-			);
+				);
+			}
 		}
 	},
 
@@ -112,6 +116,10 @@ var messageHeight = {
 		$textareaFrameWrap,
 		$textareaScrollHandle
 	) => {
+		if (!$textarea || !$textareaFrameWrap || !$textareaScrollHandle) {
+			return false;
+		}
+
 		$textarea.on("input", function (e) {
 			$(this).height(`${1}px`);
 			$(this).height(`${this.scrollHeight}px`);

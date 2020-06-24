@@ -22,6 +22,8 @@ import { getMessages } from "./modules/get-messages";
 import { notifications } from "./modules/notifications";
 import { messageSend } from "./modules/message-send";
 import { bill } from "./modules/bill";
+import { newOrderMessages } from "./modules/new-order-messages";
+import { newOrderTabSwitching } from "./modules/new-order-tab-switching";
 import { config } from "./config";
 
 var App = () => {};
@@ -51,6 +53,8 @@ App.prototype.init = () => {
 	previewAvatar.init();
 	bill.init();
 	messageSend.init();
+	newOrderMessages.init();
+	newOrderTabSwitching.init();
 
 	config.log("app init");
 };

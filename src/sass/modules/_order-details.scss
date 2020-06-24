@@ -1,0 +1,187 @@
+.order-details {
+	display: none;
+	margin-bottom: -1.3rem;
+	padding: .9rem 3.9rem 0;
+
+	@include max-screen($large_mobile) {
+		padding: .9rem 2rem 0;
+	}
+
+	&__file-item {
+		display: flex;
+		align-items: center;
+		margin-top: 1.5rem;
+
+		@include max-screen($large_mobile) {
+			margin-top: 1.1rem;
+		}
+
+		.icon-file {
+			width: 2.5rem;
+			height: 2.3rem;
+			margin-right: .6rem;
+			margin-left: -.3rem;
+
+			@include max-screen($large_mobile) {
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+		}
+	}
+
+	&__file-name {
+		margin-right: .5rem;
+		font-size: 1.6rem;
+		line-height: 1.9rem;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.2rem;
+			line-height: 1.4rem;
+		}
+	}
+
+	&__file-size {
+		font-size: 1.6rem;
+		line-height: 1.9rem;
+		color: rgba(42, 45, 52, 0.3);
+
+		@include max-screen($large_mobile) {
+			font-size: 1.2rem;
+			line-height: 1.4rem;
+		}
+	}
+
+	&__file-link {
+		margin-left: 1rem;
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+		color: #009688;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.2rem;
+			line-height: 1.4rem;
+		}
+	}
+
+	&__additionall-wrap {
+		&.service {
+			padding-top: 2.1rem;
+
+			@include max-screen($large_mobile) {
+				padding-top: .1rem;
+			}
+		}
+	}
+
+	.service {
+		&__additional-title {
+			margin-bottom: 2.2rem;
+
+			@include max-screen($large_mobile) {
+				margin-bottom: .3rem;
+			}
+		}
+
+		&__more-cell {
+			&_name {
+				margin-right: 2rem;
+			}
+
+			&_count {
+				visibility: visible;
+				opacity: 1;
+
+				@include max-screen($large_mobile) {
+					display: block;
+					padding-top: 1.9rem;
+					padding-bottom: 1.8rem;
+				}
+			}
+
+			&_cell-align-top {
+				align-items: flex-start;
+
+				.service__more-count {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&__more-count {
+			@include max-screen($large_mobile) {
+				display: flex;
+			}
+		}
+
+		&__desk-text-quantity {
+			@include max-screen($large_mobile) {
+				display: none;
+			}
+		}
+
+		&__mob-text-quantity {
+			@include min-screen($large_mobile + 1) {
+				display: none;
+			}
+		}
+
+		&__content {
+			&_more {
+				width: 81%;
+
+				@include max-screen($large_mobile) {
+					width: 100%;
+				}
+			}
+		}
+
+		&__checkbox {
+			cursor: auto;
+
+			.checkbox__icon {
+				border-radius: 50%;
+				border-color: #000000;
+
+				svg {
+					visibility: visible;
+					fill: #2A2D34;
+				}
+			}
+		}
+
+		&__quantity {
+			margin-left: 2.8rem;
+			color: #2A2D34;
+
+			@include max-screen($large_mobile) {
+				margin-left: auto;
+			}
+		}
+	}
+
+	h2 {
+		margin-bottom: .5rem;
+		font-weight: normal;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.6rem;
+		}
+	}
+
+	.p {
+		font-size: 1.6rem;
+		line-height: 2.3rem;
+	}
+
+	.is-gray {
+		color: rgba(42, 45, 52, 0.6);
+	}
+
+	.order-content-wrap {
+		margin-bottom: 3.9rem;
+
+		@include max-screen($large_mobile) {
+			margin-bottom: 3rem;
+		}
+	}
+}

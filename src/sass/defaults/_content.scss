@@ -112,6 +112,10 @@
 	line-height: (30/14)*1;
 }
 
+.is-regular {
+	font-weight: normal !important;
+}
+
 .content {
 
 	h2 {
@@ -157,4 +161,8 @@
 			margin-bottom: 10px;
 		}
 	}
+}
+
+.hidden {
+	display: none;
 }

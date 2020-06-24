@@ -1,4 +1,5 @@
 import { setDialogHeader } from "./set-dialog-header";
+import { newOrderMessages } from "./new-order-messages";
 
 var setDialogContent = {
 	FILE_SRC: '/app/media/',
@@ -35,7 +36,9 @@ var setDialogContent = {
 	},
 
 	setMessageText: (messageTextData, textElem) => {
-		textElem.html($.trim(messageTextData.replace(/\n/g, '<br>')));
+		if (messageTextData) {
+			textElem.html($.trim(messageTextData.replace(/\n/g, '<br>')));
+		}
 	},
 
 	getMessageDateTime: (dateTime) => {
@@ -63,7 +66,7 @@ var setDialogContent = {
 			.text(setDialogContent.getMessageDateTime(dateTimeData));
 	},
 
-	makeAttachedFiles: (filesDataArr, messageElem) => {
+	makeAttachedFiles: (filesDataArr, $messageElem) => {
 		filesDataArr.forEach((current) => {
 			if (current['type'] !== 'video') {
 				const $attachedFile = setDialogContent.init.$attachedFileTemplate.clone();
@@ -71,7 +74,7 @@ var setDialogContent = {
 				$attachedFile.find('.dialog__attached-name').text(current['name']);
 				$attachedFile.find('.dialog__attached-size-wrap').text(current['size']);
 
-				messageElem.append($attachedFile);
+				$messageElem.append($attachedFile);
 			}
 		})
 	},
@@ -90,7 +93,7 @@ var setDialogContent = {
 		}
 	},
 
-	makeVideo: (filesDataArr, messageElem) => {
+	makeVideo: (filesDataArr, $messageElem) => {
 		const $container = setDialogContent.init.$videoContainerTemplate.clone();
 		$container.empty();
 
@@ -115,7 +118,7 @@ var setDialogContent = {
 		});
 
 		if ($container.html().trim() !== '') {
-			messageElem.append($container);
+			$messageElem.append($container);
 		}
 	},
 
@@ -132,7 +135,7 @@ var setDialogContent = {
 		return $billWrap;
 	},
 
-	makeMessage: (authorName, avatarData, messageData, messageTemplate) => {
+	makeMessage: (authorName, avatarData, messageData, messageTemplate, isOrderChatting = false) => {
 		const $message = $($(messageTemplate)[0].cloneNode(true));
 		const $avatarJpg = $message.find('.dialog__author-avatar');
 		const $avatarWebp = $avatarJpg.prev();
@@ -143,7 +146,9 @@ var setDialogContent = {
 
 		setDialogContent.setMessageStatus(messageData, $message);
 		setDialogContent.setAuthorName(authorName, messageData['messageAuthor'], $name);
-		setDialogContent.setDateTime(messageData['sendDate'], $sendTime);
+		if (!isOrderChatting) {
+			setDialogContent.setDateTime(messageData['sendDate'], $sendTime);
+		}
 		setDialogContent.setAvatar(messageData['messageAuthor'], avatarData, $avatarJpg, $avatarWebp);
 		setDialogContent.setMessageText(messageData['text'], $messageTextWrap);
 
@@ -174,6 +179,7 @@ var setDialogContent = {
 			}
 		});
 	},
+
 	pushMessagesOnPage: (data) => {
 		const fragmentWithHeader = setDialogHeader.setHeader(
 			data['avatar'],

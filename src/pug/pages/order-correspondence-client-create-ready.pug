@@ -1,0 +1,11 @@
+extends ../layouts/base
+
+append vars
+	- title = 'Переписка по заказу на стороне заказчика (Заказ готов. Принять/Доработать)';
+
+block header
+	+header(true)(class="_hide-search")
+
+block content
+	include ../layouts/order-messages-template
+	include ../layouts/new-order-message-templates

@@ -1,4 +1,5 @@
 +b.SECTION.messages
+	H2.visually-hidden Страница "Мои сообщения"
 	+e.wrap.wrap
 		+b.messages-pre
 			+e.cell._search
@@ -131,13 +132,11 @@
 						+e.textarea-wrap
 							+e.textarea-frame-wrap
 								+e.TEXTAREA.message-text(
-									type="text"
 									placeholder="Напишите сообщение..."
 									name="message"
 									rows="1")
 
 						+e.dropzone-wrap
-
 							+e.dropzone.dropzone__.js-dropzone
 								+e.drop-prev-scrollbar
 									+e.drop-prev-bar
@@ -162,12 +161,12 @@
 
 						+e.upload-wrap
 							+e.BUTTON.upload-btn.js-dropzone-trigger.js-without(type="button")
-								+e.icon-upload-wrap
+								+e.SPAN.icon-upload-wrap
 									+icon('clip')
 								+b.SPAN.visually-hidden Выберите файл
 					+e.BUTTON.send-btn(type="submit")
 						+b.SPAN.visually-hidden Отправить сообщение
-						+e.icon-send-wrap
+						+e.SPAN.icon-send-wrap
 							+icon('send')
 
 	include message-templates

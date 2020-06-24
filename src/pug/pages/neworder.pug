@@ -9,7 +9,7 @@ block header
 block content
 
 	+b.SECTION.neworder
-		+e.FORM.form.form.js-evaluation(action="" id="newOrderForm" data-options='{"priceCalc":[{"words":70,"cost":"500","multiplier":1},{"words":90,"cost":750,"multiplier":1},{"words":120,"cost":1000,"multiplier":1},{"words":250,"cost":"1500","multiplier":1}]}')
+		+e.FORM.form.form.js-evaluation(action="/" id="newOrderForm" data-options='{"priceCalc":[{"words":70,"cost":"500","multiplier":1},{"words":90,"cost":750,"multiplier":1},{"words":120,"cost":1000,"multiplier":1},{"words":250,"cost":"1500","multiplier":1}]}')
 			+e.wrap.wrap._small
 				+e.row.flex._justify
 					+e.cell._left
@@ -17,7 +17,7 @@ block content
 
 						+e.input.input__
 							+e.LABEL.label.p.b
-								| Название заказа 
+								| Название заказа
 								span.color-red *
 							+e.field._big.INPUT(type="text" name="order[name]" placeholder="Например: Озвучка рекламного сайта Тайота")
 
@@ -27,20 +27,20 @@ block content
 								.is-help
 									| ?
 									+b.help-content.content.small
-										b За 500 ₽ 
+										b За 500 ₽
 										| вы получите
-										b 1 минуты. 
-										| Если требуется больший объем, впишите его в поле. Минимальная цена заказа 500 ₽ 
+										b 1 минуты.
+										| Если требуется больший объем, впишите его в поле. Минимальная цена заказа 500 ₽
 							+e.field._small.INPUT(type="text" name="order[count]" placeholder="5 000")
 							+e.content.css-hidetablet.content.is-gray
 								p
-									| Стоимость записи зависит от количества слов вашем тексте. 
+									| Стоимость записи зависит от количества слов вашем тексте.
 									br
-									| Воспользуйтесь формой ниже чтобы узнать точное количество слов. 
+									| Воспользуйтесь формой ниже чтобы узнать точное количество слов.
 						+e.input.input__
 							+e.top.flex._justify._vertical
 								+e.LABEL.label.p.b
-									| Текст заказа 
+									| Текст заказа
 									span.color-red *
 								+e.clear.small.js-evaluation-onfill.js-clear-fieldset
 									+icon('clear')
@@ -72,10 +72,10 @@ block content
 												+e.icon
 													+icon('doc')
 												+e.name
-													+e.SPAN(data-dz-name) 
+													+e.SPAN(data-dz-name)
 													+e.SPAN.size
 														| &nbsp;(
-														span(data-dz-size) 
+														span(data-dz-size)
 														| )
 													+e.SPAN.status(data-dz-uploadprogress)
 														+e.IMG.status-preload(src="/app/img/preload.svg")
@@ -85,7 +85,7 @@ block content
 						+e.input._big.input__
 							+e.top.flex._justify._vertical
 								+e.LABEL.label.p.b
-									| Комментарий 
+									| Комментарий
 								+e.clear.small.js-clear-fieldset
 									+icon('clear')
 									| Очистить форму
@@ -102,10 +102,10 @@ block content
 												+e.icon
 													+icon('doc')
 												+e.name
-													+e.SPAN(data-dz-name) 
+													+e.SPAN(data-dz-name)
 													+e.SPAN.size
 														| &nbsp;(
-														span(data-dz-size) 
+														span(data-dz-size)
 														| )
 													+e.SPAN.status(data-dz-uploadprogress)
 														+e.IMG.status-preload(src="/app/img/preload.svg")
@@ -119,12 +119,12 @@ block content
 									+e.more-cell._name
 										+e.LABEL.checkbox.checkbox__
 											+e.INPUT.input(name="more[]" type="checkbox" value="Адаптивный дизайн под 3 разорешения")
-											+e.SPAN.text 
-												| Адаптивный дизайн под 3 разорешения 
+											+e.SPAN.text
+												| Адаптивный дизайн под 3 разорешения
 												+e.icon
 													+icon('check')
 										+e.content._more.content.is-gray
-											p 
+											p
 												| Laboris ex eu commodo mollit ea excepteur et consequat. Velit Lorem cillum tempor magna nostrud qui dolore velit ipsum aute.
 									+e.more-cell._count.flex._vertical._justify
 										+e.more-count.p Кол-во
@@ -140,8 +140,8 @@ block content
 									+e.more-cell._name
 										+e.LABEL.checkbox.checkbox__
 											+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
-											+e.SPAN.text 
-												| Прототипирование 
+											+e.SPAN.text
+												| Прототипирование
 												+e.icon
 													+icon('check')
 									+e.more-cell._count.flex._vertical._justify
@@ -158,8 +158,8 @@ block content
 									+e.more-cell._name
 										+e.LABEL.checkbox.checkbox__
 											+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
-											+e.SPAN.text 
-												| Кликабельный прототип 
+											+e.SPAN.text
+												| Кликабельный прототип
 												+e.icon
 													+icon('check')
 									+e.more-cell._count.flex._vertical._justify
@@ -176,8 +176,8 @@ block content
 									+e.more-cell._name
 										+e.LABEL.checkbox.checkbox__
 											+e.INPUT.input(name="more[]" type="checkbox" value="Прототипирование")
-											+e.SPAN.text 
-												| Прототипирование 
+											+e.SPAN.text
+												| Прототипирование
 												+e.icon
 													+icon('check')
 									+e.more-cell._count.flex._vertical._justify
@@ -194,8 +194,8 @@ block content
 									+e.more-cell._name
 										+e.LABEL.checkbox.checkbox__
 											+e.INPUT.input(name="more[]" type="checkbox" value="Кликабельный прототип")
-											+e.SPAN.text 
-												| Кликабельный прототип 
+											+e.SPAN.text
+												| Кликабельный прототип
 												+e.icon
 													+icon('check')
 									+e.more-cell._count.flex._vertical._justify
@@ -220,7 +220,7 @@ block content
 								+e.box-name.h5._small
 									| Озвучка текста для бренда Toyota крутым голосом почти бесплатно
 								+e.box-price.h5.b
-									| Итого: 
+									| Итого:
 									span.js-evaluation-summ 0
 									span &nbsp;₽
 								+e.box-button.btn__._red._big.p.A(href='#')

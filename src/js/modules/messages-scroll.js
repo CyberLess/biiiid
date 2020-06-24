@@ -89,11 +89,13 @@ var messagesScroll = {
 		// 	}
 		// };
 
-		baron({
-			root: $(messagesScroll.init.$messagesPrevWrap)[0],
-			scroller: $(messagesScroll.init.$framePrev)[0],
-			bar: $(messagesScroll.init.$scrollPrevHandle)[0],
-		});
+		if ($(messagesScroll.init.$messagesPrevWrap)[0] && $(messagesScroll.init.$framePrev)[0] && $(messagesScroll.init.$scrollPrevHandle)[0]) {
+			baron({
+				root: $(messagesScroll.init.$messagesPrevWrap)[0],
+				scroller: $(messagesScroll.init.$framePrev)[0],
+				bar: $(messagesScroll.init.$scrollPrevHandle)[0],
+			});
+		}
 
 		if ($(messagesScroll.init.$dialogWrap)[0]) {
 			baron({

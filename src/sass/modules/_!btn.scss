@@ -22,7 +22,7 @@
 			margin-right: 1rem;
 		}
 	}
-	
+
 	&_dark{
 		background: $default;
 	}
@@ -34,19 +34,25 @@
 	&_big{
 		height: 5rem;
 	}
-	
+
 	&_light {
 		font-size: 1.4rem;
 		font-weight: normal;
 		padding: 0 2.5rem;
 	}
-	
+
+	&_refuse {
+		border: none;
+		color: #009688;
+		background-color: transparent;
+	}
+
 	&.is-disabled{
 		pointer-events: none;
 		background: #F5F5F5;
 		color: rgba($default, .2);
 	}
-	
+
 	@include max-screen($large_mobile) {
 		min-height: 4rem;
 

@@ -14,6 +14,7 @@ var messageSend = {
 
   $dialogForm: $('.dialog-form.send__form'),
   $textarea: $('.dialog-form__message-text'),
+  $sendBtn: $('.dialog-form__send-btn'),
 
   removingClasses: [
     'messages-pre__message_read',
@@ -58,10 +59,10 @@ var messageSend = {
     messageVideo.init();
   },
 
-  createFilesArray: () => {
+  createFilesArray: (formClass) => {
     const videoFormats = ['avi', 'mkv', 'mov', 'mp4', 'mpeg', 'mpg', 'mts'];
 
-    const $filesItems = $('.dialog-form .dropzone__area').children('.dropzone__item');
+    const $filesItems = $(`${formClass} .dropzone__area`).children('.dropzone__item');
 
     if ($filesItems.length > 0) {
       const fileNames = [];
@@ -128,7 +129,7 @@ var messageSend = {
         messageAuthor: 'me',
         status: 'no-opened',
         text: isBill ? '' : messageSend.$textarea.val(),
-        files: isBill ? '' : messageSend.createFilesArray(),
+        files: isBill ? '' : messageSend.createFilesArray('.dialog-form'),
         sendDate: new Date(),
         bill: messageSend.getBillSendData(isBill)
       }
@@ -187,6 +188,12 @@ var messageSend = {
           messageSend.pressed.splice(index);
         }
       });
+    messageSend.$sendBtn.click((evt) => {
+      evt.preventDefault();
+      if (messageSend.$textarea.val() !== '' || $('.dz-complete').length > 0) {
+        messageSend.$dialogForm.trigger('submit');
+      }
+    });
   }
 };
 

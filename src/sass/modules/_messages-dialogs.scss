@@ -11,22 +11,22 @@
 		min-width: 52.5rem;
 
 		&__empty {
-			padding: .6rem 4rem;
 			margin-top: 1.4rem;
+			padding: .6rem 4rem;
 		}
 	}
 
 	&__empty {
 		@include max-screen($messages_large_mobile) {
 			display: flex;
-			justify-content: center;
 			flex-wrap: wrap;
+			justify-content: center;
 		}
 	}
 
 	&__error {
-		margin-bottom: 1rem;
 		margin-right: .6rem;
+		margin-bottom: 1rem;
 
 		text-align: center;
 	}
@@ -39,8 +39,8 @@
 		color: #009688;
 		text-decoration: underline;
 
-		background-color: transparent;
 		cursor: pointer;
+		background-color: transparent;
 
 		&:hover,
 		&:focus {
@@ -60,17 +60,17 @@
 	@include max-screen($messages_large_mobile) {
 		display: none;
 		width: 100%;
-		opacity: 0;
+		transition-duration: .2s;
 
 		transition-property: opacity;
-		transition-duration: .2s;
+		opacity: 0;
 	}
 
 	&__dialog-frame {
 		flex-shrink: 1;
+		width: calc(100% + 30px) !important;
+		max-width: calc(100% + 30px) !important;
 		height: 54vh;
-		width: calc(100% + 10px) !important;
-		max-width: calc(100% + 10px) !important;
 
 		@include max-screen($large_mobile) {
 
@@ -100,8 +100,8 @@
 		width: 3px;
 		height: 98%;
 
-		transition-property: opacity;
 		transition-duration: .2s;
+		transition-property: opacity;
 
 		@include max-screen($messages_large_mobile) {
 			right: .4rem;
@@ -139,8 +139,8 @@
 		color: #009688;
 		text-decoration: underline;
 
-		background-color: transparent;
 		cursor: pointer;
+		background-color: transparent;
 
 		&:hover,
 		&:focus {
@@ -159,8 +159,8 @@
 	z-index: 3000;
 
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 	padding: 0 10rem 10rem;
 	border: 1px dashed #009688;
 

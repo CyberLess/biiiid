@@ -1,0 +1,29 @@
+.order-support {
+  width: 39rem;
+  padding-left: 3.4rem;
+
+  @include max-screen($large_tablet) {
+    width: 100%;
+    padding-left: 0.5rem;
+  }
+
+  &__slogan {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    font-weight: 500;
+  }
+
+  &__appeal {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: rgba(42, 45, 52, 0.5);
+  }
+
+  &__write-link {
+    color: #009688;
+    font-weight: 500;
+    box-shadow: 0 1px 0 0 #009688;
+  }
+}
