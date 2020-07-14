@@ -1,0 +1,308 @@
+extends ../layouts/base
+append vars
+	- title = 'Добавление услуги (шаг 3)';
+
+block header
+	+header(true)
+
+block content
+	+b.SECTION.add-service
+		+e.wrap.wrap
+			+e.head.flex
+				+e.step-wrapper.flex
+					+b.add-service__step.is-active.flex._vertical
+						+e.SPAN.step-index.small 1
+						+e.P.step-descr.p Основное
+						+icon('arrow')
+					+b.add-service__step.is-active.flex._justify._vertical
+						+e.SPAN.step-index.small 2
+						+e.P.step-descr.p Описание
+						+icon('arrow')
+					+b.add-service__step.is-active.is-current.flex._justify._vertical
+						+e.SPAN.step-index.small 3
+						+e.P.step-descr.p Стоимость и сроки
+						+icon('arrow')
+					+b.add-service__step.flex._justify._vertical
+						+e.SPAN.step-index.small 4
+						+e.P.step-descr.p Загрузить примеры работ
+					+b.add-service__step._back
+						+e.A.link.p(href="#")
+							+e.IMG.back_img(src="/img/arrow-back.png")
+							| Назад ко всем услугам
+		+e.wrap.wrap.flex._justify
+			+e.FORM.info-wrapper
+				+e.H2.header.h2 Стоимость и сроки
+				+e.info-body._no-bottom
+					+e.info-banner
+						+e.P.info-banner-label Стоимость заказа рассчитывается исходя из объема текста и выбранных дополнительных услуг.  При заказе, клиент указывает количество слов в тексте и наш умный калькулятор показывается финальную стоимость работ.
+					+e.info-row.has-hint
+						+e.H3.info-header.p Стоимость
+						+e.info-row.flex
+							+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+								p.fluid-text.p Объем текста
+								+e.INPUT.info-input._mini(type="text", name='text-volume',id="time-field", placeholder="30", inputmode="numeric")
+								+e.LABEL.info-label._select._select-mini
+									+e.info-select.slct__
+											select(name='select-time', id="time")
+												option(selected) Сек
+												option Мин
+												option Слов
+								+e.LABEL.info-label._price.flex._vertical(for="price-volume")
+									p.p Стоимость
+									+e.INPUT.info-input._med(type="text", name='textprice',id="price-field", placeholder="1200", inputmode="numeric", data-price)
+									p.p ₽
+						+e.info-row.flex
+							+e.LABEL.info-label._combo.flex._vertical(for="text-add")
+								p.fluid-text.p Каждые дополнительные
+								+e.INPUT.info-input._mini(type="text", name='text-add',id="time-field-add", placeholder="30", inputmode="numeric")
+								+e.LABEL.info-label._select._select-mini
+									+e.info-select.slct__
+											select(name='select-time-add', id="time-add")
+												option(selected) Сек
+												option Мин
+												option Слов
+								+e.LABEL.info-label._price.flex._vertical(for="price-volume-add")
+									p.p будут стоить
+									+e.INPUT.info-input._med(type="text", name='textprice-add',id="price-field-add", placeholder="1200", inputmode="numeric", data-price)
+									p.p ₽
+						+e.info-row.flex
+							+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+								p.fluid-text.p Сроки выполнения
+								+e.LABEL.info-label._select._select-med
+									+e.info-select.slct__
+											select(name='select-deadline', id="deadline")
+												option(selected) 1 день
+												option Мин
+												option Слов
+						+e.info-row.flex
+							+e.A.info-show.small(href="javascript:void(0);") + Добавить цену за страницу А4
+							+e.info-row.flex.is-hidden
+								+e.LABEL.info-label._additional.flex._vertical(for="price-volume-a4")
+										+e.P.info-label._hidden.fluid-text.p Страница текста А4
+											+e.info-help.is-help
+												| ?
+												+b.help-content.content.small
+													| Какой-то текст
+										p.p Стоимость
+										+e.INPUT.info-input._med(type="text", name='textprice-a4',id="price-field-a4", placeholder="1200", inputmode="numeric", data-price)
+										p.p ₽
+										+e.A.info-hide(href="javascript:void(0);")
+											+icon('close')
+								+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+									p.fluid-text.p Сроки выполнения
+									+e.LABEL.info-label._select._select-med
+										+e.info-select.slct__
+												select(name='select-deadline', id="deadline-a4")
+													option(selected) 1 день
+													option Мин
+													option Слов
+
+						+e.info-row.flex
+							+e.A.info-show.small(href="javascript:void(0);") + Добавить цену за один час записи
+							+e.info-row.flex.is-hidden
+								+e.LABEL.info-label._additional.flex._vertical(for="price-volume-hour")
+									+e.P.info-label._hidden.fluid-text.p Один час записи
+										+e.info-help.is-help
+											| ?
+											+b.help-content.content.small
+												| Какой-то текст
+									p.fluid-text.p Стоимость
+									+e.INPUT.info-input._med(type="text", name='textprice-hour',id="price-field-hour", placeholder="1200", inputmode="numeric", data-price)
+									p.p ₽
+									+e.A.info-hide(href="javascript:void(0);")
+										+icon('close')
+								+e.LABEL.info-label._combo.flex._vertical(for="text-volume")
+									p.fluid-text.p Сроки выполнения
+									+e.LABEL.info-label._select._select-med
+										+e.info-select.slct__
+												select(name='select-deadline', id="deadline-hour")
+													option(selected) 1 день
+													option Мин
+													option Слов
+						+e.DIV.info-hint
+							+e.P.info-hint-label.h6 Добавьте несколько примеров
+							+e.P.info-hint-text.p Это позволит заказчикам быстрее находить ваши услуги в каталоге, и сделает вашу страницу более привлекательной.
+
+					+e.info-row.has-hint(data-insert)
+						+e.H3.info-header.p Дополнительные услуги
+						+e.info-row._preinstalled.flex._justify
+							+e.LABEL.additional.flex._vertical(for="service-1")
+								+e.INPUT.additional-input._checkbox(type="checkbox", name="service-1", id="service-1")
+								+e.DIV.additional-input-text.flex._vertical.p
+									+e.DIV.additional-input-box
+										+icon('check')
+									p Чистка и обработка записи
+
+							+e.LABEL.info-label.flex._vertical(for="deadline-add")
+								p.p Сроки
+								+e.LABEL.info-label._select._select-med
+									+e.info-select.slct__
+										select(name='select-deadline', id="deadline-add")
+											option(selected) 1 день
+											option 2
+											option 3
+
+							+e.LABEL.info-label.flex._vertical(for="add-price")
+								p.p Цена
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
+								p.p ₽
+						+e.info-row._preinstalled.flex._justify
+							+e.LABEL.additional.flex._vertical(for="service-2")
+								+e.INPUT.additional-input._checkbox(type="checkbox", name="service-2", id="service-2")
+								+e.DIV.additional-input-text.flex._vertical.p
+									+e.DIV.additional-input-box
+										+icon('check')
+									p Синхронизация под видео (до 30 секунд)
+
+							+e.LABEL.info-label.flex._vertical(for="deadline-add")
+								p.p Сроки
+								+e.LABEL.info-label._select._select-med
+									+e.info-select.slct__
+										select(name='select-deadline', id="deadline-add")
+											option(selected) 1 день
+											option 2
+											option 3
+
+							+e.LABEL.info-label.flex._vertical(for="add-price")
+								p.p Цена
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
+								p.p ₽
+						+e.info-row._preinstalled.flex._justify
+							+e.LABEL.additional.flex._vertical(for="service-4")
+								+e.INPUT.additional-input._checkbox(type="checkbox", name="service-4", id="service-4")
+								+e.DIV.additional-input-text.flex._vertical.p
+									+e.DIV.additional-input-box
+										+icon('check')
+									p Дубляж видео с попаданием в губы актера в кадре (до 30 секунд)
+
+							+e.LABEL.info-label.flex._vertical(for="deadline-add")
+								p.p Сроки
+								+e.LABEL.info-label._select._select-med
+									+e.info-select.slct__
+										select(name='select-deadline', id="deadline-add")
+											option(selected) 1 день
+											option 2
+											option 3
+
+							+e.LABEL.info-label.flex._vertical(for="add-price")
+								p.p Цена
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
+								p.p ₽
+						+e.info-row._preinstalled.flex._justify
+							+e.LABEL.additional.flex._vertical(for="service-3")
+								+e.INPUT.additional-input._checkbox(type="checkbox", name="service-3", id="service-3")
+								+e.DIV.additional-input-text.flex._vertical.p
+									+e.DIV.additional-input-box
+										+icon('check')
+									p Подбор и наложение музыки (до 30 секунд)
+
+							+e.LABEL.info-label.flex._vertical(for="deadline-add")
+								p.p Сроки
+								+e.LABEL.info-label._select._select-med
+									+e.info-select.slct__
+										select(name='select-deadline', id="deadline-add")
+											option(selected) 1 день
+											option 2
+											option 3
+
+							+e.LABEL.info-label.flex._vertical(for="add-price")
+								p.p Цена
+								+e.INPUT.info-input._med(type="text", name='add-price',id="add-price", placeholder="1200", inputmode="numeric", data-price)
+								p.p ₽
+						//- добавление вручную
+						//- +e.info-row._handled.flex._justify(data-action-target="edit")
+						//- 	+e.LABEL.additional.flex._vertical(for="handled")
+						//- 		+e.INPUT.additional-input._checkbox(type="checkbox", name="handled", id="handled")
+						//- 		+e.DIV.additional-input-text.flex._vertical.p
+						//- 			+e.DIV.additional-input-box
+						//- 				+icon('check')
+						//- 			p Пародия на Вини-Пуха
+						//- 		+e.DIV.additional-input-text-hint.p
+						//- 			p Some description
+						//- 	+e.additional-editor
+						//- 		+e.LABEL.additional-editor-name.flex._vertical._justify
+						//- 			p.p Название
+						//- 			+e.INPUT.additional-editor-input.p(data-textarea, name="service-name", minlength="0", maxlength="45", type="text", placeholder="Название услуги", onfocus="this.placeholder=''", onblur="this.placeholder='Название услуги'")
+						//- 			+e.DIV.additional-editor-textcounter.small(data-textcounter) 0/45
+						//- 		+e.LABEL.additional-editor-description.flex._vertical._justify
+						//- 			p.p Описание
+						//- 			+e.INPUT.additional-editor-input._max.p(type="text", name="service-descr", placeholder="Описание услуги", onfocus="this.placeholder=''", onblur="this.placeholder='Описание услуги'")
+						//- 	+e.LABEL.info-label._term.flex._vertical(for="handled-deadline")
+						//- 		p.p Сроки
+						//- 		+e.LABEL.info-label._select._select-med
+						//- 			+e.info-select.slct__
+						//- 				select(name='select-deadline', id="handled-deadline")
+						//- 					option(selected) 1 день
+						//- 					option 2
+						//- 					option 3
+						//- 	+e.LABEL.info-label.flex._vertical(for="handled-price")
+						//- 		p.p Цена
+						//- 		+e.INPUT.info-input._med(type="text", name='handled-price',id="handled-price", placeholder="1200", inputmode="numeric")
+						//- 		p.p ₽
+						//- 	+e.additional-editor-more
+						//- 		+e.A.additional-editor-more-button(href="javascript:void(0);", data-action="show-edit-controls")
+						//- 			+icon('dots-vertical')
+						//- 		+b.editor-more(data-action-target="show-edit-controls")
+						//- 			+e.A.button.small(href="javascript:void(0);",  data-action="deleteServ")
+						//- 				+icon('close')
+						//- 				span Удалить
+						//- 			+e.A.button.small(href="javascript:void(0);",  data-action="edit")
+						//- 				+icon('edit')
+						//- 				span Редактировать
+						//- 	+e.additional-editor-actions.flex
+						//- 		+e.A.additional-editor-cancel.flex.small(href="javascript:void(0);", data-action="cancel") Отменить
+						//- 		+e.A.additional-editor-save.flex.small(href="javascript:void(0);", data-action="save") Сохранить
+
+
+						+e.DIV.info-hint
+							+e.P.info-hint-label.h6 Добавьте несколько примеров
+							+e.P.info-hint-text.p Это позволит заказчикам быстрее находить ваши услуги в каталоге, и сделает вашу страницу более привлекательной.
+
+						//- создание нового
+					+e.info-row._handled._editor-row.flex._justify(data-action-target="new-service")
+						+e.LABEL.additional.flex._vertical(for="handled")
+							+e.INPUT.additional-input._checkbox(type="checkbox", name="handled", id="handled")
+							+e.DIV.additional-input-text.flex._vertical.p
+								+e.DIV.additional-input-box
+									+icon('check')
+								p
+							+e.DIV.additional-input-text-hint.p
+								p
+						+e.A.info-show.small(href="javascript:void(0);" data-action="new-service") + Добавить новую дополнительную услугу
+						+e.additional-editor
+							+e.LABEL.additional-editor-name.flex._vertical._justify
+								p.p Название
+								+e.INPUT.additional-editor-input.p(data-textarea, name="service-name", minlength="0", maxlength="45", type="text", placeholder="Название услуги", onfocus="this.placeholder=''", onblur="this.placeholder='Название услуги'")
+								+e.DIV.additional-editor-textcounter.small(data-textcounter) 0/45
+							+e.LABEL.additional-editor-description.flex._vertical._justify
+								p.p Описание
+								+e.INPUT.additional-editor-input._max.p(type="text", name="service-descr", placeholder="Описание услуги", onfocus="this.placeholder=''", onblur="this.placeholder='Описание услуги'")
+						+e.LABEL.info-label._term.flex._vertical(for="handled-deadline")
+							p.p Сроки
+							+e.LABEL.info-label._select._select-med
+								+e.info-select.slct__
+									select(name='select-deadline', id="handled-deadline")
+										option(selected) 1 день
+										option 2
+										option 3
+						+e.LABEL.info-label.flex._vertical(for="handled-price")
+							p.p Цена
+							+e.INPUT.info-input._med(type="text", name='handled-price',id="handled-price", placeholder="1200", inputmode="numeric", data-price)
+							p.p ₽
+						+e.additional-editor-more
+							+e.A.additional-editor-more-button(href="javascript:void(0);", data-action="show-edit-controls")
+								+icon('dots-vertical')
+							+b.editor-more(data-action-target="show-edit-controls")
+								+e.A.button.small(href="javascript:void(0);",  data-action="deleteServ")
+									+icon('close')
+									span Удалить
+								+e.A.button.small(href="javascript:void(0);",  data-action="edit")
+									+icon('edit')
+									span Редактировать
+						+e.additional-editor-actions.flex
+							+e.A.additional-editor-cancel.flex.small(href="javascript:void(0);", data-action="cancel") Отменить
+							+e.A.additional-editor-save.flex.small(href="javascript:void(0);", data-action="create-new") Сохранить
+
+				+e.info-row._submit.flex._right
+					+e.BUTTON.info-return.p Предыдущий шаг
+					+e.BUTTON.info-submit.p Продолжить

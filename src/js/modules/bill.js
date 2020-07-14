@@ -84,9 +84,7 @@ var bill = {
 
 	resetForm: () => {
 		bill.$quantitySelect.find("option:first").attr("selected", "selected");
-		bill.$quantitySelect.val(
-			bill.$quantitySelect.find("option:first").val()
-		);
+		bill.$quantitySelect.val(bill.$quantitySelect.find("option:first").val());
 		bill.$quantitySelect.trigger("change");
 		bill.$priceInput.val("");
 		bill.$billTextarea.val("");
@@ -103,12 +101,13 @@ var bill = {
 	},
 
 	setNumberInputListeners: () => {
-		const $numberInputs = $('.js-range-number');
+		const $numberInputs = $(".js-range-number");
 
 		if ($numberInputs.length > 0) {
-			$numberInputs.on("input", function () {
-				bill.setAndRangeNumberOnInput($(this)[0]);
-			})
+			$numberInputs
+				.on("input", function () {
+					bill.setAndRangeNumberOnInput($(this)[0]);
+				})
 				.on("keydown", function (evt) {
 					bill.onBackspaceKeydown(evt, this);
 				});

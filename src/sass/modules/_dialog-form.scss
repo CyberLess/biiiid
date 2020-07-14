@@ -23,7 +23,7 @@
 		position: absolute;
 		z-index: 1000;
 		top: 50%;
-		right: .5rem;
+		right: 0.5rem;
 
 		width: 3px;
 		height: 90%;
@@ -32,7 +32,7 @@
 
 		//opacity: 0;
 
-		transition-duration: .2s;
+		transition-duration: 0.2s;
 		transition-property: opacity;
 	}
 
@@ -42,10 +42,10 @@
 		width: 3px;
 		max-height: 100%;
 
-		transition-duration: .3s;
+		transition-duration: 0.3s;
 
 		transition-property: opacity;
-		background-color: rgba(42, 45, 52, .15);
+		background-color: rgba(42, 45, 52, 0.15);
 	}
 
 	&__textarea-wrap {
@@ -84,11 +84,11 @@
 		}
 
 		&::-webkit-input-placeholder {
-			color: #2A2D34;
+			color: #2a2d34;
 		}
 
 		&:-moz-placeholder {
-			color: #2A2D34;
+			color: #2a2d34;
 		}
 	}
 
@@ -107,14 +107,14 @@
 	.dropzone__drop-prev-scrollbar {
 		position: absolute;
 		top: 0.4rem;
-		right: .4rem;
+		right: 0.4rem;
 
 		width: 3px;
 		height: 92%;
 
 		//opacity: 0;
 
-		transition-duration: .2s;
+		transition-duration: 0.2s;
 		transition-property: opacity;
 	}
 
@@ -125,10 +125,10 @@
 		display: block;
 		width: 3px;
 
-		transition-duration: .3s;
+		transition-duration: 0.3s;
 		transition-property: opacity;
 
-		background-color: rgba(42, 45, 52, .15);
+		background-color: rgba(42, 45, 52, 0.15);
 	}
 
 	&__drop-item {
@@ -140,7 +140,7 @@
 		font-size: 1.2rem;
 
 		&:last-of-type {
-			margin-bottom: .2rem;
+			margin-bottom: 0.2rem;
 		}
 
 		.dz-remove {
@@ -151,7 +151,7 @@
 
 			font-size: 0;
 
-			transform: translateY(-.1rem) rotate(45deg);
+			transform: translateY(-0.1rem) rotate(45deg);
 
 			&::before,
 			&::after {
@@ -164,7 +164,7 @@
 				width: 15px;
 				height: 2px;
 
-				background-color: #E83131;
+				background-color: #e83131;
 			}
 
 			&::before {
@@ -184,10 +184,10 @@
 	&__file-icon-wrap {
 		flex-shrink: 0;
 		width: 1.6rem;
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 
 		fill: none;
-		stroke: #2A2D34;
+		stroke: #2a2d34;
 		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
@@ -195,16 +195,16 @@
 	&__file-name {
 		flex-shrink: 0;
 		max-width: 30rem;
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 		margin-bottom: 1.2rem;
 	}
 
 	&__file-name-brackets {
 		flex-shrink: 0;
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 		margin-bottom: 1.2rem;
 
-		color: rgba(42, 45, 52, .3);
+		color: rgba(42, 45, 52, 0.3);
 	}
 
 	&__file-size {
@@ -216,10 +216,10 @@
 	&__progress-icon-wrap {
 		flex-shrink: 0;
 		width: 1.5rem;
-		margin-top: -.1rem;
-		margin-right: .4rem;
+		margin-top: -0.1rem;
+		margin-right: 0.4rem;
 
-		stroke: #2A2D34;
+		stroke: #2a2d34;
 		stroke-opacity: 0.5;
 		stroke-width: 1.5;
 		stroke-linecap: round;
@@ -235,7 +235,7 @@
 	}
 
 	&__drop-item .dz-remove {
-		margin-top: -.1rem;
+		margin-top: -0.1rem;
 		margin-bottom: 1.2rem;
 	}
 
@@ -259,20 +259,20 @@
 		@include max-screen($messages_large_mobile) {
 			width: 4rem;
 			height: 100%;
-			padding: .9rem;
+			padding: 0.9rem;
 		}
 
 		.icon-clip {
 			width: 1.8rem;
 			height: 2.2rem;
 
-			fill: #7F7F7F;
+			fill: #7f7f7f;
 		}
 
 		&:hover,
 		&:focus {
 			.icon-clip {
-				fill: #2A2D34;
+				fill: #2a2d34;
 			}
 		}
 
@@ -294,8 +294,8 @@
 
 		@include max-screen($messages_large_mobile) {
 			width: 2.4rem;
-			margin-bottom: .8rem;
-			margin-left: .6rem;
+			margin-bottom: 0.8rem;
+			margin-left: 0.6rem;
 			padding: 0;
 		}
 
@@ -314,7 +314,7 @@
 	}
 
 	&__icon-send-wrap {
-		transition-duration: .15s;
+		transition-duration: 0.15s;
 		transition-property: stroke;
 
 		fill: none;

@@ -41,11 +41,11 @@ block content
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="file")
 									+e.P.form-text.p Ваша фотография
-									+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png")
-									+b.DIV.profile__form-input_file-button
-										p.profile__form-input_file-p.p Загрузить фото
+									+e.INPUT.form-input_file(type="file", id="file", name="avatar", accept=".jpg, .jpeg, .png", data-file)
+									+b.DIV.profile__form-input_file-button(data-covertarget)
+										p.profile__form-input_file-p.p(data-covertrigger) Загрузить фото
 										.backdrop-filter
-										img.profile__form-input_avatar(src="/img/avatar-profile-setts.png", alt="")
+										img.profile__form-input_avatar.data-cover(src="/img/avatar-profile-setts.png", alt="", data-cover)
 										//- img.profile__form-input_avatar(src="", alt="")
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="name")
@@ -64,8 +64,8 @@ block content
 							+e.form-row
 								+e.LABEL.form-label._fluid(for="about")
 									+e.P.form-text.p Обо мне
-									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", minlength="0", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'")
-									+e.DIV.form-input_textarea-count 0/250
+									+e.TEXTAREA.form-input._textarea.p(id="about", name="about", placeholder="Обо мне", minlength="0", maxlength="250", rows="8", onfocus="this.placeholder=''", onblur="this.placeholder='Обо мне'", data-textarea)
+									+e.DIV.form-input_textarea-count(data-textcounter) 0/250
 							+e.row.flex._justify
 								+e.H2.block-title.h2 Языки
 							+e.form-row

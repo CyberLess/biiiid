@@ -16,6 +16,22 @@
 	&__block {
 		width: 100%;
 		max-width: 1150px;
+
+		@include max-screen($large_desktop) {
+			max-width: 84%;
+		}
+
+		@include max-screen($small_desktop) {
+			max-width: 80%;
+		}
+
+		@media screen and (min-width: 769px) and (max-width: 860px) {
+			width: 74%;
+		}
+
+		@include max-screen($small_tablet) {
+			max-width: 100%;
+		}
 	}
 
 	&-search {
@@ -46,6 +62,10 @@
 			background: 0 0;
 			z-index: 5;
 
+			@include max-screen($small_desktop) {
+				height: 82%;
+			}
+
 			svg {
 				display: block;
 				width: 1.4rem;
@@ -71,13 +91,16 @@
 			color: rgba($color: #2a2d34, $alpha: 0.5) !important;
 		}
 
+		@include max-screen($large_desktop) {
+			max-width: 28%;
+		}
+
 		@include max-screen($small_tablet) {
 			max-width: 100%;
 		}
 	}
 
 	&-orders {
-
 		@include max-screen($large_tablet) {
 			.reviews__top_filter {
 				margin-bottom: 4rem;
@@ -92,6 +115,11 @@
 		&__table {
 			padding-bottom: 3.8rem;
 			border-bottom: 1px solid #dfe0e1;
+
+			@include max-screen($large_mobile) {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
 		}
 
 		&__header {
@@ -101,14 +129,15 @@
 			font-size: 1.4rem;
 			font-weight: 400;
 
-			@include max-screen($small_tablet) {
-				.myorder-orders__cell {
+			@include max-screen($large_mobile) {
+				display: none;
+				// .myorder-orders__cell {
 
-					&_total,
-					&_status {
-						display: none;
-					}
-				}
+				// 	&_total,
+				// 	&_status {
+				// 		display: none;
+				// 	}
+				// }
 			}
 		}
 
@@ -124,8 +153,27 @@
 			position: relative;
 			display: flex;
 
+			@include max-screen($large_mobile) {
+				padding: 1.3rem 0 1.4rem;
+
+				&::after {
+					position: absolute;
+					bottom: 0;
+					left: -20px;
+					content: "";
+					display: block;
+					background-color: rgba(42, 45, 52, 0.15);
+					width: calc(100% + 40px);
+					height: 1px;
+				}
+			}
+
 			.myorder-orders__cell {
 				padding: 1.3rem 0 1.4rem;
+
+				@include max-screen($large_mobile) {
+					padding: 0;
+				}
 
 				&:nth-child(2) {
 					width: 670/1366 * 100%;
@@ -136,6 +184,10 @@
 						width: auto;
 						flex: 1 0 100%;
 					}
+				}
+
+				@media screen and (min-width: 769px) and (max-width: 860px) {
+					width: 16%;
 				}
 			}
 
@@ -163,12 +215,16 @@
 				align-items: flex-start;
 
 				@include max-screen($large_tablet) {
-					width: auto;
-					flex: 1 0 60%;
+					width: 470/1024 * 100%;
 				}
 
 				@include max-screen($small_tablet) {
-					flex: 1 0 100%;
+					width: 283/728 * 100%;
+					flex: 1 0 28%;
+				}
+
+				@media screen and (min-width: 769px) and (max-width: 860px) {
+					width: 35%;
 				}
 			}
 
@@ -191,6 +247,10 @@
 				}
 			}
 
+			// @include max-screen($large_tablet) {
+			// 	align-items: flex-start;
+			// }
+
 			span {
 				font-size: 1.4rem;
 				font-weight: 400;
@@ -199,12 +259,19 @@
 
 			&_created,
 			&_finished {
-				@include max-screen($large_tablet) {
+				@include max-screen($small_tablet) {
 					display: none;
 				}
 			}
 
-			@include max-screen($large_tablet) {
+			&_total {
+				@include max-screen($large_mobile) {
+					order: 3;
+					align-items: flex-end;
+				}
+			}
+
+			@include max-screen($small_tablet) {
 				width: auto;
 				flex: 1 0 20%;
 			}
@@ -222,6 +289,23 @@
 
 		&__details {
 			display: flex;
+
+			@include max-screen($large_mobile) {
+				width: 100%;
+				flex-wrap: wrap;
+
+				picture {
+					display: block;
+					width: 100%;
+					height: 100%;
+					padding: 0 0 1rem 0;
+
+					img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
 		}
 
 		&__img {
@@ -251,7 +335,7 @@
 			transform: translateY(-50%);
 
 			&:hover {
-				~.myorder-orders__cell_name {
+				~ .myorder-orders__cell_name {
 					.myorder-orders__details {
 						p {
 							color: $green;
@@ -306,6 +390,22 @@
 		&__green {
 			color: $green !important;
 		}
+
+		&__name {
+			color: #2a2d34;
+			margin-bottom: 2px;
+
+			@include max-screen($large_tablet) {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 200px;
+
+				&.myorder-orders__price {
+					width: auto;
+				}
+			}
+		}
 	}
 
 	&-button {
@@ -334,6 +434,10 @@
 		flex: 0 0 auto;
 		margin-left: auto;
 		margin-right: 0;
+
+		@media screen and (max-width: 860px) {
+			display: none;
+		}
 	}
 
 	&__link {

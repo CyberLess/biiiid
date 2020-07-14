@@ -12,7 +12,7 @@
 
 		&__empty {
 			margin-top: 1.4rem;
-			padding: .6rem 4rem;
+			padding: 0.6rem 4rem;
 		}
 	}
 
@@ -25,7 +25,7 @@
 	}
 
 	&__error {
-		margin-right: .6rem;
+		margin-right: 0.6rem;
 		margin-bottom: 1rem;
 
 		text-align: center;
@@ -60,7 +60,7 @@
 	@include max-screen($messages_large_mobile) {
 		display: none;
 		width: 100%;
-		transition-duration: .2s;
+		transition-duration: 0.2s;
 
 		transition-property: opacity;
 		opacity: 0;
@@ -73,7 +73,6 @@
 		height: 54vh;
 
 		@include max-screen($large_mobile) {
-
 		}
 	}
 
@@ -84,7 +83,6 @@
 		flex-shrink: 0;
 		height: 55vh;
 
-
 		@include max-screen($messages_large_mobile) {
 			height: 42vh;
 			padding-top: 0;
@@ -94,17 +92,17 @@
 	&__scrollbar {
 		position: absolute;
 		z-index: 1000;
-		top: .45rem;
+		top: 0.45rem;
 		right: 1.5rem;
 
 		width: 3px;
 		height: 98%;
 
-		transition-duration: .2s;
+		transition-duration: 0.2s;
 		transition-property: opacity;
 
 		@include max-screen($messages_large_mobile) {
-			right: .4rem;
+			right: 0.4rem;
 		}
 	}
 
@@ -113,11 +111,11 @@
 		width: 3px;
 
 		background-color: #2a2d34;
-		opacity: .15;
+		opacity: 0.15;
 	}
 
 	&__dialog-list {
-		margin-top: -.4rem;
+		margin-top: -0.4rem;
 	}
 
 	&__send-wrap {
@@ -168,6 +166,5 @@
 	line-height: 1.5;
 	text-align: center;
 
-	background-color: #F0F2F5;
-
+	background-color: #f0f2f5;
 }

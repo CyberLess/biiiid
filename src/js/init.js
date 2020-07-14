@@ -25,6 +25,8 @@ import { bill } from "./modules/bill";
 import { newOrderMessages } from "./modules/new-order-messages";
 import { newOrderTabSwitching } from "./modules/new-order-tab-switching";
 import { sendOrderFiles } from "./modules/send-order-files";
+import { addService } from "./modules/addService";
+import { cardMain } from "./modules/cardMain";
 import { config } from "./config";
 
 var App = () => {};
@@ -58,6 +60,8 @@ App.prototype.init = () => {
 	newOrderTabSwitching.init();
 	sendOrderFiles.init();
 
+	addService.init();
+	cardMain.init();
 	config.log("app init");
 };
 

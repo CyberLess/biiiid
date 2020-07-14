@@ -15,9 +15,7 @@ var notifications = {
 
 	setMessagesToggleListeners: () => {
 		notifications.$toggleMessages.click(() => {
-			notifications.$toggleMessages.addClass(
-				"notifications__toggle_active"
-			);
+			notifications.$toggleMessages.addClass("notifications__toggle_active");
 			notifications.$toggleNotifications.removeClass(
 				"notifications__toggle_active"
 			);
@@ -43,18 +41,14 @@ var notifications = {
 			notifications.$toggleNotifications.addClass(
 				"notifications__toggle_active"
 			);
-			notifications.$toggleMessages.removeClass(
-				"notifications__toggle_active"
-			);
+			notifications.$toggleMessages.removeClass("notifications__toggle_active");
 
 			notifications.openNotificationsList(
 				notifications.$listWrapNotifications,
 				notifications.$listWrapMessages
 			);
 
-			notifications.$bottomWrap.addClass(
-				"notifications__bottom_notifications"
-			);
+			notifications.$bottomWrap.addClass("notifications__bottom_notifications");
 		});
 	},
 
@@ -117,9 +111,7 @@ var notifications = {
 			"click",
 			notifications.closeMessages
 		);
-		notifications.$notificationsRingBtn.click(
-			notifications.openNotifications
-		);
+		notifications.$notificationsRingBtn.click(notifications.openNotifications);
 	},
 
 	onNotificationsChildrenClick: (evt) => {
@@ -134,9 +126,7 @@ var notifications = {
 	},
 
 	setListeners: () => {
-		notifications.$notificationsRingBtn.click(
-			notifications.openNotifications
-		);
+		notifications.$notificationsRingBtn.click(notifications.openNotifications);
 		notifications.$notificationsMailBtn.click(notifications.openMessages);
 
 		notifications.setNotificationsToggleListeners();
@@ -162,9 +152,7 @@ var notifications = {
 			root: $(notifications.$listWrapMessages.parent())[0],
 			scroller: $(notifications.$listWrapMessages)[0],
 			bar: $(
-				notifications.$listWrapMessages
-					.parent()
-					.find(".notifications__handle")
+				notifications.$listWrapMessages.parent().find(".notifications__handle")
 			)[0],
 		});
 	},

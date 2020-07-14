@@ -13,7 +13,7 @@
 
 	&__cell_search {
 		@include max-screen($messages_large_mobile) {
-			margin: 0 2rem .7rem;
+			margin: 0 2rem 0.7rem;
 		}
 	}
 
@@ -47,7 +47,7 @@
 		width: 3px;
 
 		background-color: #2a2d34;
-		opacity: .15;
+		opacity: 0.15;
 	}
 
 	.search {
@@ -129,7 +129,7 @@
 			width: 3.9rem;
 			height: 100%;
 			padding-top: 2.7rem;
-			padding-left: .8rem;
+			padding-left: 0.8rem;
 
 			cursor: pointer;
 
@@ -173,13 +173,13 @@
 		&:hover,
 		&:focus,
 		&:focus-within {
-			background-color: rgba(242, 242, 243, .4);
+			background-color: rgba(242, 242, 243, 0.4);
 		}
 
 		&_unread {
 			.messages-pre__text-bottom {
 				font-weight: bold;
-				color: #2A2D34;
+				color: #2a2d34;
 			}
 
 			.messages-pre__quantity-wrap {
@@ -308,7 +308,7 @@
 
 	&__content-wrap {
 		flex-grow: 1;
-		padding-top: .4rem;
+		padding-top: 0.4rem;
 
 		font-size: 1.6rem;
 
@@ -322,11 +322,11 @@
 	&__text-top {
 		display: flex;
 		align-items: center;
-		margin-bottom: .8rem;
+		margin-bottom: 0.8rem;
 
 		@include max-screen($messages_large_mobile) {
-			margin-top: .2rem;
-			margin-bottom: .5rem;
+			margin-top: 0.2rem;
+			margin-bottom: 0.5rem;
 		}
 	}
 
@@ -421,8 +421,8 @@
 		padding-left: 3px;
 		border-radius: 3rem;
 
-		background-color: #2A2D34;
-		opacity: .3;
+		background-color: #2a2d34;
+		opacity: 0.3;
 
 		@include max-screen($large_mobile) {
 			right: 1.9rem;
@@ -442,7 +442,7 @@
 		color: #ffffff;
 
 		@include max-screen($messages_large_mobile) {
-			font-size: .9rem;
+			font-size: 0.9rem;
 		}
 	}
 
@@ -454,7 +454,7 @@
 			margin-bottom: 1.5rem;
 			padding: 0 2rem;
 
-			color: #2A2D34;
+			color: #2a2d34;
 		}
 
 		.messages-pre__author-name {
@@ -484,7 +484,7 @@
 
 			.messages-pre__prev-text {
 				font-weight: 600;
-				color: #2A2D34;
+				color: #2a2d34;
 			}
 		}
 	}

@@ -1,0 +1,132 @@
+extends ../layouts/base
+append vars
+	- title = 'Главная страница';
+
+block header
+	+header(true)
+
+block content
+	+b.SECTION.mainpage
+		+e.wrap.wrap
+			+e.left
+				+e.H1.header.h1 Услуги фрилансеров <br> по заранее известной цене
+				+e.P.subheader.p Разместите свое портфолио или делайте заказы у профессионалов. <br> У нас единый профиль для всех.
+				+e.button-wrapper
+					+e.A.button.p(href="#") Присоединиться
+					+e.A.button.p(href="#") Посмотреть все услуги
+			+e.right
+				+e.IMG.img(src="/img/landing_1.png")
+		+e.wrap.wrap
+			+e.partners
+				+icon('vkBlue')
+				+icon('mailBlue')
+				+icon('gosBlue')
+				+icon('cloudBlue')
+				+icon('bitrixBlue')
+				+icon('decaBlue')
+				+icon('gisBlue')
+	+b.SECTION.mainpage-order
+		+e.wrap.wrap
+			+e.H2.header.h2 Что можно заказать на <br> fixflance?
+			+e.P.subheader
+				| От дизайна визитки, до консультации по маркетингу. <br>
+				| Выберите категорию и посмотрите предложения
+				img(src="/img/fire.png", alt="")
+				img(src="/img/fire.png", alt="")
+				img(src="/img/fire.png", alt="")
+			+e.card-wrapper
+				+e.card
+					+e.P.card-header Дизайн
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/design.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+				+e.card
+					+e.P.card-header Тексты и переводы
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/text.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+				+e.card
+					+e.P.card-header Работа со звуком
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/sound.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+				+e.card
+					+e.P.card-header Разработка и IT
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/it.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+				+e.card
+					+e.P.card-header Соцсети и реклама
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/smm.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+				+e.card
+					+e.P.card-header Видео и анимация
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/videos.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+				+e.card
+					+e.P.card-header Бизнес задачи
+						+icon('arrow')
+					+e.IMG.card-img(src="/img/business.jpg")
+					+e.card-menu
+						+e.A.card-link(href="#") Логотипы
+						+e.A.card-link(href="#") Дизайн сайтов
+						+e.A.card-link(href="#") Дизайн визиток
+						+e.A.card-link(href="#") Меню ресторана
+						+e.A.card-link._last(href="#") Еще 32 категории
+							+icon('arrowRightLong')
+			+e.A.all(href="#") Посмотреть все услуги
+	+b.SECTION.mainpage-easy
+		+e.wrap.wrap
+			+e.H2.header.h2 Просто, как в магазине
+			+e.P.subheader Разместите свое портфолио или делайте заказы у профессионалов. <br>У нас единый профиль для всех.
+			+e.block
+				+e.step
+					+e.IMG.step-img.vertical(src="/img/step1.png")
+					+e.P.step-descr Исполнитель размещает услуги с<br> примерами работ, точной ценой и<br> сроками выполнения
+				+e.step
+					+e.IMG.step-img.horizontal(src="/img/step2.png")
+					+e.P.step-descr Вы выбираете услугу и <br class="show-mobile"> заказываете,<br> как товар в магазине
+	+b.SECTION.mainpage-become
+		+e.wrap.wrap
+			+e.outer
+				+icon('logoWhite')
+				+e.H2.h2.h2 Стать <br> заказчиком или <br> исполнителем
+				+e.A.a.p(href="#") Присоединиться

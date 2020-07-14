@@ -4,6 +4,8 @@ var dropPreview = {
 	dropPrevWrap: document.querySelector(".dialog-form__dropzone-wrap"),
 
 	init: () => {
+		if (!$(dropPreview.dropPrevWrap).length) return false;
+
 		const dropArea = dropPreview.dropPrevWrap.querySelector(
 			".dialog-form__dropzone"
 		);

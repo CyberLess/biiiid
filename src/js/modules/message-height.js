@@ -6,7 +6,10 @@ var messageHeight = {
 	BOTTOM_MOBILE: 20,
 	BOTTOM_MID_MOBILE: 40,
 	BOTTOM_DESK: 120,
+<<<<<<< HEAD
 	AMENDMENT: 5,
+=======
+>>>>>>> origin/dev2
 	bottom: "",
 
 	$send: "",
@@ -66,17 +69,27 @@ var messageHeight = {
 					$(window).height() -
 						messageHeight.$dialogFrame.offset().top -
 						messageHeight.$sendWrap.outerHeight() -
+<<<<<<< HEAD
 						messageHeight.bottom - messageHeight.AMENDMENT
+=======
+						messageHeight.bottom
+>>>>>>> origin/dev2
 				);
 
 				messageHeight.showSend();
 			}
 
+<<<<<<< HEAD
 			if ($(messageHeight.$preFrame)[0]) {
 				messageHeight.$preFrame.height(
 					$(window).height() - messageHeight.$preFrame.offset().top
 				);
 			}
+=======
+			messageHeight.$preFrame.height(
+				$(window).height() - messageHeight.$preFrame.offset().top
+			);
+>>>>>>> origin/dev2
 		} else {
 			if (
 				$(messageHeight.$dialogWrap)[0] &&
@@ -144,6 +157,9 @@ var messageHeight = {
 
 	init: () => {
 		messageHeight.$send = $(".send");
+
+		if (!messageHeight.$send.length) return false;
+
 		messageHeight.$preFrame = $(".messages-pre__massages-frame");
 		messageHeight.$sendWrap = $(".messages-dialogs__send-wrap");
 		messageHeight.$inputsWrap = $(".dialog-form__inputs-wrap");
