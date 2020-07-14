@@ -5,6 +5,7 @@ import { acceptOrder } from "./accept-order";
 import { player } from "./player";
 import { messageVideo } from "./message-video";
 import { getOrderDetails } from "./get-order-details";
+import { newOrderTabSwitching } from "./new-order-tab-switching";
 
 var newOrderMessages = {
 	orderStatusToIdMap: {
@@ -29,6 +30,17 @@ var newOrderMessages = {
 
 	isOrderClose: ['orderCancel', 'orderConclusion', 'orderFeedback'],
 	isReviewTextFieldHidden: false,
+	$readyWrap: $('#files-wrap').contents().find('.dialog__order-complete-wrap'),
+
+	setPerformerAndWorkStatus: (isPerformer, isInWork) => {
+		if (isPerformer) {
+			window.isPerformer = true;
+		}
+
+		if (isInWork) {
+			window.isInWork = true;
+		}
+	},
 
 	url: (path) => { // Это временная реализация url в виде метода. На самом деле это будет свойство с одним единственным адресом запроса
 		newOrderMessages.url.pageUrlToAjaxUrl = {
@@ -37,6 +49,13 @@ var newOrderMessages = {
 			'/order-correspondence-client-cancel.html': 'https://b-612.github.io/json/biiiid/order-messages-cancel.json',
 			'/order-correspondence-client-conclusion.html': 'https://b-612.github.io/json/biiiid/order-messages-conclusion.json',
 			'/order-correspondence-client-conclusion-1.html': 'https://b-612.github.io/json/biiiid/order-messages-conclusion-rewiew-not-answered.json',
+
+			'/perf-order-correspondence-client-not-accept.html': 'https://b-612.github.io/json/biiiid/perf-order-not-work.json',
+			'/perf-order-correspondence-client-create.html': 'https://b-612.github.io/json/biiiid/perf-order-messages-create.json',
+			'/perf-order-correspondence-client-create-ready.html': 'https://b-612.github.io/json/biiiid/perf-order-messages-create-ready.json',
+			'/perf-order-correspondence-client-cancel.html': 'https://b-612.github.io/json/biiiid/perf-order-messages-cancel.json',
+			'/perf-order-correspondence-client-conclusion.html': 'https://b-612.github.io/json/biiiid/perf-order-messages-conclusion.json',
+			'/perf-order-correspondence-client-conclusion-1.html': 'https://b-612.github.io/json/biiiid/perf-order-messages-conclusion-rewiew-not-answered.json',
 		};
 
 		return newOrderMessages.url.pageUrlToAjaxUrl[path];
@@ -100,6 +119,16 @@ var newOrderMessages = {
 	},
 
 	setStatusInOrderInfo: (orderType) => {
+		if (window.isPerformer) {
+			$('.sticky-order__additional-action').remove();
+		} else {
+			$('.send__bill').remove()
+		}
+
+		if (window.isPerformer && window.isInWork) {
+			$('.sticky-order__btn_upload').show();
+		}
+
 		if (orderType === 'orderConclusion' || orderType === 'orderCancel') {
 			const $statusElem = $('.sticky-order__info_status');
 			const $additionalAction = $('.sticky-order__additional-action');
@@ -108,19 +137,52 @@ var newOrderMessages = {
 				.addClass('sticky-order__info_status-completed');
 			$additionalAction.hide();
 
+			if (!window.isPerformer && !window.isInWork) {
+				$('.sticky-order__btn_repeat').show();
+			} else {
+				$('.sticky-order__btn').hide();
+			}
+
 			if (orderType === 'orderConclusion') {
 				$statusElem.text('Завершен');
 			} else if (orderType === 'orderCancel') {
 				$statusElem.text('Отменен');
 			}
 		}
+
+		if (window.isPerformer && !window.isInWork && (orderType !== 'orderConclusion' && orderType !== 'orderCancel' && orderType !== 'orderFeedback')) {
+			$('.sticky-order__btn_accept').show();
+		}
 	},
 
 	setOrderStatus: (orderType, orderDate, fragment) => {
 		const $statusTemplate = $(`#${newOrderMessages.orderStatusToIdMap[orderType]}`);
 		const $statusMessage = $statusTemplate.contents().find('.dialog__message_order');
+		const $notific = $statusMessage.find('.dialog__order-notific');
+		const $textWrap = $statusMessage.find('.dialog__text-wrap');
 
-		if (newOrderMessages.isOrderClose.includes(orderType) || orderType === 'orderDebug') {
+		switch (true) {
+			case window.isPerformer && orderType === 'orderCreate':
+				const link = document.createElement('a');
+				const $link = $(link);
+
+				$link.attr('href', '#').addClass('dialog__status-details-link').text('Ознакомьтесь с деталями заказа');
+
+				$notific.text('Вы получили новый заказ');
+				$textWrap.empty().append($link);
+				break;
+			case window.isPerformer && orderType === 'orderCancel':
+				$textWrap.text('Заказчик отменил заказ');
+				break;
+			case window.isPerformer && orderType === 'orderReady':
+				$notific.text('Вы отправили заказ');
+				$textWrap.text('Если заказчик не примет файл в течение трех дней, заказ автоматически завершится и вы получите за него оплату на свой счет.');
+				break;
+			case window.isPerformer && orderType === 'orderDebug':
+				$notific.text('Заказчик отправил файл на доработку');
+			}
+
+		if (newOrderMessages.isOrderClose.includes(orderType) || orderType === 'orderDebug' || window.isPerformer) {
 			window.isRemoveOrderBtns = true;
 		}
 
@@ -129,17 +191,22 @@ var newOrderMessages = {
 	},
 
 	appendFilesInReadyWrap: ($container) => {
-		const readyTemplate = $('#files-wrap').contents().find('.dialog__order-complete-wrap');
+		const readyTemplate = $(newOrderMessages.$readyWrap)[0].cloneNode(true);
 		const $readyWrap = $(readyTemplate);
 		const $appendContainer = $readyWrap.find('.dialog__complete-files-wrap');
 		const $videoWrap = $container.find('.dialog__video-container');
 		const $files = $container.find('.dialog__attached-file');
 
+		$readyWrap.find('.dialog__buttons-wrap').remove();
+
 		$files.each(function () {
 			$($appendContainer)[0].appendChild($(this)[0]);
 		});
 
-		$($appendContainer)[0].appendChild($($videoWrap)[0]);
+		if ($($videoWrap)[0]) {
+			$($appendContainer)[0].appendChild($($videoWrap)[0]);
+		}
+
 		$($container)[0].appendChild($($readyWrap)[0]);
 	},
 
@@ -380,6 +447,7 @@ var newOrderMessages = {
 	getDialog: () => {
 		$.ajax(newOrderMessages.url(window.location.pathname), {
 			success: (resp) => {
+				newOrderMessages.setPerformerAndWorkStatus(resp['performer'], resp['inWork']);
 				newOrderMessages.setContent(resp['dialog']);
 				getOrderDetails.makeOrderDetails(resp['orderDetails']);
 			},
@@ -391,6 +459,7 @@ var newOrderMessages = {
 					acceptOrder.init();
 					player.init();
 					messageVideo.init();
+					newOrderTabSwitching.setOrderLinkListener();
 				}
 			}
 		})

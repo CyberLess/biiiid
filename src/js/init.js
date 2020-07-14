@@ -24,6 +24,7 @@ import { messageSend } from "./modules/message-send";
 import { bill } from "./modules/bill";
 import { newOrderMessages } from "./modules/new-order-messages";
 import { newOrderTabSwitching } from "./modules/new-order-tab-switching";
+import { sendOrderFiles } from "./modules/send-order-files";
 import { config } from "./config";
 
 var App = () => {};
@@ -55,6 +56,7 @@ App.prototype.init = () => {
 	messageSend.init();
 	newOrderMessages.init();
 	newOrderTabSwitching.init();
+	sendOrderFiles.init();
 
 	config.log("app init");
 };

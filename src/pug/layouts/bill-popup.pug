@@ -1,0 +1,64 @@
++b.bill.mfp-hide.modals#bill
+	+e.BUTTON.close-btn.popup-close-btn.js-close-modal(type="button")
+		SPAN.visually-hidden Закрыть
+
+	+e.B.bill-title.h2 Опишите услугу
+
+	+e.FORM.form(
+		action="/"
+		method="POST"
+		autocomplete="off"
+		enctype="multipart/form-data")
+		+e.textarea-wrap
+			+e.textarea-field-wrap
+				+e.SPAN.error-message._textarea Обязательное поле для заполнения
+				+e.TEXTAREA.textarea.p.css-scrollbar(
+					type="text"
+					placeholder="Введите описание услуги"
+					name="billDescription"
+					rows="3"
+					maxlength="300")
+			+e.chars-counter
+				+e.SPAN.chars-current 0
+				| /
+				+e.SPAN.chars-max 300
+
+		+e.params-wrap
+			+e.params-content-wrap._deadlines
+				+e.SPAN.params-slogan Укажите сроки выполнения
+
+				+e.deadlines
+					+e.SPAN.params-text.p Сроки
+
+					+e.form-row.flex._vertical
+						+e.form-label._select-country.flex
+							+e.form-select._quantity.slct__
+								select(name='how-much', id="how-much-field")
+									option(selected value="1") 1
+									option(value="2") 2
+									option(value="3") 3
+									option(value="4") 4
+									option(value="5") 5
+									option(value="6") 6
+									option(value="7") 7
+
+							+e.form-select._hours-days.slct__
+								select(name='hours-days', id="hours-days-field")
+									option(selected value="День") День
+									option(value="Час") Час
+
+			+e.params-content-wrap._price
+				+e.SPAN.params-slogan._price Укажите стоимость работ
+
+				+e.LABEL.price-label
+					+e.SPAN.params-text.p Сумма
+					+e.SPAN.price-input-wrap
+						+e.SPAN.error-message._price Обязательное поле для заполнения
+						+e.INPUT.price-input.p.js-range-number(type="text",
+							name='billPrice',
+							id="price-field",
+							placeholder="500"
+							inputmode="numeric")
+						+e.SPAN.price-char.p ₽
+
+		+e.BUTTON.submit-btn.p(type="submit") Отправить

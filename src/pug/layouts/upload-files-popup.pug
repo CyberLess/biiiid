@@ -1,0 +1,45 @@
++b.DIV.upload-order-files.mfp-hide.modals#upload-order-files
+	+e.BUTTON.close-btn.popup-close-btn.js-close-modal(type="button")
+		SPAN.visually-hidden Закрыть
+
+	+e.DIV.content-wrap
+		+e.H2.title Добавьте файлы
+			br
+			| выполненного заказа
+
+		+e.FORM.btns-wrap(action="/" method="POST")
+			+e.dropone-wrap
+				+e.drop-wrap.input
+					+e.dropzone-wrap
+						+e.dropzone.dropzone__.js-dropzone
+							+e.drop-prev-scrollbar
+								+e.drop-prev-bar
+							+e.area
+								+e.INPUT.file(name="file" type="file" multiple)
+								+e.preview
+									+e.item
+										+e.row.flex._vertical
+											+e.icon
+												+icon('doc')
+											+e.name
+												+e.SPAN(data-dz-name)
+												+e.SPAN.size
+													| &nbsp;(
+													span(data-dz-size)
+													| )
+												+e.SPAN.status(data-dz-uploadprogress)
+													+e.IMG.status-preload(src="/app/img/preload.svg")
+													span.progress-text
+												+e.SPAN.remove.js-remove-file(data-dz-remove)
+													+icon('delete')
+
+					+e.upload-wrap
+						+e.BUTTON.upload-btn.js-dropzone-trigger.js-without(type="button")
+							+e.SPAN.icon-upload-wrap
+								+icon('clip')
+							+e.SPAN.upload-text Прикрепить файл
+
+			+e.DIV.bottom-wrap
+				+e.B.comment-title Напишите комментарий
+				+e.TEXTAREA.comment-field(name="orderReadyComment" placeholder="Введите ваш комментарий")
+				+e.BUTTON.submit.btn.is-regular(type="submit") Отправить файлы заказа

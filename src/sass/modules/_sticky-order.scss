@@ -304,4 +304,30 @@
 			color: #1E88E5;
 		}
 	}
+
+	&__btn {
+		display: none;
+		min-height: 5rem;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+
+		&_upload {
+			background-color: #E83131;
+		}
+
+		@include min-screen($large_tablet + 1) {
+			width: 100%;
+			margin-top: -2rem;
+		}
+
+		@include max-screen($large_tablet) {
+			order: 5;
+			margin-left: auto;
+		}
+
+		@include max-screen($small_tablet) {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
 }

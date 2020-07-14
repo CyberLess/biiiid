@@ -24,6 +24,8 @@
 		}
 
 		&_left {
+			display: flex;
+			flex-direction: column;
 			width: 60%;
 			margin-right: 2rem;
 
@@ -77,6 +79,7 @@
 	}
 
 	&__content-wrap {
+		height: 100%;
 		padding-top: 3rem;
 		padding-bottom: 3.8rem;
 		border: 1px solid rgba(42, 45, 52, 0.15);
@@ -190,9 +193,9 @@
 		&__message {
 			padding-right: 2rem;
 
-			@include max-screen($large_tablet) {
-				padding-right: calc(100% - 64.8rem);
-			}
+			//@include max-screen($large_tablet) {
+			//	padding-right: calc(100% - 64.8rem);
+			//}
 
 			@include max-screen($large_mobile) {
 				margin-right: 0;
@@ -256,6 +259,10 @@
 		&__top-message-content {
 			display: flex;
 			width: 100%;
+
+			@include max-screen($large_tablet) {
+				padding-right: calc(100% - 59rem);
+			}
 		}
 
 		&__image-wrap {
@@ -482,6 +489,22 @@
 		&__resolution-text {
 			margin-left: 1rem;
 		}
+
+		&__status-details-link {
+			color: #009688;
+			font-weight: 500;
+			text-decoration: underline;
+		}
+	}
+
+	&__dialog-wrap {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	&__send-wrap {
+		margin-top: auto;
 	}
 
 	.send {

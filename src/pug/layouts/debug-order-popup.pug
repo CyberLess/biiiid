@@ -1,0 +1,43 @@
++b.DIV.accept-order-popup._debug.mfp-hide.modals#debug-order
+	+e.BUTTON.close-btn.popup-close-btn.js-close-modal(type="button")
+		SPAN.visually-hidden Закрыть
+
+	+e.DIV.content-wrap
+		+e.H2.title Отправить на доработку
+
+		+e.FORM.btns-wrap._debug(action="/" method="POST")
+			+e.TEXTAREA.accept-field(name="debugOrder" placeholder="Опишите, что нужно доработать исполнителю")
+
+			+e.DIV.bottom-wrap
+				+e.drop-wrap.input
+					+e.upload-wrap
+						+e.BUTTON.upload-btn.js-dropzone-trigger.js-without(type="button")
+							+e.SPAN.icon-upload-wrap
+								+icon('clip')
+							+e.SPAN.upload-text Прикрепить файл
+
+					+e.dropzone-wrap
+						+e.dropzone.dropzone__.js-dropzone
+							+e.drop-prev-scrollbar
+								+e.drop-prev-bar
+							+e.area
+								+e.INPUT.file(name="file" type="file" multiple)
+								+e.preview
+									+e.item
+										+e.row.flex._vertical
+											+e.icon
+												+icon('doc')
+											+e.name
+												+e.SPAN(data-dz-name)
+												+e.SPAN.size
+													| &nbsp;(
+													span(data-dz-size)
+													| )
+												+e.SPAN.status(data-dz-uploadprogress)
+													+e.IMG.status-preload(src="/app/img/preload.svg")
+													span.progress-text
+												+e.SPAN.remove.js-remove-file(data-dz-remove)
+													+icon('delete')
+
+				+e.BUTTON.cancel-btn.btn._refuse.is-regular.js-close-modal Отменить
+				+e.BUTTON.accept_debug.btn.is-regular(type="submit") Отправить

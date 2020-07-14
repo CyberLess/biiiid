@@ -1,0 +1,123 @@
+.upload-order-files {
+	position: relative;
+	width: 70.2rem;
+	padding: 8rem 8.2rem;
+
+	@include max-screen($large_tablet) {
+		width: 90%;
+	}
+
+	@include max-screen($large_mobile) {
+		padding: 3rem;
+	}
+
+	&__close-btn {
+		top: 0;
+		right: 0;
+	}
+
+	&__title {
+		margin-bottom: 2rem;
+		font-size: 2.8rem;
+		font-weight: normal;
+		line-height: 3.3rem;
+
+		@include max-screen($large_mobile) {
+			font-size: 2rem;
+			line-height: 2.3rem;
+		}
+	}
+
+	&__upload-btn {
+		margin-bottom: 3rem;
+		padding: 1rem 2.4rem 1.1rem;
+		border: 2px solid #2A2D34;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1.9rem;
+		cursor: pointer;
+		background-color: transparent;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.4rem;
+			line-height: 1.6rem;
+		}
+	}
+
+	&__icon-upload-wrap {
+		.icon-clip {
+			width: 1.8rem;
+			height: 2rem;
+			margin-top: -.2rem;
+			margin-right: .8rem;
+		}
+	}
+
+	&__dropzone {
+		margin-bottom: 0;
+	}
+
+	.dropzone {
+		&__item {
+			&:last-of-type:not(:first-of-type) {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+
+	&__bottom-wrap {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__comment-title {
+		margin-bottom: 1.5rem;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1.9rem;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.4rem;
+			line-height: 1.6rem;
+		}
+
+	}
+
+	&__comment-field {
+		height: 11rem;
+		margin-bottom: 2rem;
+		padding: 1.6rem;
+		border: 1px solid rgba(42, 45, 52, 0.15);
+		resize: none;
+		font-size: 1.6rem;
+		line-height: 1.9rem;
+
+		@include max-screen($large_mobile) {
+			font-size: 1.4rem;
+			line-height: 1.6rem;
+		}
+	}
+
+	&__submit {
+		align-self: flex-start;
+
+		@include max-screen($large_mobile) {
+			width: 100%;
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+
+	.modals__close.close {
+		display: none;
+	}
+
+	.upload-error {
+		color: red;
+		border-color: red;
+
+		svg {
+			fill: red;
+		}
+	}
+}

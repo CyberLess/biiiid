@@ -1,0 +1,14 @@
++b.DIV.accept-order-popup._accept.mfp-hide.modals#accept-order
+	+e.BUTTON.close-btn.popup-close-btn.js-close-modal(type="button")
+		SPAN.visually-hidden Закрыть
+
+	+e.DIV.content-wrap
+		+e.DIV.check-icon-wrap
+			+icon('checkSquare', '0 0 68 52')
+		+e.H2.title Вы принимаете заказ?
+		+e.P.slogan Исполнитель получит оплату и заказ будет завершен.
+
+		+e.FORM.btns-wrap._accept(action="/" method="POST")
+			+e.INPUT.accept-field(type="hidden" name="accept-order")
+			+e.BUTTON.cancel-btn.btn._refuse.is-regular.js-close-modal Отмена
+			+e.BUTTON.accept._accept.btn.is-regular(type="submit") Принять
