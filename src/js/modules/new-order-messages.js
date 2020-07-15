@@ -180,7 +180,7 @@ var newOrderMessages = {
 				break;
 			case window.isPerformer && orderType === 'orderDebug':
 				$notific.text('Заказчик отправил файл на доработку');
-			}
+		}
 
 		if (newOrderMessages.isOrderClose.includes(orderType) || orderType === 'orderDebug' || window.isPerformer) {
 			window.isRemoveOrderBtns = true;
@@ -197,7 +197,7 @@ var newOrderMessages = {
 		const $videoWrap = $container.find('.dialog__video-container');
 		const $files = $container.find('.dialog__attached-file');
 
-		$readyWrap.find('.dialog__buttons-wrap').remove();
+		// $readyWrap.find('.dialog__buttons-wrap').remove();
 
 		$files.each(function () {
 			$($appendContainer)[0].appendChild($(this)[0]);

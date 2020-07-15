@@ -75,6 +75,7 @@ var sendOrderFiles = {
 
 
 		$messagesContainer.append($message);
+		$('.js-order-complete-btns').remove();
 	},
 
 	makeFilesData: () => {

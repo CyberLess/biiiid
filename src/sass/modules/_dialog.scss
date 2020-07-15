@@ -63,14 +63,14 @@
 			&-complete {
 				.dialog {
 					&__image-wrap {
-						background-color: #009ddc;
+						background-color: #009DDC;
 					}
 				}
 
 				.icon-box {
 					width: 1.6rem;
 					height: 1.6rem;
-					margin-left: 0.1rem;
+					margin-left: .1rem;
 
 					fill: #ffffff;
 				}
@@ -79,7 +79,7 @@
 			&-debug {
 				.dialog {
 					&__image-wrap {
-						background-color: #009ddc;
+						background-color: #009DDC;
 					}
 				}
 
@@ -94,7 +94,7 @@
 			&-additional {
 				.dialog {
 					&__image-wrap {
-						background-color: #8131e8;
+						background-color: #8131E8;
 					}
 				}
 
@@ -121,8 +121,8 @@
 							top: 50%;
 							left: 50%;
 							width: 1.7rem;
-							height: 0.2rem;
-							border-radius: 0.2rem;
+							height: .2rem;
+							border-radius: .2rem;
 							background-color: #ffffff;
 						}
 
@@ -145,8 +145,8 @@
 				.icon-thumbsUp {
 					width: 1.5rem;
 					height: 1.5rem;
-					margin-bottom: 0.2rem;
-					margin-left: 0.2rem;
+					margin-bottom: .2rem;
+					margin-left: .2rem;
 					fill: none;
 					stroke: #ffffff;
 					stroke-width: 1.5;
@@ -157,7 +157,7 @@
 
 			&-feedback {
 				.dialog__image-wrap {
-					background-color: #e83131;
+					background-color: #E83131;
 				}
 
 				.icon-edit {
@@ -191,14 +191,14 @@
 				}
 
 				&__box-stars {
-					margin-top: 0.8rem;
+					margin-top: .8rem;
 				}
 
 				&__answer-btn {
 					height: 4rem;
 					margin-top: 2rem;
 					border-color: rgba(42, 45, 52, 0.3);
-					transition: 0.2s ease;
+					transition: .2s ease;
 
 					@include min-screen($large_mobile + 1) {
 						max-width: 50%;
@@ -409,6 +409,7 @@
 		width: 2.8rem;
 		margin-left: auto;
 		padding-top: 0.5rem;
+
 		padding-right: 1rem;
 		padding-left: 1rem;
 

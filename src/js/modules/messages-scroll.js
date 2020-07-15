@@ -1,19 +1,16 @@
 import baron from "baron";
 
 var messagesScroll = {
+
 	startY: 0,
 
 	debugScroll: (evt) => {
-		if (evt.type === "touchstart") {
+		if (evt.type === 'touchstart') {
 			messagesScroll.startY = evt.originalEvent.targetTouches[0].clientY;
-		} else if (evt.type === "touchmove") {
-			if (
-				evt.originalEvent.targetTouches[0].clientY !== messagesScroll.startY
-			) {
-				const difference =
-					messagesScroll.startY - evt.originalEvent.targetTouches[0].clientY;
-				$(messagesScroll.init.$frameDialog)[0].scrollTop =
-					$(messagesScroll.init.$frameDialog)[0].scrollTop + difference;
+		} else if (evt.type === 'touchmove') {
+			if (evt.originalEvent.targetTouches[0].clientY !== messagesScroll.startY) {
+				const difference = messagesScroll.startY - evt.originalEvent.targetTouches[0].clientY;
+				$(messagesScroll.init.$frameDialog)[0].scrollTop = $(messagesScroll.init.$frameDialog)[0].scrollTop + difference;
 				messagesScroll.startY = evt.originalEvent.targetTouches[0].clientY;
 			}
 		}
@@ -45,9 +42,6 @@ var messagesScroll = {
 		messagesScroll.init.$messagesPrevWrap = $(
 			".messages-pre__messages-list-wrap"
 		);
-
-		if (!messagesScroll.init.$messagesPrevWrap.length) return false;
-
 		messagesScroll.init.$messagesPrev = $(".messages-pre__list");
 		messagesScroll.init.$dialogWrap = $(".messages-dialogs__dialog-wrap");
 
@@ -95,11 +89,7 @@ var messagesScroll = {
 		// 	}
 		// };
 
-		if (
-			$(messagesScroll.init.$messagesPrevWrap)[0] &&
-			$(messagesScroll.init.$framePrev)[0] &&
-			$(messagesScroll.init.$scrollPrevHandle)[0]
-		) {
+		if ($(messagesScroll.init.$messagesPrevWrap)[0] && $(messagesScroll.init.$framePrev)[0] && $(messagesScroll.init.$scrollPrevHandle)[0]) {
 			baron({
 				root: $(messagesScroll.init.$messagesPrevWrap)[0],
 				scroller: $(messagesScroll.init.$framePrev)[0],
@@ -169,10 +159,7 @@ var messagesScroll = {
 
 		messagesScroll.onDialogOpen();
 
-		$(".messages__messages-fragment-wrap").on(
-			"touchstart touchmove",
-			messagesScroll.debugScroll
-		);
+		$('.messages__messages-fragment-wrap').on('touchstart touchmove', messagesScroll.debugScroll);
 	},
 };
 

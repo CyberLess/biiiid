@@ -6,10 +6,7 @@ var messageHeight = {
 	BOTTOM_MOBILE: 20,
 	BOTTOM_MID_MOBILE: 40,
 	BOTTOM_DESK: 120,
-<<<<<<< HEAD
 	AMENDMENT: 5,
-=======
->>>>>>> origin/dev2
 	bottom: "",
 
 	$send: "",
@@ -61,35 +58,25 @@ var messageHeight = {
 			) {
 				messageHeight.$dialogWrap.height(
 					$(window).height() -
-						messageHeight.$dialogWrap.offset().top -
-						messageHeight.$sendWrap.outerHeight() -
-						messageHeight.bottom
+					messageHeight.$dialogWrap.offset().top -
+					messageHeight.$sendWrap.outerHeight() -
+					messageHeight.bottom
 				);
 				messageHeight.$dialogFrame.height(
 					$(window).height() -
-						messageHeight.$dialogFrame.offset().top -
-						messageHeight.$sendWrap.outerHeight() -
-<<<<<<< HEAD
-						messageHeight.bottom - messageHeight.AMENDMENT
-=======
-						messageHeight.bottom
->>>>>>> origin/dev2
+					messageHeight.$dialogFrame.offset().top -
+					messageHeight.$sendWrap.outerHeight() -
+					messageHeight.bottom - messageHeight.AMENDMENT
 				);
 
 				messageHeight.showSend();
 			}
 
-<<<<<<< HEAD
 			if ($(messageHeight.$preFrame)[0]) {
 				messageHeight.$preFrame.height(
 					$(window).height() - messageHeight.$preFrame.offset().top
 				);
 			}
-=======
-			messageHeight.$preFrame.height(
-				$(window).height() - messageHeight.$preFrame.offset().top
-			);
->>>>>>> origin/dev2
 		} else {
 			if (
 				$(messageHeight.$dialogWrap)[0] &&
@@ -99,15 +86,15 @@ var messageHeight = {
 			) {
 				messageHeight.$dialogWrap.height(
 					$(window).height() -
-						messageHeight.$dialogWrap.offset().top -
-						messageHeight.$sendWrap.outerHeight() -
-						messageHeight.bottom / 2
+					messageHeight.$dialogWrap.offset().top -
+					messageHeight.$sendWrap.outerHeight() -
+					messageHeight.bottom / 2
 				);
 				messageHeight.$dialogFrame.height(
 					$(window).height() -
-						messageHeight.$dialogFrame.offset().top -
-						messageHeight.$sendWrap.outerHeight() -
-						messageHeight.bottom / 2
+					messageHeight.$dialogFrame.offset().top -
+					messageHeight.$sendWrap.outerHeight() -
+					messageHeight.bottom / 2
 				);
 
 				messageHeight.showSend();
@@ -157,9 +144,6 @@ var messageHeight = {
 
 	init: () => {
 		messageHeight.$send = $(".send");
-
-		if (!messageHeight.$send.length) return false;
-
 		messageHeight.$preFrame = $(".messages-pre__massages-frame");
 		messageHeight.$sendWrap = $(".messages-dialogs__send-wrap");
 		messageHeight.$inputsWrap = $(".dialog-form__inputs-wrap");

@@ -5,7 +5,7 @@
 	flex-wrap: wrap;
 	padding: 1.5rem 4rem 1.3rem;
 
-	background-color: rgba(191, 192, 194, 0.2);
+	background-color: rgba(191, 192, 194, .2);
 
 	@include max-screen($messages_large_mobile) {
 		padding: 1.2rem 1rem 1.2rem;
@@ -23,7 +23,7 @@
 
 	&__to-prevs-wrap {
 		width: 1.9rem;
-		margin-top: 0.8rem;
+		margin-top: .8rem;
 		margin-right: 1.2rem;
 		border: none;
 
@@ -35,7 +35,7 @@
 		}
 
 		.icon-dialogarrow {
-			stroke: #95969a;
+			stroke: #95969A;
 			stroke-width: 2;
 		}
 	}
@@ -75,12 +75,12 @@
 
 	&__author-name {
 		display: block;
-		margin-bottom: 0.4rem;
+		margin-bottom: .4rem;
 
 		font-size: 1.6rem;
 
 		@include max-screen($large_mobile) {
-			margin-bottom: 0.3rem;
+			margin-bottom: .3rem;
 
 			font-size: 1.4rem;
 		}
@@ -112,13 +112,13 @@
 
 	&__online-status {
 		@include max-screen($messages_large_mobile) {
-			margin-bottom: 0.2rem;
+			margin-bottom: .2rem;
 		}
 	}
 
 	&__status-divider {
-		margin-right: 0.6rem;
-		margin-left: 0.8rem;
+		margin-right: .6rem;
+		margin-left: .8rem;
 
 		@include max-screen($large_mobile) {
 			display: none;

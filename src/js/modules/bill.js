@@ -38,6 +38,7 @@ var bill = {
 				break;
 		}
 
+
 		$($options[0]).val(quantityToTime[0]).text(quantityToTime[0]);
 		$($options[1]).val(quantityToTime[1]).text(quantityToTime[1]);
 		$changedSelectric
@@ -46,9 +47,12 @@ var bill = {
 		$changedSelectric
 			.find(".selectric-scroll li[data-index=1]")
 			.text(quantityToTime[1]);
+
+		const selectricText = $('#hours-days-field').val();
+
 		$changedSelectric
 			.find(".selectric .label")
-			.text($changedSelectric.find(".selectric-scroll .selected").text());
+			.text(selectricText);
 	},
 
 	onBackspaceKeydown: (evt, currentElem) => {
@@ -70,9 +74,7 @@ var bill = {
 
 		if (element.value !== "" && $.isNumeric(lastChar)) {
 			bill.prevValue = Number(element.value.replace(/\s/g, ""));
-			element.value = config.numberWithSpaces(
-				Number(element.value.replace(/\s/g, ""))
-			);
+			element.value = config.numberWithSpaces(Number(element.value.replace(/\s/g, "")));
 		} else {
 			element.value = config.numberWithSpaces(bill.prevValue);
 		}
@@ -84,7 +86,9 @@ var bill = {
 
 	resetForm: () => {
 		bill.$quantitySelect.find("option:first").attr("selected", "selected");
-		bill.$quantitySelect.val(bill.$quantitySelect.find("option:first").val());
+		bill.$quantitySelect.val(
+			bill.$quantitySelect.find("option:first").val()
+		);
 		bill.$quantitySelect.trigger("change");
 		bill.$priceInput.val("");
 		bill.$billTextarea.val("");
@@ -101,13 +105,12 @@ var bill = {
 	},
 
 	setNumberInputListeners: () => {
-		const $numberInputs = $(".js-range-number");
+		const $numberInputs = $('.js-range-number');
 
 		if ($numberInputs.length > 0) {
-			$numberInputs
-				.on("input", function () {
-					bill.setAndRangeNumberOnInput($(this)[0]);
-				})
+			$numberInputs.on("input", function () {
+				bill.setAndRangeNumberOnInput($(this)[0]);
+			})
 				.on("keydown", function (evt) {
 					bill.onBackspaceKeydown(evt, this);
 				});

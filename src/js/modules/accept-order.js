@@ -80,7 +80,7 @@ var acceptOrder = {
 		$($messagesContainer)[0].appendChild($(newOrderMessages.$completeNotific)[0]);
 		$('.new-order-messages__send-wrap').hide();
 		$('.sticky-order__additional-action').hide();
-		$('.sticky-order__btn').show();
+		// $('.sticky-order__btn').show();
 		$('.sticky-order__info_status').removeClass('sticky-order__info_status-work').addClass('sticky-order__info_status-completed').text('Завершен');
 		reviewSend.init();
 		reviewToReview.init();
