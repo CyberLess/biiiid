@@ -1,0 +1,25 @@
++b.login-popup.mfp-hide.modals#login-popup
+	+e.top
+		+e.wrap.flex
+			+e.title.h2.SPAN Вход
+
+			+e.form.login-form__.flex.FORM(action="/" method="POST")
+				+e.label.LABEL
+					+e.input.INPUT(type="text" name="login" placeholder="Логин или email")
+				+e.label.LABEL
+					+e.input.INPUT(type="password" name="password" placeholder="Пароль")
+				+e.submit.btn.is-regular.BUTTON(type="submit") Войти
+				+e.LABEL.checkbox.checkbox__
+					+e.INPUT.input.js-virtual-input(name="remember" type="checkbox" value="Запомните меня на этом компьютере")
+					+e.SPAN.text
+						| Запомните меня на этом компьютере
+						+e.icon
+							+icon('check')
+	+e.bottom
+		+e.wrap.flex
+			+e.text.p.P
+				| Нет аккаунта?&nbsp;
+				+e.link.js-modal.A(href="#registration-popup") Зарегистрироваться
+			+e.text.p.P
+				| Забыли пароль?&nbsp;
+				+e.link.js-modal.A(href="#password-recovery") Восстановить

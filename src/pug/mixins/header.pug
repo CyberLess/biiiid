@@ -1,5 +1,5 @@
 mixin header(type = false)
-	+b.HEADER.header(class=(type == false ? "_default" : ""))&attributes(attributes)
+	+b.HEADER.header(class=(type === false ? "_default" : ""))&attributes(attributes)
 		+e.inner
 			+e.wrap.wrap
 				+e.row.flex._vertical
@@ -7,7 +7,8 @@ mixin header(type = false)
 						+e.hamburger.hamburger__.js-open-menu
 							+icon('hamburger')
 					+e.cell._logo
-						+b.A.logo.h2(href='/') bIIIId
+						+b.A.logo.h2(href='/')
+							+icon('logo')
 					+e.cell._cat
 						+e.cat.icon-link__.flex._vertical.js-toggle-categories.A(href="#")
 							+e.icon._dots
@@ -24,7 +25,7 @@ mixin header(type = false)
 								+icon('loupe')
 					if(type == false)
 						+e.cell._auth.flex._right._vertical
-							+e.auth.icon-link__.p.flex._vertical.A(href="#")
+							+e.auth.icon-link__.p.flex._vertical.js-modal.A(href="#login-popup")
 								+e.IMG.icon._arrow(src="/app/img/arrow.svg")
 								+e.text Войти
 					else
@@ -50,49 +51,4 @@ mixin header(type = false)
 					+e.cell._left
 						+e.UL.list
 					+e.cell._right
-	+b.menu-modal
-		+e.bg.js-close-menu
-		+e.panel
-			+e.top.flex._justify._vertical
-				if(type == false)
-					+e.button.btn__.p.A(href='#')
-						| Регистрация
-					+e.link.link__._dark.p.A(href='#')
-						| Вход
-				else
-					+e.user.userdata__.flex._vertical
-						+e.avatar._toright.avatar__.A(href="#")
-							+e.IMG.image.object-fit(src="/img/user.png")
-
-						+e.price 3 000 ₽
-			+e.UL.list
-				+e.LI.list-item
-					+e.A.list-link.js-mobile-open-cats.p(href="#") Категории
-				+e.LI.list-item
-					+e.A.list-link.p(href="#") О сервисе
-				+e.LI.list-item
-					+e.A.list-link.p(href="#") Соглашение
-				+e.LI.list-item
-					+e.A.list-link.p(href="my-dialogs.html") Сообщения
-				+e.LI.list-item
-					+e.A.list-link.p(href="notifications-mobile.html") Уведомления
-		+e.panel._full._hidden._cats
-			+e.vertical
-				+e.head.p
-					span Выберите категорию
-					+e.close.close__.js-mobile-close-cats
-						+icon('cls')
-				+e.content
-					+e.inner
-						+e.UL.content-list
-		+e.panel._full._hidden._links
-			+e.vertical
-				+e.head.p
-					+e.back.js-mobile-close-links
-						+icon('back')
-					span Тексты и переводы
-					//- +e.close.close__
-					//- 	+icon('cls')
-				+e.content
-					+e.inner
-						+e.UL.content-list._noborder
+	+menu-modal(type)

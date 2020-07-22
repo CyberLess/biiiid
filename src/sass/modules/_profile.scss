@@ -2,7 +2,7 @@
 	padding-top: 4.1rem;
 	padding-bottom: 8rem;
 	font-size: 1.6rem;
-	
+
 	&__cell{
 
 		&_left{
@@ -18,40 +18,40 @@
 	&__notification{
 		margin-bottom: 3rem;
 	}
-	
+
 	&__box {
-		
+
 		text-align: center;
-		
+
 		&-avatar {
 			width: 12rem;
 			margin: 0 auto 1.6rem auto;
 		}
-		
+
 		&-name {
 			font-weight: bold;
 		}
-		
+
 		&-button {
 			margin-top: 1.5rem;
 		}
-		
+
 		&-rating {
 			margin-top: 1.5rem;
 			&-count {
 				margin-left: 1.3rem;
 			}
 		}
-		
+
 		&-stars {
 			margin-left: .9rem;
 		}
 	}
-	
+
 	&__edit-status {
 		margin-top: .5rem;
 	}
-	
+
 	&__mark{
 		margin-right: 2rem;
 		margin-bottom: 1.6rem;
@@ -89,7 +89,7 @@
 		}
 
 		&-more{
-			color: $green;
+			color: $blue;
 			line-height: 1em;
 			margin-top: .4rem;
 			margin-left: 3rem;
@@ -126,7 +126,7 @@
 			color: $default;
 
 			&:hover{
-				color: $green;
+				color: $blue;
 			}
 		}
 
@@ -170,13 +170,13 @@
 			}
 		}
 	}
-	
+
 	&__info-section {
 		&:not(:last-child) {
 			margin-bottom: 4rem;
 		}
 	}
-	
+
 	&__statistics {
 		padding-top: 4rem;
 		&-title {
@@ -190,7 +190,7 @@
 			}
 		}
 	}
-	
+
 	&__details {
 		padding-top: 9rem;
 		&-title {
@@ -208,24 +208,24 @@
 			line-height: 2.6rem;
 		}
 	}
-	
-	
+
+
 	&__block {
-		
+
 		&:not(:last-child) {
 			margin-bottom: 6rem;
 		}
-		
+
 		&-line {
 			margin-top: 2rem;
 			height: 1px;
 			background: rgba(42, 45, 52, .15);
 		}
-		
+
 		&-text {
 			margin-top: 2rem;
 		}
-		
+
 		&-head {
 			.profile__block-title {
 				margin-right: 3rem;
@@ -238,11 +238,11 @@
 			}
 		}
 	}
-	
+
 	&__tabs {
 		padding-top: 1rem;
 	}
-	
+
 	&__service-list {
 		padding-top: 1rem;
 	}
@@ -254,7 +254,7 @@
 			&-part{
 				&_content{
 					padding-right: 0;
-				}				
+				}
 			}
 			&-cell{
 
@@ -293,14 +293,14 @@
 
 			margin-left: -2rem;
 			margin-right: -2rem;
-			
-			
+
+
 
 			&-inner{
 				flex-wrap: nowrap;
-				overflow-x: auto;	
-				padding-left: 2rem;	
-				padding-right: 2rem;		
+				overflow-x: auto;
+				padding-left: 2rem;
+				padding-right: 2rem;
 				// justify-content: flex-start;
 			}
 		}
@@ -347,7 +347,7 @@
 		&__orders{
 			&-item{
 				justify-content: space-between;
-				flex-wrap: wrap;			
+				flex-wrap: wrap;
 				padding-top: 3rem;
 			}
 			&-avatar{
@@ -376,7 +376,7 @@
 			}
 			&-cell{
 				width: auto;
-				
+
 				&_name{
 					width: 100%;
 					margin-bottom: .5rem;

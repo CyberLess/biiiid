@@ -33,7 +33,7 @@
 	&__content{
 		p{
 			line-height: (26/16)*1;
-		}		
+		}
 
 		&_more{
 			padding-left: 3.6rem;
@@ -57,7 +57,7 @@
 		&-row{
 			align-items: flex-start;
 		    display: flex;
-		    
+
 			&:not(:last-child){
 				border-bottom: 1px solid rgba(42, 45, 52, 0.15);
 			}
@@ -93,7 +93,7 @@
 			padding-bottom: 1.5rem;
 
 			min-height: 7.6rem;
-			
+
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
@@ -105,7 +105,7 @@
 				// width: 600/815*100%;
 				flex-shrink: 1;
 				flex-grow: 1;
-				
+
 				min-width: 0;
 			}
 			&_count{
@@ -133,7 +133,7 @@
 		padding-top: 32/815*100%;
 		padding-left: 55/815*100%;
 		padding-bottom: 40/815*100%;
-		padding-right: 65/815*100%;		
+		padding-right: 65/815*100%;
 
 		&-human{
 			display: inline-block;
@@ -215,7 +215,7 @@
 		padding: 3.4rem;
 		position: relative;
 		border: 1px solid rgba(#2A2D34, .2);
-		
+
 		&-title{
 			font-size: 2rem;
 			line-height: 2.3rem;
@@ -287,7 +287,7 @@
 
 		&-link{
 			font-weight: 500;
-			color: $green;
+			color: $blue;
 			display: inline-block;
 			text-decoration: underline;
 		}
@@ -308,7 +308,7 @@
 
 		&__part{
 			&_mobile{
-				display: block;	
+				display: block;
 			}
 			&_slider{
 				margin-bottom: 2rem!important;
@@ -348,7 +348,7 @@
 			&_right{
 				display: none;
 			}
-		}	
+		}
 	}
 
 	@include max-screen($small_tablet) {
@@ -382,10 +382,10 @@
 			&-text{
 				font-size: 1.4rem;
 			}
-		}		
+		}
 	}
 
-	
+
 	@include max-screen($large_mobile) {
 		overflow: hidden;
 		padding-top: 0;
@@ -403,7 +403,7 @@
 
 		}
 
-	
+
 		&__content{
 			&_more{
 				width: 100%;

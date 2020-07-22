@@ -120,12 +120,12 @@ var filters = {
 
 				let tag = item.hasOwnProperty("tag") ?
 					`<div class="case__top-cell case__top-cell_static">
-                        <div class="case__label label ${(item.tag.hasOwnProperty("className")) ? item.tag.className : ""}">${item.tag.label}</div>
+                        <div class="case__label label ${(item.tag.hasOwnProperty("className")) ? 'label' + item.tag.className : ""}">${item.tag.label}</div>
                     </div>` : "";
 
 				let rating = item.hasOwnProperty("rating") ?
 					`<div class="case__top-cell case__top-cell_static">
-					    <div class="case__rating rating rating_purple small">
+					    <div class="case__rating rating rating${item.rating.className} small">
 					        <div class="rating__icon">
 					            <svg class="icon icon-star" viewBox="0 0 18 18">
 					                <use xlink:href="/app/icons/sprite.svg#star"></use>
@@ -936,7 +936,8 @@ var filters = {
 
 		filters.virtual.resetItem.on('click', filters.virtual.reset);
 
-
+		// const $filterBtn = $('.filters__item');
+		// $filterBtn.click
 
 		$(window).on('resize load', filters.resize)
 

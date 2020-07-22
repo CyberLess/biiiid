@@ -228,7 +228,7 @@
 	}
 
 	&__order-buyer {
-		color: #009688;
+		color: $blue;
 	}
 
 	picture {
@@ -298,7 +298,7 @@
 	}
 
 	&__cancel {
-		color: #009688;
+		color: $blue;
 
 		@include max-screen($large_tablet) {
 			color: #1E88E5;

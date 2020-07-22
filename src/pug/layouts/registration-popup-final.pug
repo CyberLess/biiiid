@@ -1,0 +1,20 @@
++b.login-popup.mfp-hide.modals#registration-popup-final
+	+e.top
+		+e.wrap.flex
+			+e.title.h2.SPAN Регистрация
+
+			+e.form.login-form__.flex#reg-step-two.FORM(action="/" method="POST")
+				+e.label.LABEL
+					+e.input.INPUT(type="text" name="login" placeholder="Логин (имя на сайте)")
+				+e.label.LABEL
+					+e.input.INPUT(type="password" name="password" placeholder="Пароль (от 6 символов)")
+				+e.submit.btn.is-regular.BUTTON(type="submit") Зарегистрироваться
+				+e.text.p.P
+					| Регистрируясь, вы принимаете условия&#32;
+					+e.link.A(href="#") пользовательского соглашения,&#32;
+					| а также получение email от нас
+	+e.bottom
+		+e.wrap.flex
+			+e.text.p.P
+				| Уже зарегистрированы?&nbsp;
+				+e.link.js-modal.A(href="#login-popup") Войти

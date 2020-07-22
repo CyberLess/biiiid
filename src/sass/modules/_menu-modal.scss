@@ -9,13 +9,13 @@
 		height: 100%;
 		opacity: 0;
 		visibility: hidden;
-		transition: ease .2s;		
+		transition: ease .2s;
 	}
 
 	&.is-active{
 
 		opacity: 1;
-		visibility: visible;		
+		visibility: visible;
 
 		.menu-modal{
 			&__panel{
@@ -129,7 +129,7 @@
 	}
 
 	&__head{
-		padding: 2.2rem; 	
+		padding: 2.2rem;
 		height: 6rem;
 		display: flex;
 		align-items: center;
@@ -153,12 +153,48 @@
 
 	&__list{
 		&-item{
+			position: relative;
 			display: block;
 			margin-bottom: 3rem;
+
+			&_cat {
+				margin-bottom: 2rem;
+				padding-right: 3rem;
+				padding-bottom: 1.7rem;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);;
+			}
 		}
 
 		&-link{
 
 		}
+	}
+
+	&__icon-wrap {
+		position: absolute;
+		margin-top: .3rem;
+		top: 0;
+		right: 1.4rem;
+		display: block;
+		width: .8rem;
+
+		.icon {
+			fill: $default;
+		}
+	}
+
+	&__balance {
+		margin-left: 1.3rem;
+		font-size: 1.8rem;
+		line-height: 1.1rem;
+		font-weight: 500;
+	}
+
+	&__quantity {
+		margin-left: .5rem;
+		font-size: 1.2rem;
+		line-height: 1.4rem;
+		color: $pink;
+		font-weight: bold;
 	}
 }

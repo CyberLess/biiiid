@@ -27,6 +27,7 @@ import { newOrderTabSwitching } from "./modules/new-order-tab-switching";
 import { sendOrderFiles } from "./modules/send-order-files";
 import { addService } from "./modules/addService";
 import { cardMain } from './modules/cardMain'
+import { regLogin } from "./modules/reg-login";
 
 import { config } from "./config";
 
@@ -62,6 +63,7 @@ App.prototype.init = () => {
 	sendOrderFiles.init();
 	addService.init();
 	cardMain.init();
+	regLogin.init();
 
 	config.log("app init");
 };

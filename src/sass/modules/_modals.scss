@@ -5,6 +5,7 @@
 	padding: 60px;
 	max-width: 1000px;
 	width: 90%;
+	border-radius: 5px;
 
 	&_filter {
 		padding: 0;
@@ -57,7 +58,7 @@
 		display: block;
 		margin: auto;
 		margin-bottom: 3rem;
-		fill: #009688;
+		fill: $blue;
 	}
 
 	&__container {
@@ -302,7 +303,7 @@
 					background-color: transparent;
 					font-size: 1.2rem;
 					line-height: 1.4rem;
-					color: $green;
+					color: $blue;
 
 					&:disabled {
 						pointer-events: none;

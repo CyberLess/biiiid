@@ -1,0 +1,18 @@
++b.login-popup.mfp-hide.modals#registration-popup
+	+e.top
+		+e.wrap.flex
+			+e.title.h2.SPAN Регистрация
+
+			+e.form.login-form__.flex#reg-step-one.FORM(action="/" method="POST")
+				+e.label.LABEL
+					+e.input.INPUT(type="email" name="email" placeholder="Введите ваш email")
+				+e.submit.btn.is-regular.BUTTON(type="submit") Продолжить
+				+e.text.p.P
+					| Регистрируясь, вы принимаете условия&#32;
+					+e.link.A(href="#") пользовательского соглашения,&#32;
+					| а также получение email от нас
+	+e.bottom
+		+e.wrap.flex
+			+e.text.p.P
+				| Уже зарегистрированы?&nbsp;
+				+e.link.js-modal.A(href="#login-popup") Войти

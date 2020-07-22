@@ -326,21 +326,12 @@
 
 		transition-property: background-color;
 
-		background-color: #009688;
+		background-color: $blue;
 
 		@include max-screen($large_mobile) {
 			width: 100%;
 
 			font-size: 1.6rem;
-		}
-
-		&:hover,
-		&:focus {
-			background-color: #008678;
-		}
-
-		&:active {
-			background-color: #5a5e62;
 		}
 	}
 }
@@ -360,7 +351,7 @@
 
 	/* Handle */
 	&::-webkit-scrollbar-thumb {
-		background: #009688;
+		background: $blue;
 	}
 
 	/* Handle on hover */

@@ -48,7 +48,7 @@
 			&-create {
 				.dialog {
 					&__image-wrap {
-						background-color: #009688;
+						background-color: $blue;
 					}
 				}
 
@@ -139,7 +139,7 @@
 
 			&-conclusion {
 				.dialog__image-wrap {
-					background-color: #009688;
+					background-color: $blue;
 				}
 
 				.icon-thumbsUp {
@@ -303,7 +303,7 @@
 		.icon-messageread {
 			display: none;
 
-			fill: #009688;
+			fill: $green;
 		}
 	}
 
@@ -413,7 +413,7 @@
 		padding-right: 1rem;
 		padding-left: 1rem;
 
-		fill: #009688;
+		fill: $blue;
 
 		&:hover,
 		&:focus {
@@ -518,7 +518,6 @@
 			width: 13.5rem;
 			margin-left: auto;
 			padding: 0.7rem 1.4rem 0.9rem;
-			border: 1px solid #2a2d34;
 
 			font-weight: 500;
 			color: #2a2d34;

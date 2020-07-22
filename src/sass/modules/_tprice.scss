@@ -34,9 +34,20 @@
 	}
 
 	&__button{
+		&_save {
+			flex-grow: 1;
+			width: auto;
+			height: auto;
+			margin-right: 3rem;
+			padding: 1rem 1.6rem;
+			color: #ffffff;
+			background-color: $default;
+			border-radius: 3px;
+		}
 	}
 
 	&__bottom{
+		align-items: center;
 		border-top: 1px solid rgba(42, 45, 52, 0.15);
 	}
 

@@ -76,7 +76,7 @@
 				stroke: $gray-light;
 
 				&:hover {
-					stroke: $green;
+					stroke: $blue;
 				}
 			}
 		}
@@ -167,7 +167,7 @@
 		&__orderer {
 			a {
 				&:hover {
-					color: $green;
+					color: $blue;
 				}
 			}
 		}
@@ -359,7 +359,7 @@
 				~.myorder-orders__cell_name {
 					.myorder-orders__details {
 						p {
-							color: $green;
+							color: $blue;
 						}
 					}
 				}
@@ -409,7 +409,7 @@
 		}
 
 		&__green {
-			color: $green !important;
+			color: $blue !important;
 		}
 
 		&__name {
@@ -442,7 +442,7 @@
 		display: block;
 		margin: 0 auto;
 		padding: 1.6rem 3.5rem 1.5rem;
-		border: 1px solid #2a2d34;
+		//border: 1px solid #2a2d34;
 		background-color: #fff;
 		color: #2a2d34;
 

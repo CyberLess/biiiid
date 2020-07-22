@@ -9,16 +9,16 @@
 
 				&_arrow{
 					transform: translateX(3px);
-				}	
-							
+				}
+
 				&-item{
 
 					&_dots{
-						fill: $green;
+						fill: $blue;
 					}
 
 					&_close{
-						stroke: $green;
+						stroke: $blue;
 					}
 
 				}
@@ -60,11 +60,11 @@
 			}
 
 			&_dots{
-				
+
 				width: 1.6rem;
 				line-height: 1em;
 				fill: rgba(42, 45, 52, 0.5);
-			}		
+			}
 
 			&_close{
 				stroke-width: 2;
@@ -83,7 +83,7 @@
 
 				opacity: 0;
 				transform: scale(0.6);
-			}				
+			}
 		}
 
 	}

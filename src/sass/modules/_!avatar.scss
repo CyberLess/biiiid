@@ -3,7 +3,7 @@
 	height: 4.4rem;
 	border-radius: 50%;
 	position: relative;
-	
+
 
 	&_noscope{
 		width: auto;
@@ -31,7 +31,7 @@
 			background: #1BAE69;
 		}
 	}
-	
+
 	&__online-icon {
 		position: absolute;
 		right: 2px;
@@ -39,7 +39,7 @@
 		width: 25px;
 		height: 25px;
 		border-radius: 100%;
-		background: $green;
+		background: $blue;
 		border: 7px solid #fff;
 	}
 }

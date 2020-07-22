@@ -1,6 +1,14 @@
 +b.filters.flex._vertical
-	+e.item.p.js-modal(data-modal="#filters") Фильтры
-	+e.item.p(data-tooltip="#price-tooltip") Цена
-	+e.item.p(data-tooltip="#time-tooltip") Сроки
-	+e.item.p(data-tooltip="#details-tooltip") Детали исполнителя
+	+e.item._filters.p.js-modal(data-modal="#filters" tabindex="0")
+		| Фильтры
+		+icon('filtersBtn')
+	+e.item._select.p(data-tooltip="#price-tooltip" tabindex="0")
+		| Цена
+		+icon('arrowDown')
+	+e.item._select.p(data-tooltip="#time-tooltip" tabindex="0")
+		| Сроки
+		+icon('arrowDown')
+	+e.item._select.p(data-tooltip="#details-tooltip" tabindex="0")
+		| Детали исполнителя
+		+icon('arrowDown')
 	+e.clear.p.strong.js-reset-form Очистить

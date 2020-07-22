@@ -9,12 +9,13 @@
 		&:checked{
 			&+.switcher__text{
 				&:before{
-					background: $green;
-					border-color: $green;
+					background: #5FDF8B;
+					border-color: $blue;
 				}
 				&:after{
 					background-color: #fff;
-					transform: translateX(0px);
+					transform: translateX(6px);
+					box-shadow: 0px 2px 4px rgba(46, 136, 77, 0.35);
 				}
 			}
 		}
@@ -31,12 +32,12 @@
 			position: absolute;
 			right: 0;
 			top: 0;
-			border: 1px solid #2A2D34;
 			box-sizing: border-box;
 			border-radius: 100px;
 			width: 40px;
 			transition: ease .25s;
 			height: 20px;
+			background-color: rgba(96, 110, 219, 0.2);
 		}
 
 		&:after{
@@ -44,11 +45,12 @@
 			content: '';
 			display: block;
 			position: absolute;
-			width: 14px;
-			height: 14px;
+			width: 23px;
+			height: 23px;
 			border-radius: 50%;
-			background-color: $default;
-			top: 3px;
+			background-color: #ffffff;
+			box-shadow: 0 2px 4px rgba(96, 110, 219, 0.35);
+			top: -2px;
 			right: 4px;
 			transform: translateX(-18px);
 		}

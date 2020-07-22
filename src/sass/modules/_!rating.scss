@@ -24,4 +24,20 @@
 			}
 		}
 	}
+
+	&_pink{
+		.rating{
+			&__icon{
+				fill: $pink;
+			}
+		}
+	}
+
+	&_yellow{
+		.rating{
+			&__icon{
+				fill: $yellow;
+			}
+		}
+	}
 }

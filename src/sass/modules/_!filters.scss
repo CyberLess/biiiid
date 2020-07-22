@@ -1,12 +1,11 @@
 .filters {
-	margin-bottom: 5rem;
-
 	&__item {
-		font-weight: 500;
+		font-size: 1.4rem;
 
-		padding: 1rem 3.5rem;
+		padding: .8rem 3.1rem .8rem 1.6rem;
 		margin-right: 2rem;
-		margin-top: 2rem;
+		//margin-top: 2rem;
+		border-radius: 4px;
 		transition: ease 0.2s;
 		cursor: pointer;
 
@@ -23,20 +22,64 @@
 			box-sizing: border-box;
 			border: 1px solid rgba(#2a2d34, 0.2);
 			z-index: -1;
+			border-radius: 4px;
+			transition: border-color .2s ease;
 		}
 
 		&.is-active {
 			&:before {
-				border-color: #2a2d34;
+				border-color: $blue;
 				border-width: 2px;
 			}
 			// box-shadow: 0px 0px 0px 1px #2A2D34;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			&:before {
 				border-color: #000;
 			}
+		}
+
+		&_filters {
+			padding: .8rem 2.3rem .8rem 3.8rem;
+			background-color: $light-bg;
+			transition: background-color .3s ease;
+
+			&:hover {
+				background-color: $light-bg_hover;
+			}
+
+			&.is-active {
+				background-color: $default;
+				color: #ffffff;
+
+				.icon-filtersBtn {
+					fill: #ffffff;
+				}
+			}
+
+			.icon-filtersBtn {
+				position: absolute;
+				top: 50%;
+				left: 1.6rem;
+				width: 1.6rem;
+				transform: translateY(-50%);
+			}
+
+			&::before {
+				border: none;
+			}
+		}
+
+		.icon-arrowDown {
+			position: absolute;
+			top: 50%;
+			right: 1.3rem;
+			width: 1rem;
+			fill: none;
+			stroke: $default;
+			transform: translateY(-50%);
 		}
 	}
 

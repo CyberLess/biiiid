@@ -1,0 +1,93 @@
+mixin menu-modal (type)
+	if (type)
+		+b.menu-modal
+			+e.bg.js-close-menu
+			+e.panel
+				+e.top.flex._justify._vertical
+					+e.user.userdata__.flex._vertical
+						+e.avatar._toright.avatar__.A(href="#")
+							+e.IMG.image.object-fit(src="/img/user.png")
+						+e.price 3 000 ₽
+
+				+e.UL.list
+					+e.LI.list-item._cat
+						+e.A.list-link.js-mobile-open-cats.p(href="#")
+							| Категории
+							+e.icon-wrap
+								+icon('arroww')
+					+e.LI.list-item
+						+e.A.list-link.p(href="#") Мои заказы
+					+e.LI.list-item
+						+e.A.list-link.p(href="#") Избранные
+					+e.LI.list-item
+						+e.A.list-link.p(href="#")
+							| Баланс:
+							+e.balance 3720 ₽
+					+e.LI.list-item
+						+e.A.list-link.p(href="my-dialogs.html")
+							| Сообщения
+							+e.SUP.quantity._messages 12
+					+e.LI.list-item
+						+e.A.list-link.p(href="notifications-mobile.html")
+							| Уведомления
+							+e.SUP.quantity._notifications 3
+			+e.panel._full._hidden._cats
+				+e.vertical
+					+e.head.p
+						span Выберите категорию
+						+e.close.close__.js-mobile-close-cats
+							+icon('cls')
+					+e.content
+						+e.inner
+							+e.UL.content-list
+			+e.panel._full._hidden._links
+				+e.vertical
+					+e.head.p
+						+e.back.js-mobile-close-links
+							+icon('back')
+						span Тексты и переводы
+						//- +e.close.close__
+						//- 	+icon('cls')
+					+e.content
+						+e.inner
+							+e.UL.content-list._noborder
+	else
+		+b.menu-modal
+			+e.bg.js-close-menu
+			+e.panel
+				+e.top.flex._justify._vertical
+					+e.button.border-button._blue-border.is-regular.p.A(href='#')
+						| Регистрация
+					+e.link.link__._dark.p.A(href='#')
+						| Вход
+
+				+e.UL.list
+					+e.LI.list-item._cat
+						+e.A.list-link.js-mobile-open-cats.p(href="#")
+							| Категории
+							+e.icon-wrap
+								+icon('arroww')
+					+e.LI.list-item
+						+e.A.list-link.p(href="#") О сервисе
+					+e.LI.list-item
+						+e.A.list-link.p(href="#") Соглашение
+			+e.panel._full._hidden._cats
+				+e.vertical
+					+e.head.p
+						span Выберите категорию
+						+e.close.close__.js-mobile-close-cats
+							+icon('cls')
+					+e.content
+						+e.inner
+							+e.UL.content-list
+			+e.panel._full._hidden._links
+				+e.vertical
+					+e.head.p
+						+e.back.js-mobile-close-links
+							+icon('back')
+						span Тексты и переводы
+						//- +e.close.close__
+						//- 	+icon('cls')
+					+e.content
+						+e.inner
+							+e.UL.content-list._noborder

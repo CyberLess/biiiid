@@ -103,13 +103,15 @@
 
 		&.is-active {
 			.icon-arrow {
-				stroke: #009688;
+				//stroke: $blue;
+				stroke: $blue;
 			}
 
 			.add-service {
 				&__step {
 					&-index {
-						background-color: #009688;
+						//background-color: $blue;
+						background-color: $blue;
 
 						@include max-screen($large_tablet) {
 							margin-right: 15px;
@@ -117,7 +119,8 @@
 					}
 
 					&-descr {
-						color: #009688;
+						//color: $blue;
+						color: $blue;
 					}
 				}
 			}
@@ -600,13 +603,13 @@
 			position: relative;
 			width: 100%;
 			height: 100%;
-			border: 1px solid #009688;
+			border: 1px solid $blue;
 
 			&-p {
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				color: #009688;
+				color: $blue;
 				transform: translate(-50%, -50%);
 				z-index: 10;
 			}
@@ -675,7 +678,7 @@
 			display: block;
 			padding: 1rem 2.7rem 1.1rem;
 			color: #fff;
-			background-color: #009688;
+			//background-color: $blue;
 			border: none;
 		}
 
@@ -768,7 +771,8 @@
 			left: 0;
 			margin-bottom: 3.1rem;
 			// transition: all 0.5s ease;
-			color: #009688;
+			//color: $blue;
+			color: $blue;
 			text-decoration: underline;
 
 			&.is-hidden {
@@ -1031,7 +1035,7 @@
 
 			&-save {
 				margin-left: 2rem;
-				color: $green;
+				color: $blue;
 				text-decoration: underline;
 			}
 
@@ -1107,16 +1111,16 @@
 							}
 
 							&:hover {
-								color: $green;
+								color: $blue;
 								cursor: pointer;
 
 								.icon {
 									&-close {
-										stroke: $green;
+										stroke: $blue;
 									}
 
 									&-edit {
-										fill: $green;
+										fill: $blue;
 									}
 								}
 							}

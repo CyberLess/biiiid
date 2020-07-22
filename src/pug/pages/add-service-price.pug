@@ -3,7 +3,7 @@ append vars
 	- title = 'Добавление услуги (шаг 3)';
 
 block header
-	+header(true)
+	+header(true)(class="_shadow")
 
 block content
 	+b.SECTION.add-service
@@ -305,4 +305,4 @@ block content
 
 				+e.info-row._submit.flex._right
 					+e.BUTTON.info-return.p Предыдущий шаг
-					+e.BUTTON.info-submit.p Продолжить
+					+e.BUTTON.info-submit.btn.is-regular.p Продолжить

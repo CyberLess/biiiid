@@ -123,12 +123,12 @@
 
 				&_pay-in {
 					border: none;
-					background: #009688;
+					//background: $blue;
 					color: #fff;
 				}
 
 				&_pay-out {
-					border: 1px solid #000;
+					//border: 1px solid #000;
 					color: #000;
 					background: #fff;
 				}
@@ -392,7 +392,7 @@
 
 			&_payout {
 				font-weight: normal;
-				color: $green;
+				color: $blue;
 			}
 		}
 
@@ -401,7 +401,7 @@
 		}
 
 		&-order {
-			color: $green;
+			color: $blue;
 
 			&:hover {
 				cursor: pointer;
@@ -542,7 +542,7 @@
 				stroke: $gray-light;
 
 				&:hover {
-					stroke: $green;
+					stroke: $blue;
 				}
 			}
 		}

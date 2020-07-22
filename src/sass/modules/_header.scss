@@ -20,7 +20,7 @@
 		transition: ease .2s;
 
 		&:hover{
-			color: $green;
+			color: $blue;
 		}
 		&:not(:last-child){
 			margin-right: 3.2rem;
@@ -32,16 +32,24 @@
 			display: none;
 		}
 		&_logo{
-			width: 122/1336*100%;
+			//width: 122/1336*100%;
+			width: 11.6rem !important;
 		}
 		&_cat{
 			width: 146/1336*100%;
+			margin-left: auto;
 		}
 		&_search{
 			width: 420/1336*100%;
 		}
 		&_auth{
-			width: 648/1336*100%;
+			width: 600/1336*100%;
+		}
+	}
+
+	@include min-screen($large_tablet + 1) {
+		&_shadow {
+			box-shadow: 0px 4px 4px rgba(42, 45, 52, 0.15);
 		}
 	}
 
@@ -62,7 +70,7 @@
 			.header{
 				&__cell{
 					&_logo{
-					    width: 14.13174%
+						width: 11.6rem !important;
 					}
 					&_search{
 					    width: 34.43713%;
@@ -88,7 +96,19 @@
 			    width: 12.92814%;
 			}
 			&_auth{
-			    width: 54.50299%;
+			    width: 48.50299%;
+			}
+		}
+	}
+
+	@include max-screen($small_desktop) {
+		&__cell {
+			&_auth {
+				width: 51.50299%;
+			}
+
+			&_search {
+				width: 22.43713%;
 			}
 		}
 	}
@@ -121,8 +141,10 @@
 				order: 4;
 			}
 			&_logo{
-				margin-right: 0;
+				width: 11.6rem !important;
 				order: 2;
+				//margin-right: auto;
+				//margin-left: 4.3rem;
 			}
 			&_cat{
 			    display: none;

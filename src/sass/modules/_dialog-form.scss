@@ -279,7 +279,7 @@
 
 		&:active {
 			.icon-clip {
-				fill: #009688;
+				fill: $blue;
 			}
 		}
 	}
@@ -303,7 +303,7 @@
 		&:hover,
 		&:focus {
 			.dialog-form__icon-send-wrap {
-				stroke: #009688;
+				stroke: $blue;
 			}
 		}
 

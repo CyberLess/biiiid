@@ -1,11 +1,12 @@
 .label{
 	font-size: 1.2rem;
-	
+
 	font-weight: 500;
 	padding: .4rem .8rem;
 	line-height: (14/12)*1;
 	border: 1px solid #000000;
 	display: inline-block;
+	border-radius: 3px;
 
 	&_small{
 		padding: 4px 6px;
@@ -27,7 +28,7 @@
 	&_green{
 		color: #1B5A54;
 		background: rgba(0, 238, 216, 0.06);
-		border: 1px solid rgba(0, 238, 216, 0.1);		
+		border: 1px solid rgba(0, 238, 216, 0.1);
 	}
 
 	&_blue{
@@ -51,6 +52,12 @@
 		color: #fff;
 		border-color: $purple;
 		background: $purple;
+	}
+
+	&_yellow{
+		color: $default;
+		border-color: $yellow;
+		background: $yellow;
 	}
 
 	@include max-screen($large_mobile) {

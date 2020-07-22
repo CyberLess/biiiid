@@ -3,7 +3,7 @@ append vars
 	- title = 'История платежей';
 
 block header
-	+header(true)(class="_hide-search")
+	+header(true)(class="_hide-search _shadow")
 
 block content
 	+b.SECTION.history
@@ -27,8 +27,8 @@ block content
 					+e.info._cell._fluid._no-border.flex
 						+e.FORM.info-form.info-form__.flex._justify
 							+e.INPUT.input.small(type="text", name="pay-in-out", placeholder="Сумма, руб.")
-							+e.BUTTON.button._pay-in.small Пополнить
-							+e.BUTTON.button._pay-out.small Вывести
+							+e.BUTTON.button._pay-in.btn.is-regular.small Пополнить
+							+e.BUTTON.button._pay-out.border-button.small Вывести
 				+e.table-header.flex
 					+e.H2.h2.h2 История платежей
 					+e.FORM.form-table.flex._vertical

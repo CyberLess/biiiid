@@ -328,6 +328,8 @@ var forms = {
 			var $form = $(el);
 
 			$form.validate({
+				errorElement: 'em',
+				wrapper: 'label',
 				errorPlacement: function (error, element) {
 					//just nothing, empty
 				},
@@ -355,6 +357,11 @@ var forms = {
 						minlength: 10,
 					},
 
+					email: {
+						required: true,
+						email: true
+					},
+
 					billDescription: {
 						required: true,
 					},
@@ -362,6 +369,15 @@ var forms = {
 					billPrice: {
 						required: true,
 					},
+
+					login: {
+						required: true
+					},
+
+					password: {
+						required: true,
+						minlength: 6
+					}
 				},
 			});
 		});

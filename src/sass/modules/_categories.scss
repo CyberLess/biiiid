@@ -11,7 +11,7 @@
 	visibility: hidden;
 	transition: opacity .25s ease, visibility .25s ease, top .01s ease .25s;
 	// transition: opacity ease .25s, visibility ease .25s;
-	
+
 
 	padding-top: 1.6rem;
 	padding-bottom: 6rem;
@@ -98,7 +98,7 @@
 
 
 			&:hover{
-				color: $green;
+				color: $blue;
 				// color: $default;
 				// &:before{
 				// 	transform: scale(1, 1);
@@ -118,12 +118,12 @@
 					color: #000;
 				}
 			}
-			
+
 			&.is-active{
-				color: $green;
+				color: $blue;
 
 				// &:before{
-				// 	background-color: $green;
+				// 	background-color: $blue;
 				// }
 			}
 		}

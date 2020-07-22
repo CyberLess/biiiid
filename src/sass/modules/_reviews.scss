@@ -14,7 +14,7 @@
 		}
 
 		&_positive{
-			background-color: rgba($green, 0.07);
+			background-color: rgba($blue, 0.07);
 		}
 
 		&_negative{
@@ -70,11 +70,11 @@
     	    flex-grow: 1;
     	    flex-shrink: 1;
     	    padding-right: 2rem;
-	    }	
+	    }
 	    &_static{
     	    flex-grow: 0;
 		    flex-shrink: 0;
-			
+
 			&:first-child{
 				padding-right: 1.2rem;
 			}
@@ -91,7 +91,7 @@
 			color: rgba(42, 45, 52, 0.5);
 			position: relative;
 			cursor: pointer;
-		
+
 			&:before{
 				content: '';
 				display: block;
@@ -100,7 +100,7 @@
 				width: 100%;
 				height: 3px;
 				bottom: -1px;
-				background-color: $green;
+				background-color: $blue;
 				visibility: hidden;
 			}
 
@@ -113,12 +113,12 @@
 			}
 		}
 	}
-	
+
 	&__button {
 		max-width: 17.5rem;
 		margin: 4rem auto 0 auto;
 	}
-	
+
 	&__select {
 		width: 20rem;
 		margin-top: -1rem;
@@ -156,7 +156,7 @@
 			width: 100%;
 			margin-bottom: 2.5rem;
 			margin-top: 0;
-		}	
+		}
 		&__name{
 			order: 1;
 		}
@@ -199,14 +199,14 @@
 				overflow-y: hidden;
 				padding-bottom: 3rem;
 				margin-bottom: -3rem;
-				
- 
+
+
 			}
 			&-item{
 				margin-right: 3rem !important;
 				flex: 0 0 auto;
 			}
-			
+
 			&_filter {
 				position: relative;
 				padding-bottom: 5.6rem;

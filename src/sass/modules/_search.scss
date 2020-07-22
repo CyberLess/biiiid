@@ -38,14 +38,14 @@
 			stroke: $default;
 			width: 1.4rem;
 		}
-	
+
 
 		&:hover{
 			svg{
-				stroke: $green;
+				stroke: $blue;
 			}
 		}
-		
+
 	}
 
 	@include max-screen($large_tablet) {

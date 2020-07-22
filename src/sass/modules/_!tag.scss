@@ -6,7 +6,7 @@
 	white-space: nowrap;
 	max-width: 20%;
 	padding-right: 3.6rem;
-	background: rgba(#EDEDED, .2);
+	background: $blue_light;
 	font-size: 1.2rem;
 	display: flex;
 	align-items: center;
@@ -34,6 +34,11 @@
 		max-width: 100%;
 		white-space: nowrap;
 		overflow: hidden;
-		text-overflow: ellipsis;		
+		text-overflow: ellipsis;
+		color: #656DA7;
+	}
+
+	.icon-close {
+		stroke: #656DA7;
 	}
 }

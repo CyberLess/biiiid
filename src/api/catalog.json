@@ -10,7 +10,8 @@
 		},
 		"rating": {
 			"count": 232,
-			"status": 4.7
+			"status": 4.7,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -47,11 +48,12 @@
 		},
 		"rating": {
 			"count": 111,
-			"status": 2.7
+			"status": 2.7,
+			"className": "_purple"
 		},
 		"tag": {
 			"label": "СУПЕР",
-			"className": "label_purple"
+			"className": "_purple"
 		},
 		"gallery": [
 			{
@@ -88,7 +90,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -125,7 +128,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"tag": {
 			"label": "СУПЕР"
@@ -152,7 +156,12 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_yellow"
+		},
+		"tag": {
+			"label": "СУПЕР",
+			"className": "_yellow"
 		},
 		"gallery": [
 			{
@@ -174,7 +183,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -196,7 +206,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -218,7 +229,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -240,7 +252,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -263,7 +276,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -286,7 +300,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
@@ -309,7 +324,8 @@
 		},
 		"rating": {
 			"count": 22,
-			"status": 5
+			"status": 5,
+			"className": "_pink"
 		},
 		"gallery": [
 			{
